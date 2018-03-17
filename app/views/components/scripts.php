@@ -14,10 +14,45 @@
 <script type="text/javascript" src="<?=ASSETS?>js/plugins/ui/moment/moment.min.js"></script>
 <script type="text/javascript" src="<?=ASSETS?>js/plugins/pickers/daterangepicker.js"></script>
 
-<script type="text/javascript" src="<?=ASSETS?>js/core/app.js"></script>
-<script type="text/javascript" src="<?=ASSETS?>js/pages/dashboard.js"></script>
 
+<script type="text/javascript" src="<?=ASSETS?>js/plugins/tables/datatables/datatables.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>js/plugins/tables/datatables/extensions/responsive.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>js/plugins/forms/selects/select2.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>js/pages/datatables_responsive.js"></script>
 <script type="text/javascript" src="<?=ASSETS?>js/plugins/ui/ripple.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>js/core/app.js"></script>
+
+<script type="text/javascript" src="<?=ASSETS?>functions/ajax.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>angular/1.4.8.angular.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>angular/1.4.2.angular.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>toastr/js/toastr.min.js"></script>
+
+<script type="text/javascript">
+var app = angular.module('app', ['ngMessages']);
+app.controller('mainController',function($scope){
+    $scope.sname     = '<?=$data['user_info']->name?>',
+    $scope.scontact  = '<?=$data['user_info']->contact?>',
+    $scope.semail    = '<?=$data['user_info']->email?>',
+    $scope.susername = '<?=$data['user_info']->username?>'
+    
+});
+toastr_option();
+
+$(document).ready(function() {
+    $("#contact").keydown(function (e) {
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+            (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                 return;
+        }
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+});
+
+</script>
+
 <!-- /theme JS files -->
 </body>
 </html>

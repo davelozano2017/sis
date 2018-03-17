@@ -13,5 +13,10 @@
 	<link href="<?=ASSETS?>css/core.css" rel="stylesheet" type="text/css">
 	<link href="<?=ASSETS?>css/components.css" rel="stylesheet" type="text/css">
 	<link href="<?=ASSETS?>css/colors.css" rel="stylesheet" type="text/css">
+	<link href="<?=ASSETS?>toastr/css/toastr.min.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="<?=ASSETS?>images/logo.jpg">
+	<style>
+		button { border-radius:0 !important};
+	</style>
 	<!-- /global stylesheets -->
 </head>

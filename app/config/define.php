@@ -22,8 +22,8 @@ $configs = [
 		'IMAGE'	=> ''	
     ],
     'profile' => [
-        'COMPANY_NAME'  => 'Mendez Christian Academy Student Information Portal',
-        'DATE_FORMAT'   => 'F d, Y g:i A'
+        'COMPANY_NAME'  => 'Mendez Christian Academy Student Information System',
+        'DATE_FORMAT'   => 'F d, Y'
     ]    
 ];
 

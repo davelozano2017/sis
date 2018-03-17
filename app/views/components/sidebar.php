@@ -24,9 +24,9 @@
             
             <div class="navigation-wrapper collapse" id="user-nav">
                 <ul class="navigation">
-                    <li><a href="#"><i class="icon-user"></i> <span>My profile</span></a></li>
-                    <li><a href="#"><i class="icon-lock4"></i> <span>Change Password</span></a></li>
-                    <li><a href="#"><i class="icon-switch2"></i> <span>Logout</span></a></li>
+                    <li><a href="<?=URL?>admin/profile"><i class="icon-user"></i> <span>My profile</span></a></li>
+                    <li><a href="<?=URL?>admin/password"><i class="icon-lock4"></i> <span>Change Password</span></a></li>
+                    <li><a href="<?=URL?>admin/logout"><i class="icon-switch2"></i> <span>Logout</span></a></li>
                 </ul>
             </div>
         </div>
@@ -37,10 +37,8 @@
         <div class="sidebar-category sidebar-category-visible">
             <div class="category-content no-padding">
                 <ul class="navigation navigation-main navigation-accordion">
-                <!-- "<?= $data['title'] == 'Dashboard' ? 'active':'';?>" -->
                     <!-- Main -->
-                    <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
-                    <li><a href="index.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                    <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>admin/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                     
                     <li>
                         <a href="#"><i class="icon-list"></i> <span>Management</span></a>
@@ -61,15 +59,15 @@
                     <li>
                         <a href="#"><i class="icon-stack"></i> <span>Control Panel</span></a>
                         <ul>
-                            <li><a href="<?=URL?>admin/"> Activity </a></li>
-                            <li><a href="<?=URL?>admin/"> Events </a></li>
-                            <li><a href="<?=URL?>admin/"> Students </a></li>
-                            <li><a href="<?=URL?>admin/"> Section </a></li>
-                            <li><a href="<?=URL?>admin/"> Subjects </a></li>
-                            <li><a href="<?=URL?>admin/"> Teachers </a></li>
-                            <li><a href="<?=URL?>admin/"> Parents </a></li>
-                            <li><a href="<?=URL?>admin/"> Accounts </a></li>
-                            <li><a href="<?=URL?>admin/"> Violations </a></li>
+                            <li class="<?= $data['title'] == 'Activity' ? 'active':'';?>"><a href="<?=URL?>admin/activity"> Activity </a></li>
+                            <li class="<?= $data['title'] == 'Events' ? 'active':'';?>"><a href="<?=URL?>admin/events"> Events </a></li>
+                            <li class="<?= $data['title'] == 'Students' ? 'active':'';?>"><a href="<?=URL?>admin/students"> Students </a></li>
+                            <li class="<?= $data['title'] == 'Section' ? 'active':'';?>"><a href="<?=URL?>admin/section"> Section </a></li>
+                            <li class="<?= $data['title'] == 'Subjects' ? 'active':'';?>"><a href="<?=URL?>admin/subjects"> Subjects </a></li>
+                            <li class="<?= $data['title'] == 'Teachers' ? 'active':'';?>"><a href="<?=URL?>admin/teachers"> Teachers </a></li>
+                            <li class="<?= $data['title'] == 'Parents' ? 'active':'';?>"><a href="<?=URL?>admin/parents"> Parents </a></li>
+                            <li class="<?= $data['title'] == 'Accounts' ? 'active':'';?>"><a href="<?=URL?>admin/accounts"> Accounts </a></li>
+                            <li class="<?= $data['title'] == 'Violations' ? 'active':'';?>"><a href="<?=URL?>admin/violations"> Violations </a></li>
                         </ul>
                     </li>
                     <!-- /main -->
