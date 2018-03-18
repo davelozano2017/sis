@@ -30,7 +30,7 @@
                     <input type="hidden" id="token" name="token" value="<?=$data['token']?>'">
                     <input accept="image/*" type="file" style="display:none" name="files" id="file-2" onchange="profile_picture()" class="forn-control picture logo" />
                     <label for="file-2" style="border:none;cursor: pointer;">
-                        <img id='preview' style="width:250px;height:250px" src="<?= empty($data['user_info']->image) ? 'https://d2ln1xbi067hum.cloudfront.net/assets/default_user-abdf6434cda029ecd32423baac4ec238.png' : ASSETS.'/uploads/profile/'.$data['user_info']->image; ?>"  class="img-circle img-responsive">
+                        <img id='preview' style="width:100%;height:100%;" src="<?= empty($data['user_info']->image) ? 'https://d2ln1xbi067hum.cloudfront.net/assets/default_user-abdf6434cda029ecd32423baac4ec238.png' : ASSETS.'/uploads/profile/'.$data['user_info']->image; ?>"  class="img-circle img-responsive">
                     </label>
                 </form>
             </div>

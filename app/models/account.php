@@ -171,17 +171,17 @@ class account extends Model {
         $level       = $data['level'];
         $description = $data['description'];
         if(empty($section_id)) {
-            $query   = $this->db->query("SELECT * FROM section WHERE name = '$name' AND level = '$level'");
+            $query   = $this->db->query("SELECT * FROM section WHERE section_name = '$name' AND level = '$level'");
             if($query->num_rows > 0) {
                 notify('error',$name.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO section (name,level,description) VALUES ('$name','$level','$description')");
+                $query = $this->db->query("INSERT INTO section (section_name,level,description) VALUES ('$name','$level','$description')");
                 if($query) {
                     notify('success','new section has been added.',true);
                 }
             }
         } else {
-            $query = $this->db->query("UPDATE section SET name = '$name', level = '$level', description = '$description' WHERE section_id = '$section_id'");
+            $query = $this->db->query("UPDATE section SET section_name = '$name', level = '$level', description = '$description' WHERE section_id = '$section_id'");
             if($query) {
                 notify('info',$name.' has been updated.',true);
             }
@@ -203,17 +203,17 @@ class account extends Model {
         $name         = $data['name'];
         $description  = $data['description'];
         if(empty($subjects_id)) {
-            $query   = $this->db->query("SELECT * FROM subjects WHERE name = '$name'");
+            $query   = $this->db->query("SELECT * FROM subjects WHERE subjects_name = '$name'");
             if($query->num_rows > 0) {
                 notify('error',$name.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO subjects (name,description) VALUES ('$name','$description')");
+                $query = $this->db->query("INSERT INTO subjects (subjects_name,description) VALUES ('$name','$description')");
                 if($query) {
                     notify('success','new subject has been added.',true);
                 }
             }
         } else {
-            $query = $this->db->query("UPDATE subjects SET name = '$name', description = '$description' WHERE subjects_id = '$subjects_id'");
+            $query = $this->db->query("UPDATE subjects SET subjects_name = '$name', description = '$description' WHERE subjects_id = '$subjects_id'");
             if($query) {
                 notify('info',$name.' has been updated.',true);
             }
@@ -373,12 +373,15 @@ class account extends Model {
                 $_SESSION['id'] = $row->user_id;
                 echo json_encode(['url' => URL.'admin/dashboard','success' => true]);
             } elseif(verify($password,$hash) && $role == 1) {
-                $_SESSION['id'] = $row->user_id;
-                echo json_encode(['url' => URL.'doctor/dashboard','success' => true]);
+                $_SESSION['id'] = $row->user_id; 
+                echo json_encode(['url' => URL.'teachers/dashboard','success' => true]);
             } elseif(verify($password,$hash) && $role == 2) {
                 $_SESSION['id'] = $row->user_id;
-                echo json_encode(['url' => URL.'staff/dashboard','success' => true]);
-            } else {
+                echo json_encode(['url' => URL.'parents/dashboard','success' => true]);
+            }elseif(verify($password,$hash) && $role == 3) {
+                $_SESSION['id'] = $row->user_id;
+                echo json_encode(['url' => URL.'students/dashboard','success' => true]);
+            }else {
                 notify('error','Invalid username or password',false);
             }
         } else {
@@ -411,6 +414,49 @@ class account extends Model {
         move_uploaded_file($_FILES['files']['tmp_name'],UPLOADS.'profile/'.$_FILES['files']['name']);
         $query = $this->db->query("UPDATE users SET image = '$image' WHERE user_id = $user_id");
         notify('info','profile has been changed.',true);
+    }
+    
+    public function get_assign_in_teachers($user_id) {
+        $query = $this->db->query("SELECT * FROM users as u INNER JOIN assign_teachers as a ON u.user_id = a.teachers_id INNER JOIN section as s ON a.section_id = s.section_id INNER JOIN subjects as su ON a.subjects_id = su.subjects_id WHERE a.teachers_id = $user_id GROUP BY a.subjects_id");
+        return $query;
+    }
+
+    public function delete_assign_in_teachers($data) {
+        $user_id     = $data['user_id'];
+        $subjects_id = $data['subjects_id'];
+        $query = $this->db->query("DELETE FROM assign_teachers WHERE teachers_id = $user_id AND subjects_id = $subjects_id");
+        notify('info','Record has been deleted.',true);
+    }
+
+    public function assign_to_teachers($data) {
+        $user_id    = $data['user_id'];
+        $section_id = $data['section_id'];
+        foreach($data['subjects_id'] as $key => $value){
+            $subjects_id = $data['subjects_id'][$key];
+            $query = $this->db->query("INSERT INTO assign_teachers (teachers_id,section_id,subjects_id) VALUES ('$user_id','$section_id','$subjects_id')");
+        }
+        notify('success','Successfully assigned.',true);
+    }
+
+    public function get_assign_in_students($section_id) {
+        $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id WHERE a.section_id = $section_id GROUP BY a.students_id");
+        return $query;
+    }
+
+    public function delete_assign_in_students($data) {
+        $students_id = $data['students_id'];
+        $section_id  = $data['section_id'];
+        $query = $this->db->query("DELETE FROM assign_students WHERE students_id = $students_id AND section_id = $section_id");
+        notify('info','Record has been deleted.',true);
+    }
+
+    public function assign_to_students($data) {
+        $section_id = $data['section_id'];
+        foreach($data['students_id'] as $key => $value){
+            $students_id = $data['students_id'][$key];
+            $query = $this->db->query("INSERT INTO assign_students (section_id,students_id) VALUES ('$section_id','$students_id')");
+        }
+        notify('success','Successfully assigned.',true);
     }
 
     public function update_password($data) {

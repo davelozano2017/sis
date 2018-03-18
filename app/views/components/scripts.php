@@ -36,8 +36,11 @@ app.controller('mainController',function($scope){
     $scope.susername = '<?=$data['user_info']->username?>'
     
 });
-toastr_option();
 
+toastr_option();
+$('.picture').change( function(event) {
+    $("#preview").attr('src',URL.createObjectURL(event.target.files[0]));
+});
 $(document).ready(function() {
     $("#contact").keydown(function (e) {
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||

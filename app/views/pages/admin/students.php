@@ -28,7 +28,7 @@
             <!-- Sales stats -->
             <div class="panel panel-flat">
                 <div class="panel-heading">
-                    <button onclick="add_new_students()" class="btn btn-primary">Add New</button>
+                    <button onclick="add_new_students()" class="btn btn-success">Add New</button>
                 </div>
                 
                 <!-- start -->

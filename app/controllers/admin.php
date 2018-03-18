@@ -7,14 +7,85 @@ class admin extends Controller {
 
     // pages 
     public function index() {
-        $data['title'] = 'Dashboard';
+        $data['title']     = 'Dashboard';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['events']    = $this->model('account')->get_all_events();
+        $data['teachers']  = $this->model('account')->get_all_teachers();
+        $data['students']  = $this->model('account')->get_all_students();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
         $this->view('pages/admin/dashboard',$data);
         $this->view('components/footer',$data);
         $this->view('components/scripts',$data);
+    }
+
+    // pages 
+    public function assign_teachers() {
+        $data['title']     = 'Assign Teachers';
+        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['teachers']  = $this->model('account')->get_all_teachers();
+        $data['subjects']  = $this->model('account')->get_all_subjects();
+        $data['section']   = $this->model('account')->get_all_section();
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/admin/assign_teachers',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function view_assign_in_teachers($user_id) {
+        $data['title']              = 'Assign Teachers';
+        $data['user_info']          = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['assign_in_teachers'] = $this->model('account')->get_assign_in_teachers($user_id);
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/admin/view_assign_in_teachers',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function view_assign_in_students($section_id) {
+        $data['title']              = 'Assign Students';
+        $data['user_info']          = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['assign_in_students'] = $this->model('account')->get_assign_in_students($section_id);
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/admin/view_assign_in_students',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function assign_students() {
+        $data['title']     = 'Assign Students';
+        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['section']   = $this->model('account')->get_all_section();
+        $data['students']  = $this->model('account')->get_all_students();
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/admin/assign_students',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function update_picture() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $this->model('account')->update_picture();
+        }
+    }
+
+    public function update_password() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $data = array(
+                'accounts_id' => $_SESSION['id'],
+                'password'     => hashing($this->input->post('password'))
+            );
+            $this->model('account')->update_password($data);
+        }
     }
 
     public function profile() {
@@ -367,6 +438,45 @@ class admin extends Controller {
             $this->model('account')->AddOrUpdateAccounts($data);
         }
     }
+
+    public function delete_assign_in_teachers() {
+        $data = array(
+            'user_id'     => $this->input->post('user_id'),
+            'subjects_id' => $this->input->post('subjects_id'),
+        );
+        $this->model('account')->delete_assign_in_teachers($data);
+    }
+
+    public function delete_assign_in_students() {
+        $data = array(
+            'students_id' => $this->input->post('students_id'),
+            'section_id'  => $this->input->post('section_id'),
+        );
+        $this->model('account')->delete_assign_in_students($data);
+    }
+
+    public function assign_to_teachers() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $data = array( 
+                'user_id'     => $this->input->post('user_id'),
+                'section_id'  => $this->input->post('section_id'),
+                'subjects_id' => $_POST['subjects_id']
+            );
+            $this->model('account')->assign_to_teachers($data);
+        }
+    }
+
+    public function assign_to_students() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $data = array( 
+                'section_id'  => $this->input->post('section_id'),
+                'students_id' => $_POST['students_id']
+            );
+            $this->model('account')->assign_to_students($data);
+        }
+    }
+
+    
 
     public function get_accounts_using_id() {
         $user_id = $this->input->post('user_id');

@@ -28,7 +28,7 @@
             <!-- Sales stats -->
             <div class="panel panel-flat">
                 <div class="panel-heading">
-                    <button onclick="add_new_section()" class="btn btn-primary">Add New</button>
+                    <button onclick="add_new_section()" class="btn btn-success">Add New</button>
                 </div>
                 
                 <!-- start -->
@@ -48,7 +48,7 @@
                                     <tr>
                                         <td><?=++$i?></td>
                                         <td style="width:1px">SEC#<?=str_pad($row['section_id'],5,0,STR_PAD_LEFT)?></td>
-                                        <td><?=$row['name']?></td>
+                                        <td><?=$row['section_name']?></td>
                                         <td><?=$row['level']?></td>
                                         <td style="width:1px"><a onclick="modify_section(<?=$row['section_id']?>)">Edit</a></td>
                                         <td style="width:1px"><a onclick="delete_section(<?=$row['section_id']?>)">Delete</a></td>
