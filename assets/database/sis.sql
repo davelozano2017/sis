@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2018 at 08:13 PM
+-- Generation Time: Mar 19, 2018 at 12:57 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -44,6 +44,49 @@ INSERT INTO `activity` (`activity_id`, `subject`, `description`) VALUES
 (20, 'Activity 3', 'Activity 3'),
 (21, 'Activity 4', 'Activity 4'),
 (22, 'Activity 5', 'Activity 5');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assign_students`
+--
+
+CREATE TABLE `assign_students` (
+  `assign_students_id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `students_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `assign_students`
+--
+
+INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`) VALUES
+(6, 7, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assign_teachers`
+--
+
+CREATE TABLE `assign_teachers` (
+  `assign_teachers_id` int(11) NOT NULL,
+  `teachers_id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `subjects_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `assign_teachers`
+--
+
+INSERT INTO `assign_teachers` (`assign_teachers_id`, `teachers_id`, `section_id`, `subjects_id`) VALUES
+(7, 16, 7, 3),
+(8, 16, 7, 4),
+(9, 16, 7, 5),
+(10, 16, 7, 6),
+(11, 16, 7, 7);
 
 -- --------------------------------------------------------
 
@@ -95,7 +138,7 @@ CREATE TABLE `parents` (
 
 CREATE TABLE `section` (
   `section_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `section_name` varchar(255) NOT NULL,
   `level` varchar(255) NOT NULL,
   `description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -104,7 +147,7 @@ CREATE TABLE `section` (
 -- Dumping data for table `section`
 --
 
-INSERT INTO `section` (`section_id`, `name`, `level`, `description`) VALUES
+INSERT INTO `section` (`section_id`, `section_name`, `level`, `description`) VALUES
 (7, 'Section 1', 'Grade 1', 'Section 1'),
 (8, 'Section 2', 'Grade 1', 'Section 2'),
 (9, 'Section 3', 'Grade 1', 'Section 3'),
@@ -180,7 +223,7 @@ INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstna
 
 CREATE TABLE `subjects` (
   `subjects_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `subjects_name` varchar(255) NOT NULL,
   `description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -188,7 +231,7 @@ CREATE TABLE `subjects` (
 -- Dumping data for table `subjects`
 --
 
-INSERT INTO `subjects` (`subjects_id`, `name`, `description`) VALUES
+INSERT INTO `subjects` (`subjects_id`, `subjects_name`, `description`) VALUES
 (3, 'Subject 1', 'Subject 1'),
 (4, 'Subject 2', 'Subject 2\r\n'),
 (5, 'Subject 3', 'Subject 3'),
@@ -219,9 +262,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `image`, `name`, `contact`, `email`, `educational_background`, `username`, `password`, `role`, `status`) VALUES
-(1, '', 'John David Sadia Lozano', '95557739522', 'lozanojohndavid@gmail.com', '', 'user', '$2y$10$kLhzbN/aym2nlnFcLyIlv.k664o89apCGqmLEox0sE9E1tpURhZva', 0, 0),
+(1, 'profile.png', 'John David Sadia Lozano', '95557739522', 'lozanojohndavid@gmail.com', '', 'user', '$2y$10$euSTu6LWeOsJI3I0Ap1OMe7y3dLuJEYAe..4qb7s/l.1BBMHarNNe', 0, 0),
 (12, '', 'Adora Lozano', '9265691158', 'adoralozano@gmail.com', '', 'adora', '$2y$10$H5mkM/ihzwUDp8LZDv3ZjORvaGk9sCTSgdHit3Z7c684COibBZ9Ci', 2, 0),
-(13, '', 'Mario Cabuga', '9265691158', 'mariocabuga@gmail.com', '', 'mariocabuga', '$2y$10$UCHlXU.n0gJVzGnWkhOTgusICqjy1lA7q7So4hkj8iTMHvjozXmd.', 2, 0);
+(13, '', 'Mario Cabuga', '9265691158', 'mariocabuga@gmail.com', '', 'mariocabuga', '$2y$10$UCHlXU.n0gJVzGnWkhOTgusICqjy1lA7q7So4hkj8iTMHvjozXmd.', 2, 0),
+(16, '', 'Sajer Broncano', '09555773922', 'sajerbroncano@gmail.com', 'lorem', 'sajer', '$2y$10$WGnz1zqM85YOe0yz34AO2uD2r6zxVLc.uSx5mfKpR5kSsqGueEhQO', 1, 0),
+(17, '', 'Arjeth Pascual', '091255448884', 'arjethpascual.23.ap@gmail.com', 'lorem', 'arjeth', '$2y$10$nWzeWXUhztWDI8JuXhpLqOq/epKvic6VErtj6k3xUmkq6HwCMB9Aa', 1, 0),
+(18, '', 'Jade Batal', '09125544778', 'jadebatal@gmail.com', 'lorem', 'jade', '$2y$10$Oz0Sty6F2WTZxsmmhhUQwOoNLttIAYsJurcGDCeeoUf6r5FOEJv6q', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -255,6 +301,18 @@ INSERT INTO `violations` (`violations_id`, `name`, `description`) VALUES
 --
 ALTER TABLE `activity`
   ADD PRIMARY KEY (`activity_id`);
+
+--
+-- Indexes for table `assign_students`
+--
+ALTER TABLE `assign_students`
+  ADD PRIMARY KEY (`assign_students_id`);
+
+--
+-- Indexes for table `assign_teachers`
+--
+ALTER TABLE `assign_teachers`
+  ADD PRIMARY KEY (`assign_teachers_id`);
 
 --
 -- Indexes for table `events`
@@ -309,6 +367,18 @@ ALTER TABLE `activity`
   MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT for table `assign_students`
+--
+ALTER TABLE `assign_students`
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `assign_teachers`
+--
+ALTER TABLE `assign_teachers`
+  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
@@ -342,7 +412,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `violations`
