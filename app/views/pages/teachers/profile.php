@@ -27,7 +27,7 @@
         <div class="panel panel-flat">
             <div class="panel-body">
                 <form method="POST" enctype="multipart/form-data" name="formProfile" id="formProfile">
-                    <input type="hidden" id="token" name="token" value="<?=$data['token']?>'">
+                    <input type="hidden" id="token" name="token" value="<?=TOKEN?>'">
                     <input accept="image/*" type="file" style="display:none" name="files" id="file-2" onchange="profile_picture()" class="forn-control picture logo" />
                     <label for="file-2" style="border:none;cursor: pointer;">
                         <img id='preview' style="width:100%;height:100%;" src="<?= empty($data['user_info']->image) ? 'https://d2ln1xbi067hum.cloudfront.net/assets/default_user-abdf6434cda029ecd32423baac4ec238.png' : ASSETS.'/uploads/profile/'.$data['user_info']->image; ?>"  class="img-circle img-responsive">
@@ -41,7 +41,7 @@
         <div class="panel panel-flat">
             <div class="panel-body">
                 <form name="formUpdateProfile" id="formUpdateProfile" method="POST" novalidate>
-                    <input type="hidden" id="token" name="token" value="<?=TOKEN?>'">
+                <input type="hidden" id="token" name="token" value="<?=TOKEN?>'">
                     <div class="form-group">
                         <input type="text" name="sname" id="name" placeholder="Name" ng-model="sname" class="form-control" required>
                         <span ng-messages="formUpdateProfile.sname.$error" ng-if="formUpdateProfile.sname.$dirty">

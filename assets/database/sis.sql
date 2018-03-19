@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2018 at 12:57 AM
+-- Generation Time: Mar 19, 2018 at 07:12 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -48,6 +48,33 @@ INSERT INTO `activity` (`activity_id`, `subject`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `assign_grades`
+--
+
+CREATE TABLE `assign_grades` (
+  `assign_grades_id` int(11) NOT NULL,
+  `teachers_id` int(11) NOT NULL,
+  `students_id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `subjects_id` int(11) NOT NULL,
+  `first` varchar(255) NOT NULL,
+  `second` varchar(255) NOT NULL,
+  `third` varchar(255) NOT NULL,
+  `fourth` varchar(255) NOT NULL,
+  `average` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `assign_grades`
+--
+
+INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `section_id`, `subjects_id`, `first`, `second`, `third`, `fourth`, `average`) VALUES
+(2, 16, 3, 7, 4, '100', '100', '100', '100', ''),
+(3, 16, 4, 7, 4, '100', '100', '100', '100', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `assign_students`
 --
 
@@ -62,7 +89,8 @@ CREATE TABLE `assign_students` (
 --
 
 INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`) VALUES
-(6, 7, 3);
+(17, 7, 3),
+(19, 7, 4);
 
 -- --------------------------------------------------------
 
@@ -82,11 +110,10 @@ CREATE TABLE `assign_teachers` (
 --
 
 INSERT INTO `assign_teachers` (`assign_teachers_id`, `teachers_id`, `section_id`, `subjects_id`) VALUES
-(7, 16, 7, 3),
-(8, 16, 7, 4),
-(9, 16, 7, 5),
-(10, 16, 7, 6),
-(11, 16, 7, 7);
+(47, 16, 7, 3),
+(48, 16, 7, 4),
+(49, 16, 7, 5),
+(51, 17, 12, 3);
 
 -- --------------------------------------------------------
 
@@ -213,7 +240,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstname`, `middlename`, `gender`, `contact`, `email`, `address`) VALUES
-(3, 13, '100552246558', 'Cabuga', 'Jeddahlyn', 'Linzag', 'Female', '9265691158', 'cabugajeddahlyn@gmail.com', 'Maligaya Park Quezon City');
+(3, 13, '100552246558', 'Cabuga', 'Jeddahlyn', 'Linzag', 'Female', '9265691158', 'cabugajeddahlyn@gmail.com', 'Maligaya Park Quezon City'),
+(4, 12, '100212112121', 'Lozano', 'John Rey', 'Sadia', 'Male', '09555115522', 'johnreylozano@gmail.com', 'Holy Spirit Quezon City');
 
 -- --------------------------------------------------------
 
@@ -262,12 +290,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `image`, `name`, `contact`, `email`, `educational_background`, `username`, `password`, `role`, `status`) VALUES
-(1, 'profile.png', 'John David Sadia Lozano', '95557739522', 'lozanojohndavid@gmail.com', '', 'user', '$2y$10$euSTu6LWeOsJI3I0Ap1OMe7y3dLuJEYAe..4qb7s/l.1BBMHarNNe', 0, 0),
+(1, 'profile.png', 'John David Sadia Lozano', '95557739522', 'lozanojohndavid@gmail.com', '', 'user', '$2y$10$toJr7Hf7/Nqh/0eVrvWTwuU7FwI20tpAsb2jWpKV8vTXVPhrYy3Gy', 0, 0),
 (12, '', 'Adora Lozano', '9265691158', 'adoralozano@gmail.com', '', 'adora', '$2y$10$H5mkM/ihzwUDp8LZDv3ZjORvaGk9sCTSgdHit3Z7c684COibBZ9Ci', 2, 0),
 (13, '', 'Mario Cabuga', '9265691158', 'mariocabuga@gmail.com', '', 'mariocabuga', '$2y$10$UCHlXU.n0gJVzGnWkhOTgusICqjy1lA7q7So4hkj8iTMHvjozXmd.', 2, 0),
-(16, '', 'Sajer Broncano', '09555773922', 'sajerbroncano@gmail.com', 'lorem', 'sajer', '$2y$10$WGnz1zqM85YOe0yz34AO2uD2r6zxVLc.uSx5mfKpR5kSsqGueEhQO', 1, 0),
-(17, '', 'Arjeth Pascual', '091255448884', 'arjethpascual.23.ap@gmail.com', 'lorem', 'arjeth', '$2y$10$nWzeWXUhztWDI8JuXhpLqOq/epKvic6VErtj6k3xUmkq6HwCMB9Aa', 1, 0),
-(18, '', 'Jade Batal', '09125544778', 'jadebatal@gmail.com', 'lorem', 'jade', '$2y$10$Oz0Sty6F2WTZxsmmhhUQwOoNLttIAYsJurcGDCeeoUf6r5FOEJv6q', 1, 0);
+(16, '26229924_10212713287919615_1832668951219208602_n.jpg', 'Sajer Broncano', '09555773922', 'sajerbroncano@gmail.com', 'lorem', 'sajer', '$2y$10$WGnz1zqM85YOe0yz34AO2uD2r6zxVLc.uSx5mfKpR5kSsqGueEhQO', 1, 0),
+(17, '12439460_1107630092605028_8197726260371805381_n.jpg', 'Arjeth Pascual', '091255448884', 'arjethpascual.23.ap@gmail.com', 'lorem', 'arjeth', '$2y$10$nWzeWXUhztWDI8JuXhpLqOq/epKvic6VErtj6k3xUmkq6HwCMB9Aa', 1, 0),
+(18, '15966257_1353966278001605_5752146725594554274_n.jpg', 'Jade Batal', '09125544778', 'jadebatal@gmail.com', 'lorem', 'jade', '$2y$10$ccs7e/BS9o8J6PGHDk6c8u0j2lFSgJ/h8PQdIG0SJffm1U1m/VL.m', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -301,6 +329,12 @@ INSERT INTO `violations` (`violations_id`, `name`, `description`) VALUES
 --
 ALTER TABLE `activity`
   ADD PRIMARY KEY (`activity_id`);
+
+--
+-- Indexes for table `assign_grades`
+--
+ALTER TABLE `assign_grades`
+  ADD PRIMARY KEY (`assign_grades_id`);
 
 --
 -- Indexes for table `assign_students`
@@ -367,16 +401,22 @@ ALTER TABLE `activity`
   MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT for table `assign_grades`
+--
+ALTER TABLE `assign_grades`
+  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
 --
 ALTER TABLE `assign_teachers`
-  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -400,7 +440,7 @@ ALTER TABLE `section`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subjects`

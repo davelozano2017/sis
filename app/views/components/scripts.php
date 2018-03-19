@@ -26,7 +26,11 @@
 <script type="text/javascript" src="<?=ASSETS?>angular/1.4.8.angular.min.js"></script>
 <script type="text/javascript" src="<?=ASSETS?>angular/1.4.2.angular.min.js"></script>
 <script type="text/javascript" src="<?=ASSETS?>toastr/js/toastr.min.js"></script>
-
+<script type="text/javascript" src="<?=ASSETS?>js/pages/datatables_extension_buttons_print.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>js/plugins/tables/datatables/extensions/jszip/jszip.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>js/plugins/tables/datatables/extensions/pdfmake/pdfmake.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>js/plugins/tables/datatables/extensions/pdfmake/vfs_fonts.min.js"></script>
+<script type="text/javascript" src="<?=ASSETS?>js/plugins/tables/datatables/extensions/buttons.min.js"></script>
 <script type="text/javascript">
 var app = angular.module('app', ['ngMessages']);
 app.controller('mainController',function($scope){

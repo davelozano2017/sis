@@ -70,7 +70,7 @@
         <div class="modal-content">
             <div class="modal-header bg-success">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h6 class="modal-title">Assign teacher's section and subjects</h6>
+                <h6 class="modal-title">Assign Student's teacher and section</h6>
             </div>
 
             <div class="modal-body">

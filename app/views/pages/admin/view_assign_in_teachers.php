@@ -52,7 +52,7 @@
                                         <td><?=$row['subjects_name']?></td>
                                         <td><?=$row['section_name']?></td>
                                         <td><?=$row['level']?></td>
-                                        <td style="width:1px"><a onclick="delete_assign_in_teachers(<?=$row['user_id']?>,<?=$row['subjects_id']?>)">Delete</a></td>
+                                        <td style="width:1px"><a onclick="delete_assign_in_teachers(<?=$row['user_id']?>,<?=$row['section_id']?>,<?=$row['subjects_id']?>)">Delete</a></td>
                                         <td style="width:1px"></td>
                                     </tr>
                                 <?php } ?>

@@ -46,38 +46,45 @@
             <div class="category-content no-padding">
                 <ul class="navigation navigation-main navigation-accordion">
                     <!-- Main -->
-                    <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>admin/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-                    
-                    <li>
-                        <a href="#"><i class="icon-list"></i> <span>Management</span></a>
-                        <ul>
-                            <li class="<?= $data['title'] == 'Assign Teachers'   ? 'active' : '';?>"><a href="<?=URL?>admin/assign_teachers"> Assign teachers </a></li>
-                            <li class="<?= $data['title'] == 'Assign Students'   ? 'active' : '';?>"><a href="<?=URL?>admin/assign_students"> Assign students </a></li>
-                        </ul>
-                    </li>
 
-                    <li>
-                        <a href="#"><i class="icon-graph"></i> <span>Reports</span></a>
-                        <ul>
-                            <li><a href="<?=URL?>admin/"> Student Master Lists </a></li>
-                            <li><a href="<?=URL?>admin/"> Generate Form 137 </a></li>
-                        </ul>
-                    </li>
+                    <?php 
+                    switch($data['user_info']->role) { case 0: ?>
+                        <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>admin/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                            <li>
+                                <a href="#"><i class="icon-list"></i> <span>Management</span></a>
+                                <ul>
+                                    <li class="<?= $data['title'] == 'Assign Teachers'   ? 'active' : '';?>"><a href="<?=URL?>admin/assign_teachers"> Assign teachers </a></li>
+                                    <li class="<?= $data['title'] == 'Assign Students'   ? 'active' : '';?>"><a href="<?=URL?>admin/assign_students"> Assign students </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon-graph"></i> <span>Reports</span></a>
+                                <ul>
+                                    <li class="<?= $data['title'] == 'Student Master List' ? 'active' : '';?>"><a href="<?=URL?>admin/report_student_master_list"> Student Master Lists </a></li>
+                                    <li class="<?= $data['title'] == 'Form 137'            ? 'active' : '';?>"><a href="<?=URL?>admin/report_form_137"> Generate Form 137 </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon-stack"></i> <span>Control Panel</span></a>
+                                <ul>
+                                    <li class="<?= $data['title'] == 'Activity'   ? 'active' : '';?>"><a href="<?=URL?>admin/activity"> Activity </a></li>
+                                    <li class="<?= $data['title'] == 'Events'     ? 'active' : '';?>"><a href="<?=URL?>admin/events"> Events </a></li>
+                                    <li class="<?= $data['title'] == 'Students'   ? 'active' : '';?>"><a href="<?=URL?>admin/students"> Students </a></li>
+                                    <li class="<?= $data['title'] == 'Section'    ? 'active' : '';?>"><a href="<?=URL?>admin/section"> Section </a></li>
+                                    <li class="<?= $data['title'] == 'Subjects'   ? 'active' : '';?>"><a href="<?=URL?>admin/subjects"> Subjects </a></li>
+                                    <li class="<?= $data['title'] == 'Teachers'   ? 'active' : '';?>"><a href="<?=URL?>admin/teachers"> Teachers </a></li>
+                                    <li class="<?= $data['title'] == 'Parents'    ? 'active' : '';?>"><a href="<?=URL?>admin/parents"> Parents </a></li>
+                                    <li class="<?= $data['title'] == 'Accounts'   ? 'active' : '';?>"><a href="<?=URL?>admin/accounts"> Accounts </a></li>
+                                    <li class="<?= $data['title'] == 'Violations' ? 'active' : '';?>"><a href="<?=URL?>admin/violations"> Violations </a></li>
+                                </ul>
+                            </li>
+                        <?php  break; case 1: ?>
+                            <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>teachers/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                            <li class="<?= $data['title'] == 'Student Grade Book' ? 'active':'';?>"><a href="<?=URL?>teachers/student_grade_book"><i class="icon-book"></i> <span>Student Grade Book</span></a></li>
+                        <?php break; case 2: ?>
+                        <?php break; case 3: ?>
+                        <?php break; } ?>
                     
-                    <li>
-                        <a href="#"><i class="icon-stack"></i> <span>Control Panel</span></a>
-                        <ul>
-                            <li class="<?= $data['title'] == 'Activity'   ? 'active' : '';?>"><a href="<?=URL?>admin/activity"> Activity </a></li>
-                            <li class="<?= $data['title'] == 'Events'     ? 'active' : '';?>"><a href="<?=URL?>admin/events"> Events </a></li>
-                            <li class="<?= $data['title'] == 'Students'   ? 'active' : '';?>"><a href="<?=URL?>admin/students"> Students </a></li>
-                            <li class="<?= $data['title'] == 'Section'    ? 'active' : '';?>"><a href="<?=URL?>admin/section"> Section </a></li>
-                            <li class="<?= $data['title'] == 'Subjects'   ? 'active' : '';?>"><a href="<?=URL?>admin/subjects"> Subjects </a></li>
-                            <li class="<?= $data['title'] == 'Teachers'   ? 'active' : '';?>"><a href="<?=URL?>admin/teachers"> Teachers </a></li>
-                            <li class="<?= $data['title'] == 'Parents'    ? 'active' : '';?>"><a href="<?=URL?>admin/parents"> Parents </a></li>
-                            <li class="<?= $data['title'] == 'Accounts'   ? 'active' : '';?>"><a href="<?=URL?>admin/accounts"> Accounts </a></li>
-                            <li class="<?= $data['title'] == 'Violations' ? 'active' : '';?>"><a href="<?=URL?>admin/violations"> Violations </a></li>
-                        </ul>
-                    </li>
                     <!-- /main -->
 
                 </ul>

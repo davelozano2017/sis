@@ -38,8 +38,8 @@
 								<tr>
                                     <th style="width:1px">#</th>
                                     <th>Name</th>
-                                    <th style="width:1px">contact</th>
                                     <th style="width:1px">Status</th>
+                                    <th style="width:1px">username</th>
                                     <th colspan=2 style="width:1px"></th>
 								</tr>
 							</thead>
@@ -48,8 +48,8 @@
                                     <tr>
                                         <td><?=++$i?></td>
                                         <td><?=$row['name']?></td>
-                                        <td><?=$row['contact']?></td>
                                         <td><?=$row['status'] == 0 ? 'Active' : 'Not Active';?></td>
+                                        <td><?=$row['username']?></td>
                                         <td style="width:1px"><a onclick="modify_teachers(<?=$row['user_id']?>)">Edit</a></td>
                                         <td style="width:1px"><a onclick="delete_teachers(<?=$row['user_id']?>)">Delete</a></td>
                                     </tr>

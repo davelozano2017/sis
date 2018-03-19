@@ -76,7 +76,7 @@
             <div class="modal-body">
                 <form novalidate name="formStudents" id="formStudents" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
-                    <input type="hidden" class="form-control" id="students_id" name="students_id">
+                    <input type="hidden" class="form-control" id="stud_id" name="students_id">
                     
                     <div class="form-group">
                         <input type="text" ng-model="LRN" id="LRN" name="LRN"  ng-minlength=12 ng-maxlength=12 class="form-control" placeholder="Learner Reference Number" required>

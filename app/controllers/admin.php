@@ -3,6 +3,7 @@ class admin extends Controller {
     public function __construct() {
         $_SESSION['token'] = TOKEN;
         $this->input = $this->model('account');
+        if(!isset($_SESSION['id'])) { redirect(URL.'auth/login'); }
     }
 
     // pages 
@@ -59,6 +60,18 @@ class admin extends Controller {
         $this->view('components/scripts',$data);
     }
 
+    public function report_student_master_list() {
+        $data['title']              = 'Student Master List';
+        $data['user_info']          = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['all_assign_in_students'] = $this->model('account')->get_all_assign_in_students();
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/admin/report_student_master_list',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
     public function assign_students() {
         $data['title']     = 'Assign Students';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
@@ -88,17 +101,6 @@ class admin extends Controller {
         }
     }
 
-    public function profile() {
-        $data['title'] = 'Profile';
-        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
-        $this->view('components/header',$data);
-        $this->view('components/navigation',$data);
-        $this->view('components/sidebar',$data);
-        $this->view('pages/admin/profile',$data);
-        $this->view('components/footer',$data);
-        $this->view('components/scripts',$data);
-    }
-
     public function update_profile() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array(
@@ -110,6 +112,17 @@ class admin extends Controller {
             );
             $this->model('account')->update_profile($data);
         }
+    }
+
+    public function profile() {
+        $data['title'] = 'Profile';
+        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/admin/profile',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
     }
 
     public function password() {
@@ -442,6 +455,7 @@ class admin extends Controller {
     public function delete_assign_in_teachers() {
         $data = array(
             'user_id'     => $this->input->post('user_id'),
+            'section_id'  => $this->input->post('section_id'),
             'subjects_id' => $this->input->post('subjects_id'),
         );
         $this->model('account')->delete_assign_in_teachers($data);
@@ -475,8 +489,6 @@ class admin extends Controller {
             $this->model('account')->assign_to_students($data);
         }
     }
-
-    
 
     public function get_accounts_using_id() {
         $user_id = $this->input->post('user_id');

@@ -189,7 +189,7 @@ function modify_students(students_id) {
         data : { students_id : students_id },
         dataType : 'json',
         success:function(data){
-            modal.find($('#students_id')).val(students_id);
+            modal.find($('#stud_id')).val(students_id);
             modal.find($('#LRN')).val(data.LRN);
             modal.find($('#guardian_id')).val(data.guardian_id);
             modal.find($('#surname')).val(data.surname);
@@ -311,7 +311,7 @@ function modify_subjects(subjects_id) {
         data : { subjects_id : subjects_id },
         dataType : 'json',
         success:function(data){
-            modal.find($('#subjects_id')).val(subjects_id);
+            modal.find($('#subj_id')).val(subjects_id);
             modal.find($('#name')).val(data.subjects_name);
             modal.find($('#description')).val(data.description);
             modal.modal();
@@ -372,6 +372,7 @@ function modify_teachers(user_id) {
             modal.find($('#name')).val(data.name);
             modal.find($('#contact')).val(data.contact);
             modal.find($('#email')).val(data.email);
+            modal.find($('#username')).val(data.username);
             modal.find($('#status')).val(data.status);
             modal.find($('#educational_background')).val(data.educational_background);
             modal.modal();
@@ -647,11 +648,11 @@ function assign_to_teachers() {
     })
 }
 
-function delete_assign_in_teachers(user_id,subjects_id) {
+function delete_assign_in_teachers(user_id,section_id,subjects_id) {
     $.ajax({
         type : 'POST',
         url : url + '../delete_assign_in_teachers',
-        data : { user_id : user_id, subjects_id : subjects_id},
+        data : { user_id : user_id, section_id : section_id, subjects_id : subjects_id},
         dataType : 'json',
         success:function(data) {
             location.href = url + '../view_assign_in_teachers/'+user_id 
@@ -695,6 +696,33 @@ function delete_assign_in_students(section_id,students_id) {
     })
 }
 
+
+function assign_grades_in_students(section_id,students_id,subjects_id) {
+    var modal = $('#modal-assign-grades');
+    $('#btn-assign-student-grades').html('Assign <i class="icon-arrow-right14 position-right"></i>');
+    modal.find($('#sec_id')).val(section_id);
+    modal.find($('#stud_id')).val(students_id);
+    modal.modal();
+}
+
+function assign_student_grades() {
+    var data  = $('#formAssign').serialize();
+    $.ajax({
+        type : 'POST',
+        url : url + 'assign_student_grades',
+        data : data,
+        dataType : 'json',
+        beforeSend:function() {
+            $('#btn-assign-student-grades').html(' <i class="icon-spinner2 spinner"></i>').attr('disabled',true);
+        },
+        success:function(data) {
+            data.success === true ? location.href = url + 'student_grade_book' : notify(data.type,data.message);
+            $('#btn-assign-student-grades').html('Assign <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
+        }
+    })
+}
+
+
 function notify(type,message) {
     Command: toastr[type](message)
 }
@@ -712,5 +740,6 @@ function getAbsolutePath() {
 }
 
 $('#subjects_id').select2({ placeholder: 'Select Subjects' });
-$('#students_id').select2({ placeholder: 'Select Students' })
+$('#students_id').select2({ placeholder: 'Select Students' });
+$('#guardian_id').select2({ placeholder: 'Select Guardian' });
 $('#section_id').select2();

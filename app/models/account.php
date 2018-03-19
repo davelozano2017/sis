@@ -378,10 +378,10 @@ class account extends Model {
             } elseif(verify($password,$hash) && $role == 2) {
                 $_SESSION['id'] = $row->user_id;
                 echo json_encode(['url' => URL.'parents/dashboard','success' => true]);
-            }elseif(verify($password,$hash) && $role == 3) {
+            } elseif(verify($password,$hash) && $role == 3) {
                 $_SESSION['id'] = $row->user_id;
                 echo json_encode(['url' => URL.'students/dashboard','success' => true]);
-            }else {
+            } else {
                 notify('error','Invalid username or password',false);
             }
         } else {
@@ -417,14 +417,15 @@ class account extends Model {
     }
     
     public function get_assign_in_teachers($user_id) {
-        $query = $this->db->query("SELECT * FROM users as u INNER JOIN assign_teachers as a ON u.user_id = a.teachers_id INNER JOIN section as s ON a.section_id = s.section_id INNER JOIN subjects as su ON a.subjects_id = su.subjects_id WHERE a.teachers_id = $user_id GROUP BY a.subjects_id");
+        $query = $this->db->query("SELECT * FROM users as u INNER JOIN assign_teachers as a ON u.user_id = a.teachers_id INNER JOIN section as s ON a.section_id = s.section_id INNER JOIN subjects as su ON a.subjects_id = su.subjects_id WHERE a.teachers_id = $user_id ORDER BY s.level DESC");
         return $query;
     }
 
     public function delete_assign_in_teachers($data) {
         $user_id     = $data['user_id'];
+        $section_id  = $data['section_id'];
         $subjects_id = $data['subjects_id'];
-        $query = $this->db->query("DELETE FROM assign_teachers WHERE teachers_id = $user_id AND subjects_id = $subjects_id");
+        $query = $this->db->query("DELETE FROM assign_teachers WHERE teachers_id = $user_id AND section_id = $section_id AND subjects_id = $subjects_id");
         notify('info','Record has been deleted.',true);
     }
 
@@ -433,13 +434,28 @@ class account extends Model {
         $section_id = $data['section_id'];
         foreach($data['subjects_id'] as $key => $value){
             $subjects_id = $data['subjects_id'][$key];
-            $query = $this->db->query("INSERT INTO assign_teachers (teachers_id,section_id,subjects_id) VALUES ('$user_id','$section_id','$subjects_id')");
+            $validate = $this->db->query("SELECT * FROM assign_teachers WHERE section_id = $section_id AND subjects_id = $subjects_id");
+            if($validate->num_rows) {
+            } else {
+                $query = $this->db->query("INSERT INTO assign_teachers (teachers_id,section_id,subjects_id) VALUES ('$user_id','$section_id','$subjects_id')");
+            }
         }
         notify('success','Successfully assigned.',true);
     }
 
     public function get_assign_in_students($section_id) {
         $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id WHERE a.section_id = $section_id GROUP BY a.students_id");
+        return $query;
+    }
+
+    public function get_all_assign_in_students() {
+        $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id GROUP BY a.students_id");
+        return $query;
+    }
+
+    public function all_assign_in_students_by_teacher() {
+        $teachers_id = $_SESSION['id'];
+        $query = $this->db->query("SELECT * FROM assign_teachers as at INNER JOIN assign_students as a ON at.section_id = a.section_id INNER JOIN students as s ON a.students_id = s.students_id INNER JOIN section as se ON at.section_id = se.section_id WHERE at.teachers_id = $teachers_id GROUP BY a.students_id");
         return $query;
     }
 
@@ -454,16 +470,42 @@ class account extends Model {
         $section_id = $data['section_id'];
         foreach($data['students_id'] as $key => $value){
             $students_id = $data['students_id'][$key];
-            $query = $this->db->query("INSERT INTO assign_students (section_id,students_id) VALUES ('$section_id','$students_id')");
+            $validate = $this->db->query("SELECT * FROM assign_students WHERE students_id = $students_id");
+            if($validate->num_rows > 0) {
+            } else {
+                $query = $this->db->query("INSERT INTO assign_students (section_id,students_id) VALUES ('$section_id','$students_id')");
+            }
         }
         notify('success','Successfully assigned.',true);
     }
 
+    public function assign_student_grades($data) {
+        $user_id     = $data['user_id'];
+        $section_id  = $data['section_id'];
+        $subjects_id = $data['subjects_id'];
+        $students_id = $data['students_id'];
+        $first       = $data['first'];
+        $second      = $data['second'];
+        $third       = $data['third'];
+        $fourth      = $data['fourth'];
+        $validate    = $this->db->query("SELECT * FROM assign_grades WHERE students_id = $students_id AND section_id = $section_id");
+        if($validate->num_rows > 0) {
+            notify('error','Grades already assigned.',false);
+        } else {
+            $query = $this->db->query("INSERT INTO assign_grades (teachers_id,students_id,section_id,subjects_id,first,second,third,fourth) VALUES ('$user_id','$students_id','$section_id','$subjects_id','$first','$second','$third','$fourth')");
+            if($query) {
+                notify('success','Grades successfully assigned.',true);
+            }
+        }
+    }
+ 
     public function update_password($data) {
         $password  = $data['password'];
         $user_id   = $data['accounts_id'];
-        $query = $this->db->query("UPDATE accounts SET password = '$password' WHERE user_id = '$user_id'");
-        notify('info','Password has been changed.',true);
+        $query = $this->db->query("UPDATE users SET password = '$password' WHERE user_id = '$user_id'");
+        if($query) {
+            notify('info','Password has been changed.',true);
+        }
     }
 
     public function post($data) {

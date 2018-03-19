@@ -76,7 +76,7 @@
             <div class="modal-body">
                 <form novalidate name="formSubjects" id="formSubjects" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
-                    <input type="hidden" class="form-control" id="subjects_id" name="subjects_id">
+                    <input type="hidden" class="form-control" id="subj_id" name="subjects_id">
 
                     <div class="form-group">
                         <input type="text" ng-model="name" id="name" name="name"  class="form-control" placeholder="Subject Name" required>
