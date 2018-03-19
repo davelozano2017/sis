@@ -8,8 +8,11 @@ class teachers extends Controller {
 
     // pages 
     public function index() {
-        $data['title'] = 'Dashboard';
+        $data['title']     = 'Dashboard';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['students']  = $this->model('account')->get_students_by_teacher($_SESSION['id']);
+        $data['sections']  = $this->model('account')->get_sections_by_teacher($_SESSION['id']);
+        $data['subjects']  = $this->model('account')->get_subjects_by_teacher($_SESSION['id']);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -47,17 +50,6 @@ class teachers extends Controller {
         }
     }
 
-    public function password() {
-        $data['title'] = 'Password';
-        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
-        $this->view('components/header',$data);
-        $this->view('components/navigation',$data);
-        $this->view('components/sidebar',$data);
-        $this->view('pages/teachers/change-password',$data);
-        $this->view('components/footer',$data);
-        $this->view('components/scripts',$data);
-    }
-
     public function update_profile() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array(
@@ -70,6 +62,17 @@ class teachers extends Controller {
             $this->model('account')->update_profile($data);
         }
     }
+    
+    public function password() {
+        $data['title'] = 'Password';
+        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/teachers/change-password',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
 
     public function profile() {
         $data['title'] = 'Profile';
@@ -78,6 +81,18 @@ class teachers extends Controller {
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
         $this->view('pages/teachers/profile',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function view_grades($students_id) {
+        $data['title']          = 'Student Grade Book';
+        $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['get_all_grades'] = $this->model('account')->get_all_grades($students_id);
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/teachers/view_grades',$data);
         $this->view('components/footer',$data);
         $this->view('components/scripts',$data);
     }

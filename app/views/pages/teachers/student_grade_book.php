@@ -48,7 +48,7 @@
                                         <td><?=$row['level']?></td>
                                         <td><?=$row['section_name']?></td>
                                         <td style="width:1px"><a class="btn btn-success" onclick="assign_grades_in_students(<?=$row['section_id']?>,<?=$row['students_id']?>)">Assign Grades</a> </td>
-                                        <td style="width:1px"><a class="btn btn-success" href="<?=URL?>admin/view_assign_in_students/<?=$row['section_id']?>">View</a></td>
+                                        <td style="width:1px"><a class="btn btn-success" href="<?=URL?>teachers/view_grades/<?=$row['students_id']?>">View</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
