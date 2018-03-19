@@ -433,6 +433,7 @@ function modify_parents(user_id) {
             modal.find($('#name')).val(data.name);
             modal.find($('#contact')).val(data.contact);
             modal.find($('#email')).val(data.email);
+            modal.find($('#username')).val(data.username);
             modal.find($('#status')).val(data.status);
             modal.modal();
             $('#btn-parents').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);

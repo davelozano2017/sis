@@ -488,7 +488,7 @@ class account extends Model {
         $second      = $data['second'];
         $third       = $data['third'];
         $fourth      = $data['fourth'];
-        $validate    = $this->db->query("SELECT * FROM assign_grades WHERE students_id = $students_id AND section_id = $section_id");
+        $validate    = $this->db->query("SELECT * FROM assign_grades WHERE students_id = $students_id AND section_id = $section_id AND subjects_id = $subjects_id");
         if($validate->num_rows > 0) {
             notify('error','Grades already assigned.',false);
         } else {
@@ -498,6 +498,21 @@ class account extends Model {
             }
         }
     }
+
+    public function get_students_by_teacher($teachers_id) {
+        $query = $this->db->query("SELECT * FROM assign_teachers as at INNER JOIN assign_students as a ON at.section_id = a.section_id WHERE at.teachers_id = $teachers_id GROUP BY a.students_id");
+        return $query;
+    }
+
+    public function get_sections_by_teacher($teachers_id) {
+        $query = $this->db->query("SELECT * FROM assign_teachers WHERE teachers_id = $teachers_id");
+        return $query;
+    }
+
+    public function get_subjects_by_teacher($teachers_id) {
+        $query = $this->db->query("SELECT * FROM assign_teachers WHERE teachers_id = $teachers_id");
+        return $query;
+    }
  
     public function update_password($data) {
         $password  = $data['password'];
@@ -506,6 +521,16 @@ class account extends Model {
         if($query) {
             notify('info','Password has been changed.',true);
         }
+    }
+
+    public function get_all_grades($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id");
+        return $query;
+    }
+
+    public function get_all_grades_by_students($guardian_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE s.guardian_id = $guardian_id");
+        return $query;
     }
 
     public function post($data) {

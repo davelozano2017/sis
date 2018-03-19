@@ -15,7 +15,7 @@
                 <div class="sidebar-user-material-content">
                     <a href="#"><img src="<?=empty($data['user_info']->image) ? 'https://www.schoolsinqatar.net/wp-content/plugins/wc-frontend-manager/assets/images/user.png' : URL.UPLOADS.'profile/'.$data['user_info']->image?>" class="img-circle img-responsive" alt=""></a>
                     <h6><?=$data['user_info']->name?></h6>
-                    <span class="text-size-small"><?=$data['user_info']->role == 0 ? 'Administrator' : (($data['user_info']->role ==  1) ? 'Teacher' : 'Student')?> </span>
+                    <span class="text-size-small"><?=$data['user_info']->role == 0 ? 'Administrator' : (($data['user_info']->role ==  1) ? 'Teacher' : (($data['user_info']->role == 2)  ? 'Parent'  : 'Student'))?> </span>
                 </div>
                 <div class="sidebar-user-material-menu">
                     <a href="#user-nav" data-toggle="collapse"><span><?=$data['user_info']->name?></span> <i class="caret"></i></a>
@@ -80,8 +80,12 @@
                             </li>
                         <?php  break; case 1: ?>
                             <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>teachers/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-                            <li class="<?= $data['title'] == 'Student Grade Book' ? 'active':'';?>"><a href="<?=URL?>teachers/student_grade_book"><i class="icon-book"></i> <span>Student Grade Book</span></a></li>
+                            <li class="<?= $data['title'] == 'Student Grade Book' ? 'active':'';?>"><a href="<?=URL?>teachers/student_grade_book"><i class="icon-books"></i> <span>Student Grade Book</span></a></li>
                         <?php break; case 2: ?>
+                            <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>parents/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                            <li class="<?= $data['title'] == 'Student Grade Book' ? 'active':'';?>"><a href="<?=URL?>parents/student_grade_book"><i class="icon-books"></i> <span>Student Grade Book</span></a></li>
+                            <li class="<?= $data['title'] == 'Activities' ? 'active':'';?>"><a href="<?=URL?>parents/activities"><i class="icon-check"></i> <span>Activities</span></a></li>
+                            <li class="<?= $data['title'] == 'Violations' ? 'active':'';?>"><a href="<?=URL?>parents/violations"><i class="icon-cross3"></i> <span>Violations</span></a></li>
                         <?php break; case 3: ?>
                         <?php break; } ?>
                     

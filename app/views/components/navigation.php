@@ -1,6 +1,6 @@
 <body class="navbar-top"  ng-app="app" ng-controller="mainController">
 <!-- Main navbar -->
-<div class="navbar navbar-inverse navbar-fixed-top bg-indigo-300">
+<div class="navbar navbar-inverse navbar-fixed-top bg-green-400">
     <div class="navbar-header">
         <a class="navbar-brand" href="#"><img src="<?=ASSETS?>images/logo." alt=""></a>
 
@@ -21,3 +21,4 @@
     </div>
 </div>
 <!-- /main navbar -->
+
