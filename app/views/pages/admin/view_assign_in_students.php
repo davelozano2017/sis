@@ -13,10 +13,6 @@
                 <li>Dashboard</li>
                 <li>management</li>
                 <li>Assign Students</li>
-                <?php if($data['assign_in_students']->num_rows > 0) { ?>
-                    <?php $r = $data['assign_in_students']->fetch_object(); ?>
-                    <li class="active"><?=$r->firstname.' '.$r->middlename. ' '.$r->surname?></li>
-                <?php } else { } ?> 
             </ul>
         </div>
     </div>
@@ -43,7 +39,8 @@
                                     <th>Name</th>
                                     <th>Sections</th>
                                     <th>Grade</th>
-                                    <th colspan=3  style="width:1px"></th>
+                                    <th>School Year</th>
+                                    <th style="width:1px"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -53,8 +50,8 @@
                                         <td><?=$row['firstname']. ' '.$row['middlename']. ' '.$row['surname']?></td>
                                         <td><?=$row['section_name']?></td>
                                         <td><?=$row['level']?></td>
+                                        <td><?=$row['school_year']?></td>
                                         <td style="width:1px"><a onclick="delete_assign_in_students(<?=$row['section_id']?>,<?=$row['students_id']?>)">Delete</a></td>
-                                        <td style="width:1px"></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

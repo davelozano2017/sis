@@ -3,6 +3,7 @@ class parents extends Controller {
     public function __construct() {
         $_SESSION['token'] = TOKEN;
         $this->input = $this->model('account');
+        if(!isset($_SESSION['id'])) { redirect('auth/login'); }
     }
 
     // pages 
@@ -76,6 +77,28 @@ class parents extends Controller {
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
         $this->view('pages/parents/student_grade_book',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function activities() {
+        $data['title']          = 'Activities';
+        $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/parents/activities',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function violations() {
+        $data['title']          = 'Violations';
+        $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/parents/violations',$data);
         $this->view('components/footer',$data);
         $this->view('components/scripts',$data);
     }

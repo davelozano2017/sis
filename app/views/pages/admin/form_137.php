@@ -37,7 +37,7 @@ th {
 
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
-    <th style="border:1px solid #fff" rowspan=2><img style="width:80px;height:50px"src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
+    <th style="border:1px solid #fff" rowspan=2><img style="width:70px;height:60px"src="http://localhost/sis/assets/images/logo.jpg"></th>
 </tr>
 <tr>
     <th style="border:1px solid #fff">
@@ -859,9 +859,9 @@ TO WHOM IT MAY CONCERN : <br>
 <table style="border:none;width:100%">
 <tr>
 <td style="border:none">
-This is to certify that this is a true record of the Elementary School Permanent Record of _____________________________________________.</td>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; This is to certify that this is a true record of the Elementary School Permanent Record of _____________________________________________. He/She is eligible for transfer and admission to Grade ___________.</td>
 <td style="border:none">
- He/She is eligible for transfer and admission to Grade ___________.
+ 
 </td>
 </tr>
 
@@ -871,7 +871,6 @@ This is to certify that this is a true record of the Elementary School Permanent
 <tr>
 <td style="border:none">
 Certified by:<br>
-<br>
 [Mrs.] Lolita B. Romano<br>
 Administrator/Directress
 </td>

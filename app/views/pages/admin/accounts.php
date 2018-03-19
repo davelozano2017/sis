@@ -79,6 +79,29 @@
                 <form novalidate name="formAccounts" id="formAccounts" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
                     <input type="hidden" class="form-control" id="user_id" name="user_id">
+
+                    <div class="form-group">
+                        <select name="role" class="form-control" id="role" ng-model="role" required>
+                            <option value="">Select Role</option>
+                            <option value="0">Administrator</option>
+                            <option value="3">Student</option>
+                        </select>
+                        <span ng-messages="formAccounts.role.$error" ng-if="formAccounts.role.$dirty">
+                            <strong ng-message="required" class="text-danger">This field is required.</strong>
+                        </span>
+                    </div>
+
+                    <div class="form-group hidden" id="lrnn">
+                        <select onchange="filter_students()" name="LRN" class="form-control" id="LRNN" ng-model="LRN" >
+                            <option value="">Select Students</option>
+                            <?php foreach($data['students'] as $st) { ?>
+                            <option value="<?=$st['LRN']?>"><?=$st['LRN'].' - '.$st['firstname'].' '.$st['middlename'].' '.$st['firstname']?></option>
+                            <?php } ?>
+                        </select>
+                        <span ng-messages="formStudents.LRN.$error" ng-if="formStudents.LRN.$dirty">
+                            <strong ng-message="required" class="text-danger">This field is required.</strong>
+                        </span>
+                    </div>
                     
                     <div class="form-group">
                         <input type="text" ng-model="name" id="name" name="name"  class="form-control" placeholder="Name" required>
@@ -105,17 +128,6 @@
                     <div class="form-group">
                         <input type="text" ng-model="username" id="username" name="username"  class="form-control" placeholder="Username" required>
                         <span ng-messages="formAccounts.username.$error" ng-if="formAccounts.username.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
-                    </div>
-
-                    <div class="form-group">
-                        <select name="role" class="form-control" id="role" ng-model="role" required>
-                            <option value="">Select Role</option>
-                            <option value="0">Administrator</option>
-                            <option value="3">Student</option>
-                        </select>
-                        <span ng-messages="formAccounts.role.$error" ng-if="formAccounts.role.$dirty">
                             <strong ng-message="required" class="text-danger">This field is required.</strong>
                         </span>
                     </div>

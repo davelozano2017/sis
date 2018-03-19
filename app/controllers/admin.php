@@ -3,7 +3,7 @@ class admin extends Controller {
     public function __construct() {
         $_SESSION['token'] = TOKEN;
         $this->input = $this->model('account');
-        if(!isset($_SESSION['id'])) { redirect(URL.'auth/login'); }
+        if(!isset($_SESSION['id'])) { redirect('auth/login'); }
     }
 
     // pages 
@@ -232,6 +232,7 @@ class admin extends Controller {
         $data['title'] = 'Accounts';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['accounts'] = $this->model('account')->get_all_users();
+        $data['students'] = $this->model('account')->get_all_students();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -248,6 +249,18 @@ class admin extends Controller {
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
         $this->view('pages/admin/violations',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function school_year() {
+        $data['title']       = 'School YEar';
+        $data['user_info']   = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['school_year'] = $this->model('account')->get_all_school_year();
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/admin/school_year',$data);
         $this->view('components/footer',$data);
         $this->view('components/scripts',$data);
     }
@@ -446,14 +459,15 @@ class admin extends Controller {
     public function AddOrUpdateAccounts() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array( 
-                'user_id'                => $this->input->post('user_id'),
-                'name'                   => $this->input->post('name'),
-                'contact'                => $this->input->post('contact'),
-                'email'                  => $this->input->post('email'),
-                'username'               => $this->input->post('username'),
-                'password'               => hashing('password'),
-                'role'                   => $this->input->post('role'),
-                'status'                 => $this->input->post('status')
+                'user_id'   => $this->input->post('user_id'),
+                'LRN'       => $this->input->post('LRN'),
+                'name'      => $this->input->post('name'),
+                'contact'   => $this->input->post('contact'),
+                'email'     => $this->input->post('email'),
+                'username'  => $this->input->post('username'),
+                'password'  => hashing('password'),
+                'role'      => $this->input->post('role'),
+                'status'    => $this->input->post('status')
             );
             $this->model('account')->AddOrUpdateAccounts($data);
         }
@@ -494,6 +508,13 @@ class admin extends Controller {
                 'students_id' => $_POST['students_id']
             );
             $this->model('account')->assign_to_students($data);
+        }
+    }
+
+    public function filter_students() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $LRN = $this->input->post('LRN');
+            $this->model('account')->filter_students($LRN);
         }
     }
 

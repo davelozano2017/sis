@@ -67,6 +67,11 @@ class account extends Model {
         return $query;
     }
 
+    public function get_all_school_year() {
+        $query = $this->db->query("SELECT * FROM school_year");
+        return $query;
+    }
+
     public function get_all_subjects() {
         $query = $this->db->query("SELECT * FROM subjects");
         return $query;
@@ -127,6 +132,9 @@ class account extends Model {
     }
 
     public function AddOrUpdateStudents($data) {
+        $sy = $this->db->query("SELECT * FROM school_year LIMIT 1");
+        $row = $sy->fetch_object();
+        $school_year = $row->school_year;
         $students_id  = $data['students_id'];
         $LRN          = $data['LRN'];
         $guardian_id  = $data['guardian_id'];
@@ -142,13 +150,13 @@ class account extends Model {
             if($query->num_rows > 0) {
                 notify('error',$LRN.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO students (LRN,guardian_id,surname,firstname,middlename,gender,contact,email,address) VALUES ('$LRN','$guardian_id','$surname','$firstname','$middlename','$gender','$contact','$email','$address')");
+                $query = $this->db->query("INSERT INTO students (LRN,guardian_id,surname,firstname,middlename,gender,contact,email,address,school_year) VALUES ('$LRN','$guardian_id','$surname','$firstname','$middlename','$gender','$contact','$email','$address','$school_year')");
                 if($query) {
                     notify('success','new student has been added.',true);
                 }
             }
         } else {
-            $query = $this->db->query("UPDATE students SET LRN = '$LRN', guardian_id = '$guardian_id', surname = '$surname', firstname = '$firstname', middlename = '$middlename', gender = '$gender',contact = '$contact', email = '$email', address = '$address' WHERE students_id = '$students_id' ");
+            $query = $this->db->query("UPDATE students SET LRN = '$LRN', guardian_id = '$guardian_id', surname = '$surname', firstname = '$firstname', middlename = '$middlename', gender = '$gender',contact = '$contact', email = '$email', address = '$address', school_year = '$school_year' WHERE students_id = '$students_id' ");
             if($query) {
                 notify('info',$LRN.' has been updated.',true);
             }
@@ -328,25 +336,30 @@ class account extends Model {
 
 
     public function AddOrUpdateAccounts($data) {
-        $user_id                = $data['user_id'];
-        $name                   = $data['name'];
-        $contact                = $data['contact'];
-        $email                  = $data['email'];
-        $username               = $data['username'];
-        $password               = $data['password'];
-        $role                   = $data['role'];
-        $status                 = $data['status'];
+        $user_id    = $data['user_id'];
+        $LRN        = $data['LRN'];
+        $name       = $data['name'];
+        $contact    = $data['contact'];
+        $email      = $data['email'];
+        $username   = $data['username'];
+        $password   = $data['password'];
+        $role       = $data['role'];
+        $status     = $data['status'];
         if(empty($user_id)) {
             $check       = $this->db->query("SELECT * FROM users WHERE username = '$username'");
             if($check->num_rows > 0) {
                 notify('error','Username already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO users (name, contact, email, username, password, role, status) VALUES ('$name', '$contact', '$email', '$username', '$password', '$role', '$status')");
-                notify('success','New account has been added.',true);
+                $query = $this->db->query("INSERT INTO users (LRNN,name, contact, email, username, password, role, status) VALUES ('$LRN','$name', '$contact', '$email', '$username', '$password', '$role', '$status')");
+                if($query) {
+                    notify('success','New account has been added.',true);
+                }
             }
         } else {
-            $query = $this->db->query("UPDATE users SET name = '$name', contact = '$contact', email = '$email', username = '$username', role = '$role', status = '$status' WHERE user_id = $user_id");
-            notify('info','Data has been changed.',true);
+            $query = $this->db->query("UPDATE users SET LRNN = '$LRN', name = '$name', contact = '$contact', email = '$email', username = '$username', role = '$role', status = '$status' WHERE user_id = $user_id");
+            if($query) {
+                notify('info','Data has been changed.',true);
+            }
         }
     }
 
@@ -480,6 +493,9 @@ class account extends Model {
     }
 
     public function assign_student_grades($data) {
+        $sy = $this->db->query("SELECT * FROM school_year LIMIT 1");
+        $row = $sy->fetch_object();
+        $school_year = $row->school_year;
         $user_id     = $data['user_id'];
         $section_id  = $data['section_id'];
         $subjects_id = $data['subjects_id'];
@@ -492,7 +508,7 @@ class account extends Model {
         if($validate->num_rows > 0) {
             notify('error','Grades already assigned.',false);
         } else {
-            $query = $this->db->query("INSERT INTO assign_grades (teachers_id,students_id,section_id,subjects_id,first,second,third,fourth) VALUES ('$user_id','$students_id','$section_id','$subjects_id','$first','$second','$third','$fourth')");
+            $query = $this->db->query("INSERT INTO assign_grades (teachers_id,students_id,section_id,subjects_id,first,second,third,fourth,school_year) VALUES ('$user_id','$students_id','$section_id','$subjects_id','$first','$second','$third','$fourth','$school_year')");
             if($query) {
                 notify('success','Grades successfully assigned.',true);
             }
@@ -523,6 +539,11 @@ class account extends Model {
         }
     }
 
+    public function filter_students($LRN) {
+        $query = $this->db->query("SELECT * FROM students WHERE LRN = '$LRN'");
+        echo json_encode($query->fetch_object());
+    }
+
     public function get_all_grades($students_id) {
         $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id");
         return $query;
@@ -530,6 +551,14 @@ class account extends Model {
 
     public function get_all_grades_by_students($guardian_id) {
         $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE s.guardian_id = $guardian_id");
+        return $query;
+    }
+
+    public function get_all_grades_by_stud() {
+        $check = $this->db->query("SELECT * FROM users WHERE user_id = ".$_SESSION['id']);
+        $row = $check->fetch_object();
+        $lrn = $row->LRNN;
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON s.LRN = u.LRNN WHERE u.LRNN = '$lrn'");
         return $query;
     }
 

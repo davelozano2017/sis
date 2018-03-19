@@ -4,15 +4,14 @@
     <div class="page-header page-header-default">
         <div class="page-header-content">
             <div class="page-title">
-                <h4>Student Master List</h4>
+                <h4>Student Grade Book</h4>
             </div>
         </div>
 
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
-                <li>Dashboard</li>
-                <li>Reports</li>
-                <li>Student Master List</li>
+            <li>Dashboard</li>
+            <li class="active">Student Grade Book</li>
             </ul>
         </div>
     </div>
@@ -27,33 +26,36 @@
 
             <!-- Sales stats -->
             <div class="panel panel-flat">
-                <div class="panel-heading">
-                </div>
+                <div class="panel-heading"></div>
                 
                 <!-- start -->
                     <div class="container-fluid">
-                        <table class="table datatable-button-print-basic">
+                        <table class="table datatable-responsive">
 							<thead>
 								<tr>
                                     <th style="width:1px">#</th>
-                                    <th>LRN</th>
-                                    <th>Name</th>
-                                    <th>Sections</th>
                                     <th>Grade</th>
-                                    <th>Address</th>
-                                    <th>School Year</th>
+                                    <th>Section</th>
+                                    <th>Subject</th>
+                                    <th>First</th>
+                                    <th>Second</th>
+                                    <th>Third</th>
+                                    <th>Fourth</th>
+                                    <th>SY</th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php $i=0; foreach($data['all_assign_in_students'] as $row) { ?> 
+								<?php $i=0; foreach($data['get_all_grades'] as $row) { ?> 
                                     <tr>
                                         <td><?=++$i?></td>
-                                        <td><?=$row['LRN']?></td>
-                                        <td><?=$row['firstname']. ' '.$row['middlename']. ' '.$row['surname']?></td>
-                                        <td><?=$row['section_name']?></td>
                                         <td><?=$row['level']?></td>
-                                        <td><?=$row['address']?></td>
-                                        <td style="width:5%"><?=$row['school_year']?></td>
+                                        <td><?=$row['section_name']?></td>
+                                        <td><?=$row['subjects_name']?></td>
+                                        <td><?=$row['first']?></td>
+                                        <td><?=$row['second']?></td>
+                                        <td><?=$row['third']?></td>
+                                        <td><?=$row['fourth']?></td>
+                                        <td><?=$row['school_year']?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

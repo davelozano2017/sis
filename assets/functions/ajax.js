@@ -723,6 +723,24 @@ function assign_student_grades() {
     })
 }
 
+function filter_students() {
+    var data = {
+        token  : $('#token').val(),
+        LRN :  $('#LRNN').val()
+    }
+    $.ajax({
+        type : 'POST',
+        url : url + 'filter_students',
+        data : data,
+        dataType: 'json',
+        success:function(data) {
+            $('#name').val(data.firstname+' '+data.middlename+' '+data.surname);
+            $("#contact").val(data.contact);
+            $('#email').val(data.email);
+            $('#btn-accounts').attr('disabled',false);
+        }
+    })
+}
 
 function notify(type,message) {
     Command: toastr[type](message)
@@ -743,4 +761,14 @@ function getAbsolutePath() {
 $('#subjects_id').select2({ placeholder: 'Select Subjects' });
 $('#students_id').select2({ placeholder: 'Select Students' });
 $('#guardian_id').select2({ placeholder: 'Select Guardian' });
-$('#section_id').select2();
+$('#section_id,#LRNN').select2();
+
+$('#role').change( e => {
+    var role = $('#role').val();
+    if(role == 3) {
+        $('#lrnn').removeClass('hidden');
+    } else {
+        $('#lrnn').addClass('hidden');
+        $('#lrnn').val('');
+    }
+})

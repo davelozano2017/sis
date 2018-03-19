@@ -67,15 +67,16 @@
                             <li>
                                 <a href="#"><i class="icon-stack"></i> <span>Control Panel</span></a>
                                 <ul>
-                                    <li class="<?= $data['title'] == 'Activity'   ? 'active' : '';?>"><a href="<?=URL?>admin/activity"> Activity </a></li>
-                                    <li class="<?= $data['title'] == 'Events'     ? 'active' : '';?>"><a href="<?=URL?>admin/events"> Events </a></li>
-                                    <li class="<?= $data['title'] == 'Students'   ? 'active' : '';?>"><a href="<?=URL?>admin/students"> Students </a></li>
-                                    <li class="<?= $data['title'] == 'Section'    ? 'active' : '';?>"><a href="<?=URL?>admin/section"> Section </a></li>
-                                    <li class="<?= $data['title'] == 'Subjects'   ? 'active' : '';?>"><a href="<?=URL?>admin/subjects"> Subjects </a></li>
-                                    <li class="<?= $data['title'] == 'Teachers'   ? 'active' : '';?>"><a href="<?=URL?>admin/teachers"> Teachers </a></li>
-                                    <li class="<?= $data['title'] == 'Parents'    ? 'active' : '';?>"><a href="<?=URL?>admin/parents"> Parents </a></li>
-                                    <li class="<?= $data['title'] == 'Accounts'   ? 'active' : '';?>"><a href="<?=URL?>admin/accounts"> Accounts </a></li>
-                                    <li class="<?= $data['title'] == 'Violations' ? 'active' : '';?>"><a href="<?=URL?>admin/violations"> Violations </a></li>
+                                    <li class="<?= $data['title'] == 'Activity'    ? 'active' : '';?>"><a href="<?=URL?>admin/activity"> Activity </a></li>
+                                    <li class="<?= $data['title'] == 'Events'      ? 'active' : '';?>"><a href="<?=URL?>admin/events"> Events </a></li>
+                                    <li class="<?= $data['title'] == 'Students'    ? 'active' : '';?>"><a href="<?=URL?>admin/students"> Students </a></li>
+                                    <li class="<?= $data['title'] == 'Section'     ? 'active' : '';?>"><a href="<?=URL?>admin/section"> Section </a></li>
+                                    <li class="<?= $data['title'] == 'Subjects'    ? 'active' : '';?>"><a href="<?=URL?>admin/subjects"> Subjects </a></li>
+                                    <li class="<?= $data['title'] == 'Teachers'    ? 'active' : '';?>"><a href="<?=URL?>admin/teachers"> Teachers </a></li>
+                                    <li class="<?= $data['title'] == 'Parents'     ? 'active' : '';?>"><a href="<?=URL?>admin/parents"> Parents </a></li>
+                                    <li class="<?= $data['title'] == 'Accounts'    ? 'active' : '';?>"><a href="<?=URL?>admin/accounts"> Accounts </a></li>
+                                    <li class="<?= $data['title'] == 'Violations'  ? 'active' : '';?>"><a href="<?=URL?>admin/violations"> Violations </a></li>
+                                    <li class="<?= $data['title'] == 'School Year' ? 'active' : '';?>"><a href="<?=URL?>admin/school_year"> School Year </a></li>
                                 </ul>
                             </li>
                         <?php  break; case 1: ?>
@@ -87,6 +88,10 @@
                             <li class="<?= $data['title'] == 'Activities' ? 'active':'';?>"><a href="<?=URL?>parents/activities"><i class="icon-check"></i> <span>Activities</span></a></li>
                             <li class="<?= $data['title'] == 'Violations' ? 'active':'';?>"><a href="<?=URL?>parents/violations"><i class="icon-cross3"></i> <span>Violations</span></a></li>
                         <?php break; case 3: ?>
+                        <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>students/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                            <li class="<?= $data['title'] == 'Student Grade Book' ? 'active':'';?>"><a href="<?=URL?>students/student_grade_book"><i class="icon-books"></i> <span>Student Grade Book</span></a></li>
+                            <li class="<?= $data['title'] == 'Activities' ? 'active':'';?>"><a href="<?=URL?>students/activities"><i class="icon-check"></i> <span>Activities</span></a></li>
+                            <li class="<?= $data['title'] == 'Violations' ? 'active':'';?>"><a href="<?=URL?>students/violations"><i class="icon-cross3"></i> <span>Violations</span></a></li>
                         <?php break; } ?>
                     
                     <!-- /main -->

@@ -43,6 +43,7 @@
                                     <th>Second</th>
                                     <th>Third</th>
                                     <th>Fourth</th>
+                                    <th>SY</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -58,6 +59,7 @@
                                         <td><?=$row['second']?></td>
                                         <td><?=$row['third']?></td>
                                         <td><?=$row['fourth']?></td>
+                                        <td><?=$row['school_year']?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

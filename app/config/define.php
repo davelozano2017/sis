@@ -22,7 +22,7 @@ $configs = [
 		'IMAGE'	=> ''	
     ],
     'profile' => [
-        'COMPANY_NAME'  => 'Mendez Christian Academy',
+        'COMPANY_NAME'  => 'Mendez Christian Academy Student Information Portal',
         'DATE_FORMAT'   => 'F d, Y'
     ]    
 ];
