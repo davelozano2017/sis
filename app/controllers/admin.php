@@ -125,6 +125,13 @@ class admin extends Controller {
         $this->view('components/scripts',$data);
     }
 
+    public function form_137() {
+        $data['title'] = 'Form 137';
+        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+
+        $this->view('pages/admin/form_137',$data);
+    }
+
     public function password() {
         $data['title'] = 'Password';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
