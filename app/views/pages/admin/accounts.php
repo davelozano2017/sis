@@ -95,7 +95,7 @@
                         <select onchange="filter_students()" name="LRN" class="form-control" id="LRNN" ng-model="LRN" >
                             <option value="">Select Students</option>
                             <?php foreach($data['students'] as $st) { ?>
-                            <option value="<?=$st['LRN']?>"><?=$st['LRN'].' - '.$st['firstname'].' '.$st['middlename'].' '.$st['firstname']?></option>
+                            <option value="<?=$st['LRN']?>"><?=$st['LRN'].' - '.$st['firstname'].' '.$st['middlename'].' '.$st['surname']?></option>
                             <?php } ?>
                         </select>
                         <span ng-messages="formStudents.LRN.$error" ng-if="formStudents.LRN.$dirty">

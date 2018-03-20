@@ -38,6 +38,8 @@
 								<tr>
                                     <th style="width:1px">#</th>
                                     <th>Name</th>
+                                    <th>Violation</th>
+                                    <th>School Year</th>
                                     <th colspan=4 style="width:1px"></th>
 								</tr>
 							</thead>
@@ -45,9 +47,9 @@
 								<?php $i=0; foreach($data['violations'] as $row) { ?> 
                                     <tr>
                                         <td><?=++$i?></td>
-                                        <td><?=$row['name']?></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td><?=$row['firstname']?></td>
+                                        <td><?=$row['description']?></td>
+                                        <td><?=$row['school_year']?></td>
                                         <td style="width:1px"><a onclick="modify_violations(<?=$row['violations_id']?>)">Edit</a></td>
                                         <td style="width:1px"><a onclick="delete_violations(<?=$row['violations_id']?>)">Delete</a></td>
                                     </tr>
@@ -77,8 +79,13 @@
                     <input type="hidden" class="form-control" id="violations_id" name="violations_id">
                     
                     <div class="form-group">
-                        <input type="text" ng-model="name" id="name" name="name" class="form-control" placeholder="Name" required>
-                        <span ng-messages="formViolations.name.$error" ng-if="formViolations.name.$dirty">
+                        <select name="LRN" class="form-control" id="LRNN" ng-model="LRN" >
+                            <option value="">Select Students</option>
+                            <?php foreach($data['students'] as $st) { ?>
+                            <option value="<?=$st['LRN']?>"><?=$st['LRN'].' - '.$st['firstname'].' '.$st['middlename'].' '.$st['surname']?></option>
+                            <?php } ?>
+                        </select>
+                        <span ng-messages="formViolations.LRN.$error" ng-if="formViolations.LRN.$dirty">
                             <strong ng-message="required" class="text-danger">This field is required.</strong>
                         </span>
                     </div>

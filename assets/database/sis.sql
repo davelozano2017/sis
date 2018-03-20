@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2018 at 11:15 PM
+-- Generation Time: Mar 20, 2018 at 02:14 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -70,10 +70,10 @@ CREATE TABLE `assign_grades` (
 --
 
 INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `section_id`, `subjects_id`, `first`, `second`, `third`, `fourth`, `average`, `school_year`) VALUES
-(2, 16, 3, 7, 4, '100', '100', '100', '100', '', '2018 - 2019'),
-(3, 16, 4, 7, 4, '1', '100', '100', '100', '', '2018 - 2019'),
-(4, 16, 3, 7, 3, '100', '100', '100', '100', '', '2018 - 2019'),
-(5, 16, 3, 7, 5, '100', '100', '100', '100', '', '2018 - 2019');
+(2, 16, 3, 7, 4, '100', '100', '100', '100', '', '2017 - 2018'),
+(3, 16, 4, 7, 4, '1', '100', '100', '100', '', '2017 - 2018'),
+(4, 16, 3, 7, 3, '100', '100', '100', '100', '', '2017 - 2018'),
+(5, 16, 3, 7, 5, '100', '100', '100', '100', '', '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -85,16 +85,19 @@ CREATE TABLE `assign_students` (
   `assign_students_id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
   `students_id` int(11) NOT NULL,
-  `school_year` varchar(255) NOT NULL
+  `school_year` varchar(255) NOT NULL,
+  `assign_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `assign_students`
 --
 
-INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_year`) VALUES
-(17, 7, 3, '2018 - 2019'),
-(19, 7, 4, '2018 - 2019');
+INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_year`, `assign_status`) VALUES
+(19, 7, 4, '2017 - 2018', 0),
+(23, 7, 3, '2017 - 2018', 0),
+(24, 7, 3, '2018 - 2019', 0),
+(25, 7, 4, '2018 - 2019', 0);
 
 -- --------------------------------------------------------
 
@@ -177,7 +180,7 @@ CREATE TABLE `school_year` (
 --
 
 INSERT INTO `school_year` (`school_year_id`, `school_year`) VALUES
-(1, '2018 - 2019');
+(1, '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -263,8 +266,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstname`, `middlename`, `gender`, `contact`, `email`, `address`, `school_year`) VALUES
-(3, 13, '100552246558', 'Cabuga', 'Jeddahlyn', 'Linzag', 'Female', '9265691158', 'cabugajeddahlyn@gmail.com', 'Maligaya Park Quezon City', '2018 - 2019'),
-(4, 12, '100212112121', 'Lozano', 'John Rey', 'Sadia', 'Male', '09555115522', 'johnreylozano@gmail.com', 'Holy Spirit Quezon City', '2018 - 2019');
+(3, 13, '100552246558', 'Cabuga', 'Jeddahlyn', 'Linzag', 'Female', '9265691158', 'cabugajeddahlyn@gmail.com', 'Maligaya Park Quezon City', '2017 - 2018'),
+(4, 12, '100212112121', 'Lozano', 'John Rey', 'Sadia', 'Male', '9555115522', 'johnreylozano@gmail.com', 'Holy Spirit Quezon City', '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -283,11 +286,15 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`subjects_id`, `subjects_name`, `description`) VALUES
-(3, 'Subject 1', 'Subject 1'),
-(4, 'Subject 2', 'Subject 2\r\n'),
-(5, 'Subject 3', 'Subject 3'),
-(6, 'Subject 4', 'Subject 4'),
-(7, 'Subject 5', 'Subject 5');
+(3, 'Mother Tongue', 'Mother Tongue'),
+(4, 'Filipino', 'Filipino'),
+(5, 'English', 'English'),
+(6, 'Mathematics', 'Mathematics'),
+(7, 'Science &amp; Health	', 'Science &amp; Health	'),
+(8, 'Sibika at Kultura', 'Sibika at Kultura'),
+(9, 'MSEP', 'MSEP'),
+(10, 'Christian Living', 'Christian Living'),
+(11, 'Computer Education', 'Computer Education');
 
 -- --------------------------------------------------------
 
@@ -332,20 +339,18 @@ INSERT INTO `users` (`user_id`, `LRNN`, `image`, `name`, `contact`, `email`, `ed
 
 CREATE TABLE `violations` (
   `violations_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(1000) NOT NULL
+  `LRN` varchar(255) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `school_year` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `violations`
 --
 
-INSERT INTO `violations` (`violations_id`, `name`, `description`) VALUES
-(2, 'Violation 1', 'Violation 1'),
-(3, 'Violation 2', 'Violation 2'),
-(4, 'Violation 3', 'Violation 3'),
-(5, 'Violation 4', 'Violation 4'),
-(6, 'Violation 5', 'Violation 5');
+INSERT INTO `violations` (`violations_id`, `LRN`, `description`, `school_year`) VALUES
+(12, '100552246558', 'test', ''),
+(13, '100552246558', 'asdasdas', '2017 - 2018');
 
 --
 -- Indexes for dumped tables
@@ -443,7 +448,7 @@ ALTER TABLE `assign_grades`
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
@@ -485,7 +490,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `subjects_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `subjects_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -497,7 +502,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `violations`
 --
 ALTER TABLE `violations`
-  MODIFY `violations_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `violations_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

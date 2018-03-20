@@ -93,7 +93,15 @@ class account extends Model {
     }
 
     public function get_all_violations() {
-        $query = $this->db->query("SELECT * FROM violations");
+        $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON v.LRN = s.LRN");
+        return $query;
+    }
+    
+    public function get_all_violations_by_LRN() {
+        $check = $this->db->query("SELECT * FROM users WHERE user_id = ".$_SESSION['id']);
+        $row = $check->fetch_object();
+        $lrn = $row->LRNN;
+        $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON v.LRN = s.LRN WHERE v.LRN = '$lrn'");
         return $query;
     }
     
@@ -160,6 +168,20 @@ class account extends Model {
             if($query) {
                 notify('info',$LRN.' has been updated.',true);
             }
+        }
+    }
+    
+    public function get_school_year_using_id($school_year_id) {
+        $query = $this->db->query("SELECT * FROM school_year WHERE school_year_id = '$school_year_id'");
+        echo json_encode($query->fetch_object());
+    }
+
+    public function sy($data) {
+        $school_year_id = $data['school_year_id'];
+        $school_year    = $data['school_year'];
+        $query = $this->db->query("UPDATE school_year SET school_year = '$school_year' WHERE school_year_id = $school_year_id");
+        if($query) {
+            notify('info','School year has been updated.',true);
         }
     }
 
@@ -307,19 +329,17 @@ class account extends Model {
 
 
     public function AddOrUpdateViolations($data) {
+        $sy = $this->db->query("SELECT * FROM school_year LIMIT 1");
+        $row = $sy->fetch_object();
+        $school_year = $row->school_year;
         $violations_id  = $data['violations_id'];
-        $name           = $data['name'];
+        $LRN            = $data['LRN'];
         $description    = $data['description'];
         if(empty($violations_id)) {
-            $check       = $this->db->query("SELECT * FROM violations WHERE name = '$name'");
-            if($check->num_rows > 0) {
-                notify('error','Violation already exist.',false);
-            } else {
-                $query = $this->db->query("INSERT INTO violations (name, description) VALUES ('$name', '$description')");
-                notify('success','New violation has been added.',true);
-            }
+            $query = $this->db->query("INSERT INTO violations (LRN, description,school_year) VALUES ('$LRN', '$description','$school_year')");
+            notify('success','New violation has been added.',true);
         } else {
-            $query = $this->db->query("UPDATE violations SET name = '$name', description = '$description' WHERE violations_id = $violations_id");
+            $query = $this->db->query("UPDATE violations SET LRN = '$LRN', description = '$description' WHERE violations_id = $violations_id");
             notify('info','Violation has been changed.',true);
         }
     }
@@ -457,12 +477,15 @@ class account extends Model {
     }
 
     public function get_assign_in_students($section_id) {
-        $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id WHERE a.section_id = $section_id GROUP BY a.students_id");
+        $sy = $this->db->query("SELECT * FROM school_year LIMIT 1");
+        $row = $sy->fetch_object();
+        $school_year = $row->school_year;
+        $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id WHERE a.section_id = $section_id AND a.school_year = '$school_year' GROUP BY a.students_id");
         return $query;
     }
 
     public function get_all_assign_in_students() {
-        $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id GROUP BY a.students_id");
+        $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id ");
         return $query;
     }
 
@@ -480,13 +503,16 @@ class account extends Model {
     }
 
     public function assign_to_students($data) {
+        $sy = $this->db->query("SELECT * FROM school_year LIMIT 1");
+        $row = $sy->fetch_object();
+        $school_year = $row->school_year;
         $section_id = $data['section_id'];
         foreach($data['students_id'] as $key => $value){
             $students_id = $data['students_id'][$key];
-            $validate = $this->db->query("SELECT * FROM assign_students WHERE students_id = $students_id");
+            $validate = $this->db->query("SELECT * FROM assign_students WHERE students_id = $students_id AND school_year = '$school_year'");
             if($validate->num_rows > 0) {
             } else {
-                $query = $this->db->query("INSERT INTO assign_students (section_id,students_id) VALUES ('$section_id','$students_id')");
+                $query = $this->db->query("INSERT INTO assign_students (section_id,students_id,school_year) VALUES ('$section_id','$students_id','$school_year')");
             }
         }
         notify('success','Successfully assigned.',true);

@@ -95,6 +95,7 @@ class students extends Controller {
     public function violations() {
         $data['title']          = 'Violations';
         $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['violations']     = $this->model('account')->get_all_violations_by_LRN();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);

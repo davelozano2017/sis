@@ -245,6 +245,7 @@ class admin extends Controller {
         $data['title']      = 'Violations';
         $data['user_info']  = $this->model('account')->get_user_information($_SESSION['id']);
         $data['violations'] = $this->model('account')->get_all_violations();
+        $data['students']   = $this->model('account')->get_all_students();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -254,7 +255,7 @@ class admin extends Controller {
     }
 
     public function school_year() {
-        $data['title']       = 'School YEar';
+        $data['title']       = 'School Year';
         $data['user_info']   = $this->model('account')->get_user_information($_SESSION['id']);
         $data['school_year'] = $this->model('account')->get_all_school_year();
         $this->view('components/header',$data);
@@ -332,6 +333,21 @@ class admin extends Controller {
     public function get_students_using_id() {
         $students_id = $this->input->post('students_id');
         $this->model('account')->get_students_using_id($students_id);
+    }
+
+    public function get_school_year_using_id() {
+        $school_year_id = $this->input->post('school_year_id');
+        $this->model('account')->get_school_year_using_id($school_year_id);
+    }
+
+    public function sy() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $data = array( 
+                'school_year_id' => $this->input->post('school_year_id'),
+                'school_year'    => $this->input->post('school_year')
+            );
+            $this->model('account')->sy($data);
+        }
     }
 
     public function delete_students_using_id() {
@@ -439,7 +455,7 @@ class admin extends Controller {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array( 
                 'violations_id' => $this->input->post('violations_id'),
-                'name'          => $this->input->post('name'),
+                'LRN'           => $this->input->post('LRN'),
                 'description'   => $this->input->post('description')
             );
             $this->model('account')->AddOrUpdateViolations($data);

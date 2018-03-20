@@ -28,7 +28,6 @@
             <!-- Sales stats -->
             <div class="panel panel-flat">
                 <div class="panel-heading">
-                    <button onclick="add_new_violations()" class="btn btn-success">Add New</button>
                 </div>
                 
                 <!-- start -->
@@ -44,12 +43,12 @@
 							<tbody>
 								<?php $i=0; foreach($data['school_year'] as $row) { ?> 
                                     <tr>
-                                        <td><?=++$i?></td>
-                                        <td><?=$row['school_year']?></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="width:1px"><a onclick="modify_violations(<?=$row['violations_id']?>)">Edit</a></td>
-                                        <td style="width:1px"><a onclick="delete_violations(<?=$row['violations_id']?>)">Delete</a></td>
+                                        <td style="width:1px"><?=++$i?></td>
+                                        <td style="width:1px"><?=$row['school_year']?></td>
+                                        <td style="width:1px"></td>
+                                        <td style="width:1px"></td>
+                                        <td style="width:1px"></td>
+                                        <td style="width:1px"><a onclick="modify_school_year(<?=$row['school_year_id']?>)">Edit</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -63,29 +62,22 @@
     <!-- /main charts -->
 
     <!-- Success modal -->
-<div id="modal-violations" class="modal fade">
+<div id="modal-school-year" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h6 class="modal-title">Violations</h6>
+                <h6 class="modal-title">School Year</h6>
             </div>
 
             <div class="modal-body">
-                <form novalidate name="formViolations" id="formViolations" method="POST">
+                <form novalidate name="formSchoolYear" id="formSchoolYear" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
-                    <input type="hidden" class="form-control" id="violations_id" name="violations_id">
+                    <input type="hidden" class="form-control" id="school_year_id" name="school_year_id">
                     
                     <div class="form-group">
-                        <input type="text" ng-model="name" id="name" name="name" class="form-control" placeholder="Name" required>
-                        <span ng-messages="formViolations.name.$error" ng-if="formViolations.name.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea Placeholder="Description" name="description" id="description" ng-model="description" class="form-control" style="resize:none" required></textarea>
-                        <span ng-messages="formViolations.description.$error" ng-if="formViolations.description.$dirty">
+                        <input type="text" ng-model="school_year" id="school_year" name="school_year" class="form-control" placeholder="School Year" required>
+                        <span ng-messages="formSchoolYear.school_year.$error" ng-if="formSchoolYear.school_year.$dirty">
                             <strong ng-message="required" class="text-danger">This field is required.</strong>
                         </span>
                     </div>
@@ -94,7 +86,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btn-violations" onclick="violations()" ng-disabled="formViolations.$invalid"></button>
+                <button type="button" class="btn btn-success" id="btn-school-year" onclick="school_year()" ng-disabled="formSchoolYear.$invalid"></button>
             </div>
         </div>
     </div>

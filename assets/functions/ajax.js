@@ -79,6 +79,25 @@ function modify_activity(activity_id) {
     })
 }
 
+function modify_school_year(school_year_id) {
+    var modal = $('#modal-school-year');
+    $('#btn-school-year').html('Save Changes <i class="icon-arrow-right14 position-right"></i>');
+    $.ajax({
+        type : 'POST',
+        url : url+'get_school_year_using_id',
+        data : { school_year_id : school_year_id },
+        dataType : 'json',
+        success:function(data){
+            modal.find($('#school_year_id')).val(school_year_id);
+            modal.find($('#school_year')).val(data.school_year);
+            modal.modal();
+            $('#btn-school-year').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
+        }
+    })
+}
+
+
+
 function delete_activity(activity_id) {
     $.ajax({
         type : 'POST',
@@ -490,7 +509,7 @@ function modify_violations(violations_id) {
         dataType : 'json',
         success:function(data){
             modal.find($('#violations_id')).val(violations_id);
-            modal.find($('#name')).val(data.name);
+            modal.find($('#LRNN')).val(data.LRN);
             modal.find($('#description')).val(data.description);
             modal.modal();
             $('#btn-violations').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
@@ -738,6 +757,23 @@ function filter_students() {
             $("#contact").val(data.contact);
             $('#email').val(data.email);
             $('#btn-accounts').attr('disabled',false);
+        }
+    })
+}
+
+function school_year() {
+    var data = $('#formSchoolYear').serialize();
+    $.ajax({
+        type : 'POST',
+        url : url + 'sy',
+        data : data,
+        dataType: 'json',
+        beforeSend:function() {
+            $('#btn-school-year').html(' <i class="icon-spinner2 spinner"></i>').attr('disabled',true);
+        },
+        success:function(data) {
+            data.success === true ? location.href = url + 'school_year' : notify(data.type,data.message);
+            $('#btn-school-year').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
         }
     })
 }
