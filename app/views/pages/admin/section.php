@@ -6,6 +6,11 @@
             <div class="page-title">
                 <h4>Section</h4>
             </div>
+            <div class="heading-elements">
+                <div class="heading-btn-group">
+                    <a href="#" class="btn btn-link btn-float text-size-small has-text"><span>School Year : <?=$data['school_year']->school_year?></span></a>
+                </div>
+            </div>
         </div>
 
         <div class="breadcrumb-line">
@@ -76,7 +81,7 @@
             <div class="modal-body">
                 <form novalidate name="formSection" id="formSection" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
-                    <input type="hidden" class="form-control" id="section_id" name="section_id">
+                    <input type="hidden" class="form-control" id="sec_id" name="section_id">
                     
                     <div class="form-group">
                         <input type="text" ng-model="name" id="name" name="name"  class="form-control" placeholder="Section Name" required>

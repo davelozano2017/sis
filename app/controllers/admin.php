@@ -8,11 +8,12 @@ class admin extends Controller {
 
     // pages 
     public function index() {
-        $data['title']     = 'Dashboard';
-        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
-        $data['events']    = $this->model('account')->get_all_events();
-        $data['teachers']  = $this->model('account')->get_all_teachers();
-        $data['students']  = $this->model('account')->get_all_students();
+        $data['title']       = 'Dashboard';
+        $data['user_info']   = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['events']      = $this->model('account')->get_all_events();
+        $data['teachers']    = $this->model('account')->get_all_teachers();
+        $data['students']    = $this->model('account')->get_all_students();
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -27,6 +28,7 @@ class admin extends Controller {
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['teachers']  = $this->model('account')->get_all_teachers();
         $data['subjects']  = $this->model('account')->get_all_subjects();
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['section']   = $this->model('account')->get_all_section();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -39,6 +41,7 @@ class admin extends Controller {
     public function view_assign_in_teachers($user_id) {
         $data['title']              = 'Assign Teachers';
         $data['user_info']          = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['assign_in_teachers'] = $this->model('account')->get_assign_in_teachers($user_id);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -51,6 +54,7 @@ class admin extends Controller {
     public function view_assign_in_students($section_id) {
         $data['title']              = 'Assign Students';
         $data['user_info']          = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['assign_in_students'] = $this->model('account')->get_assign_in_students($section_id);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -62,6 +66,7 @@ class admin extends Controller {
 
     public function report_student_master_list() {
         $data['title']              = 'Student Master List';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info']          = $this->model('account')->get_user_information($_SESSION['id']);
         $data['all_assign_in_students'] = $this->model('account')->get_all_assign_in_students();
         $this->view('components/header',$data);
@@ -76,6 +81,7 @@ class admin extends Controller {
         $data['title']     = 'Assign Students';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['section']   = $this->model('account')->get_all_section();
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['students']  = $this->model('account')->get_all_students();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -117,6 +123,7 @@ class admin extends Controller {
     public function profile() {
         $data['title'] = 'Profile';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -128,12 +135,12 @@ class admin extends Controller {
     public function form_137() {
         $data['title'] = 'Form 137';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
-
         $this->view('pages/admin/form_137',$data);
     }
 
     public function password() {
         $data['title'] = 'Password';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -147,6 +154,7 @@ class admin extends Controller {
         $data['title']     = 'Activity';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['activity']  = $this->model('account')->get_all_activity();
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -157,6 +165,7 @@ class admin extends Controller {
 
     public function events() {
         $data['title']     = 'Events';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['events']    = $this->model('account')->get_all_events();
         $this->view('components/header',$data);
@@ -169,6 +178,7 @@ class admin extends Controller {
 
     public function students() {
         $data['title']      = 'Students';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info']  = $this->model('account')->get_user_information($_SESSION['id']);
         $data['students']   = $this->model('account')->get_all_students();
         $data['parents']    = $this->model('account')->get_all_parents();
@@ -181,6 +191,7 @@ class admin extends Controller {
     }
 
     public function section() {
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['title']     = 'Section';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['section']   = $this->model('account')->get_all_section();
@@ -194,6 +205,7 @@ class admin extends Controller {
 
     public function subjects() {
         $data['title']      = 'Subjects';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info']  = $this->model('account')->get_user_information($_SESSION['id']);
         $data['subjects']   = $this->model('account')->get_all_subjects();
         $this->view('components/header',$data);
@@ -206,6 +218,7 @@ class admin extends Controller {
 
     public function teachers() {
         $data['title']     = 'Teachers';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['teachers']  = $this->model('account')->get_all_teachers();
         $this->view('components/header',$data);
@@ -219,6 +232,7 @@ class admin extends Controller {
     public function parents() {
         $data['title']     = 'Parents';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['parents']   = $this->model('account')->get_all_parents();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -230,6 +244,7 @@ class admin extends Controller {
 
     public function accounts() {
         $data['title'] = 'Accounts';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['accounts'] = $this->model('account')->get_all_users();
         $data['students'] = $this->model('account')->get_all_students();
@@ -245,6 +260,7 @@ class admin extends Controller {
         $data['title']      = 'Violations';
         $data['user_info']  = $this->model('account')->get_user_information($_SESSION['id']);
         $data['violations'] = $this->model('account')->get_all_violations();
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['students']   = $this->model('account')->get_all_students();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -257,6 +273,7 @@ class admin extends Controller {
     public function school_year() {
         $data['title']       = 'School Year';
         $data['user_info']   = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['school_year'] = $this->model('account')->get_all_school_year();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);

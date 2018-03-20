@@ -9,6 +9,7 @@ class students extends Controller {
     // pages 
     public function index() {
         $data['title'] = 'Dashboard';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -19,6 +20,7 @@ class students extends Controller {
     }
 
     public function profile() {
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['title'] = 'Profile';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $this->view('components/header',$data);
@@ -32,6 +34,7 @@ class students extends Controller {
     public function password() {
         $data['title'] = 'Password';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -71,6 +74,7 @@ class students extends Controller {
     
     public function student_grade_book() {
         $data['title']          = 'Student Grade Book';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
         $data['get_all_grades'] = $this->model('account')->get_all_grades_by_stud();
         $this->view('components/header',$data);
@@ -82,6 +86,7 @@ class students extends Controller {
     }
 
     public function activities() {
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['title']          = 'Activities';
         $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
         $this->view('components/header',$data);
@@ -94,6 +99,7 @@ class students extends Controller {
 
     public function violations() {
         $data['title']          = 'Violations';
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
         $data['violations']     = $this->model('account')->get_all_violations_by_LRN();
         $this->view('components/header',$data);

@@ -53,8 +53,8 @@ th {
     <th style="border:1px solid #fff" rowspan=1><img style="width:80px;height:50px"src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
 </tr>
 <tr>
-    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: &nbsp;&nbsp;&nbsp;Lozano &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;John David &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S</td>
-    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" >Sex:: Male</td>
+    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: </td>
+    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" >Sex:: </td>
 </tr>
 
 <tr>
@@ -64,9 +64,9 @@ th {
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
 
-<td style="border:1px solid #fff;width:40%" >Date Of Birth: <label style="width:100%;border-bottom:1px solid #000">March 31, 1994</label></td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%margin-right:5px" >Date Of Birth:</td>
 
-<td style="border:1px solid #fff;text-align:center;width:60%">Place Of Birth:  <label style="width:100%;border-bottom:1px solid #000"> Quezon City </label></td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;;text-align:center;width:60%">Place Of Birth:  </td>
 </tr>
 </table>
 
@@ -88,9 +88,9 @@ th {
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
 
-<td style="border:1px solid #fff;width:40%" >Pre-Elementary Course Completed: <label style="width:100%;border-bottom:1px solid #000">Text</label></td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:20%" >Pre-Elementary Course Completed: </td>
 
-<td style="border:1px solid #fff;text-align:center;width:60%">General Average:  <label style="width:100%;border-bottom:1px solid #000"> Text  </label></td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;text-align:center;width:30%">General Average: </td>
 </tr>
 </table>
 <table style="width:100%" cellspacing=0 border=1>

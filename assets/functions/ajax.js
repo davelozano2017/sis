@@ -272,7 +272,7 @@ function modify_section(section_id) {
         data : { section_id : section_id },
         dataType : 'json',
         success:function(data){
-            modal.find($('#section_id')).val(section_id);
+            modal.find($('#sec_id')).val(section_id);
             modal.find($('#name')).val(data.section_name);
             modal.find($('#level')).val(data.level);
             modal.find($('#description')).val(data.description);

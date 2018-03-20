@@ -6,6 +6,11 @@
             <div class="page-title">
                 <h4>Activity</h4>
             </div>
+            <div class="heading-elements">
+                <div class="heading-btn-group">
+                    <a href="#" class="btn btn-link btn-float text-size-small has-text"><span>School Year : <?=$data['school_year']->school_year?></span></a>
+                </div>
+            </div>
         </div>
 
         <div class="breadcrumb-line">
