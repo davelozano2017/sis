@@ -1,5 +1,5 @@
 <?php
-
+$con = new mysqli('localhost','root','','sis');
 function redirect($url){
 	header("Location: ".URL_ROOT."$url");
 }
@@ -14,6 +14,12 @@ function hashing($password) {
 
 function notify($type,$message,$success) {
 	echo json_encode(['type' => $type, 'message' => $message, 'success' => $success]);
+}
+
+function count_sections($section_id) {
+	global $con;
+	$query = $con->query("SELECT * FROM assign_students WHERE section_id = $section_id");
+	return $query->num_rows;
 }
 
 function error_message($data){

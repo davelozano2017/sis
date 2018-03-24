@@ -106,13 +106,13 @@ class teachers extends Controller {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array( 
                 'user_id'     => $_SESSION['id'],
-                'section_id'  => $this->input->post('section_id'),
                 'subjects_id' => $this->input->post('subjects_id'),
-                'students_id' => $this->input->post('students_id'),
-                'first'       => $this->input->post('first'),
-                'second'      => $this->input->post('second'),
-                'third'       => $this->input->post('third'),
-                'fourth'      => $this->input->post('fourth')
+                'section_id'  => $_POST['section_id'],
+                'students_id' => $_POST['students_id'],
+                'first'       => $_POST['first'],
+                'second'      => $_POST['second'],
+                'third'       => $_POST['third'],
+                'fourth'      => $_POST['fourth']
             );
             $this->model('account')->assign_student_grades($data);
         }

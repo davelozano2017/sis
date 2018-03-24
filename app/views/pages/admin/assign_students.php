@@ -45,7 +45,8 @@
                                     <th style="width:1px">Code</th>
                                     <th>Section Name</th>
                                     <th>Level</th>
-                                    <th colspan=2 style="width:1px"></th>
+                                    <th>Students</th>
+                                    <th style="width:1px"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -55,7 +56,7 @@
                                         <td style="width:1px">SEC#<?=str_pad($row['section_id'],5,0,STR_PAD_LEFT)?></td>
                                         <td><?=$row['section_name']?></td>
                                         <td><?=$row['level']?></td>
-                                        <td style="width:1px"></td>
+                                        <td style="width:1px"><?=count_sections($row['section_id'])?></td>
                                         <td style="width:200px"><a class="btn btn-success" onclick="assign_students(<?=$row['section_id']?>)">Assign</a> <a class="btn btn-success" href="<?=URL?>admin/view_assign_in_students/<?=$row['section_id']?>">View</a></td>
                                     </tr>
                                 <?php } ?>

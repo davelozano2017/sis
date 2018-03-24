@@ -31,7 +31,9 @@
 
             <!-- Sales stats -->
             <div class="panel panel-flat">
-                <div class="panel-heading"></div>
+                <div class="panel-heading">
+                <a class="btn btn-success" onclick="assign_grades_in_students()">Assign Grades</a> 
+                </div>
                 
                 <!-- start -->
                     <div class="container-fluid">
@@ -42,7 +44,7 @@
                                     <th>Name</th>
                                     <th>Grade</th>
                                     <th>Sections</th>
-                                    <th colspan=3  style="width:1px"></th>
+                                    <th colspan=3 style="width:1px"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -52,7 +54,7 @@
                                         <td><?=$row['firstname']. ' '.$row['middlename']. ' '.$row['surname']?></td>
                                         <td><?=$row['level']?></td>
                                         <td><?=$row['section_name']?></td>
-                                        <td style="width:1px"><a class="btn btn-success" onclick="assign_grades_in_students(<?=$row['section_id']?>,<?=$row['students_id']?>)">Assign Grades</a> </td>
+                                        <td style="width:1px"></td>
                                         <td style="width:1px"><a class="btn btn-success" href="<?=URL?>teachers/view_grades/<?=$row['students_id']?>">View</a></td>
                                     </tr>
                                 <?php } ?>
@@ -68,6 +70,80 @@
 
 <!-- Success modal -->
 <div id="modal-assign-grades" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Assign grades</h6>
+            </div>
+
+            <div class="modal-body">
+                <form novalidate name="formAssign" id="formAssign" method="POST">
+                <input type="hidden" id="token" name="token" value="<?=TOKEN?>">
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-md-4 col-sm-4" style="margin-top:10px">Students</div>
+                            <div class="col-md-8 col-sm-8">
+                                <select name="subjects_id" id="subjects_id" class="form-control">
+                                    <option value="">Select Subject</option>
+                                    <?php foreach($data['subjects'] as $subjects_row) { ?>
+                                        <option value="<?=$subjects_row['subjects_id']?>"><?=$subjects_row['subjects_name']?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <?php foreach($data['all_assign_in_students_by_teacher'] as $row) { ?> 
+                    <input type="hidden" name="students_id[]" value="<?=$row['students_id']?>">
+                    <input type="hidden" name="section_id[]" value="<?=$row['section_id']?>">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-4 col-sm-4" style="margin-top:10px">
+                                    <p><?=$row['firstname']. ' '.$row['middlename']. ' '.$row['surname']?></p>
+                                </div>
+
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="number" min=0 name="first[]" placeholder="1st Grading" class="form-control">
+                                </div>
+
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="number" min=0 name="second[]" placeholder="2nd Grading" class="form-control">
+                                </div>
+
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="number" min=0 name="third[]" placeholder="3rd Grading" class="form-control">
+                                </div>
+
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="number" min=0 name="fourth[]" placeholder="4th Grading" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btn-assign-student-grades" onclick="assign_student_grades()" ng-disabled="formAssign.$invalid"></button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /success modal -->
+
+
+<!-- Success modal -->
+<!-- <div id="modal-assign-grades" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success">
@@ -128,5 +204,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- /success modal -->

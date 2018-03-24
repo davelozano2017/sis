@@ -720,8 +720,6 @@ function delete_assign_in_students(section_id,students_id) {
 function assign_grades_in_students(section_id,students_id,subjects_id) {
     var modal = $('#modal-assign-grades');
     $('#btn-assign-student-grades').html('Assign <i class="icon-arrow-right14 position-right"></i>');
-    modal.find($('#sec_id')).val(section_id);
-    modal.find($('#stud_id')).val(students_id);
     modal.modal();
 }
 
