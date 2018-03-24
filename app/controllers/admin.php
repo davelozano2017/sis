@@ -273,7 +273,6 @@ class admin extends Controller {
     public function school_year() {
         $data['title']       = 'School Year';
         $data['user_info']   = $this->model('account')->get_user_information($_SESSION['id']);
-        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['school_year'] = $this->model('account')->get_all_school_year();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);

@@ -8,7 +8,7 @@
             </div>
             <div class="heading-elements">
                 <div class="heading-btn-group">
-                    <a href="#" class="btn btn-link btn-float text-size-small has-text"><span>School Year : <?=$data['school_year']->school_year?></span></a>
+                    <a href="#" class="btn btn-link btn-float text-size-small has-text"><span>School Year : <?=$data['school_year']->fetch_object()->school_year?></span></a>
                 </div>
             </div>
         </div>
