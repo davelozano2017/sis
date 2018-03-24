@@ -61,7 +61,12 @@
                                 <a href="#"><i class="icon-graph"></i> <span>Reports</span></a>
                                 <ul>
                                     <li class="<?= $data['title'] == 'Student Master List' ? 'active' : '';?>"><a href="<?=URL?>admin/report_student_master_list"> Student Master Lists </a></li>
-                                    <li class="<?= $data['title'] == 'Form 137'            ? 'active' : '';?>"><a href="<?=URL?>admin/form_137"> Generate Form 137 </a></li>
+                                    <li><a href="#"> Generate Form 137 </a> 
+                                        <ul>
+                                            <li class="<?= $data['title'] == 'Elementary' ? 'active' : '';?>"><a href="<?=URL?>admin/form_137_elementary"> Elementary</a></li>
+                                            <li class="<?= $data['title'] == 'Secondary'  ? 'active' : '';?>"><a href="<?=URL?>admin/form_137_secondary"> Secondary </a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li>
