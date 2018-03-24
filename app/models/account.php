@@ -67,6 +67,7 @@ class account extends Model {
         return $query;
     }
 
+
     public function get_all_school_year() {
         $query = $this->db->query("SELECT * FROM school_year");
         return $query;
@@ -523,21 +524,35 @@ class account extends Model {
         $row = $sy->fetch_object();
         $school_year = $row->school_year;
         $user_id     = $data['user_id'];
-        $section_id  = $data['section_id'];
         $subjects_id = $data['subjects_id'];
-        $students_id = $data['students_id'];
-        $first       = $data['first'];
-        $second      = $data['second'];
-        $third       = $data['third'];
-        $fourth      = $data['fourth'];
-        $validate    = $this->db->query("SELECT * FROM assign_grades WHERE students_id = $students_id AND section_id = $section_id AND subjects_id = $subjects_id");
-        if($validate->num_rows > 0) {
-            notify('error','Grades already assigned.',false);
-        } else {
-            $query = $this->db->query("INSERT INTO assign_grades (teachers_id,students_id,section_id,subjects_id,first,second,third,fourth,school_year) VALUES ('$user_id','$students_id','$section_id','$subjects_id','$first','$second','$third','$fourth','$school_year')");
-            if($query) {
-                notify('success','Grades successfully assigned.',true);
+        $flag = '';
+        foreach($_POST['students_id'] as $key => $value) {
+            $section_id  = $data['section_id'][$key];
+            $students_id = $data['students_id'][$key];
+            $first       = $data['first'][$key];
+            $second      = $data['second'][$key];
+            $third       = $data['third'][$key];
+            $fourth      = $data['fourth'][$key];
+            if(empty($first) || empty($second) || empty($third) || empty($fourth) || empty($subjects_id)) {
+                $flag = 2;
+            } else {
+                $validate    = $this->db->query("SELECT * FROM assign_grades WHERE students_id = $students_id AND section_id = $section_id AND subjects_id = $subjects_id");
+                if($validate->num_rows > 0) {
+                    $flag = 0;
+                } else {
+                    $query = $this->db->query("INSERT INTO assign_grades (teachers_id,students_id,section_id,subjects_id,first,second,third,fourth,school_year) VALUES ('$user_id','$students_id','$section_id','$subjects_id','$first','$second','$third','$fourth','$school_year')");
+                    if($query) {
+                        $flag = 1;
+                    }
+                }
             }
+        }
+        if($flag == 0) {
+            notify('error','Grades already assigned.',false);
+        } elseif($flag == 1) {
+            notify('success','Grades successfully assigned.',true);
+        } else {
+            notify('error','Please fill up all fields.',false);
         }
     }
 
