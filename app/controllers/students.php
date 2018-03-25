@@ -11,6 +11,8 @@ class students extends Controller {
         $data['title'] = 'Dashboard';
         $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['subjects']    = $this->model('account')->get_my_subjects($_SESSION['id']);
+        $data['violations']    = $this->model('account')->get_my_violations($_SESSION['id']);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2018 at 02:14 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Mar 25, 2018 at 08:18 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -57,11 +57,11 @@ CREATE TABLE `assign_grades` (
   `students_id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
   `subjects_id` int(11) NOT NULL,
-  `first` varchar(255) NOT NULL,
-  `second` varchar(255) NOT NULL,
-  `third` varchar(255) NOT NULL,
-  `fourth` varchar(255) NOT NULL,
-  `average` varchar(255) NOT NULL,
+  `first` int(3) NOT NULL,
+  `second` int(3) NOT NULL,
+  `third` int(3) NOT NULL,
+  `fourth` int(3) NOT NULL,
+  `average` int(3) NOT NULL,
   `school_year` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -70,10 +70,15 @@ CREATE TABLE `assign_grades` (
 --
 
 INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `section_id`, `subjects_id`, `first`, `second`, `third`, `fourth`, `average`, `school_year`) VALUES
-(2, 16, 3, 7, 4, '100', '100', '100', '100', '', '2017 - 2018'),
-(3, 16, 4, 7, 4, '1', '100', '100', '100', '', '2017 - 2018'),
-(4, 16, 3, 7, 3, '100', '100', '100', '100', '', '2017 - 2018'),
-(5, 16, 3, 7, 5, '100', '100', '100', '100', '', '2017 - 2018');
+(49, 16, 3, 7, 3, 100, 0, 0, 0, 0, '2017 - 2018'),
+(50, 16, 4, 7, 3, 100, 0, 0, 0, 0, '2017 - 2018'),
+(51, 16, 5, 7, 3, 100, 0, 0, 0, 0, '2017 - 2018'),
+(52, 16, 3, 7, 5, 100, 100, 100, 100, 0, '2017 - 2018'),
+(53, 16, 4, 7, 5, 100, 100, 100, 100, 0, '2017 - 2018'),
+(54, 16, 5, 7, 5, 100, 100, 100, 100, 0, '2017 - 2018'),
+(55, 16, 3, 7, 4, 100, 100, 100, 100, 0, '2017 - 2018'),
+(56, 16, 4, 7, 4, 100, 100, 100, 100, 0, '2017 - 2018'),
+(57, 16, 5, 7, 4, 100, 100, 100, 100, 0, '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -96,8 +101,7 @@ CREATE TABLE `assign_students` (
 INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_year`, `assign_status`) VALUES
 (19, 7, 4, '2017 - 2018', 0),
 (23, 7, 3, '2017 - 2018', 0),
-(24, 7, 3, '2018 - 2019', 0),
-(25, 7, 4, '2018 - 2019', 0);
+(26, 7, 5, '2017 - 2018', 0);
 
 -- --------------------------------------------------------
 
@@ -267,7 +271,8 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstname`, `middlename`, `gender`, `contact`, `email`, `address`, `school_year`) VALUES
 (3, 13, '100552246558', 'Cabuga', 'Jeddahlyn', 'Linzag', 'Female', '9265691158', 'cabugajeddahlyn@gmail.com', 'Maligaya Park Quezon City', '2017 - 2018'),
-(4, 12, '100212112121', 'Lozano', 'John Rey', 'Sadia', 'Male', '9555115522', 'johnreylozano@gmail.com', 'Holy Spirit Quezon City', '2017 - 2018');
+(4, 12, '100212112121', 'Lozano', 'John Rey', 'Sadia', 'Male', '9555115522', 'johnreylozano@gmail.com', 'Holy Spirit Quezon City', '2017 - 2018'),
+(5, 13, '100355485216', 'Cabuga', 'Mariss', 'Linzag', 'Female', '9265691158', 'marisscabuga@gmail.com', 'Maligaya Park Quezon City', '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -442,13 +447,13 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT for table `assign_grades`
 --
 ALTER TABLE `assign_grades`
-  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
@@ -484,7 +489,7 @@ ALTER TABLE `section`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `subjects`

@@ -46,11 +46,16 @@
                                     <th>Second</th>
                                     <th>Third</th>
                                     <th>Fourth</th>
+                                    <th>Average</th>
                                     <th>SY</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php $i=0; foreach($data['get_all_grades'] as $row) { ?> 
+                                    <?php 
+                                        $set = $row['first'] + $row['second'] + $row['third'] + $row['fourth']; 
+                                        $average = $set / 4;
+                                    ?>
                                     <tr>
                                         <td><?=++$i?></td>
                                         <td><?=$row['level']?></td>
@@ -60,6 +65,7 @@
                                         <td><?=$row['second']?></td>
                                         <td><?=$row['third']?></td>
                                         <td><?=$row['fourth']?></td>
+                                        <td><?=$average?>%</td>
                                         <td><?=$row['school_year']?></td>
                                     </tr>
                                 <?php } ?>

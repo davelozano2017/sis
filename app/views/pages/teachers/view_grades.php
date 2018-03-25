@@ -46,12 +46,17 @@
                                     <th>Second</th>
                                     <th>Third</th>
                                     <th>Fourth</th>
+                                    <th>Average</th>
                                     <th>School Year</th>
                                     <th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php $i=0; foreach($data['get_all_grades'] as $row) { ?> 
+                                    <?php 
+                                        $set = $row['first'] + $row['second'] + $row['third'] + $row['fourth']; 
+                                        $average = $set / 4;
+                                    ?>
                                     <tr>
                                         <td><?=++$i?></td>
                                         <td><?=$row['level']?></td>
@@ -61,6 +66,7 @@
                                         <td><?=$row['second']?></td>
                                         <td><?=$row['third']?></td>
                                         <td><?=$row['fourth']?></td>
+                                        <td><?=$average?>%</td>
                                         <td><?=$row['school_year']?></td>
                                         <td><button onclick="update_grades(<?=$row['assign_grades_id']?>)" class="btn btn-success">Update</button></td>
                                     </tr>

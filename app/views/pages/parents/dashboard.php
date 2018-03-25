@@ -26,20 +26,22 @@
     <!-- Main charts -->
     <div class="row">
 
-        <div class="col-lg-12">
-
-            <!-- Sales stats -->
-            <div class="panel panel-flat">
-                <div class="panel-heading"></div>
-                
-                <!-- start -->
-                    <div class="container-fluid">
-                    
+        <div class="col-sm-6 col-md-4">
+            <div class="panel panel-body has-bg-image">
+                <div class="media no-margin">
+                    <div class="media-body">
+                        <h3 class="no-margin"><?=$data['my_students']->num_rows?></h3>
+                        <span class="text-uppercase text-size-mini">My Students</span>
                     </div>
-                <!-- end -->
 
+                    <div class="media-right media-middle">
+                        <i class="icon-users icon-3x opacity-75"></i>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- /widget with rounded icon -->
     </div>
     <!-- /main charts -->
 

@@ -26,20 +26,36 @@
     <!-- Main charts -->
     <div class="row">
 
-        <div class="col-lg-12">
-
-            <!-- Sales stats -->
-            <div class="panel panel-flat">
-                <div class="panel-heading"></div>
-                
-                <!-- start -->
-                    <div class="container-fluid">
-                    
+        <div class="col-sm-6 col-md-6">
+            <div class="panel panel-body has-bg-image">
+                <div class="media no-margin">
+                    <div class="media-body">
+                        <h3 class="no-margin"><?=$data['subjects']->num_rows?></h3>
+                        <span class="text-uppercase text-size-mini">Subjects</span>
                     </div>
-                <!-- end -->
 
+                    <div class="media-right media-middle">
+                        <i class="icon-books icon-3x opacity-75"></i>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="col-sm-6 col-md-6">
+            <div class="panel panel-body has-bg-image">
+                <div class="media no-margin">
+                    <div class="media-body">
+                        <h3 class="no-margin"><?=$data['violations']->num_rows?></h3>
+                        <span class="text-uppercase text-size-mini">Violations</span>
+                    </div>
+
+                    <div class="media-right media-middle">
+                        <i class="icon-cross icon-3x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- /main charts -->
 

@@ -62,6 +62,21 @@ class account extends Model {
         return $query;
     }
 
+    public function get_my_students($user_id) {
+        $query = $this->db->query("SELECT * FROM students as s INNER JOIN users as u ON s.guardian_id = u.user_id WHERE u.user_id = $user_id");
+        return $query;
+    }
+    
+    public function get_my_subjects($user_id) {
+        $query = $this->db->query("SELECT * FROM assign_teachers as ast INNER JOIN assign_students as ass ON ass.section_id = ast.section_id GROUP BY ast.subjects_id");
+        return $query;
+    }
+
+    public function get_my_violations($user_id) {
+        $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON s.LRN = v.LRN");
+        return $query;
+    }
+
     public function get_all_section() {
         $query = $this->db->query("SELECT * FROM section");
         return $query;

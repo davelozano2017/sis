@@ -10,6 +10,7 @@ class parents extends Controller {
     public function index() {
         $data['title'] = 'Dashboard';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['my_students']    = $this->model('account')->get_my_students($_SESSION['id']);
         $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
