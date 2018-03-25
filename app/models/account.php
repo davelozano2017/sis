@@ -105,6 +105,11 @@ class account extends Model {
         $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON v.LRN = s.LRN WHERE v.LRN = '$lrn'");
         return $query;
     }
+
+    public function view_violations() {
+        $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON v.LRN = s.LRN INNER JOIN users as u ON u.user_id = s.guardian_id WHERE u.user_id = ".$_SESSION['id']);
+        return $query;
+    }
     
     public function AddOrUpdateEvents($data) {
         $events_id   = $data['events_id'];
@@ -526,16 +531,16 @@ class account extends Model {
         $user_id     = $data['user_id'];
         $subjects_id = $data['subjects_id'];
         $flag = '';
-        foreach($_POST['students_id'] as $key => $value) {
-            $section_id  = $data['section_id'][$key];
-            $students_id = $data['students_id'][$key];
-            $first       = $data['first'][$key];
-            $second      = $data['second'][$key];
-            $third       = $data['third'][$key];
-            $fourth      = $data['fourth'][$key];
-            if(empty($first) || empty($second) || empty($third) || empty($fourth) || empty($subjects_id)) {
-                $flag = 2;
-            } else {
+        if(empty($subjects_id)) {
+            $flag = 2;
+        } else {
+            foreach($_POST['students_id'] as $key => $value) {
+                $section_id  = $data['section_id'][$key];
+                $students_id = $data['students_id'][$key];
+                $first       = $data['first'][$key];
+                $second      = $data['second'][$key];
+                $third       = $data['third'][$key];
+                $fourth      = $data['fourth'][$key];
                 $validate    = $this->db->query("SELECT * FROM assign_grades WHERE students_id = $students_id AND section_id = $section_id AND subjects_id = $subjects_id");
                 if($validate->num_rows > 0) {
                     $flag = 0;
@@ -547,14 +552,27 @@ class account extends Model {
                 }
             }
         }
+        
         if($flag == 0) {
             notify('error','Grades already assigned.',false);
         } elseif($flag == 1) {
             notify('success','Grades successfully assigned.',true);
         } else {
-            notify('error','Please fill up all fields.',false);
+            notify('error','Please select subject.',false);
         }
     }
+
+    public function update_student_grades($data) {
+        $assign_grades_id = $data['assign_grades_id'];
+        $first            = $data['first'];
+        $second           = $data['second'];
+        $third            = $data['third'];
+        $fourth           = $data['fourth'];
+        $query            = $this->db->query("UPDATE assign_grades SET first = '$first', second = '$second', third = '$third', fourth = '$fourth' WHERE assign_grades_id = $assign_grades_id");
+        return $query ? notify('success','Grades successfully updated.',true) : null;
+    }
+
+    
 
     public function get_students_by_teacher($teachers_id) {
         $query = $this->db->query("SELECT * FROM assign_teachers as at INNER JOIN assign_students as a ON at.section_id = a.section_id WHERE at.teachers_id = $teachers_id GROUP BY a.students_id");
@@ -582,6 +600,11 @@ class account extends Model {
 
     public function filter_students($LRN) {
         $query = $this->db->query("SELECT * FROM students WHERE LRN = '$LRN'");
+        echo json_encode($query->fetch_object());
+    }
+
+    public function get_assigned_grades($assign_grades_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades WHERE assign_grades_id = '$assign_grades_id'");
         echo json_encode($query->fetch_object());
     }
 

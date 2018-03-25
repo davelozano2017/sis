@@ -100,7 +100,8 @@ class parents extends Controller {
     public function violations() {
         $data['title']          = 'Violations';
         $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
-        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['school_year']    = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['view_violations']     = $this->model('account')->view_violations();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);

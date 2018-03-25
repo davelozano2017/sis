@@ -28,7 +28,7 @@
 .tg .tg-dvpl{border-color:inherit;text-align:right;vertical-align:top}
 </style>
 </head>
-<body >
+<body onload="print()">
 
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
