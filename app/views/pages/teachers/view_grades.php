@@ -47,6 +47,7 @@
                                     <th>Third</th>
                                     <th>Fourth</th>
                                     <th>School Year</th>
+                                    <th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -61,6 +62,7 @@
                                         <td><?=$row['third']?></td>
                                         <td><?=$row['fourth']?></td>
                                         <td><?=$row['school_year']?></td>
+                                        <td><button onclick="update_grades(<?=$row['assign_grades_id']?>)" class="btn btn-success">Update</button></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -72,3 +74,57 @@
         </div>
     </div>
     <!-- /main charts -->
+
+
+
+<!-- Success modal -->
+<div id="modal-assign-grades" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Assign grades</h6>
+            </div>
+
+            <div class="modal-body">
+                <form novalidate name="formAssign" id="formAssign" method="POST">
+                    <input type="hidden" id="token" name="token" value="<?=TOKEN?>">
+                    <input type="hidden" id="assign_grades_id" name="assign_grades_id">
+
+                    <div class="form-group">
+                        <input placeholder="First Grading" type="number" min=0 class="form-control" id="first" name="first" ng-model="first" required>
+                        <span ng-messages="formAssign.first.$error" ng-if="formAssign.first.$dirty">
+                            <strong ng-message="required" class="text-danger">This field is required.</strong>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <input placeholder="Second Grading" type="number" min=0 class="form-control" id="second" name="second" ng-model="second" required>
+                        <span ng-messages="formAssign.second.$error" ng-if="formAssign.second.$dirty">
+                            <strong ng-message="required" class="text-danger">This field is required.</strong>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <input placeholder="Third Grading" type="number" min=0 class="form-control" id="third" name="third" ng-model="third" required>
+                        <span ng-messages="formAssign.third.$error" ng-if="formAssign.third.$dirty">
+                            <strong ng-message="required" class="text-danger">This field is required.</strong>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <input placeholder="Fourth Grading" type="number" min=0 class="form-control" id="fourth" name="fourth" ng-model="fourth" required>
+                        <span ng-messages="formAssign.fourth.$error" ng-if="formAssign.fourth.$dirty">
+                            <strong ng-message="required" class="text-danger">This field is required.</strong>
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btn-assign-student-grades" onclick="update_student_grades()" ng-disabled="formAssign.$invalid"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /success modal -->

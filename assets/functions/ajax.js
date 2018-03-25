@@ -740,6 +740,44 @@ function assign_student_grades() {
     })
 }
 
+function update_student_grades() {
+    var data  = $('#formAssign').serialize();
+    $.ajax({
+        type : 'POST',
+        url : url + '../update_student_grades',
+        data : data,
+        dataType : 'json',
+        beforeSend:function() {
+            $('#btn-assign-student-grades').html(' <i class="icon-spinner2 spinner"></i>').attr('disabled',true);
+        },
+        success:function(data) {
+            data.success === true ? location.href = url + '../student_grade_book' : notify(data.type,data.message);
+            $('#btn-assign-student-grades').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
+        }
+    })
+}
+
+
+
+function update_grades(assign_grades_id) {
+    var modal = $('#modal-assign-grades');
+    $.ajax({
+        type : 'POST',
+        url : url + '../get_assigned_grades',
+        data : { assign_grades_id : assign_grades_id },
+        dataType : 'json',
+        success:function(data) {
+            modal.modal();
+            modal.find($('#assign_grades_id')).val(assign_grades_id);
+            modal.find($('#first')).val(data.first);
+            modal.find($('#second')).val(data.second);
+            modal.find($('#third')).val(data.third);
+            modal.find($('#fourth')).val(data.fourth);
+            $('#btn-assign-student-grades').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
+        }
+    })
+}
+
 function filter_students() {
     var data = {
         token  : $('#token').val(),

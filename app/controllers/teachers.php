@@ -102,6 +102,11 @@ class teachers extends Controller {
         $this->view('components/scripts',$data);
     }
 
+    public function get_assigned_grades() {
+        $assign_grades_id = $this->input->post('assign_grades_id');
+        $this->model('account')->get_assigned_grades($assign_grades_id);
+    }
+
     public function assign_student_grades() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array( 
@@ -115,6 +120,19 @@ class teachers extends Controller {
                 'fourth'      => $_POST['fourth']
             );
             $this->model('account')->assign_student_grades($data);
+        }
+    }
+
+    public function update_student_grades() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $data = array( 
+                'assign_grades_id' => $this->input->post('assign_grades_id'),
+                'first'            => $this->input->post('first'),
+                'second'           => $this->input->post('second'),
+                'third'            => $this->input->post('third'),
+                'fourth'           => $this->input->post('fourth')
+            );
+            $this->model('account')->update_student_grades($data);
         }
     }
 
