@@ -569,6 +569,7 @@ function modify_accounts(user_id) {
             modal.find($('#name')).val(data.name);
             modal.find($('#contact')).val(data.contact);
             modal.find($('#email')).val(data.email);
+            modal.find($('#username')).val(data.username);
             modal.find($('#status')).val(data.status);
             modal.find($('#role')).val(data.role);
             modal.modal();
@@ -832,7 +833,6 @@ function getAbsolutePath() {
 
 $('#subjects_id').select2({ placeholder: 'Select Subjects' });
 $('#students_id').select2({ placeholder: 'Select Students' });
-$('#guardian_id').select2({ placeholder: 'Select Guardian' });
 $('#section_id,#LRNN').select2();
 
 $('#role').change( e => {

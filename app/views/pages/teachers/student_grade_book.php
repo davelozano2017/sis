@@ -114,15 +114,15 @@
                                 </div>
 
                                 <div class="col-md-2 col-sm-2">
-                                    <input type="number" min=0 value="0" name="second[]" placeholder="2nd Grading" class="form-control">
+                                    <input readonly type="number" min=0 value="0" name="second[]" placeholder="2nd Grading" class="form-control">
                                 </div>
 
                                 <div class="col-md-2 col-sm-2">
-                                    <input type="number" min=0 value="0" name="third[]" placeholder="3rd Grading" class="form-control">
+                                    <input readonly type="number" min=0 value="0" name="third[]" placeholder="3rd Grading" class="form-control">
                                 </div>
 
                                 <div class="col-md-2 col-sm-2">
-                                    <input type="number" min=0 value="0" name="fourth[]" placeholder="4th Grading" class="form-control">
+                                    <input readonly type="number" min=0 value="0" name="fourth[]" placeholder="4th Grading" class="form-control">
                                 </div>
                             </div>
                         </div>

@@ -32,10 +32,8 @@
 
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
-    <th style="border:1px solid #fff;width:20%" rowspan=2 ><img style="width:70px;height:60px"src="http://localhost/sis/assets/images/logo.jpg"></th>
-</tr>
-    
-    <th style="border:1px solid #fff;text-align:center;width:60%">
+    <th style="border:1px solid #fff;width:20%"><img style="width:120px;height:110px"src="http://localhost/sis/assets/images/logo.jpg"></th>
+    <th style="border:1px solid #fff;width:60%">
     REPUBLIC OF THE PHILIPPINES <br> 
     Department of Education <br>
     Region IV - A CALABARZON <br> 
@@ -47,9 +45,7 @@
     SECONDARY STUDENT'S PERMANENT RECORD
     </th>
 
-
-
-<th style="border:1px solid #fff;width:30%" ><img style="width:80px;height:50px"src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
+<th style="border:1px solid #fff;width:20%"><img style="width:120px;height:110px" src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
 
 <tr>
     <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px;width:66%" colspan=2>Name: </td>

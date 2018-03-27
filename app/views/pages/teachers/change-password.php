@@ -67,6 +67,24 @@
                             </div>
                         </div>
 
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input readonly type="text" name="gender"  id="gender" value="<?=$data['user_info']->gender?>" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input readonly type="text" name="educational_background"  id="educational_background" value="<?=$data['user_info']->educational_background?>" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input readonly type="text" name="susername" placeholder="Username" id="username" ng-model="susername" class="form-control" required>
+                            </div>
+                        </div>
+
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="password" autocomplete="new-password" placeholder="Password" class="form-control" id="password" ng-minlength=6 ng-model="password" name="password" required password-verify="{{confirm_password}}">

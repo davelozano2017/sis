@@ -70,6 +70,18 @@
                     </div>
 
                     <div class="form-group">
+                        <select name="gender" id="gender" class="form-control">
+                            <option value="<?=$data['user_info']->gender?>" selected><?=$data['user_info']->gender?></option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="educational_baclground" placeholder="Educational Background" id="educational_baclground" value="<?=$data['user_info']->educational_background?>" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
                         <input type="text" name="susername" placeholder="Username" id="username" ng-model="susername" class="form-control" required>
                         <span ng-messages="formUpdateProfile.susername.$error" ng-if="formUpdateProfile.susername.$dirty">
                             <strong ng-message="required" class="text-danger">This field is required.</strong>

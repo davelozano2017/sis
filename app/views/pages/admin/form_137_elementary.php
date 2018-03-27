@@ -37,10 +37,8 @@ th {
 
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
-    <th style="border:1px solid #fff" rowspan=2><img style="width:70px;height:60px"src="http://localhost/sis/assets/images/logo.jpg"></th>
-</tr>
-<tr>
-    <th style="border:1px solid #fff">
+    <th style="border:1px solid #fff"><img style="width:120px;height:110px"src="http://localhost/sis/assets/images/logo.jpg"></th>
+    <th style="border:1px solid #fff;width:300px">
     Department of Education <br> 
     Region IV - A CALABARZON <br> 
     Division of Cavite <br> 
@@ -49,8 +47,8 @@ th {
     Telephone No. (046) 8610052 <br>
     <br>
     ELEMENTARY SCHOOL PERMANENT RECORD
-    </th>
-    <th style="border:1px solid #fff" rowspan=1><img style="width:80px;height:50px"src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
+</th>
+    <th style="border:1px solid #fff"><img style="width:120px;height:110px"src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
 </tr>
 <tr>
     <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: </td>
@@ -550,7 +548,7 @@ th {
 <div style="width:355px;float:right" >
     <table style="width:100%" cellspacing=0 border=1>
     <tr>
-            <td colspan=13 style="text-align:center">GRADE FOUR</td>
+            <td colspan=13 style="text-align:center">GRADE SIX</td>
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>
@@ -658,7 +656,7 @@ th {
 <div style="width:355px" >
     <table style="width:100%" cellspacing=0 border=1>
         <tr>
-            <td colspan=13 style="text-align:center">GRADE THREE</td>
+            <td colspan=13 style="text-align:center">GRADE Five</td>
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>

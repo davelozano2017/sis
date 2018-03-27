@@ -84,19 +84,18 @@
                     <input type="hidden" class="form-control" id="stud_id" name="students_id">
                     
                     <div class="form-group">
-                        <input type="text" ng-model="LRN" id="LRN" name="LRN"  ng-minlength=12 ng-maxlength=12 class="form-control" placeholder="Learner Reference Number" required>
+                        <input type="text" ng-model="LRN" id="LRN" name="LRN" ng-minlength=12 ng-maxlength=12 class="form-control" placeholder="Learner Reference Number" required>
                         <span ng-messages="formStudents.LRN.$error" ng-if="formStudents.LRN.$dirty">
-                            <strong ng-message="minlength" class="text-danger">Learner Reference Number should be 12 characters only.</strong>
-                            <strong ng-message="maxlength" class="text-danger">Learner Reference Number should be 12 characters only.</strong>
+                            <strong ng-message="minlength" class="text-danger">Learner Reference Number should be 12 numbers only.</strong>
+                            <strong ng-message="maxlength" class="text-danger">Learner Reference Number should be 12 numbers only.</strong>
                             <strong ng-message="required" class="text-danger">This field is required.</strong>
                         </span>
                     </div>
 
                     <div class="form-group">
                         <select class="form-control" name="guardian_id" id="guardian_id">
-                            <option value="">Select Guardian</option>
                             <?php foreach($data['parents'] as $prow) { ?>
-                                <option value="<?=$prow['user_id']?>"><?=$prow['name']?></option>
+                                <option value="<?=$prow['user_id']?>" selected><?=$prow['name']?></option>
                             <?php } ?>
                         </select>
                     </div>

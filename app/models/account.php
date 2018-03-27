@@ -73,7 +73,10 @@ class account extends Model {
     }
 
     public function get_my_violations($user_id) {
-        $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON s.LRN = v.LRN");
+        $check = $this->db->query("SELECT * FROM users WHERE user_id = $user_id");
+        $row = $check->fetch_object();
+        $LRNN = $row->LRNN;
+        $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON s.LRN = v.LRN WHERE v.LRN = '$LRNN'");
         return $query;
     }
 
