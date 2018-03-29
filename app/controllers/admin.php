@@ -154,15 +154,15 @@ class admin extends Controller {
         $this->view('components/scripts',$data);
     }
 
-    public function activity() {
-        $data['title']     = 'Activity';
+    public function extra_curricular() {
+        $data['title']     = 'Extra Curricular';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['activity']  = $this->model('account')->get_all_activity();
         $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
-        $this->view('pages/admin/activity',$data);
+        $this->view('pages/admin/extra_curricular',$data);
         $this->view('components/footer',$data);
         $this->view('components/scripts',$data);
     }

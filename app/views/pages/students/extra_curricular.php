@@ -4,7 +4,7 @@
     <div class="page-header page-header-default">
         <div class="page-header-content">
             <div class="page-title">
-                <h4>Activities</h4>
+                <h4>Extra Curricular</h4>
             </div>
             <div class="heading-elements">
                 <div class="heading-btn-group">
@@ -16,7 +16,7 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li>Dashboard</li>
-                <li class="active">Activities</li>
+                <li class="active">Extra Curricular</li>
             </ul>
         </div>
     </div>

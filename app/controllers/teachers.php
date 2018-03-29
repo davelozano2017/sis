@@ -12,6 +12,7 @@ class teachers extends Controller {
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
         $data['students']  = $this->model('account')->get_students_by_teacher($_SESSION['id']);
+        $data['events']      = $this->model('account')->get_all_events();
         $data['sections']  = $this->model('account')->get_sections_by_teacher($_SESSION['id']);
         $data['subjects']  = $this->model('account')->get_subjects_by_teacher($_SESSION['id']);
         $this->view('components/header',$data);

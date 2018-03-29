@@ -59,3 +59,20 @@
     </div>
     <!-- /main charts -->
 
+
+<div class="panel-group panel-group-control content-group-lg">
+    <?php foreach($data['events'] as $row_events) { ?> 
+        <div class="panel panel-white">
+            <div class="panel-heading">
+                <h6 class="panel-title">
+                    <a data-toggle="collapse" href="#events-<?=$row_events['events_id']?>"><?=$row_events['title']?> | <?= date(DATE_FORMAT,strtotime($row_events['start']))?> - <?= date(DATE_FORMAT,strtotime($row_events['end']))?></a>
+                </h6>
+            </div>
+            <div id="events-<?=$row_events['events_id']?>" class="panel-collapse in">
+                <div class="panel-body">
+                    <label style="text-align:justify"><?=$row_events['description']?></label>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+</div>
