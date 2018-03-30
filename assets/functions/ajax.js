@@ -34,6 +34,23 @@ function recover() {
     })
 }
 
+function new_password() {
+    var data = $('#formRecover').serialize();
+    $.ajax({
+        type : 'POST',
+        url : url + 'new_password',
+        data : data,
+        dataType : 'json',
+        beforeSend:function() {
+            $('#btn-new-password').html('<i class="icon-spinner2 spinner"></i>').attr('disabled',true);
+        },
+        success:function(data) {
+            data.success === true ? location.href = data.url : notify(data.type,data.message);
+            $('#btn-new-password').html('Recover <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
+        }
+    })
+}
+
 // activity 
 
 function add_new_activity() {
@@ -54,7 +71,7 @@ function activity() {
             $('#btn-activity').html(' <i class="icon-spinner2 spinner"></i>').attr('disabled',true);
         },
         success:function(data){
-            data.success === true ? location.href = url + 'activity' : notify(data.type,data.message);
+            data.success === true ? location.href = url + 'extra_curricular' : notify(data.type,data.message);
             var content = data.type == 'info' ? 'Save Changes' : 'Add New';
             $('#btn-activity').html(content +' <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
         }
@@ -71,7 +88,8 @@ function modify_activity(activity_id) {
         dataType : 'json',
         success:function(data){
             modal.find($('#activity_id')).val(activity_id);
-            modal.find($('#subject')).val(data.subject);
+            modal.find($('#LRN')).val(data.LRN);
+            modal.find($('#activity')).val(data.activity);
             modal.find($('#description')).val(data.description);
             modal.modal();
             $('#btn-activity').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
@@ -105,7 +123,7 @@ function delete_activity(activity_id) {
         data : { activity_id : activity_id },
         dataType : 'json',
         success:function(data){
-            location.href = url + 'activity';
+            location.href = url + 'extra_curricular';
         }
     })
 }

@@ -72,15 +72,15 @@
                             <li>
                                 <a href="#"><i class="icon-stack"></i> <span>Control Panel</span></a>
                                 <ul>
-                                    <li class="<?= $data['title'] == 'Extra Curricular'    ? 'active' : '';?>"><a href="<?=URL?>admin/extra_curricular"> Extra Curricular </a></li>
-                                    <li class="<?= $data['title'] == 'Events'      ? 'active' : '';?>"><a href="<?=URL?>admin/events"> Events </a></li>
-                                    <li class="<?= $data['title'] == 'Students'    ? 'active' : '';?>"><a href="<?=URL?>admin/students"> Students </a></li>
+                                    <li class="<?= $data['title'] == 'Teachers'    ? 'active' : '';?>"><a href="<?=URL?>admin/teachers"> Teachers </a></li>
                                     <li class="<?= $data['title'] == 'Section'     ? 'active' : '';?>"><a href="<?=URL?>admin/section"> Section </a></li>
                                     <li class="<?= $data['title'] == 'Subjects'    ? 'active' : '';?>"><a href="<?=URL?>admin/subjects"> Subjects </a></li>
-                                    <li class="<?= $data['title'] == 'Teachers'    ? 'active' : '';?>"><a href="<?=URL?>admin/teachers"> Teachers </a></li>
                                     <li class="<?= $data['title'] == 'Parents'     ? 'active' : '';?>"><a href="<?=URL?>admin/parents"> Parents </a></li>
-                                    <li class="<?= $data['title'] == 'Accounts'    ? 'active' : '';?>"><a href="<?=URL?>admin/accounts"> Accounts </a></li>
+                                    <li class="<?= $data['title'] == 'Students'    ? 'active' : '';?>"><a href="<?=URL?>admin/students"> Students </a></li>
                                     <li class="<?= $data['title'] == 'Violations'  ? 'active' : '';?>"><a href="<?=URL?>admin/violations"> Violations </a></li>
+                                    <li class="<?= $data['title'] == 'Extra Curricular'    ? 'active' : '';?>"><a href="<?=URL?>admin/extra_curricular"> Extra Curricular </a></li>
+                                    <li class="<?= $data['title'] == 'Events'      ? 'active' : '';?>"><a href="<?=URL?>admin/events"> Events </a></li>
+                                    <li class="<?= $data['title'] == 'Accounts'    ? 'active' : '';?>"><a href="<?=URL?>admin/accounts"> Accounts </a></li>
                                     <li class="<?= $data['title'] == 'School Year' ? 'active' : '';?>"><a href="<?=URL?>admin/school_year"> School Year </a></li>
                                 </ul>
                             </li>

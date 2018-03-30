@@ -17,28 +17,29 @@ class account extends Model {
 
     public function AddOrUpdateActivity($data) {
         $activity_id = $data['activity_id'];
-        $subject     = $data['subject'];
+        $LRN         = $data['LRN'];
+        $activity    = $data['activity'];
         $description = $data['description'];
         if(empty($activity_id)) {
-            $query   = $this->db->query("SELECT * FROM activity WHERE subject = '$subject'");
+            $query   = $this->db->query("SELECT * FROM activity WHERE activity = '$activity'");
             if($query->num_rows > 0) {
-                notify('error',$subject.' already exist.',false);
+                notify('error',$activity.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO activity (subject,description) VALUES ('$subject','$description')");
+                $query = $this->db->query("INSERT INTO activity (LRN,activity,description) VALUES ('$LRN','$activity','$description')");
                 if($query) {
-                    notify('success','new subject has been added.',true);
+                    notify('success','new extra curricular activity has been added.',true);
                 }
             }
         } else {
-            $query = $this->db->query("UPDATE activity SET subject = '$subject', description = '$description' WHERE activity_id = '$activity_id'");
+            $query = $this->db->query("UPDATE activity SET activity = '$activity', description = '$description' WHERE activity_id = '$activity_id'");
             if($query) {
-                notify('info',$subject.' has been updated.',true);
+                notify('info',$activity.' has been updated.',true);
             }
         }
     }
     
     public function get_all_activity() {
-        $query = $this->db->query("SELECT * FROM activity");
+        $query = $this->db->query("SELECT * FROM activity as a INNER JOIN students as s ON a.LRN = s.LRN");
         return $query;
     }
 
@@ -79,6 +80,16 @@ class account extends Model {
         $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON s.LRN = v.LRN WHERE v.LRN = '$LRNN'");
         return $query;
     }
+    
+    public function get_my_activity($user_id) {
+        $check = $this->db->query("SELECT * FROM users WHERE user_id = $user_id");
+        $row = $check->fetch_object();
+        $LRNN = $row->LRNN;
+        $query = $this->db->query("SELECT * FROM activity as a INNER JOIN students as s ON s.LRN = a.LRN WHERE a.LRN = '$LRNN'");
+        return $query;
+    }
+
+    
 
     public function get_all_section() {
         $query = $this->db->query("SELECT * FROM section");
@@ -124,8 +135,21 @@ class account extends Model {
         return $query;
     }
 
+    public function get_all_activity_by_LRN() {
+        $check = $this->db->query("SELECT * FROM users WHERE user_id = ".$_SESSION['id']);
+        $row = $check->fetch_object();
+        $lrn = $row->LRNN;
+        $query = $this->db->query("SELECT * FROM activity as a INNER JOIN students as s ON a.LRN = s.LRN WHERE a.LRN = '$lrn'");
+        return $query;
+    }
+
     public function view_violations() {
         $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON v.LRN = s.LRN INNER JOIN users as u ON u.user_id = s.guardian_id WHERE u.user_id = ".$_SESSION['id']);
+        return $query;
+    }
+
+    public function view_activities() {
+        $query = $this->db->query("SELECT * FROM activity as a INNER JOIN students as s ON a.LRN = s.LRN INNER JOIN users as u ON u.user_id = s.guardian_id WHERE u.user_id = ".$_SESSION['id']);
         return $query;
     }
     
@@ -446,13 +470,20 @@ class account extends Model {
         }
     }
 
-    public function user_recovery($data) {
-        $email = $data['email'];
-        $check = $this->db->query("SELECT * FROM users WHERE email = '$email'");
+    public function user_recovery($username) {
+        $check = $this->db->query("SELECT * FROM users WHERE username = '$username'");
         if($check->num_rows > 0) {
+            $_SESSION['username'] = $username;
+            echo json_encode(['url' => URL.'auth/account','success' => true]);
         } else {
             notify('error','No record found',false);
         }
+    }
+
+    public function new_password($password) {
+        $username = $_SESSION['username'];
+        $query = $this->db->query("UPDATE users SET password = '$password' WHERE username = '$username'");
+        echo json_encode(['url' => URL.'auth/login','success' => true]);
     }
 
     public function update_profile($data) {

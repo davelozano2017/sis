@@ -45,7 +45,7 @@
                                     <th>Code</th>
                                     <th>Student</th>
                                     <th>Activity</th>
-                                    <th colspan=3 class="text-center"></th>
+                                    <th colspan=2 class="text-center"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,8 +53,8 @@
                                     <tr>
                                         <td><?=++$i?></td>
                                         <td style="width:1px">ACT#<?=str_pad($row['activity_id'],5,0,STR_PAD_LEFT)?></td>
-                                        <td><?=$row['subject']?></td>
-                                        <td style="width:1px"></td>
+                                        <td><?=$row['firstname'].' '.$row['middlename'].' ' .$row['surname']?></td>
+                                        <td><?=$row['activity']?></td>
                                         <td style="width:1px"><a onclick="modify_activity(<?=$row['activity_id']?>)">Edit</a></td>
                                         <td style="width:1px"><a onclick="delete_activity(<?=$row['activity_id']?>)">Delete</a></td>
                                     </tr>
@@ -82,10 +82,22 @@
                 <form novalidate name="formActivity" id="formActivity" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
                     <input type="hidden" class="form-control" id="activity_id" name="activity_id">
+
+                    <div class="form-group">
+                        <select name="LRN" class="form-control" id="LRN" ng-model="LRN" >
+                            <option value="">Select Students</option>
+                            <?php foreach($data['students'] as $st) { ?>
+                            <option value="<?=$st['LRN']?>"><?=$st['LRN'].' - '.$st['firstname'].' '.$st['middlename'].' '.$st['surname']?></option>
+                            <?php } ?>
+                        </select>
+                        <span ng-messages="formActivity.LRN.$error" ng-if="formActivity.LRN.$dirty">
+                            <strong ng-message="required" class="text-danger">This field is required.</strong>
+                        </span>
+                    </div>
                     
                     <div class="form-group">
-                        <input type="text" ng-model="subject" id="subject" name="subject"  class="form-control" placeholder="Subject" required>
-                        <span ng-messages="formActivity.subject.$error" ng-if="formActivity.subject.$dirty">
+                        <input type="text" ng-model="activity" id="activity" name="activity"  class="form-control" placeholder="Extra Curricular Activity" required>
+                        <span ng-messages="formActivity.activity.$error" ng-if="formActivity.activity.$dirty">
                             <strong ng-message="required" class="text-danger">This field is required.</strong>
                         </span>
                     </div>

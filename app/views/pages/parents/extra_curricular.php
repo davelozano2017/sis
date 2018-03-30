@@ -4,7 +4,7 @@
     <div class="page-header page-header-default">
         <div class="page-header-content">
             <div class="page-title">
-                <h4>Activities</h4>
+                <h4>Extra Curricular</h4>
             </div>
             <div class="heading-elements">
                 <div class="heading-btn-group">
@@ -16,7 +16,7 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li>Dashboard</li>
-                <li class="active">Activities</li>
+                <li class="active">Extra Curricular</li>
             </ul>
         </div>
     </div>
@@ -35,7 +35,31 @@
                 
                 <!-- start -->
                     <div class="container-fluid">
-                    
+                        <table class="table datatable-responsive">
+							<thead>
+								<tr>
+                                    <th style="width:1px">#</th>
+                                    <th style="width:1px">Name</th>
+                                    <th colspan=6 style="width:1px">Activities</th>
+                                    <th>School Year</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php $i=0; foreach($data['view_activities'] as $row) { ?> 
+                                    <tr>
+                                        <td><?=++$i?></td>
+                                        <td><?=$row['firstname']?></td>
+                                        <td><?=$row['description']?></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><?=$row['school_year']?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 <!-- end -->
 

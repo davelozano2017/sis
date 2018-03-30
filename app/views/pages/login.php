@@ -113,6 +113,11 @@
 <script type="text/javascript">
 var app = angular.module('app', ['ngMessages']);
 app.controller('mainController',function($scope){});
+<?php 
+if(isset($_SESSION['username'])) { ?>
+notify('info','Password has been changed');
+<?php unset($_SESSION['username']); } ?>
+
 toastr_option();
 </script>
 </body>
