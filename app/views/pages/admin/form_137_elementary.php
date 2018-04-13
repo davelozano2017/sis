@@ -11,7 +11,7 @@
         margin:0;
     }
     body {
-        font-size:12px
+        font-size:11.5px
     }
     table , td, th {
     border: 1px solid #595959;
@@ -22,6 +22,8 @@ td, th {
     width: 30px;
     height: 10px;
 }
+input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
+
 th {
     background: #fff;
 }
@@ -33,8 +35,10 @@ th {
 }
 </style>
 </head>
-<body onload="print()">
+<body >
 
+<div style="margin:auto;width:720px">
+    
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
     <th style="border:1px solid #fff"><img style="width:120px;height:110px"src="http://localhost/sis/assets/images/logo.jpg"></th>
@@ -51,8 +55,8 @@ th {
     <th style="border:1px solid #fff"><img style="width:120px;height:110px"src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
 </tr>
 <tr>
-    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: </td>
-    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" >Sex:: </td>
+    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: <input type="text" style="width:80%" autofocus></td>
+    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" >Sex:: <input type="text" style="width:80%"> </td>
 </tr>
 
 <tr>
@@ -62,9 +66,9 @@ th {
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
 
-<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%margin-right:5px" >Date Of Birth:</td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%margin-right:5px" >Date Of Birth: <input type="text" style="width:80%"></td>
 
-<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;;text-align:center;width:60%">Place Of Birth:  </td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;;text-align:center;width:30%">Place Of Birth: <input type="text" style="width:50%"> </td>
 </tr>
 </table>
 
@@ -72,7 +76,7 @@ th {
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
 
-<td style="border:1px solid #fff;border-bottom:1px solid #000;width:100%" > Parent / Guardian: </td>
+<td style="border:1px solid #fff;border-bottom:1px solid #000;width:100%" > Parent / Guardian: <input type="text" style="width:80%"></td>
 
 </tr>
 
@@ -86,9 +90,9 @@ th {
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
 
-<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:20%" >Pre-Elementary Course Completed: </td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:20%" >Pre-Elementary Course Completed: <input type="text" style="width:20%"></td>
 
-<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;text-align:center;width:30%">General Average: </td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;text-align:center;width:30%">General Average: <input type="text" style="width:20%"></td>
 </tr>
 </table>
 <table style="width:100%" cellspacing=0 border=1>
@@ -131,86 +135,86 @@ th {
         
         <tr>
             <td colspan="6"><b>Mother Tongue</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Filipino</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>English</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Mathematics</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Science & Health</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>MSEP</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Christian Living</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Computer Education</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
     </table>
@@ -239,86 +243,86 @@ th {
         </tr>
         <tr>
             <td colspan="6"><b>Mother Tongue</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Filipino</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>English</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Mathematics</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Science & Health</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>MSEP</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Christian Living</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Computer Education</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
     </table>
@@ -350,86 +354,86 @@ th {
         </tr>
         <tr>
             <td colspan="6"><b>Mother Tongue</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Filipino</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>English</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Mathematics</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Science & Health</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>MSEP</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Christian Living</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Computer Education</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
     </table>
@@ -458,86 +462,86 @@ th {
         </tr>
         <tr>
             <td colspan="6"><b>Mother Tongue</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Filipino</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>English</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Mathematics</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Science & Health</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>MSEP</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Christian Living</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Computer Education</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
     </table>
@@ -568,86 +572,86 @@ th {
         </tr>
         <tr>
             <td colspan="6"><b>Mother Tongue</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Filipino</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>English</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Mathematics</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Science & Health</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>MSEP</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Christian Living</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Computer Education</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>        
         </tr>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>            
         </tr>
 
     </table>
@@ -656,7 +660,7 @@ th {
 <div style="width:355px" >
     <table style="width:100%" cellspacing=0 border=1>
         <tr>
-            <td colspan=13 style="text-align:center">GRADE Five</td>
+            <td colspan=13 style="text-align:center">GRADE FIVE</td>
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>
@@ -676,86 +680,86 @@ th {
         </tr>
         <tr>
             <td colspan="6"><b>Mother Tongue</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Filipino</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>English</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Mathematics</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Science & Health</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
             <td colspan="6"><b>MSEP</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Christian Living</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>Computer Education</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td><input type="text" style="width:100%"></td>
+            <td colspan="3"><input type="text" style="width:100%"></td>
         </tr>
 
     </table>
@@ -769,8 +773,7 @@ th {
         <td style="border:none"> D- Poor</td>
     </tr>
 </table>
-<br>
-<b>Attendance Record</b>
+<b >Attendance Record</b>
 </center>
 
 <table style="width:100%;border:none;text-align: center">
@@ -881,6 +884,7 @@ Administrator/Directress
 </div>
 </div>
 
+</div>
 
 </body>
 </html>

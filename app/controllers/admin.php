@@ -82,7 +82,7 @@ class admin extends Controller {
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['section']   = $this->model('account')->get_all_section();
         $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
-        $data['students']  = $this->model('account')->get_all_students();
+        $data['students']  = $this->model('account')->get_students();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -135,6 +135,11 @@ class admin extends Controller {
     public function form_137_elementary() {
         $data['title'] = 'Elementary';
         $this->view('pages/admin/form_137_elementary',$data);
+    }
+
+    public function form_pres_elem_card() {
+        $data['title'] = 'Pre School';
+        $this->view('pages/admin/form_pres_elem_card',$data);
     }
 
     public function form_137_secondary() {

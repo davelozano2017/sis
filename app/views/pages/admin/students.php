@@ -115,10 +115,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="text" ng-model="middlename" id="middlename" name="middlename" class="form-control" placeholder="Middle Name" required>
-                        <span ng-messages="formStudents.middlename.$error" ng-if="formStudents.middlename.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
+                        <input type="text" ng-model="middlename" id="middlename" name="middlename" class="form-control" placeholder="Middle Name">
                     </div>
 
                     <div class="form-group">
@@ -137,10 +134,9 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="text" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+                        <input type="text" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="email" id="email" name="email" class="form-control" placeholder="Email Address">
                         <span ng-messages="formStudents.email.$error" ng-if="formStudents.email.$dirty">
                             <strong ng-message="pattern" class="text-danger">Please type valid email address.</strong>
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
                         </span>
                     </div>
 
