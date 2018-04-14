@@ -14,7 +14,7 @@
 	<link href="<?=ASSETS?>css/components.css" rel="stylesheet" type="text/css">
 	<link href="<?=ASSETS?>css/colors.css" rel="stylesheet" type="text/css">
 	<link href="<?=ASSETS?>toastr/css/toastr.min.css" rel="stylesheet" type="text/css">
-	<link rel="icon" href="<?=ASSETS?>images/logo.png">
+	<link rel="icon" href="<?=ASSETS?>images/logo.jpg">
 	<!-- /global stylesheets -->
 
 
@@ -38,7 +38,7 @@
 					<form ng-app="app" ng-controller="mainController" novalidate name="formLogin" id="formLogin" method="POST">
 						<div class="panel panel-body login-form">
 							<div class="text-center">
-								<img class="img-circle" style="width:100px;height:100px" src="<?=ASSETS?>images/logo.png">
+								<img class="img-circle" style="width:100px;height:100px" src="<?=ASSETS?>images/logo.jpg">
 								<h5 class="content-group">Mendez Christian Academy  <small class="display-block">Student Information System</small></h5>
                             </div>
 

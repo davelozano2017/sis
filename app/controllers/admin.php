@@ -142,6 +142,11 @@ class admin extends Controller {
         $this->view('pages/admin/form_pres_elem_card',$data);
     }
 
+    public function form_junior_high() {
+        $data['title'] = 'Pre School';
+        $this->view('pages/admin/form_junior_high',$data);
+    }
+
     public function form_137_secondary() {
         $data['title'] = 'Secondary';
         $this->view('pages/admin/form_137_secondary',$data);
