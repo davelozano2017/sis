@@ -147,10 +147,17 @@ class admin extends Controller {
         $this->view('pages/admin/form_junior_high',$data);
     }
 
+    public function form_shs_report_card() {
+        $data['title'] = 'Pre School';
+        $this->view('pages/admin/form_shs_report_card',$data);
+    }
+
     public function form_137_secondary() {
         $data['title'] = 'Secondary';
         $this->view('pages/admin/form_137_secondary',$data);
     }
+
+    
 
     public function password() {
         $data['title'] = 'Password';

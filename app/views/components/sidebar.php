@@ -69,6 +69,8 @@
                                     </li>
                                     <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a href="<?=URL?>admin/form_pres_elem_card"> Pre School Elementary Card </a></li>
                                     <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a href="<?=URL?>admin/form_junior_high"> Junior High Card </a></li>
+                                    <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a href="<?=URL?>admin/form_shs_report_card"> SHS Report Card </a></li>
+                                    
                                 </ul>
                             </li>
                             <li>
