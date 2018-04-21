@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2018 at 01:54 AM
+-- Generation Time: Mar 30, 2018 at 11:03 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `activity` (
   `activity_id` int(11) NOT NULL,
-  `subject` varchar(255) NOT NULL,
+  `LRN` varchar(25) NOT NULL,
+  `activity` varchar(255) NOT NULL,
   `description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -38,12 +39,12 @@ CREATE TABLE `activity` (
 -- Dumping data for table `activity`
 --
 
-INSERT INTO `activity` (`activity_id`, `subject`, `description`) VALUES
-(18, 'Activity 1', 'Activity 1'),
-(19, 'Activity 2', 'Activity 2'),
-(20, 'Activity 3', 'Activity 3'),
-(21, 'Activity 4', 'Activity 4'),
-(22, 'Activity 5', 'Activity 5');
+INSERT INTO `activity` (`activity_id`, `LRN`, `activity`, `description`) VALUES
+(23, '100552246558', 'aasda', 'asdasdads'),
+(24, '100552246558', 'asdad', 'asdasd'),
+(25, '100552246558', 'asdasd', 'asdasdasd'),
+(26, '100355485216', 'adasd', 'asdads'),
+(27, '100355485216', 'asd', 'asd');
 
 -- --------------------------------------------------------
 
@@ -150,23 +151,6 @@ INSERT INTO `events` (`events_id`, `title`, `start`, `end`, `description`) VALUE
 (5, 'Event 3', '2018-03-20', '2018-03-21', 'Event 3'),
 (6, 'Event 4', '2018-03-22', '2018-03-26', 'Event 4'),
 (7, 'Event 5', '2018-03-30', '2018-04-04', 'Event 5');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `parents`
---
-
-CREATE TABLE `parents` (
-  `guardian_id` int(11) NOT NULL,
-  `surname` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `middlename` varchar(255) NOT NULL,
-  `gender` varchar(255) NOT NULL,
-  `contact` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -335,7 +319,7 @@ INSERT INTO `users` (`user_id`, `LRNN`, `image`, `name`, `contact`, `email`, `ge
 (17, '', '12439460_1107630092605028_8197726260371805381_n.jpg', 'Arjeth Pascual', '091255448884', 'arjethpascual.23.ap@gmail.com', 'Male', 'lorem', 'arjeth', '$2y$10$nWzeWXUhztWDI8JuXhpLqOq/epKvic6VErtj6k3xUmkq6HwCMB9Aa', 1, 0),
 (18, '', '15966257_1353966278001605_5752146725594554274_n.jpg', 'Jade Batal', '09125544778', 'jadebatal@gmail.com', 'Male', 'lorem', 'jade', '$2y$10$ccs7e/BS9o8J6PGHDk6c8u0j2lFSgJ/h8PQdIG0SJffm1U1m/VL.m', 1, 0),
 (19, '', '', 'Angelica Bawe Capuchino', '09221155445', 'angelica@gmail.com', 'Female', 'Graduate', 'angelica', '$2y$10$O.vMTCsItwzPj11j9hUgIeQnbx/tubJs02yPP5tTei.bICgZbFkA2', 1, 0),
-(20, '100552246558', '', 'Jeddahlyn Linzag Cabuga', '9265691158', 'cabugajeddahlyn@gmail.com', 'Female', '', 'jeddah', '$2y$10$7DXokHkNljBMpua0N/F7..uS1IErfK4j4VRrb/bS01TdqIDTwpRii', 3, 0),
+(20, '100552246558', '', 'Jeddahlyn Linzag Cabuga', '9265691158', 'cabugajeddahlyn@gmail.com', 'Female', '', 'jeddah', '$2y$10$XXwJbVNvcvQXve2ylNpCXenNvJVcQNyCv.rUxQfNyXGfbBLKY7DoG', 3, 0),
 (22, '100212112121', '', 'John Rey Sadia Lozano', '09555115522', 'johnreylozano@gmail.com', 'Male', '', 'johnrey', '$2y$10$p5jORXgGyKTYWmrQZSF7tOUwDN0xxQxrHG9ePKb0GzI3wgQl0zf86', 3, 0),
 (23, '100233665533', '', 'David James  Sadia Lozano', '09221112211', 'davidjames@gmail.com', '', '', 'davidjames', '$2y$10$0n6yHXDhE6BpI5DUWXWIbuR8DMI8YzJvF79T7pIiHP81PYEHij/py', 3, 0);
 
@@ -358,7 +342,7 @@ CREATE TABLE `violations` (
 
 INSERT INTO `violations` (`violations_id`, `LRN`, `description`, `school_year`) VALUES
 (12, '100552246558', 'test', '2017 - 2018'),
-(13, '100552246558', 'asdasdas', '2017 - 2018');
+(13, '100552246558', 'asdasdasasdasd', '2017 - 2018');
 
 --
 -- Indexes for dumped tables
@@ -393,12 +377,6 @@ ALTER TABLE `assign_teachers`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`events_id`);
-
---
--- Indexes for table `parents`
---
-ALTER TABLE `parents`
-  ADD PRIMARY KEY (`guardian_id`);
 
 --
 -- Indexes for table `school_year`
@@ -444,7 +422,7 @@ ALTER TABLE `violations`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `assign_grades`
@@ -469,12 +447,6 @@ ALTER TABLE `assign_teachers`
 --
 ALTER TABLE `events`
   MODIFY `events_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `parents`
---
-ALTER TABLE `parents`
-  MODIFY `guardian_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `school_year`

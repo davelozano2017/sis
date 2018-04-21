@@ -14,14 +14,13 @@
 	<link href="<?=ASSETS?>css/components.css" rel="stylesheet" type="text/css">
 	<link href="<?=ASSETS?>css/colors.css" rel="stylesheet" type="text/css">
 	<link href="<?=ASSETS?>toastr/css/toastr.min.css" rel="stylesheet" type="text/css">
-	<link rel="icon" href="<?=ASSETS?>images/logo.jpg">
+	<link rel="icon" href="<?=ASSETS?>images/logo.png">
 	<!-- /global stylesheets -->
 
 
 </head>
 
 <body class="login-container">
-
 
 	<!-- Page container -->
 	<div class="page-container">
@@ -35,38 +34,46 @@
 				<!-- Content area -->
 				<div class="content">
 
-					<!-- Password recovery -->
-					<form method="POST" ng-app="app" ng-controller="mainController" novalidate id="formRecover" name="formRecover">
+					<!-- Simple login form -->
+					<form ng-app="app" ng-controller="mainController" novalidate name="formRecover" id="formRecover" method="POST">
 						<div class="panel panel-body login-form">
-						<input type="hidden" id="token" name="token" value="<?=TOKEN?>'">
 							<div class="text-center">
-								<img class="img-circle" style="width:100px;height:100px" src="<?=ASSETS?>images/logo.jpg">
+								<img class="img-circle" style="width:100px;height:100px" src="<?=ASSETS?>images/logo.png">
 								<h5 class="content-group">Mendez Christian Academy  <small class="display-block">Student Information System</small></h5>
                             </div>
 
+							<input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
+								
 							<div class="form-group">
-								<input type="text" class="form-control" name="username" ng-model="username" placeholder="Username" required>
-								<span ng-messages="formRecover.username.$error" ng-if="formRecover.username.$dirty">
+								<input type="password" autocomplete="new-password" placeholder="Password" class="form-control" id="password" ng-minlength=6 ng-model="password" name="password" required password-verify="{{confirm_password}}">
+								<span ng-messages="formRecover.password.$error" ng-if="formRecover.password.$dirty">
 									<strong ng-message="required" class="text-danger">This field is required.</strong>
 								</span>
 							</div>
 
 							<div class="form-group">
-								<button type="submit" id="btn-recover" onclick="recover()" ng-disabled="formRecover.$invalid" class="btn bg-green btn-block">Reset password <i class="icon-arrow-right14 position-right"></i></button>
-							</div>
-							
-							<div class="text-center">
-								<a href="<?=URL?>auth/login">Login</a>
+								<input type="password" placeholder="Confirm Password" autocomplete="new-password" class="form-control" ng-model="confirm_password" name="confirm_password" id="confirm_password" required password-verify="{{password}}">
+								<span ng-messages="formRecover.confirm_password.$error" ng-if="formRecover.confirm_password.$dirty">
+									<strong ng-message="required" class="text-danger">This field is required.</strong>
+									<strong ng-show="confirm_password != password" class="text-danger">Password not matched.</strong>
+								</span>
 							</div>
 
+							<div class="form-group">
+								<button type="submit" id="btn-new-password" ng-disabled="formRecover.$invalid" onclick="new_password()" class="btn bg-green btn-block">Recover <i class="icon-arrow-right14 position-right"></i></button>
+							</div>
+
+							<div class="text-center">
+								<a href="<?=URL?>auth/recover">Forgot password?</a>
+							</div>
 						</div>
 					</form>
-					<!-- /password recovery -->
+					<!-- /simple login form -->
 
 
 					<!-- Footer -->
 					<div class="footer text-muted text-center">
-						Copyright &copy; 2014. <a href="#">Limitless admin template</a> by <a href="http://interface.club">Eugene Kopyov</a>
+					&copy; <?= date('Y')?>. <a href="<?=URL?>login"><?= COMPANY_NAME ?></a>
 					</div>
 					<!-- /footer -->
 

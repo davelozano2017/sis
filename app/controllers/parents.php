@@ -88,9 +88,10 @@ class parents extends Controller {
     }
 
     public function extra_curricular() {
-        $data['title']          = 'Extra Curricular';
-        $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
-        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['title']           = 'Extra Curricular';
+        $data['user_info']       = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['school_year']     = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['view_activities'] = $this->model('account')->view_activities();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);

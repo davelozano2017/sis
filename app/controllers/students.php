@@ -14,6 +14,7 @@ class students extends Controller {
         $data['subjects']    = $this->model('account')->get_my_subjects($_SESSION['id']);
         $data['events']      = $this->model('account')->get_all_events();
         $data['violations']    = $this->model('account')->get_my_violations($_SESSION['id']);
+        $data['activities']    = $this->model('account')->get_my_activity($_SESSION['id']);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -90,8 +91,9 @@ class students extends Controller {
 
     public function extra_curricular() {
         $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
-        $data['title']          = 'Extra Curricular';
-        $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['title']       = 'Extra Curricular';
+        $data['user_info']   = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['activity']    = $this->model('account')->get_all_activity_by_LRN();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);

@@ -82,7 +82,7 @@ class admin extends Controller {
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['section']   = $this->model('account')->get_all_section();
         $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
-        $data['students']  = $this->model('account')->get_all_students();
+        $data['students']  = $this->model('account')->get_students();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -137,10 +137,27 @@ class admin extends Controller {
         $this->view('pages/admin/form_137_elementary',$data);
     }
 
+    public function form_pres_elem_card() {
+        $data['title'] = 'Pre School';
+        $this->view('pages/admin/form_pres_elem_card',$data);
+    }
+
+    public function form_junior_high() {
+        $data['title'] = 'Pre School';
+        $this->view('pages/admin/form_junior_high',$data);
+    }
+
+    public function form_shs_report_card() {
+        $data['title'] = 'Pre School';
+        $this->view('pages/admin/form_shs_report_card',$data);
+    }
+
     public function form_137_secondary() {
         $data['title'] = 'Secondary';
         $this->view('pages/admin/form_137_secondary',$data);
     }
+
+    
 
     public function password() {
         $data['title'] = 'Password';
@@ -159,6 +176,7 @@ class admin extends Controller {
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['activity']  = $this->model('account')->get_all_activity();
         $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['students']   = $this->model('account')->get_all_students();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -292,7 +310,8 @@ class admin extends Controller {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array( 
                 'activity_id' => $this->input->post('activity_id'),
-                'subject'     => $this->input->post('subject'),
+                'LRN'         => $this->input->post('LRN'),
+                'activity'    => $this->input->post('activity'),
                 'description' => $this->input->post('description')
             );
             $this->model('account')->AddOrUpdateActivity($data);

@@ -1,4 +1,4 @@
-<?php 
+<?php
 class account extends Model {
 
     public function __construct(){
@@ -17,28 +17,29 @@ class account extends Model {
 
     public function AddOrUpdateActivity($data) {
         $activity_id = $data['activity_id'];
-        $subject     = $data['subject'];
+        $LRN         = $data['LRN'];
+        $activity    = $data['activity'];
         $description = $data['description'];
         if(empty($activity_id)) {
-            $query   = $this->db->query("SELECT * FROM activity WHERE subject = '$subject'");
+            $query   = $this->db->query("SELECT * FROM activity WHERE activity = '$activity'");
             if($query->num_rows > 0) {
-                notify('error',$subject.' already exist.',false);
+                notify('error',$activity.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO activity (subject,description) VALUES ('$subject','$description')");
+                $query = $this->db->query("INSERT INTO activity (LRN,activity,description) VALUES ('$LRN','$activity','$description')");
                 if($query) {
-                    notify('success','new subject has been added.',true);
+                    notify('success','new extra curricular activity has been added.',true);
                 }
             }
         } else {
-            $query = $this->db->query("UPDATE activity SET subject = '$subject', description = '$description' WHERE activity_id = '$activity_id'");
+            $query = $this->db->query("UPDATE activity SET activity = '$activity', description = '$description' WHERE activity_id = '$activity_id'");
             if($query) {
-                notify('info',$subject.' has been updated.',true);
+                notify('info',$activity.' has been updated.',true);
             }
         }
     }
-    
+
     public function get_all_activity() {
-        $query = $this->db->query("SELECT * FROM activity");
+        $query = $this->db->query("SELECT * FROM activity as a INNER JOIN students as s ON a.LRN = s.LRN");
         return $query;
     }
 
@@ -58,7 +59,12 @@ class account extends Model {
     }
 
     public function get_all_students() {
-        $query = $this->db->query("SELECT * FROM students");
+        $query = $this->db->query("SELECT * FROM students ");
+        return $query;
+    }
+
+    public function get_students() {
+        $query = $this->db->query("SELECT * FROM students WHERE stats = 0");
         return $query;
     }
 
@@ -66,7 +72,7 @@ class account extends Model {
         $query = $this->db->query("SELECT * FROM students as s INNER JOIN users as u ON s.guardian_id = u.user_id WHERE u.user_id = $user_id");
         return $query;
     }
-    
+
     public function get_my_subjects($user_id) {
         $query = $this->db->query("SELECT * FROM assign_teachers as ast INNER JOIN assign_students as ass ON ass.section_id = ast.section_id GROUP BY ast.subjects_id");
         return $query;
@@ -79,6 +85,16 @@ class account extends Model {
         $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON s.LRN = v.LRN WHERE v.LRN = '$LRNN'");
         return $query;
     }
+
+    public function get_my_activity($user_id) {
+        $check = $this->db->query("SELECT * FROM users WHERE user_id = $user_id");
+        $row = $check->fetch_object();
+        $LRNN = $row->LRNN;
+        $query = $this->db->query("SELECT * FROM activity as a INNER JOIN students as s ON s.LRN = a.LRN WHERE a.LRN = '$LRNN'");
+        return $query;
+    }
+
+
 
     public function get_all_section() {
         $query = $this->db->query("SELECT * FROM section");
@@ -115,7 +131,7 @@ class account extends Model {
         $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON v.LRN = s.LRN");
         return $query;
     }
-    
+
     public function get_all_violations_by_LRN() {
         $check = $this->db->query("SELECT * FROM users WHERE user_id = ".$_SESSION['id']);
         $row = $check->fetch_object();
@@ -124,11 +140,24 @@ class account extends Model {
         return $query;
     }
 
+    public function get_all_activity_by_LRN() {
+        $check = $this->db->query("SELECT * FROM users WHERE user_id = ".$_SESSION['id']);
+        $row = $check->fetch_object();
+        $lrn = $row->LRNN;
+        $query = $this->db->query("SELECT * FROM activity as a INNER JOIN students as s ON a.LRN = s.LRN WHERE a.LRN = '$lrn'");
+        return $query;
+    }
+
     public function view_violations() {
         $query = $this->db->query("SELECT * FROM violations as v INNER JOIN students as s ON v.LRN = s.LRN INNER JOIN users as u ON u.user_id = s.guardian_id WHERE u.user_id = ".$_SESSION['id']);
         return $query;
     }
-    
+
+    public function view_activities() {
+        $query = $this->db->query("SELECT * FROM activity as a INNER JOIN students as s ON a.LRN = s.LRN INNER JOIN users as u ON u.user_id = s.guardian_id WHERE u.user_id = ".$_SESSION['id']);
+        return $query;
+    }
+
     public function AddOrUpdateEvents($data) {
         $events_id   = $data['events_id'];
         $title       = $data['title'];
@@ -194,7 +223,7 @@ class account extends Model {
             }
         }
     }
-    
+
     public function get_school_year_using_id($school_year_id) {
         $query = $this->db->query("SELECT * FROM school_year WHERE school_year_id = '$school_year_id'");
         echo json_encode($query->fetch_object());
@@ -429,7 +458,7 @@ class account extends Model {
                 $_SESSION['id'] = $row->user_id;
                 echo json_encode(['url' => URL.'admin/dashboard','success' => true]);
             } elseif(verify($password,$hash) && $role == 1) {
-                $_SESSION['id'] = $row->user_id; 
+                $_SESSION['id'] = $row->user_id;
                 echo json_encode(['url' => URL.'teachers/dashboard','success' => true]);
             } elseif(verify($password,$hash) && $role == 2) {
                 $_SESSION['id'] = $row->user_id;
@@ -445,13 +474,20 @@ class account extends Model {
         }
     }
 
-    public function user_recovery($data) {
-        $email = $data['email'];
-        $check = $this->db->query("SELECT * FROM users WHERE email = '$email'");
+    public function user_recovery($username) {
+        $check = $this->db->query("SELECT * FROM users WHERE username = '$username'");
         if($check->num_rows > 0) {
+            $_SESSION['username'] = $username;
+            echo json_encode(['url' => URL.'auth/account','success' => true]);
         } else {
             notify('error','No record found',false);
         }
+    }
+
+    public function new_password($password) {
+        $username = $_SESSION['username'];
+        $query = $this->db->query("UPDATE users SET password = '$password' WHERE username = '$username'");
+        echo json_encode(['url' => URL.'auth/login','success' => true]);
     }
 
     public function update_profile($data) {
@@ -471,7 +507,7 @@ class account extends Model {
         $query = $this->db->query("UPDATE users SET image = '$image' WHERE user_id = $user_id");
         notify('info','profile has been changed.',true);
     }
-    
+
     public function get_assign_in_teachers($user_id) {
         $query = $this->db->query("SELECT * FROM users as u INNER JOIN assign_teachers as a ON u.user_id = a.teachers_id INNER JOIN section as s ON a.section_id = s.section_id INNER JOIN subjects as su ON a.subjects_id = su.subjects_id WHERE a.teachers_id = $user_id ORDER BY s.level DESC");
         return $query;
@@ -522,6 +558,7 @@ class account extends Model {
         $students_id = $data['students_id'];
         $section_id  = $data['section_id'];
         $query = $this->db->query("DELETE FROM assign_students WHERE students_id = $students_id AND section_id = $section_id");
+        $this->db->query("UPDATE students SET stats = 0 WHERE students_id = $students_id");
         notify('info','Record has been deleted.',true);
     }
 
@@ -536,6 +573,7 @@ class account extends Model {
             if($validate->num_rows > 0) {
             } else {
                 $query = $this->db->query("INSERT INTO assign_students (section_id,students_id,school_year) VALUES ('$section_id','$students_id','$school_year')");
+                $this->db->query("UPDATE students SET stats = 1 WHERE students_id = $students_id");
             }
         }
         notify('success','Successfully assigned.',true);
@@ -569,7 +607,7 @@ class account extends Model {
                 }
             }
         }
-        
+
         if($flag == 0) {
             notify('error','Grades already assigned.',false);
         } elseif($flag == 1) {
@@ -589,7 +627,7 @@ class account extends Model {
         return $query ? notify('success','Grades successfully updated.',true) : null;
     }
 
-    
+
 
     public function get_students_by_teacher($teachers_id) {
         $query = $this->db->query("SELECT * FROM assign_teachers as at INNER JOIN assign_students as a ON at.section_id = a.section_id WHERE at.teachers_id = $teachers_id GROUP BY a.students_id");
@@ -605,7 +643,7 @@ class account extends Model {
         $query = $this->db->query("SELECT * FROM assign_teachers WHERE teachers_id = $teachers_id");
         return $query;
     }
- 
+
     public function update_password($data) {
         $password  = $data['password'];
         $user_id   = $data['accounts_id'];

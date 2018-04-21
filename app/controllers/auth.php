@@ -21,6 +21,13 @@ class auth extends Controller {
         $this->view('pages/recover');
     }
 
+    public function account() {
+        if(!isset($_SESSION['username'])) {
+            redirect('auth/recover');
+        }
+        $this->view('pages/account');
+    }
+
     public function user_login() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array(
@@ -33,8 +40,15 @@ class auth extends Controller {
 
     public function user_recovery() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
-            $data = array( 'email' => $this->input->post('email'));
-            $this->model('account')->user_recovery($data);
+            $username = $this->input->post('username');
+            $this->model('account')->user_recovery($username);
+        }
+    }
+
+    public function new_password() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $password = hashing($this->input->post('password'));
+            $this->model('account')->new_password($password);
         }
     }
     

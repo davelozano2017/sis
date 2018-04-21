@@ -26,7 +26,7 @@
     <!-- Main charts -->
     <div class="row">
 
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-4 col-md-4">
             <div class="panel panel-body has-bg-image">
                 <div class="media no-margin">
                     <div class="media-body">
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-4 col-md-4">
             <div class="panel panel-body has-bg-image">
                 <div class="media no-margin">
                     <div class="media-body">
@@ -51,6 +51,21 @@
 
                     <div class="media-right media-middle">
                         <i class="icon-cross icon-3x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+            <div class="panel panel-body has-bg-image">
+                <div class="media no-margin">
+                    <div class="media-body">
+                        <h3 class="no-margin"><?=$data['activities']->num_rows?></h3>
+                        <span class="text-uppercase text-size-mini">Extra Curricular Activities</span>
+                    </div>
+
+                    <div class="media-right media-middle">
+                        <i class="icon-check icon-3x opacity-75"></i>
                     </div>
                 </div>
             </div>
