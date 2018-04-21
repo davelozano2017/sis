@@ -380,8 +380,7 @@ class admin extends Controller {
             $data = array( 
                 'section_id'  => $this->input->post('section_id'),
                 'name'        => $this->input->post('name'),
-                'level'       => $this->input->post('level'),
-                'description' => $this->input->post('description')
+                'level'       => $this->input->post('level')
             );
             $this->model('account')->AddOrUpdateSection($data);
         }
