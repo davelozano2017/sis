@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2018 at 11:03 PM
+-- Generation Time: Apr 22, 2018 at 08:01 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -63,23 +63,24 @@ CREATE TABLE `assign_grades` (
   `third` int(3) NOT NULL,
   `fourth` int(3) NOT NULL,
   `average` int(3) NOT NULL,
-  `school_year` varchar(255) NOT NULL
+  `sy` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `assign_grades`
 --
 
-INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `section_id`, `subjects_id`, `first`, `second`, `third`, `fourth`, `average`, `school_year`) VALUES
-(49, 16, 3, 7, 3, 100, 0, 0, 0, 0, '2017 - 2018'),
-(50, 16, 4, 7, 3, 100, 100, 100, 100, 0, '2017 - 2018'),
-(51, 16, 5, 7, 3, 100, 0, 0, 0, 0, '2017 - 2018'),
-(52, 16, 3, 7, 5, 100, 100, 100, 100, 0, '2017 - 2018'),
-(53, 16, 4, 7, 5, 100, 0, 0, 0, 0, '2017 - 2018'),
-(54, 16, 5, 7, 5, 100, 100, 100, 100, 0, '2017 - 2018'),
-(55, 16, 3, 7, 4, 100, 100, 100, 100, 0, '2017 - 2018'),
-(56, 16, 4, 7, 4, 100, 0, 0, 0, 0, '2017 - 2018'),
-(57, 16, 5, 7, 4, 100, 100, 100, 100, 0, '2017 - 2018');
+INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `section_id`, `subjects_id`, `first`, `second`, `third`, `fourth`, `average`, `sy`) VALUES
+(63, 24, 7, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
+(64, 24, 9, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
+(65, 24, 10, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
+(66, 24, 11, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
+(67, 24, 12, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
+(68, 24, 7, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018'),
+(69, 24, 9, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018'),
+(70, 24, 10, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018'),
+(71, 24, 11, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018'),
+(72, 24, 12, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -94,15 +95,6 @@ CREATE TABLE `assign_students` (
   `school_year` varchar(255) NOT NULL,
   `assign_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `assign_students`
---
-
-INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_year`, `assign_status`) VALUES
-(19, 7, 4, '2017 - 2018', 0),
-(23, 7, 3, '2017 - 2018', 0),
-(26, 7, 5, '2017 - 2018', 0);
 
 -- --------------------------------------------------------
 
@@ -122,10 +114,16 @@ CREATE TABLE `assign_teachers` (
 --
 
 INSERT INTO `assign_teachers` (`assign_teachers_id`, `teachers_id`, `section_id`, `subjects_id`) VALUES
-(47, 16, 7, 3),
-(48, 16, 7, 4),
-(49, 16, 7, 5),
-(51, 17, 12, 3);
+(52, 24, 4, 3),
+(53, 24, 4, 4),
+(54, 24, 4, 5),
+(55, 24, 4, 6),
+(56, 24, 4, 7),
+(57, 24, 4, 8),
+(58, 24, 4, 9),
+(59, 24, 4, 10),
+(60, 24, 4, 11),
+(61, 24, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -150,7 +148,9 @@ INSERT INTO `events` (`events_id`, `title`, `start`, `end`, `description`) VALUE
 (4, 'Event 2', '2018-03-19', '2018-03-19', 'Event 2'),
 (5, 'Event 3', '2018-03-20', '2018-03-21', 'Event 3'),
 (6, 'Event 4', '2018-03-22', '2018-03-26', 'Event 4'),
-(7, 'Event 5', '2018-03-30', '2018-04-04', 'Event 5');
+(7, 'Event 5', '2018-03-30', '2018-04-04', 'Event 5'),
+(8, 'sss', '2018-04-24', '2018-04-22', '22'),
+(10, 'aaaa', '2018-04-28', '2018-04-29', 'asdasdasd');
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,7 @@ CREATE TABLE `school_year` (
 --
 
 INSERT INTO `school_year` (`school_year_id`, `school_year`) VALUES
-(1, '2017 - 2018');
+(1, '2018 - 2019');
 
 -- --------------------------------------------------------
 
@@ -188,46 +188,27 @@ CREATE TABLE `section` (
 --
 
 INSERT INTO `section` (`section_id`, `section_name`, `level`, `description`) VALUES
-(7, 'Section 1', 'Grade 1', 'Section 1'),
-(8, 'Section 2', 'Grade 1', 'Section 2'),
-(9, 'Section 3', 'Grade 1', 'Section 3'),
-(10, 'Section 4', 'Grade 1', 'Section 4'),
-(11, 'Section 5', 'Grade 1', 'Section 5'),
-(12, 'Section 1', 'Grade 2', 'Section 1'),
-(13, 'Section 2', 'Grade 2', 'Section 2'),
-(14, 'Section 3', 'Grade 2', 'Section 3'),
-(15, 'Section 4', 'Grade 2', 'Section 4'),
-(16, 'Section 5', 'Grade 2', 'Section 5'),
-(17, 'Section 1', 'Grade 3', 'Section 1'),
-(18, 'Section 2', 'Grade 3', 'Section 2'),
-(19, 'Section 3', 'Grade 3', 'Section 3'),
-(20, 'Section 4', 'Grade 3', 'Section 4'),
-(21, 'Section 5', 'Grade 3', 'Section 5'),
-(22, 'Section 1', 'Grade 4', 'Section 1'),
-(23, 'Section 2', 'Grade 4', 'Section 2'),
-(24, 'Section 3', 'Grade 4', 'Section 3'),
-(25, 'Section 4', 'Grade 4', 'Section 4'),
-(26, 'Section 5', 'Grade 4', 'Section 5'),
-(27, 'Section 1', 'Grade 5', 'Section 1'),
-(28, 'Section 2', 'Grade 5', 'Section 2'),
-(29, 'Section 3', 'Grade 5', 'Section 3'),
-(30, 'Section 4', 'Grade 5', 'Section 4'),
-(31, 'Section 5', 'Grade 5', 'Section 5'),
-(32, 'Section 1', 'Grade 6', 'Section 1'),
-(33, 'Section 2', 'Grade 6', 'Section 2'),
-(34, 'Section 3', 'Grade 6', 'Section 3'),
-(35, 'Section 4', 'Grade 6', 'Section 4'),
-(36, 'Section 5', 'Grade 6', 'Section 5'),
-(37, 'Section 1', 'Grade 7', 'Section 1'),
-(38, 'Section 2', 'Grade 7', 'Section 2'),
-(39, 'Section 3', 'Grade 7', 'Section 3'),
-(40, 'Section 4', 'Grade 7', 'Section 4'),
-(41, 'Section 5', 'Grade 7', 'Section 5'),
-(42, 'Section 1', 'Grade 8', 'Section 1'),
-(43, 'Section 2', 'Grade 8', 'Section 2'),
-(44, 'Section 3', 'Grade 8', 'Section 3'),
-(45, 'Section 4', 'Grade 8', 'Section 4'),
-(46, 'Section 5', 'Grade 8', 'Section 5');
+(1, 'Nursery', 'Nursery', 'Nursery'),
+(2, 'Kinder', 'Kinder', 'Kinder'),
+(3, 'Preparatory', 'Preparatory', 'Preparatory'),
+(4, 'Matthew', 'Grade 1', 'Matthew'),
+(5, 'Mark', 'Grade 1', 'Mark'),
+(6, 'Luke', 'Grade 2', 'Luke'),
+(7, 'John', 'Grade 2', 'John'),
+(8, 'Acts', 'Grade 3', 'Acts'),
+(9, 'Romans', 'Grade 3', 'Romans'),
+(10, 'Corinthians', 'Grade 4', 'Corinthians'),
+(11, 'Galatians', 'Grade 4', 'Galatians'),
+(12, 'Philippians', 'Grade 5', 'Philippians'),
+(13, 'Ephesians', 'Grade 5', 'Ephesians'),
+(14, 'Colossians', 'Grade 6', 'Colossians'),
+(15, 'Timothy', 'Grade 7', 'Timothy'),
+(16, 'Philemon', 'Grade 8', 'Philemon'),
+(17, 'James', 'Grade 9', 'James'),
+(18, 'Peter', 'Grade 10', 'Peter'),
+(19, 'Genesis', 'Grade 11', 'Genesis'),
+(20, 'Exodus', 'Grade 11', 'Exodus'),
+(21, 'Deuteronomy', 'Grade 12', 'Deuteronomy');
 
 -- --------------------------------------------------------
 
@@ -246,18 +227,20 @@ CREATE TABLE `students` (
   `contact` varchar(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `school_year` varchar(255) NOT NULL
+  `school_year` varchar(255) NOT NULL,
+  `stats` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstname`, `middlename`, `gender`, `contact`, `email`, `address`, `school_year`) VALUES
-(3, 13, '100552246558', 'Cabuga', 'Jeddahlyn', 'Linzag', 'Female', '9265691158', 'cabugajeddahlyn@gmail.com', 'Maligaya Park Quezon City', '2017 - 2018'),
-(4, 12, '100212112121', 'Lozano', 'John Rey', 'Sadia', 'Male', '9555115522', 'johnreylozano@gmail.com', 'Holy Spirit Quezon City', '2017 - 2018'),
-(5, 13, '100355485216', 'Cabuga', 'Mariss', 'Linzag', 'Female', '9265691158', 'marisscabuga@gmail.com', 'Maligaya Park Quezon City', '2017 - 2018'),
-(6, 12, '100233665533', 'Lozano', 'David James ', 'Sadia', 'Male', '09221112211', 'davidjames@gmail.com', 'Quezon City', '2017 - 2018');
+INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstname`, `middlename`, `gender`, `contact`, `email`, `address`, `school_year`, `stats`) VALUES
+(7, 35, '100554422779', 'Ocampo', 'Lorenzo Adam', 'P.', 'Male', '09991790616', 'a@aa.co', '35 a. Bonifacio St. Mendez, Cavite', '2017 - 2018', 0),
+(9, 34, '100221155118', 'Almanzor', 'Mark Xander', '', 'Male', '09274599427', '', 'Market Site Galicia 2, Mendez Cavite', '2017 - 2018', 0),
+(10, 36, '100225511515', 'Marquez', 'Godwin Pius', 'A.', 'Male', '09178616373', '', '063 Balagbag Ma. Kahoy LejosIndang ,Cavite', '2017 - 2018', 0),
+(11, 37, '100336699882', 'Pe&ntilde;alba', 'David', '', 'Male', '09173442947', '', '105 panungyan II Mendez, Cavite', '2017 - 2018', 0),
+(12, 38, '100336644771', 'Tiania', 'Joaquin Ynigo', '', 'Male', '09196578562', '', '67 Patutong Malaki North tag. City', '2017 - 2018', 0);
 
 -- --------------------------------------------------------
 
@@ -313,15 +296,24 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `LRNN`, `image`, `name`, `contact`, `email`, `gender`, `educational_background`, `username`, `password`, `role`, `status`) VALUES
 (1, '', 'profile.png', 'John David Sadia Lozano', '95557739522', 'lozanojohndavid@gmail.com', 'Male', '', 'user', '$2y$10$toJr7Hf7/Nqh/0eVrvWTwuU7FwI20tpAsb2jWpKV8vTXVPhrYy3Gy', 0, 0),
-(12, '', '29314236_1612201735523472_798227871054168064_o.png', 'Adora Lozano', '9265691158', 'adoralozano@gmail.com', 'Female', '', 'adora', '$2y$10$oo2exxLphukoduH3mnE7l.TQGbNYCXPVtku8R/u79/hrFaugoSxPO', 2, 0),
-(13, '', '', 'Mario Cabuga', '9265691158', 'mariocabuga@gmail.com', 'Male', '', 'mariocabuga', '$2y$10$UCHlXU.n0gJVzGnWkhOTgusICqjy1lA7q7So4hkj8iTMHvjozXmd.', 2, 0),
-(16, '', '26229924_10212713287919615_1832668951219208602_n.jpg', 'Sajer Broncano', '09555773922', 'sajerbroncano@gmail.com', 'Male', 'lorem', 'sajer', '$2y$10$p3lQ2yohynZBq9c1jx7nq.n1p/C7j2Z22YL83vtv9YWJcCmg6uO3O', 1, 0),
-(17, '', '12439460_1107630092605028_8197726260371805381_n.jpg', 'Arjeth Pascual', '091255448884', 'arjethpascual.23.ap@gmail.com', 'Male', 'lorem', 'arjeth', '$2y$10$nWzeWXUhztWDI8JuXhpLqOq/epKvic6VErtj6k3xUmkq6HwCMB9Aa', 1, 0),
-(18, '', '15966257_1353966278001605_5752146725594554274_n.jpg', 'Jade Batal', '09125544778', 'jadebatal@gmail.com', 'Male', 'lorem', 'jade', '$2y$10$ccs7e/BS9o8J6PGHDk6c8u0j2lFSgJ/h8PQdIG0SJffm1U1m/VL.m', 1, 0),
-(19, '', '', 'Angelica Bawe Capuchino', '09221155445', 'angelica@gmail.com', 'Female', 'Graduate', 'angelica', '$2y$10$O.vMTCsItwzPj11j9hUgIeQnbx/tubJs02yPP5tTei.bICgZbFkA2', 1, 0),
 (20, '100552246558', '', 'Jeddahlyn Linzag Cabuga', '9265691158', 'cabugajeddahlyn@gmail.com', 'Female', '', 'jeddah', '$2y$10$XXwJbVNvcvQXve2ylNpCXenNvJVcQNyCv.rUxQfNyXGfbBLKY7DoG', 3, 0),
 (22, '100212112121', '', 'John Rey Sadia Lozano', '09555115522', 'johnreylozano@gmail.com', 'Male', '', 'johnrey', '$2y$10$p5jORXgGyKTYWmrQZSF7tOUwDN0xxQxrHG9ePKb0GzI3wgQl0zf86', 3, 0),
-(23, '100233665533', '', 'David James  Sadia Lozano', '09221112211', 'davidjames@gmail.com', '', '', 'davidjames', '$2y$10$0n6yHXDhE6BpI5DUWXWIbuR8DMI8YzJvF79T7pIiHP81PYEHij/py', 3, 0);
+(23, '100233665533', '', 'David James  Sadia Lozano', '09221112211', 'davidjames@gmail.com', '', '', 'davidjames', '$2y$10$0n6yHXDhE6BpI5DUWXWIbuR8DMI8YzJvF79T7pIiHP81PYEHij/py', 3, 0),
+(24, '', '', 'Gilan R. Avelida ', '0999579123', 'ghilanguro@gmai.com', '', 'unknown', 'Gilan', '$2y$10$giLBGpm.IDuYqHHc4w17Su0wX1/jakiMpsKtKEeeVFSiSo1VmPPi2', 1, 0),
+(25, '', '', 'Whallen Fijer Pasco ', '09184673877', 'teacherwhallen@gmail.com', '', 'unknown', 'Whallen', '$2y$10$43PoVy5xxJTgDj3mY.srxOuQxZJzVIpGg/hqUgoXuZ6cPqjT.ire2', 1, 0),
+(26, '', '', 'Myma P. Deo ', '09193351935', 'myrnadeo@yahoo.com', '', 'unknown', 'Myma', '$2y$10$H.6sAgR1ibYZKFjh6CYJI.oZyZ3BJi/wdajU8YGWodQ/0KZT48tB.', 1, 0),
+(27, '', '', 'Mirasol L. Dimaranan', '09393857525', 'lala_boyet@yahoo.com', '', 'unknown', 'Mirasol', '$2y$10$lw2ubgbvHBnAOTLpoyDXq.CiQEtkf.YmJ8Khvfa0siSod/FxGsmWq', 1, 0),
+(28, '', '', 'Aldrin D. Balagosa ', '09051441271', 'aldrin.adghie.balagosa@gmail.com', '', 'unknown', 'Aldrin', '$2y$10$pe6vX.M3fk2ji.hIh4Q/E.9DYDA0oeJ/bEOyhOaS9jAZnbX6.ocrS', 1, 0),
+(29, '', '', 'Rhomel Bong L. Dionisio', '09059521883', 'arhomdionisio@gmail.com', '', 'unknown', 'Rhomel', '$2y$10$.QeduJpICEfkqQsSQ5BC.uDod25tRDdr1STorScYL6jjTBFnFu/HO', 1, 0),
+(30, '', '', 'Mary Anne C. Maraan ', '09778491826', 'maraanmaryanne@gmail.com', '', 'unknown', 'Mary', '$2y$10$o6KN.fDUtRRnU3pqh78i9u4Asm7HH/nrpmZ.D0Jpjgh55sNUHl2qK', 1, 0),
+(31, '', '', 'Arni Claire I. Mendoza', '09493665326', 'yahseykiluwa@yahoo.com', '', 'unknown', 'Arni', '$2y$10$1gpaAeD0sJwZXNOLSyGhd.mVIphYUqWjBTFlhtfC5Ds/bYN306rty', 1, 0),
+(32, '', '', 'Marielle Louise V. Galarde', '09553447869', 'mariellelouise13@gmail.com', '', 'unknown', 'Marielle', '$2y$10$LKWibKC08qq1jRCp3c.pj.304eJi0Q.gyW7V0kZUdyZJxIINwhzRe', 1, 0),
+(33, '', '', 'Annie M. Novicio', '09298121953', 'manitay0407@gmail.com', '', 'unknown', 'Annie', '$2y$10$YGjIEwHm8yqjXqs2yMt4TOvVCBXVYHKeezOvmnE5r8p4UomskoTjy', 1, 0),
+(34, '', '', 'Alvin Almanzor', '09274599427', 'alvinalmanzor@yahoo.com', '', '', 'Alvin', '$2y$10$6ypI7TJz7Alub0vO7QcQ0.g0svozGReyONxRMT5H7/uYM9TksiDJ6', 2, 0),
+(35, '', '', 'Adelmo Ocampo', '09991790616', 'adelmoocampo@yahoo.com', '', '', 'Adelmo', '$2y$10$zwFhvuUMeh/hfOyUIqlB/ummwZ8vpNQ8Fucmr/CByJC/05qGnsbL.', 2, 0),
+(36, '', '', 'Jay Marquez', '09178616373', 'jaymarquez@yahoo.com', '', '', 'Jay', '$2y$10$zxsWDEhHBAR6SNRp70VCRe0JikFkT4jDOdtua2/M7PL9DEJeJagPm', 2, 0),
+(37, '', '', 'Edgar Pe&ntilde;alba', '09173442947', 'edgarpe&ntilde;alba@yahoo.com', '', '', 'Edgar', '$2y$10$bJn28dW/dvl5RcBpr2Z8SufvBjrAaIH8Q5WTCLBT5QG0ZxcYMJcWe', 2, 0),
+(38, '', '', 'Melvin Tiania', '09196578562', 'melvintiania@yahoo.com', '', '', 'Melvin', '$2y$10$iQVCWsAbIELpr37Xslek1uJ0uOYFC/aL4Lu8o3HwQEUPOWROVZ.52', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -335,14 +327,6 @@ CREATE TABLE `violations` (
   `description` varchar(1000) NOT NULL,
   `school_year` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `violations`
---
-
-INSERT INTO `violations` (`violations_id`, `LRN`, `description`, `school_year`) VALUES
-(12, '100552246558', 'test', '2017 - 2018'),
-(13, '100552246558', 'asdasdasasdasd', '2017 - 2018');
 
 --
 -- Indexes for dumped tables
@@ -428,25 +412,25 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT for table `assign_grades`
 --
 ALTER TABLE `assign_grades`
-  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
 --
 ALTER TABLE `assign_teachers`
-  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `events_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `events_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `school_year`
@@ -458,13 +442,13 @@ ALTER TABLE `school_year`
 -- AUTO_INCREMENT for table `section`
 --
 ALTER TABLE `section`
-  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -476,13 +460,13 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `violations`
 --
 ALTER TABLE `violations`
-  MODIFY `violations_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `violations_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
