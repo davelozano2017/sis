@@ -64,7 +64,11 @@ class account extends Model {
     }
 
     public function get_students() {
-        $query = $this->db->query("SELECT * FROM students WHERE stats = 0");
+        $syq = $this->db->query("SELECT * FROM school_year");
+        $row = $syq->fetch_object();
+        $sy  = $row->school_year;
+        
+        $query = $this->db->query("SELECT * FROM students WHERE stats = 0 school_year = '$sy'");
         return $query;
     }
 
@@ -164,14 +168,19 @@ class account extends Model {
         $start       = $data['start'];
         $end         = $data['end'];
         $description = $data['description'];
+       
         if(empty($events_id)) {
             $query   = $this->db->query("SELECT * FROM events WHERE title = '$title'");
             if($query->num_rows > 0) {
                 notify('error',$title.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO events (title,start,end,description) VALUES ('$title','$start','$end','$description')");
-                if($query) {
-                    notify('success','new event has been added.',true);
+                if($start > $end) {
+                    notify('error','Invalid date span.',false);
+                } else {
+                    $query = $this->db->query("INSERT INTO events (title,start,end,description) VALUES ('$title','$start','$end','$description')");
+                    if($query) {
+                        notify('success','new event has been added.',true);
+                    }
                 }
             }
         } else {
@@ -597,11 +606,11 @@ class account extends Model {
                 $second      = $data['second'][$key];
                 $third       = $data['third'][$key];
                 $fourth      = $data['fourth'][$key];
-                $validate    = $this->db->query("SELECT * FROM assign_grades WHERE students_id = $students_id AND section_id = $section_id AND subjects_id = $subjects_id");
+                $validate    = $this->db->query("SELECT * FROM assign_grades WHERE students_id = $students_id AND section_id = $section_id AND subjects_id = $subjects_id AND sy = '$school_year'");
                 if($validate->num_rows > 0) {
                     $flag = 0;
                 } else {
-                    $query = $this->db->query("INSERT INTO assign_grades (teachers_id,students_id,section_id,subjects_id,first,second,third,fourth,school_year) VALUES ('$user_id','$students_id','$section_id','$subjects_id','$first','$second','$third','$fourth','$school_year')");
+                    $query = $this->db->query("INSERT INTO assign_grades (teachers_id,students_id,section_id,subjects_id,first,second,third,fourth,sy) VALUES ('$user_id','$students_id','$section_id','$subjects_id','$first','$second','$third','$fourth','$school_year')");
                     if($query) {
                         $flag = 1;
                     }
@@ -665,7 +674,10 @@ class account extends Model {
     }
 
     public function get_all_grades($students_id) {
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id");
+        $sy = $this->db->query("SELECT * FROM school_year LIMIT 1");
+        $row = $sy->fetch_object();
+        $school_year = $row->school_year;
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '$school_year'");
         return $query;
     }
 

@@ -67,7 +67,7 @@
                                         <td><?=$row['third']?></td>
                                         <td><?=$row['fourth']?></td>
                                         <td><?=$average?>%</td>
-                                        <td><?=$row['school_year']?></td>
+                                        <td><?=$row['sy']?></td>
                                         <td><button onclick="update_grades(<?=$row['assign_grades_id']?>)" class="btn btn-success">Update</button></td>
                                     </tr>
                                 <?php } ?>

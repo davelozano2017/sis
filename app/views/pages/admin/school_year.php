@@ -79,12 +79,23 @@
                 <form novalidate name="formSchoolYear" id="formSchoolYear" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
                     <input type="hidden" class="form-control" id="school_year_id" name="school_year_id">
-                    
                     <div class="form-group">
-                        <input type="text" ng-model="school_year" id="school_year" name="school_year" class="form-control" placeholder="School Year" required>
-                        <span ng-messages="formSchoolYear.school_year.$error" ng-if="formSchoolYear.school_year.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
+                        <select id="school_year" name="school_year" class="form-control">
+                            <option value="2015 - 2016">2015 - 2016</option> 
+                            <option value="2016 - 2017">2016 - 2017</option> 
+                            <option value="2017 - 2018">2017 - 2018</option> 
+                            <option value="2018 - 2019">2018 - 2019</option> 
+                            <option value="2019 - 2020">2019 - 2020</option> 
+                            <option value="2020 - 2021">2020 - 2021</option> 
+                            <option value="2021 - 2022">2021 - 2022</option> 
+                            <option value="2022 - 2023">2022 - 2023</option> 
+                            <option value="2023 - 2024">2023 - 2024</option> 
+                            <option value="2024 - 2025">2024 - 2025</option> 
+                            <option value="2025 - 2026">2025 - 2026</option> 
+                            <option value="2026 - 2027">2026 - 2025</option> 
+                            <option value="2027 - 2028">2027 - 2028</option> 
+                            <option value="2028 - 2029">2028 - 2029</option> 
+                        </select>
                     </div>
 
                 </form>
