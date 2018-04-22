@@ -42,8 +42,8 @@
 							<thead>
 								<tr>
                                     <th style="width:1px">#</th>
-                                    <th style="width:1px">Code</th>
-                                    <th>Subject Name</th>
+                                    <th style="width:150px">Subject Code</th>
+                                    <th>Title</th>
                                     <th colspan=3 style="width:1px"></th>
 								</tr>
 							</thead>

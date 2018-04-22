@@ -114,13 +114,6 @@
                         </span>
                     </div>
 
-                    <div class="form-group">
-                        <textarea Placeholder="Description" name="description" id="description" ng-model="description" class="form-control" style="resize:none" required></textarea>
-                        <span ng-messages="formSection.description.$error" ng-if="formSection.description.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
-                    </div>
-
                 </form>
             </div>
 

@@ -261,19 +261,18 @@ class account extends Model {
         $section_id  = $data['section_id'];
         $name        = $data['name'];
         $level       = $data['level'];
-        $description = $data['description'];
         if(empty($section_id)) {
             $query   = $this->db->query("SELECT * FROM section WHERE section_name = '$name' AND level = '$level'");
             if($query->num_rows > 0) {
                 notify('error',$name.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO section (section_name,level,description) VALUES ('$name','$level','$description')");
+                $query = $this->db->query("INSERT INTO section (section_name,level) VALUES ('$name','$level')");
                 if($query) {
                     notify('success','new section has been added.',true);
                 }
             }
         } else {
-            $query = $this->db->query("UPDATE section SET section_name = '$name', level = '$level', description = '$description' WHERE section_id = '$section_id'");
+            $query = $this->db->query("UPDATE section SET section_name = '$name', level = '$level' WHERE section_id = '$section_id'");
             if($query) {
                 notify('info',$name.' has been updated.',true);
             }
