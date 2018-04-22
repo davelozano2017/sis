@@ -67,9 +67,17 @@ class account extends Model {
         $syq = $this->db->query("SELECT * FROM school_year");
         $row = $syq->fetch_object();
         $sy  = $row->school_year;
-        
-        $query = $this->db->query("SELECT * FROM students WHERE stats = 0 school_year = '$sy'");
-        return $query;
+        $check = $this->db->query("SELECT * FROM assign_students WHERE school_year = '$sy'");
+        if($check->num_rows > 0) {
+            foreach($check as $c) {
+                $students_id = $c['students_id'];
+                $this->db->query("UPDATE students SET stats = 1 WHERE students_id = '$students_id'");
+            }
+        } else {
+            $this->db->query("UPDATE students SET stats = 0");
+        }
+            $query = $this->db->query("SELECT * FROM students WHERE stats = 0");
+            return $query;
     }
 
     public function get_my_students($user_id) {
@@ -697,5 +705,6 @@ class account extends Model {
         $query = $this->db->real_escape_string(htmlentities($_POST[$data]));
         return $query;
     }
+
 
 }

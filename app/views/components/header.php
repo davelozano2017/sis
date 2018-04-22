@@ -14,7 +14,7 @@
 	<link href="<?=ASSETS?>css/components.css" rel="stylesheet" type="text/css">
 	<link href="<?=ASSETS?>css/colors.css" rel="stylesheet" type="text/css">
 	<link href="<?=ASSETS?>toastr/css/toastr.min.css" rel="stylesheet" type="text/css">
-	<link rel="icon" href="<?=ASSETS?>images/logo.png">
+	<link rel="icon" href="<?=ASSETS?>images/logo.jpg">
 	<style>
 		button { border-radius:0 !important};
 	</style>

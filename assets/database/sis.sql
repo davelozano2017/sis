@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2018 at 08:01 PM
+-- Generation Time: Apr 23, 2018 at 01:52 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -96,6 +96,17 @@ CREATE TABLE `assign_students` (
   `assign_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `assign_students`
+--
+
+INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_year`, `assign_status`) VALUES
+(15, 1, 7, '2017 - 2018', 0),
+(16, 1, 9, '2017 - 2018', 0),
+(17, 1, 10, '2017 - 2018', 0),
+(18, 1, 11, '2017 - 2018', 0),
+(19, 1, 12, '2017 - 2018', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -168,7 +179,7 @@ CREATE TABLE `school_year` (
 --
 
 INSERT INTO `school_year` (`school_year_id`, `school_year`) VALUES
-(1, '2018 - 2019');
+(1, '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -236,11 +247,11 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstname`, `middlename`, `gender`, `contact`, `email`, `address`, `school_year`, `stats`) VALUES
-(7, 35, '100554422779', 'Ocampo', 'Lorenzo Adam', 'P.', 'Male', '09991790616', 'a@aa.co', '35 a. Bonifacio St. Mendez, Cavite', '2017 - 2018', 0),
-(9, 34, '100221155118', 'Almanzor', 'Mark Xander', '', 'Male', '09274599427', '', 'Market Site Galicia 2, Mendez Cavite', '2017 - 2018', 0),
-(10, 36, '100225511515', 'Marquez', 'Godwin Pius', 'A.', 'Male', '09178616373', '', '063 Balagbag Ma. Kahoy LejosIndang ,Cavite', '2017 - 2018', 0),
-(11, 37, '100336699882', 'Pe&ntilde;alba', 'David', '', 'Male', '09173442947', '', '105 panungyan II Mendez, Cavite', '2017 - 2018', 0),
-(12, 38, '100336644771', 'Tiania', 'Joaquin Ynigo', '', 'Male', '09196578562', '', '67 Patutong Malaki North tag. City', '2017 - 2018', 0);
+(7, 35, '100554422779', 'Ocampo', 'Lorenzo Adam', 'P.', 'Male', '09991790616', 'a@aa.co', '35 a. Bonifacio St. Mendez, Cavite', '2017 - 2018', 1),
+(9, 34, '100221155118', 'Almanzor', 'Mark Xander', '', 'Male', '09274599427', '', 'Market Site Galicia 2, Mendez Cavite', '2017 - 2018', 1),
+(10, 36, '100225511515', 'Marquez', 'Godwin Pius', 'A.', 'Male', '09178616373', '', '063 Balagbag Ma. Kahoy LejosIndang ,Cavite', '2017 - 2018', 1),
+(11, 37, '100336699882', 'Pe&ntilde;alba', 'David', '', 'Male', '09173442947', '', '105 panungyan II Mendez, Cavite', '2017 - 2018', 1),
+(12, 38, '100336644771', 'Tiania', 'Joaquin Ynigo', '', 'Male', '09196578562', '', '67 Patutong Malaki North tag. City', '2017 - 2018', 1);
 
 -- --------------------------------------------------------
 
@@ -418,7 +429,7 @@ ALTER TABLE `assign_grades`
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
