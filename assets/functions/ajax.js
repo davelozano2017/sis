@@ -17,6 +17,59 @@ function login() {
     })
 }
 
+function form137_elementary() {
+    var modal = $('#form137-elementary');
+    modal.modal();
+}
+
+function go_filter() {
+    var students_id = $('#students_id').val();
+    location.href = url + 'form_137_elementary/'+students_id;
+}
+
+function assign_award(students_id) {
+    var modal = $('#modal-awards');
+    var data = $('#formAwards').serialize();
+    $.ajax({
+        type : 'POST',
+        url : url + '../view_awards/'+students_id,
+        data : data,
+        dataType: 'json',
+        success:function(data){
+            var content = data.awards_id == '' ? 'Add New': 'Save Changes';
+            $('#btn-awards').html(content +' <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
+            $('#awards_id').val(data.awards_id);
+            $('#stud_id').val(data.stud_id);
+            $('#first').val(data.first);
+            $('#second').val(data.second);
+            $('#third').val(data.third);
+            $('#fourth').val(data.fourth);
+        }
+
+    })
+    modal.modal();
+}
+
+function add_awards() {
+    var data = $('#formAwards').serialize();
+    var guardian_id = $('#guardian_id').val();
+    $.ajax({
+        type : 'POST',
+        url : url + '../AddOrUpdateAwards',
+        data : data,
+        dataType: 'json',
+        beforeSend:function() {
+            $('#btn-awards').html('<i class="icon-spinner2 spinner"></i>').attr('disabled',true);
+        },
+        success:function(data) {
+            data.success === true ? location.href = url + '../awards/'+guardian_id : notify(data.type,data.message);
+            var content = data.type == 'info' ? 'Save Changes' : 'Add New';
+            $('#btn-awards').html(content +' <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
+        }
+
+    })
+}
+
 function recover() {
     var data = $('#formRecover').serialize();
     $.ajax({

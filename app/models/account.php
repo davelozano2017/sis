@@ -63,6 +63,19 @@ class account extends Model {
         return $query;
     }
 
+    public function one($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
+
+    
+
+    public function get_student_by_students_id($students_id) {
+        $query = $this->db->query("SELECT * FROM students as s INNER JOIN users as u ON u.user_id = s.guardian_id WHERE s.students_id = $students_id");
+        return $query->fetch_object();
+    }
+
     public function get_students() {
         $syq = $this->db->query("SELECT * FROM school_year");
         $row = $syq->fetch_object();
@@ -171,8 +184,50 @@ class account extends Model {
     }
 
     public function parents_students($id){
-        $query = $this->db->query("SELECT * FROM users as u INNER JOIN students as s ON u.user_id = s.guardian_id WHERE u.user_id = $id");
+        $query = $this->db->query("SELECT * FROM users as u INNER JOIN students as s ON u.user_id = s.guardian_id LEFT JOIN assign_awards as aa ON aa.stud_id = s.students_id WHERE u.user_id = $id");
         return $query;
+    }
+
+    public function AddOrUpdateAwards($data) {
+        $awards_id   = $data['awards_id'];
+        $guardian_id = $data['guardian_id'];
+        $stud_id     = $data['stud_id'];
+        $first       = $data['first'];
+        $second      = $data['second'];
+        $third       = $data['third'];
+        $fourth      = $data['fourth'];
+        if(empty($awards_id)) {
+            $query   = $this->db->query("SELECT * FROM assign_awards WHERE first = '$first' || second = '$second' || third = '$third' || fourth = '$fourth' AND stud_id = '$stud_id'");
+            if($query->num_rows > 0) {
+                notify('error','Award already exist.',false);
+            } else {
+                $query = $this->db->query("INSERT INTO assign_awards (stud_id,guardians_id,first,second,third,fourth) VALUES ('$stud_id','$guardian_id','$first','$second','$third','$fourth')");
+                if($query) {
+                        notify('info','Award has been added.',true);
+                } else {
+                    echo json_encode(['success' => false]);
+                }
+            }
+        } else {
+            $query = $this->db->query("UPDATE assign_awards SET first = '$first', second = '$second', third = '$third', fourth = '$fourth' WHERE awards_id = '$awards_id'");
+            if($query) {
+                notify('info','Award has been updated.',true);
+            }
+        }
+    }
+
+    public function view_awards($data) {
+        $guardians_id = $data['guardians_id'];
+        $stud_id = $data['students_id'];
+        $query = $this->db->query("SELECT * FROM assign_awards WHERE guardians_id = '$guardians_id'");
+        if($query->num_rows > 0) {
+            echo json_encode($query->fetch_object());
+        } else {
+            echo json_encode(array(
+                'success' => true,
+                'stud_id' => $stud_id
+            ));
+        }
     }
 
     public function AddOrUpdateEvents($data) {

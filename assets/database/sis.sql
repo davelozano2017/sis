@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2018 at 01:52 AM
+-- Generation Time: Apr 24, 2018 at 03:12 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -49,6 +49,30 @@ INSERT INTO `activity` (`activity_id`, `LRN`, `activity`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `assign_awards`
+--
+
+CREATE TABLE `assign_awards` (
+  `awards_id` int(11) NOT NULL,
+  `stud_id` int(11) NOT NULL,
+  `guardians_id` int(11) NOT NULL,
+  `first` varchar(255) NOT NULL,
+  `second` varchar(255) NOT NULL,
+  `third` varchar(255) NOT NULL,
+  `fourth` varchar(255) NOT NULL,
+  `s_y` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `assign_awards`
+--
+
+INSERT INTO `assign_awards` (`awards_id`, `stud_id`, `guardians_id`, `first`, `second`, `third`, `fourth`, `s_y`) VALUES
+(6, 9, 34, 'Best in first', 'Best in second', 'Best in third', 'Best in fourth', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `assign_grades`
 --
 
@@ -71,16 +95,51 @@ CREATE TABLE `assign_grades` (
 --
 
 INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `section_id`, `subjects_id`, `first`, `second`, `third`, `fourth`, `average`, `sy`) VALUES
-(63, 24, 7, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
-(64, 24, 9, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
-(65, 24, 10, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
-(66, 24, 11, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
-(67, 24, 12, 1, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
-(68, 24, 7, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018'),
-(69, 24, 9, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018'),
-(70, 24, 10, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018'),
-(71, 24, 11, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018'),
-(72, 24, 12, 1, 3, 80, 0, 0, 0, 0, '2017 - 2018');
+(73, 24, 7, 4, 11, 100, 100, 100, 100, 0, '2017 - 2018'),
+(74, 24, 9, 4, 11, 100, 0, 0, 0, 0, '2017 - 2018'),
+(75, 24, 10, 4, 11, 0, 0, 0, 0, 0, '2017 - 2018'),
+(76, 24, 11, 4, 11, 0, 0, 0, 0, 0, '2017 - 2018'),
+(77, 24, 12, 4, 11, 0, 0, 0, 0, 0, '2017 - 2018'),
+(78, 24, 7, 4, 10, 100, 100, 100, 100, 0, '2017 - 2018'),
+(79, 24, 9, 4, 10, 0, 0, 0, 0, 0, '2017 - 2018'),
+(80, 24, 10, 4, 10, 0, 0, 0, 0, 0, '2017 - 2018'),
+(81, 24, 11, 4, 10, 0, 0, 0, 0, 0, '2017 - 2018'),
+(82, 24, 12, 4, 10, 0, 0, 0, 0, 0, '2017 - 2018'),
+(83, 24, 7, 4, 9, 100, 100, 100, 100, 0, '2017 - 2018'),
+(84, 24, 9, 4, 9, 0, 0, 0, 0, 0, '2017 - 2018'),
+(85, 24, 10, 4, 9, 0, 0, 0, 0, 0, '2017 - 2018'),
+(86, 24, 11, 4, 9, 0, 0, 0, 0, 0, '2017 - 2018'),
+(87, 24, 12, 4, 9, 0, 0, 0, 0, 0, '2017 - 2018'),
+(88, 24, 7, 4, 8, 100, 100, 100, 100, 100, '2017 - 2018'),
+(89, 24, 9, 4, 8, 0, 0, 0, 0, 0, '2017 - 2018'),
+(90, 24, 10, 4, 8, 0, 0, 0, 0, 0, '2017 - 2018'),
+(91, 24, 11, 4, 8, 0, 0, 0, 0, 0, '2017 - 2018'),
+(92, 24, 12, 4, 8, 0, 0, 0, 0, 0, '2017 - 2018'),
+(93, 24, 7, 4, 7, 100, 100, 100, 100, 100, '2017 - 2018'),
+(94, 24, 9, 4, 7, 0, 0, 0, 0, 0, '2017 - 2018'),
+(95, 24, 10, 4, 7, 0, 0, 0, 0, 0, '2017 - 2018'),
+(96, 24, 11, 4, 7, 0, 0, 0, 0, 0, '2017 - 2018'),
+(97, 24, 12, 4, 7, 0, 0, 0, 0, 0, '2017 - 2018'),
+(98, 24, 7, 4, 6, 100, 100, 100, 100, 100, '2017 - 2018'),
+(99, 24, 9, 4, 6, 0, 0, 0, 0, 0, '2017 - 2018'),
+(100, 24, 10, 4, 6, 0, 0, 0, 0, 0, '2017 - 2018'),
+(101, 24, 11, 4, 6, 0, 0, 0, 0, 0, '2017 - 2018'),
+(102, 24, 12, 4, 6, 0, 0, 0, 0, 0, '2017 - 2018'),
+(103, 24, 7, 4, 5, 100, 100, 100, 100, 100, '2017 - 2018'),
+(104, 24, 9, 4, 5, 0, 0, 0, 0, 0, '2017 - 2018'),
+(105, 24, 10, 4, 5, 0, 0, 0, 0, 0, '2017 - 2018'),
+(106, 24, 11, 4, 5, 0, 0, 0, 0, 0, '2017 - 2018'),
+(107, 24, 12, 4, 5, 0, 0, 0, 0, 0, '2017 - 2018'),
+(108, 24, 7, 4, 4, 100, 100, 100, 100, 100, '2017 - 2018'),
+(109, 24, 9, 4, 4, 0, 0, 0, 0, 0, '2017 - 2018'),
+(110, 24, 10, 4, 4, 0, 0, 0, 0, 0, '2017 - 2018'),
+(111, 24, 11, 4, 4, 0, 0, 0, 0, 0, '2017 - 2018'),
+(112, 24, 12, 4, 4, 0, 0, 0, 0, 0, '2017 - 2018'),
+(113, 24, 7, 4, 3, 100, 100, 100, 100, 100, '2017 - 2018'),
+(114, 24, 9, 4, 3, 0, 0, 0, 0, 0, '2017 - 2018'),
+(115, 24, 10, 4, 3, 0, 0, 0, 0, 0, '2017 - 2018'),
+(116, 24, 11, 4, 3, 0, 0, 0, 0, 0, '2017 - 2018'),
+(117, 24, 12, 4, 3, 0, 0, 0, 0, 0, '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -101,11 +160,11 @@ CREATE TABLE `assign_students` (
 --
 
 INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_year`, `assign_status`) VALUES
-(15, 1, 7, '2017 - 2018', 0),
-(16, 1, 9, '2017 - 2018', 0),
-(17, 1, 10, '2017 - 2018', 0),
-(18, 1, 11, '2017 - 2018', 0),
-(19, 1, 12, '2017 - 2018', 0);
+(20, 4, 7, '2017 - 2018', 0),
+(21, 4, 9, '2017 - 2018', 0),
+(22, 4, 10, '2017 - 2018', 0),
+(23, 4, 11, '2017 - 2018', 0),
+(24, 4, 12, '2017 - 2018', 0);
 
 -- --------------------------------------------------------
 
@@ -133,8 +192,7 @@ INSERT INTO `assign_teachers` (`assign_teachers_id`, `teachers_id`, `section_id`
 (57, 24, 4, 8),
 (58, 24, 4, 9),
 (59, 24, 4, 10),
-(60, 24, 4, 11),
-(61, 24, 1, 3);
+(60, 24, 4, 11);
 
 -- --------------------------------------------------------
 
@@ -321,7 +379,7 @@ INSERT INTO `users` (`user_id`, `LRNN`, `image`, `name`, `contact`, `email`, `ge
 (32, '', '', 'Marielle Louise V. Galarde', '09553447869', 'mariellelouise13@gmail.com', '', 'unknown', 'Marielle', '$2y$10$LKWibKC08qq1jRCp3c.pj.304eJi0Q.gyW7V0kZUdyZJxIINwhzRe', 1, 0),
 (33, '', '', 'Annie M. Novicio', '09298121953', 'manitay0407@gmail.com', '', 'unknown', 'Annie', '$2y$10$YGjIEwHm8yqjXqs2yMt4TOvVCBXVYHKeezOvmnE5r8p4UomskoTjy', 1, 0),
 (34, '', '', 'Alvin Almanzor', '09274599427', 'alvinalmanzor@yahoo.com', '', '', 'Alvin', '$2y$10$6ypI7TJz7Alub0vO7QcQ0.g0svozGReyONxRMT5H7/uYM9TksiDJ6', 2, 0),
-(35, '', '', 'Adelmo Ocampo', '09991790616', 'adelmoocampo@yahoo.com', '', '', 'Adelmo', '$2y$10$zwFhvuUMeh/hfOyUIqlB/ummwZ8vpNQ8Fucmr/CByJC/05qGnsbL.', 2, 0),
+(35, '', '', 'Adelmo Ocampo', '09991790616', 'adelmoocampo@yahoo.com', 'Male', '', 'Adelmo', '$2y$10$zwFhvuUMeh/hfOyUIqlB/ummwZ8vpNQ8Fucmr/CByJC/05qGnsbL.', 2, 0),
 (36, '', '', 'Jay Marquez', '09178616373', 'jaymarquez@yahoo.com', '', '', 'Jay', '$2y$10$zxsWDEhHBAR6SNRp70VCRe0JikFkT4jDOdtua2/M7PL9DEJeJagPm', 2, 0),
 (37, '', '', 'Edgar Pe&ntilde;alba', '09173442947', 'edgarpe&ntilde;alba@yahoo.com', '', '', 'Edgar', '$2y$10$bJn28dW/dvl5RcBpr2Z8SufvBjrAaIH8Q5WTCLBT5QG0ZxcYMJcWe', 2, 0),
 (38, '', '', 'Melvin Tiania', '09196578562', 'melvintiania@yahoo.com', '', '', 'Melvin', '$2y$10$iQVCWsAbIELpr37Xslek1uJ0uOYFC/aL4Lu8o3HwQEUPOWROVZ.52', 2, 0);
@@ -348,6 +406,12 @@ CREATE TABLE `violations` (
 --
 ALTER TABLE `activity`
   ADD PRIMARY KEY (`activity_id`);
+
+--
+-- Indexes for table `assign_awards`
+--
+ALTER TABLE `assign_awards`
+  ADD PRIMARY KEY (`awards_id`);
 
 --
 -- Indexes for table `assign_grades`
@@ -420,16 +484,22 @@ ALTER TABLE `activity`
   MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
+-- AUTO_INCREMENT for table `assign_awards`
+--
+ALTER TABLE `assign_awards`
+  MODIFY `awards_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `assign_grades`
 --
 ALTER TABLE `assign_grades`
-  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`

@@ -16,7 +16,6 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li>Dashboard</li>
-                <li>Control Panel</li>
                 <li class="active">Awards</li>
             </ul>
         </div>
@@ -32,6 +31,7 @@
 
             <!-- Sales stats -->
             <div class="panel panel-flat">
+                <div class="panel-heading"></div>
                 
                 <!-- start -->
                     <div class="container-fluid">
@@ -44,7 +44,6 @@
                                     <th>Second</th>
                                     <th>Third</th>
                                     <th>Fourth</th>
-                                    <th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -56,7 +55,6 @@
                                         <td><?=$row['second']?></td>
                                         <td><?=$row['third']?></td>
                                         <td><?=$row['fourth']?></td>
-                                        <td><a onclick="assign_award(<?=$row['students_id']?>)">View</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -69,46 +67,3 @@
     </div>
     <!-- /main charts -->
 
-    <!-- Success modal -->
-<div id="modal-awards" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-success">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h6 class="modal-title">Awards</h6>
-            </div>
-
-            <div class="modal-body">
-                <form novalidate name="formAwards" id="formAwards" method="POST">
-                    <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
-                    <input type="hidden" class="form-control" id="guardian_id" name="guardian_id" value="<?=$data['guardian_id']?>">
-                    <input type="hidden" class="form-control" id="awards_id" name="awards_id">
-                    <input type="hidden" class="form-control" id="stud_id" name="stud_id">
-                    
-                    <div class="form-group">
-                        <input type="text" id="first" name="first"  class="form-control" placeholder="First Quarter">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" id="second" name="second"  class="form-control" placeholder="Second Quarter" >
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" id="third" name="third"  class="form-control" placeholder="Third Quarter" >
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" id="fourth" name="fourth"  class="form-control" placeholder="Fourth Quarter" >
-                    </div>
-
-
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btn-awards" onclick="add_awards()" ></button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /success modal -->

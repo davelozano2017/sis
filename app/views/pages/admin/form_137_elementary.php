@@ -55,8 +55,8 @@ th {
     <th style="border:1px solid #fff"><img style="width:120px;height:110px"src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
 </tr>
 <tr>
-    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: <input type="text" style="width:80%" autofocus></td>
-    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" >Sex:: <input type="text" style="width:80%"> </td>
+    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: <input type="text" style="width:80%" autofocus value="<?=$data['info']->surname?> <?=$data['info']->firstname?> <?=$data['info']->middlename?>  " ></td>
+    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" >Sex:: <input type="text" value="<?=$data['info']->gender?>" style="width:80%"> </td>
 </tr>
 
 <tr>
@@ -76,7 +76,7 @@ th {
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
 
-<td style="border:1px solid #fff;border-bottom:1px solid #000;width:100%" > Parent / Guardian: <input type="text" style="width:80%"></td>
+<td style="border:1px solid #fff;border-bottom:1px solid #000;width:100%" > Parent / Guardian: <input type="text" value="<?=$data['info']->name?> - <?=$data['info']->address?>" style="width:80%"></td>
 
 </tr>
 
@@ -133,80 +133,21 @@ th {
             <td colspan="3">Final Rating</td>
         </tr>
         
+        <?php foreach($data['one'] as $rowone) { ?>
+        <?php 
+        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $aa = $a / 4;
+        $average = $aa < 75 ? 'Failed' : 'Passed';
+        ?>
         <tr>
-            <td colspan="6"><b>Mother Tongue</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
+            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
         </tr>
-        <tr>
-            <td colspan="6"><b>Filipino</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>English</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Mathematics</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Science & Health</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>MSEP</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Christian Living</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Computer Education</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
+        <?php } ?>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
@@ -241,81 +182,22 @@ th {
             <td>4th</td>
             <td colspan="3">Final Rating</td>
         </tr>
+        <?php foreach($data['one'] as $rowone) { ?>
+        <?php 
+        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $aa = $a / 4;
+        $average = $aa < 75 ? 'Failed' : 'Passed';
+        ?>
         <tr>
-            <td colspan="6"><b>Mother Tongue</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
+            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
         </tr>
-        <tr>
-            <td colspan="6"><b>Filipino</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>English</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Mathematics</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Science & Health</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>MSEP</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Christian Living</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Computer Education</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
+        <?php } ?>
+        
         <tr>
             <td colspan="6"><b>General Average</b></td>
             <td><input type="text" style="width:100%"></td>
@@ -352,80 +234,22 @@ th {
             <td>4th</td>
             <td colspan="3">Final Rating</td>
         </tr>
+        
+        <?php foreach($data['one'] as $rowone) { ?>
+        <?php 
+        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $aa = $a / 4;
+        $average = $aa < 75 ? 'Failed' : 'Passed';
+        ?>
         <tr>
-            <td colspan="6"><b>Mother Tongue</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
+            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
         </tr>
-        <tr>
-            <td colspan="6"><b>Filipino</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>English</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Mathematics</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Science & Health</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>MSEP</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Christian Living</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Computer Education</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
+        <?php } ?>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
@@ -460,80 +284,22 @@ th {
             <td>4th</td>
             <td colspan="3">Final Rating</td>
         </tr>
+        
+        <?php foreach($data['one'] as $rowone) { ?>
+        <?php 
+        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $aa = $a / 4;
+        $average = $aa < 75 ? 'Failed' : 'Passed';
+        ?>
         <tr>
-            <td colspan="6"><b>Mother Tongue</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
+            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
         </tr>
-        <tr>
-            <td colspan="6"><b>Filipino</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>English</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Mathematics</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Science & Health</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>MSEP</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Christian Living</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Computer Education</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
+        <?php } ?>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
@@ -570,80 +336,22 @@ th {
             <td>4th</td>
             <td colspan="3">Final Rating</td>
         </tr>
+        
+        <?php foreach($data['one'] as $rowone) { ?>
+        <?php 
+        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $aa = $a / 4;
+        $average = $aa < 75 ? 'Failed' : 'Passed';
+        ?>
         <tr>
-            <td colspan="6"><b>Mother Tongue</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
+            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
         </tr>
-        <tr>
-            <td colspan="6"><b>Filipino</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>English</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Mathematics</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Science & Health</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>MSEP</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Christian Living</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Computer Education</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>        
-        </tr>
+        <?php } ?>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>
@@ -678,80 +386,22 @@ th {
             <td>4th</td>
             <td colspan="3">Final Rating</td>
         </tr>
+        
+        <?php foreach($data['one'] as $rowone) { ?>
+        <?php 
+        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $aa = $a / 4;
+        $average = $aa < 75 ? 'Failed' : 'Passed';
+        ?>
         <tr>
-            <td colspan="6"><b>Mother Tongue</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
+            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
         </tr>
-        <tr>
-            <td colspan="6"><b>Filipino</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>English</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Mathematics</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Science & Health</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>Sibika at Kultura</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-        <tr>
-            <td colspan="6"><b>MSEP</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Christian Living</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
-
-        <tr>
-            <td colspan="6"><b>Computer Education</b></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td><input type="text" style="width:100%"></td>
-            <td colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
+        <?php } ?>
 
         <tr>
             <td colspan="6"><b>General Average</b></td>

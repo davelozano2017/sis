@@ -63,7 +63,7 @@
                                     <li class="<?= $data['title'] == 'Student Master List' ? 'active' : '';?>"><a href="<?=URL?>admin/report_student_master_list"> Student Master Lists </a></li>
                                     <li><a href="#"> Generate Form 137 </a> 
                                         <ul>
-                                            <li class="<?= $data['title'] == 'Elementary' ? 'active' : '';?>"><a href="<?=URL?>admin/form_137_elementary"> Elementary</a></li>
+                                            <li class="<?= $data['title'] == 'Elementary' ? 'active' : '';?>"><a onclick="form137_elementary()"> Elementary</a></li>
                                             <li class="<?= $data['title'] == 'Secondary'  ? 'active' : '';?>"><a href="<?=URL?>admin/form_137_secondary"> Secondary </a></li>
                                         </ul>
                                     </li>
@@ -80,7 +80,6 @@
                                     <li class="<?= $data['title'] == 'Section'     ? 'active' : '';?>"><a href="<?=URL?>admin/section"> Section </a></li>
                                     <li class="<?= $data['title'] == 'Subjects'    ? 'active' : '';?>"><a href="<?=URL?>admin/subjects"> Subjects </a></li>
                                     <li class="<?= $data['title'] == 'Parents'     ? 'active' : '';?>"><a href="<?=URL?>admin/parents"> Parents </a></li>
-                                    <li class="<?= $data['title'] == 'Awards' ? 'active':'';?>"><a href="<?=URL?>admin/awards"><span>Awards</span></a></li>
                                     <li class="<?= $data['title'] == 'Students'    ? 'active' : '';?>"><a href="<?=URL?>admin/students"> Students </a></li>
                                     <li class="<?= $data['title'] == 'Violations'  ? 'active' : '';?>"><a href="<?=URL?>admin/violations"> Violations </a></li>
                                     <li class="<?= $data['title'] == 'Extra Curricular'    ? 'active' : '';?>"><a href="<?=URL?>admin/extra_curricular"> Extra Curricular </a></li>
@@ -95,6 +94,7 @@
                         <?php break; case 2: ?>
                             <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>parents/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                             <li class="<?= $data['title'] == 'Student Grade Book' ? 'active':'';?>"><a href="<?=URL?>parents/student_grade_book"><i class="icon-books"></i> <span>Student Grade Book</span></a></li>
+                            <li class="<?= $data['title'] == 'Awards' ? 'active':'';?>"><a href="<?=URL?>parents/awards"><i class="icon-trophy3"></i> <span>Awards</span></a></li>
                             <li class="<?= $data['title'] == 'Extra Curricular' ? 'active':'';?>"><a href="<?=URL?>parents/extra_curricular"><i class="icon-check"></i> <span>Extra Curricular</span></a></li>
                             <li class="<?= $data['title'] == 'Violations' ? 'active':'';?>"><a href="<?=URL?>parents/violations"><i class="icon-cross3"></i> <span>Violations</span></a></li>
                         <?php break; case 3: ?>
@@ -114,3 +114,37 @@
     </div>
 </div>
 <!-- /main sidebar -->
+
+
+
+    <!-- Success modal -->
+<div id="form137-elementary" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Awards</h6>
+            </div>
+
+            <div class="modal-body">
+                <form novalidate name="formAwards" id="formAwards" method="POST">
+
+                    <div class="form-group">
+                        <select class="form-control" onchange="go_filter()" name="students_id" id="students_id">
+                            <option value="">Select Student</option>
+                            <?php foreach($data['students'] as $students_row) { ?>
+                                <option value="<?=$students_row['students_id']?>"><?=$students_row['LRN'].' - '.$students_row['firstname']. ' '.$students_row['middlename']. ' '.$students_row['surname']?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /success modal -->
