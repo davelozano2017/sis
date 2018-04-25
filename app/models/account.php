@@ -64,12 +64,34 @@ class account extends Model {
     }
 
     public function one($students_id) {
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id ORDER BY su.subjects_name ASC");
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2017 - 2018' ORDER BY su.subjects_name ASC");
         return $query; 
     }
 
+    public function two($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2018 - 2019' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
 
-    
+    public function three($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2019 - 2020' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
+    public function four($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2020 - 2021' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
+    public function five($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2021 - 2022' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
+    public function six($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2022 - 2023' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
 
     public function get_student_by_students_id($students_id) {
         $query = $this->db->query("SELECT * FROM students as s INNER JOIN users as u ON u.user_id = s.guardian_id WHERE s.students_id = $students_id");
@@ -80,7 +102,7 @@ class account extends Model {
         $syq = $this->db->query("SELECT * FROM school_year");
         $row = $syq->fetch_object();
         $sy  = $row->school_year;
-        $check = $this->db->query("SELECT * FROM assign_students WHERE school_year = '$sy'");
+        $check = $this->db->query("SELECT * FROM assign_students WHERE school_years = '$sy'");
         if($check->num_rows > 0) {
             foreach($check as $c) {
                 $students_id = $c['students_id'];
@@ -283,18 +305,20 @@ class account extends Model {
         $contact      = $data['contact'];
         $email        = $data['email'];
         $address      = $data['address'];
+        $dob          = $data['dob'];
+        $pob          = $data['pob'];
         if(empty($students_id)) {
             $query   = $this->db->query("SELECT * FROM students WHERE LRN = '$LRN'");
             if($query->num_rows > 0) {
                 notify('error',$LRN.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO students (LRN,guardian_id,surname,firstname,middlename,gender,contact,email,address,school_year) VALUES ('$LRN','$guardian_id','$surname','$firstname','$middlename','$gender','$contact','$email','$address','$school_year')");
+                $query = $this->db->query("INSERT INTO students (LRN,guardian_id,surname,firstname,middlename,genderr,contact,email,address,school_year,dob,pob) VALUES ('$LRN','$guardian_id','$surname','$firstname','$middlename','$gender','$contact','$email','$address','$school_year','$dob','$pob')");
                 if($query) {
                     notify('success','new student has been added.',true);
                 }
             }
         } else {
-            $query = $this->db->query("UPDATE students SET LRN = '$LRN', guardian_id = '$guardian_id', surname = '$surname', firstname = '$firstname', middlename = '$middlename', gender = '$gender',contact = '$contact', email = '$email', address = '$address', school_year = '$school_year' WHERE students_id = '$students_id' ");
+            $query = $this->db->query("UPDATE students SET LRN = '$LRN', guardian_id = '$guardian_id', surname = '$surname', firstname = '$firstname', middlename = '$middlename', genderr = '$gender',contact = '$contact', email = '$email', address = '$address', school_year = '$school_year', dob = '$dob', pob = '$pob' WHERE students_id = '$students_id' ");
             if($query) {
                 notify('info',$LRN.' has been updated.',true);
             }
@@ -586,7 +610,7 @@ class account extends Model {
     }
 
     public function get_assign_in_teachers($user_id) {
-        $query = $this->db->query("SELECT * FROM users as u INNER JOIN assign_teachers as a ON u.user_id = a.teachers_id INNER JOIN section as s ON a.section_id = s.section_id INNER JOIN subjects as su ON a.subjects_id = su.subjects_id WHERE a.teachers_id = $user_id ORDER BY s.level DESC");
+        $query = $this->db->query("SELECT * FROM users as u INNER JOIN assign_teachers as a ON u.user_id = a.teachers_id INNER JOIN section as s ON a.section_id = s.section_id INNER JOIN subjects as su ON a.subjects_id = su.subjects_id WHERE a.teachers_id = $user_id ORDER BY s.level ASC");
         return $query;
     }
 
@@ -616,7 +640,7 @@ class account extends Model {
         $sy = $this->db->query("SELECT * FROM school_year LIMIT 1");
         $row = $sy->fetch_object();
         $school_year = $row->school_year;
-        $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id WHERE a.section_id = $section_id AND a.school_year = '$school_year' GROUP BY a.students_id");
+        $query = $this->db->query("SELECT * FROM students as s INNER JOIN assign_students as a ON s.students_id = a.students_id INNER JOIN section as se ON a.section_id = se.section_id WHERE a.section_id = $section_id AND a.school_years = '$school_year' GROUP BY a.students_id");
         return $query;
     }
 
@@ -626,8 +650,11 @@ class account extends Model {
     }
 
     public function all_assign_in_students_by_teacher() {
+        $sy = $this->db->query("SELECT * FROM school_year LIMIT 1");
+        $row = $sy->fetch_object();
+        $school_year = $row->school_year;
         $teachers_id = $_SESSION['id'];
-        $query = $this->db->query("SELECT * FROM assign_teachers as at INNER JOIN assign_students as a ON at.section_id = a.section_id INNER JOIN students as s ON a.students_id = s.students_id INNER JOIN section as se ON at.section_id = se.section_id WHERE at.teachers_id = $teachers_id GROUP BY a.students_id");
+        $query = $this->db->query("SELECT * FROM assign_teachers as at INNER JOIN assign_students as a ON at.section_id = a.section_id INNER JOIN students as s ON a.students_id = s.students_id INNER JOIN section as se ON at.section_id = se.section_id WHERE at.teachers_id = $teachers_id AND a.school_years = '$school_year' GROUP BY a.students_id");
         return $query;
     }
 
@@ -646,10 +673,10 @@ class account extends Model {
         $section_id = $data['section_id'];
         foreach($data['students_id'] as $key => $value){
             $students_id = $data['students_id'][$key];
-            $validate = $this->db->query("SELECT * FROM assign_students WHERE students_id = $students_id AND school_year = '$school_year'");
+            $validate = $this->db->query("SELECT * FROM assign_students WHERE students_id = $students_id AND school_years = '$school_year'");
             if($validate->num_rows > 0) {
             } else {
-                $query = $this->db->query("INSERT INTO assign_students (section_id,students_id,school_year) VALUES ('$section_id','$students_id','$school_year')");
+                $query = $this->db->query("INSERT INTO assign_students (section_id,students_id,school_years) VALUES ('$section_id','$students_id','$school_year')");
                 $this->db->query("UPDATE students SET stats = 1 WHERE students_id = $students_id");
             }
         }

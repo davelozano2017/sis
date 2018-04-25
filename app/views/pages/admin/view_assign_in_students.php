@@ -55,7 +55,7 @@
                                         <td><?=$row['firstname']. ' '.$row['middlename']. ' '.$row['surname']?></td>
                                         <td><?=$row['section_name']?></td>
                                         <td><?=$row['level']?></td>
-                                        <td><?=$row['school_year']?></td>
+                                        <td><?=$row['school_years']?></td>
                                         <td style="width:1px"><a onclick="delete_assign_in_students(<?=$row['section_id']?>,<?=$row['students_id']?>)">Delete</a></td>
                                     </tr>
                                 <?php } ?>

@@ -155,8 +155,13 @@ class admin extends Controller {
     }
 
     public function form_137_elementary($students_id) {
-        $data['info']   = $this->model('account')->get_student_by_students_id($students_id);
+        $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
         $data['one']   = $this->model('account')->one($students_id);
+        $data['two']   = $this->model('account')->two($students_id);
+        $data['three'] = $this->model('account')->three($students_id);
+        $data['four']  = $this->model('account')->four($students_id);
+        $data['five']  = $this->model('account')->five($students_id);
+        $data['six']   = $this->model('account')->six($students_id);
         $data['title'] = 'Elementary';
         $this->view('pages/admin/form_137_elementary',$data);
     }
@@ -399,7 +404,9 @@ class admin extends Controller {
                 'gender'      => $this->input->post('gender'),
                 'contact'     => $this->input->post('contact'),
                 'email'       => $this->input->post('email'),
-                'address'     => $this->input->post('address')
+                'address'     => $this->input->post('address'),
+                'dob'         => $this->input->post('dob'),
+                'pob'         => $this->input->post('pob')
             );
             $this->model('account')->AddOrUpdateStudents($data);
         }

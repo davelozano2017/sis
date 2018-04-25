@@ -66,9 +66,11 @@ th {
 <table style="width:100%" cellspacing=0 border=1>
 <tr>
 
-<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%margin-right:5px" >Date Of Birth: <input type="text" style="width:80%"></td>
 
-<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;;text-align:center;width:30%">Place Of Birth: <input type="text" style="width:50%"> </td>
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%margin-right:5px" >Date Of Birth: 
+<input type="text" value="<?=date(DATE_FORMAT,strtotime($data['info']->dob));?>" style="width:50%"></td>
+
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%">Place Of Birth: <input type="text" style="width:70%" value="<?=$data['info']->pob?>"> </td>
 </tr>
 </table>
 
@@ -115,37 +117,37 @@ th {
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>
-            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY</td>
+            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY <b id="two"></b></td>
         </tr>
         <tr>
             <td colspan="6" rowspan="2">Learning Areas</td>
-            <td colspan="4">Periodic Rating</td>
-            <td colspan="3">Remarks</td>
+            <td style="text-align:center" colspan="4">Periodic Rating</td>
+            <td style="text-align:center" colspan="3">Remarks</td>
         </tr>
 
        
 
         <tr>
-            <td>1st</td>
-            <td>2nd</td>
-            <td>3rd</td>
-            <td>4th</td>
-            <td colspan="3">Final Rating</td>
+            <td style="text-align:center">1<sup>st</sup></td>
+            <td style="text-align:center">2<sup>nd</sup></td>
+            <td style="text-align:center">3<sup>rd</sup></td>
+            <td style="text-align:center">4<sup>th</sup></td>
+            <td style="text-align:center" colspan="3">Final Rating</td>
         </tr>
         
-        <?php foreach($data['one'] as $rowone) { ?>
+        <?php foreach($data['two'] as $rowtwo) { ?>
         <?php 
-        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $a = $rowtwo['first'] + $rowtwo['second'] + $rowtwo['third'] + $rowtwo['fourth'];
         $aa = $a / 4;
-        $average = $aa < 75 ? 'Failed' : 'Passed';
+        $average2 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
-            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
-            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
+            <td colspan="6"><b><?=$rowtwo['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowtwo['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowtwo['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowtwo['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowtwo['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average2?>" style="text-align:center;width:100%"></td>
         </tr>
         <?php } ?>
 
@@ -168,25 +170,25 @@ th {
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>
-            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY</td>
+            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY <b id="one"></b></td>
         </tr>
         <tr>
             <td colspan="6" rowspan="2">Learning Areas</td>
-            <td colspan="4">Periodic Rating</td>
-            <td colspan="3">Remarks</td>
+            <td style="text-align:center" colspan="4">Periodic Rating</td>
+            <td style="text-align:center" colspan="3">Remarks</td>
         </tr>
         <tr>
-            <td>1st</td>
-            <td>2nd</td>
-            <td>3rd</td>
-            <td>4th</td>
-            <td colspan="3">Final Rating</td>
+            <td style="text-align:center">1<sup>st</sup></td>
+            <td style="text-align:center">2<sup>nd</sup></td>
+            <td style="text-align:center">3<sup>rd</sup></td>
+            <td style="text-align:center">4<sup>th</sup></td>
+            <td style="text-align:center" colspan="3">Final Rating</td>
         </tr>
         <?php foreach($data['one'] as $rowone) { ?>
         <?php 
         $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
         $aa = $a / 4;
-        $average = $aa < 75 ? 'Failed' : 'Passed';
+        $average1 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
             <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
@@ -194,7 +196,7 @@ th {
             <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
-            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average1?>" style="text-align:center;width:100%"></td>
         </tr>
         <?php } ?>
         
@@ -220,34 +222,34 @@ th {
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>
-            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY</td>
+            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY <b id="four"></b></td>
         </tr>
         <tr>
             <td colspan="6" rowspan="2">Learning Areas</td>
-            <td colspan="4">Periodic Rating</td>
-            <td colspan="3">Remarks</td>
+            <td style="text-align:center" colspan="4">Periodic Rating</td>
+            <td style="text-align:center" colspan="3">Remarks</td>
         </tr>
         <tr>
-            <td>1st</td>
-            <td>2nd</td>
-            <td>3rd</td>
-            <td>4th</td>
-            <td colspan="3">Final Rating</td>
+        <td style="text-align:center">1<sup>st</sup></td>
+            <td style="text-align:center">2<sup>nd</sup></td>
+            <td style="text-align:center">3<sup>rd</sup></td>
+            <td style="text-align:center">4<sup>th</sup></td>
+            <td  style="text-align:center" colspan="3">Final Rating</td>
         </tr>
         
-        <?php foreach($data['one'] as $rowone) { ?>
+        <?php foreach($data['four'] as $rowfour) { ?>
         <?php 
-        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $a = $rowfour['first'] + $rowfour['second'] + $rowfour['third'] + $rowfour['fourth'];
         $aa = $a / 4;
-        $average = $aa < 75 ? 'Failed' : 'Passed';
+        $average4 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
-            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
-            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
+            <td colspan="6"><b><?=$rowfour['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowfour['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowfour['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowfour['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowfour['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average4?>" style="text-align:center;width:100%"></td>
         </tr>
         <?php } ?>
 
@@ -270,34 +272,34 @@ th {
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>
-            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY</td>
+            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY <b id="three"></b></td>
         </tr>
         <tr>
             <td colspan="6" rowspan="2">Learning Areas</td>
-            <td colspan="4">Periodic Rating</td>
-            <td colspan="3">Remarks</td>
+            <td style="text-align:center" colspan="4">Periodic Rating</td>
+            <td style="text-align:center" colspan="3">Remarks</td>
         </tr>
         <tr>
-            <td>1st</td>
-            <td>2nd</td>
-            <td>3rd</td>
-            <td>4th</td>
-            <td colspan="3">Final Rating</td>
+            <td style="text-align:center">1<sup>st</sup></td>
+            <td style="text-align:center">2<sup>nd</sup></td>
+            <td style="text-align:center">3<sup>rd</sup></td>
+            <td style="text-align:center">4<sup>th</sup></td>
+            <td style="text-align:center" colspan="3">Final Rating</td>
         </tr>
         
-        <?php foreach($data['one'] as $rowone) { ?>
+        <?php foreach($data['three'] as $rowthree) { ?>
         <?php 
-        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $a = $rowthree['first'] + $rowthree['second'] + $rowthree['third'] + $rowthree['fourth'];
         $aa = $a / 4;
-        $average = $aa < 75 ? 'Failed' : 'Passed';
+        $average3 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
-            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
-            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
+            <td colspan="6"><b><?=$rowthree['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowthree['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowthree['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowthree['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowthree['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average3?>" style="text-align:center;width:100%"></td>
         </tr>
         <?php } ?>
 
@@ -322,34 +324,34 @@ th {
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>
-            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY</td>
+            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY <b id="six"></b></td>
         </tr>
         <tr>
             <td colspan="6" rowspan="2">Learning Areas</td>
-            <td colspan="4">Periodic Rating</td>
-            <td colspan="3">Remarks</td>
+            <td style="text-align:center" colspan="4">Periodic Rating</td>
+            <td style="text-align:center" colspan="3">Remarks</td>
         </tr>
         <tr>
-            <td>1st</td>
-            <td>2nd</td>
-            <td>3rd</td>
-            <td>4th</td>
-            <td colspan="3">Final Rating</td>
+            <td style="text-align:center">1<sup>st</sup></td>
+            <td style="text-align:center">2<sup>nd</sup></td>
+            <td style="text-align:center">3<sup>rd</sup></td>
+            <td style="text-align:center">4<sup>th</sup></td>
+            <td style="text-align:center" colspan="3">Final Rating</td>
         </tr>
         
-        <?php foreach($data['one'] as $rowone) { ?>
+        <?php foreach($data['six'] as $rowsix) { ?>
         <?php 
-        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $a = $rowsix['first'] + $rowsix['second'] + $rowsix['third'] + $rowsix['fourth'];
         $aa = $a / 4;
-        $average = $aa < 75 ? 'Failed' : 'Passed';
+        $average6 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
-            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
-            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
+            <td colspan="6"><b><?=$rowsix['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowsix['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowsix['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowsix['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowsix['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average6?>" style="text-align:center;width:100%"></td>
         </tr>
         <?php } ?>
 
@@ -372,34 +374,34 @@ th {
         </tr>
         <tr>
             <td colspan="10"  style="border:none">School</td>
-            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY</td>
+            <td colspan="2" style="border-right:1px solid #000;border-left:1px solid #fff">SY <b id="five"></b></td>
         </tr>
         <tr>
             <td colspan="6" rowspan="2">Learning Areas</td>
-            <td colspan="4">Periodic Rating</td>
-            <td colspan="3">Remarks</td>
+            <td style="text-align:center" colspan="4">Periodic Rating</td>
+            <td style="text-align:center" colspan="3">Remarks</td>
         </tr>
         <tr>
-            <td>1st</td>
-            <td>2nd</td>
-            <td>3rd</td>
-            <td>4th</td>
-            <td colspan="3">Final Rating</td>
+        <td style="text-align:center">1<sup>st</sup></td>
+            <td style="text-align:center">2<sup>nd</sup></td>
+            <td style="text-align:center">3<sup>rd</sup></td>
+            <td style="text-align:center">4<sup>th</sup></td>
+            <td style="text-align:center" colspan="3">Final Rating</td>
         </tr>
         
-        <?php foreach($data['one'] as $rowone) { ?>
+        <?php foreach($data['five'] as $rowfive) { ?>
         <?php 
-        $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];
+        $a = $rowfive['first'] + $rowfive['second'] + $rowfive['third'] + $rowfive['fourth'];
         $aa = $a / 4;
-        $average = $aa < 75 ? 'Failed' : 'Passed';
+        $average5 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
-            <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
-            <td><input type="text" value="<?=$rowone['fourth']?>" style="text-align:center;width:100%"></td>
-            <td colspan="3"><input type="text" value="<?=$average?>" style="text-align:center;width:100%"></td>
+            <td colspan="6"><b><?=$rowfive['subjects_name']?></b></td>
+            <td><input type="text" value="<?=$rowfive['first']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowfive['second']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowfive['third']?>" style="text-align:center;width:100%"></td>
+            <td><input type="text" value="<?=$rowfive['fourth']?>" style="text-align:center;width:100%"></td>
+            <td colspan="3"><input type="text" value="<?=$average5?>" style="text-align:center;width:100%"></td>
         </tr>
         <?php } ?>
 
@@ -531,10 +533,20 @@ Administrator/Directress
 </table>
 
 
+
 </div>
 </div>
 
 </div>
 
 </body>
+
+<script>
+document.getElementById('one').innerHTML = '<?=$rowone['sy']?>';
+document.getElementById('two').innerHTML = '<?=$rowtwo['sy']?>';
+document.getElementById('three').innerHTML = '<?=$rowthree['sy']?>';
+document.getElementById('four').innerHTML = '<?=$rowfour['sy']?>';
+document.getElementById('five').innerHTML = '<?=$rowfive['sy']?>';
+document.getElementById('six').innerHTML = '<?=$rowsix['sy']?>';
+</script>
 </html>

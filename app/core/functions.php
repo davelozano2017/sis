@@ -21,7 +21,7 @@ function count_sections($section_id) {
 	$syq = $con->query("SELECT * FROM school_year");
 	$row = $syq->fetch_object();
 	$sy  = $row->school_year;
-	$query = $con->query("SELECT * FROM assign_students WHERE section_id = $section_id AND school_year = '$sy'");
+	$query = $con->query("SELECT * FROM assign_students WHERE section_id = $section_id AND school_years = '$sy'");
 	return $query->num_rows;
 }
 

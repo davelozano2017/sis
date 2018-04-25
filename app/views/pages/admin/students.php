@@ -83,70 +83,109 @@
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
                     <input type="hidden" class="form-control" id="stud_id" name="students_id">
                     
-                    <div class="form-group">
-                        <input type="text" ng-model="LRN" id="LRN" name="LRN" ng-minlength=12 ng-maxlength=12 class="form-control" placeholder="Learner Reference Number" required>
-                        <span ng-messages="formStudents.LRN.$error" ng-if="formStudents.LRN.$dirty">
-                            <strong ng-message="minlength" class="text-danger">Learner Reference Number should be 12 numbers only.</strong>
-                            <strong ng-message="maxlength" class="text-danger">Learner Reference Number should be 12 numbers only.</strong>
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
-                    </div>
+                    <div class="row">
 
-                    <div class="form-group">
-                        <select class="form-control" name="guardian_id" id="guardian_id">
-                            <?php foreach($data['parents'] as $prow) { ?>
-                                <option value="<?=$prow['user_id']?>" selected><?=$prow['name']?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="LRN" id="LRN" name="LRN" ng-minlength=12 ng-maxlength=12 class="form-control" placeholder="Learner Reference Number" required>
+                                <span ng-messages="formStudents.LRN.$error" ng-if="formStudents.LRN.$dirty">
+                                    <strong ng-message="minlength" class="text-danger">Learner Reference Number should be 12 numbers only.</strong>
+                                    <strong ng-message="maxlength" class="text-danger">Learner Reference Number should be 12 numbers only.</strong>
+                                    <strong ng-message="required" class="text-danger">This field is required.</strong>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <select class="form-control" name="guardian_id" id="guardian_id">
+                                    <?php foreach($data['parents'] as $prow) { ?>
+                                        <option value="<?=$prow['user_id']?>" selected><?=$prow['name']?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <input type="text" ng-model="surname" id="surname" name="surname" class="form-control" placeholder="Surname" required>
-                        <span ng-messages="formStudents.surname.$error" ng-if="formStudents.surname.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
-                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="surname" id="surname" name="surname" class="form-control" placeholder="Surname" required>
+                                <span ng-messages="formStudents.surname.$error" ng-if="formStudents.surname.$dirty">
+                                    <strong ng-message="required" class="text-danger">This field is required.</strong>
+                                </span>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <input type="text" ng-model="firstname" id="firstname" name="firstname" class="form-control" placeholder="First Name" required>
-                        <span ng-messages="formStudents.firstname.$error" ng-if="formStudents.firstname.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
-                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="firstname" id="firstname" name="firstname" class="form-control" placeholder="First Name" required>
+                                <span ng-messages="formStudents.firstname.$error" ng-if="formStudents.firstname.$dirty">
+                                    <strong ng-message="required" class="text-danger">This field is required.</strong>
+                                </span>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <input type="text" ng-model="middlename" id="middlename" name="middlename" class="form-control" placeholder="Middle Name">
-                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="middlename" id="middlename" name="middlename" class="form-control" placeholder="Middle Name">
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <select class="form-control" name="gender" id="gender">
-                            <option value="">Select Gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
-                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <select class="form-control" name="gender" id="gender">
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <input type="text" ng-model="contact" id="contact" name="contact" class="form-control" placeholder="Contact Number" required>
-                        <span ng-messages="formStudents.contact.$error" ng-if="formStudents.contact.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
-                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="contact" id="contact" name="contact" class="form-control" placeholder="Contact Number" required>
+                                <span ng-messages="formStudents.contact.$error" ng-if="formStudents.contact.$dirty">
+                                    <strong ng-message="required" class="text-danger">This field is required.</strong>
+                                </span>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <input type="text" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="email" id="email" name="email" class="form-control" placeholder="Email Address">
-                        <span ng-messages="formStudents.email.$error" ng-if="formStudents.email.$dirty">
-                            <strong ng-message="pattern" class="text-danger">Please type valid email address.</strong>
-                        </span>
-                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="email" id="email" name="email" class="form-control" placeholder="Email Address">
+                                <span ng-messages="formStudents.email.$error" ng-if="formStudents.email.$dirty">
+                                    <strong ng-message="pattern" class="text-danger">Please type valid email address.</strong>
+                                </span>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <textarea Placeholder="Address" name="address" id="address" ng-model="address" class="form-control" style="resize:none" required></textarea>
-                        <span ng-messages="formStudents.address.$error" ng-if="formStudents.address.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
-                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="date" ng-model="dob" id="dob" name="dob" class="form-control" required>
+                                <span ng-messages="formStudents.dob.$error" ng-if="formStudents.dob.$dirty">
+                                    <strong ng-message="required" class="text-danger">This field is required.</strong>
+                                </span>
+                            </div>
+                        </div>
 
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="pob" id="pob" name="pob" class="form-control" placeholder="Place of birth" required>
+                                <span ng-messages="formStudents.pob.$error" ng-if="formStudents.pob.$dirty">
+                                    <strong ng-message="required" class="text-danger">This field is required.</strong>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <textarea Placeholder="Address" name="address" id="address" ng-model="address" class="form-control" style="resize:none" required></textarea>
+                                <span ng-messages="formStudents.address.$error" ng-if="formStudents.address.$dirty">
+                                    <strong ng-message="required" class="text-danger">This field is required.</strong>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </form>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2018 at 07:17 PM
+-- Generation Time: Apr 25, 2018 at 08:45 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -90,6 +90,66 @@ CREATE TABLE `assign_grades` (
   `sy` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `assign_grades`
+--
+
+INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `section_id`, `subjects_id`, `first`, `second`, `third`, `fourth`, `average`, `sy`) VALUES
+(120, 24, 7, 4, 4, 100, 100, 100, 100, 100, '2017 - 2018'),
+(121, 24, 7, 4, 10, 100, 100, 100, 100, 100, '2017 - 2018'),
+(122, 24, 7, 4, 11, 100, 100, 100, 100, 100, '2017 - 2018'),
+(123, 24, 7, 4, 3, 100, 100, 100, 100, 100, '2017 - 2018'),
+(124, 24, 7, 4, 5, 100, 100, 100, 100, 100, '2017 - 2018'),
+(125, 24, 7, 4, 9, 100, 100, 100, 100, 100, '2017 - 2018'),
+(126, 24, 7, 4, 8, 100, 100, 100, 100, 100, '2017 - 2018'),
+(127, 24, 7, 4, 6, 100, 100, 100, 100, 100, '2017 - 2018'),
+(128, 24, 7, 4, 7, 100, 100, 100, 100, 100, '2017 - 2018'),
+(129, 24, 7, 4, 3, 100, 100, 100, 100, 100, '2018 - 2019'),
+(130, 24, 7, 4, 11, 100, 100, 100, 100, 100, '2018 - 2019'),
+(131, 24, 7, 4, 10, 100, 100, 100, 100, 100, '2018 - 2019'),
+(132, 24, 7, 4, 9, 100, 100, 100, 100, 100, '2018 - 2019'),
+(133, 24, 7, 4, 8, 100, 100, 100, 100, 100, '2018 - 2019'),
+(134, 24, 7, 4, 6, 100, 100, 100, 100, 100, '2018 - 2019'),
+(135, 24, 7, 4, 7, 100, 100, 100, 100, 100, '2018 - 2019'),
+(136, 24, 7, 4, 5, 100, 100, 100, 100, 100, '2018 - 2019'),
+(138, 24, 7, 4, 4, 100, 100, 100, 100, 100, '2018 - 2019'),
+(139, 24, 7, 8, 7, 100, 100, 100, 100, 100, '2019 - 2020'),
+(140, 24, 7, 8, 6, 100, 100, 100, 100, 100, '2019 - 2020'),
+(141, 24, 7, 8, 5, 100, 100, 100, 100, 100, '2019 - 2020'),
+(142, 24, 7, 8, 4, 100, 100, 100, 100, 100, '2019 - 2020'),
+(143, 24, 7, 8, 3, 100, 100, 100, 100, 100, '2019 - 2020'),
+(144, 24, 7, 8, 11, 100, 100, 100, 100, 100, '2019 - 2020'),
+(145, 24, 7, 8, 10, 100, 100, 100, 100, 100, '2019 - 2020'),
+(146, 24, 7, 8, 9, 100, 100, 100, 100, 100, '2019 - 2020'),
+(147, 24, 7, 8, 8, 100, 100, 100, 100, 100, '2019 - 2020'),
+(148, 24, 7, 10, 11, 100, 100, 100, 100, 100, '2020 - 2021'),
+(149, 24, 7, 10, 10, 100, 100, 100, 100, 100, '2020 - 2021'),
+(150, 24, 7, 10, 9, 100, 100, 100, 100, 100, '2020 - 2021'),
+(151, 24, 7, 10, 8, 100, 100, 100, 100, 100, '2020 - 2021'),
+(152, 24, 7, 10, 7, 100, 100, 100, 100, 100, '2020 - 2021'),
+(153, 24, 7, 10, 6, 100, 100, 100, 100, 100, '2020 - 2021'),
+(154, 24, 7, 10, 5, 100, 100, 100, 100, 100, '2020 - 2021'),
+(155, 24, 7, 10, 4, 100, 100, 100, 100, 100, '2020 - 2021'),
+(156, 24, 7, 10, 3, 100, 100, 100, 100, 100, '2020 - 2021'),
+(157, 24, 7, 12, 6, 100, 100, 100, 100, 100, '2021 - 2022'),
+(158, 24, 7, 12, 9, 100, 100, 100, 100, 100, '2021 - 2022'),
+(159, 24, 7, 12, 5, 100, 100, 100, 100, 100, '2021 - 2022'),
+(160, 24, 7, 12, 4, 100, 100, 100, 100, 100, '2021 - 2022'),
+(161, 24, 7, 12, 3, 100, 100, 100, 100, 100, '2021 - 2022'),
+(162, 24, 7, 12, 11, 100, 100, 100, 100, 100, '2021 - 2022'),
+(163, 24, 7, 12, 10, 100, 100, 100, 100, 100, '2021 - 2022'),
+(164, 24, 7, 12, 7, 100, 100, 100, 100, 100, '2021 - 2022'),
+(165, 24, 7, 12, 8, 100, 100, 100, 100, 100, '2021 - 2022'),
+(166, 24, 7, 14, 11, 100, 100, 100, 100, 100, '2022 - 2023'),
+(167, 24, 7, 14, 10, 100, 100, 100, 100, 100, '2022 - 2023'),
+(168, 24, 7, 14, 9, 100, 100, 100, 100, 100, '2022 - 2023'),
+(169, 24, 7, 14, 8, 100, 100, 100, 100, 100, '2022 - 2023'),
+(170, 24, 7, 14, 7, 100, 100, 100, 100, 100, '2022 - 2023'),
+(171, 24, 7, 14, 6, 100, 100, 100, 100, 100, '2022 - 2023'),
+(172, 24, 7, 14, 5, 100, 100, 100, 100, 100, '2022 - 2023'),
+(173, 24, 7, 14, 4, 100, 100, 100, 100, 100, '2022 - 2023'),
+(174, 24, 7, 14, 3, 100, 100, 100, 100, 100, '2022 - 2023');
+
 -- --------------------------------------------------------
 
 --
@@ -100,7 +160,7 @@ CREATE TABLE `assign_students` (
   `assign_students_id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
   `students_id` int(11) NOT NULL,
-  `school_year` varchar(255) NOT NULL,
+  `school_years` varchar(255) NOT NULL,
   `assign_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -108,13 +168,13 @@ CREATE TABLE `assign_students` (
 -- Dumping data for table `assign_students`
 --
 
-INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_year`, `assign_status`) VALUES
+INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_years`, `assign_status`) VALUES
 (25, 4, 7, '2017 - 2018', 0),
 (26, 6, 7, '2018 - 2019', 0),
-(27, 9, 7, '2019 - 2020', 0),
 (28, 10, 7, '2020 - 2021', 0),
 (29, 12, 7, '2021 - 2022', 0),
-(30, 14, 7, '2022 - 2023', 0);
+(30, 14, 7, '2022 - 2023', 0),
+(31, 8, 7, '2019 - 2020', 0);
 
 -- --------------------------------------------------------
 
@@ -142,7 +202,52 @@ INSERT INTO `assign_teachers` (`assign_teachers_id`, `teachers_id`, `section_id`
 (57, 24, 4, 8),
 (58, 24, 4, 9),
 (59, 24, 4, 10),
-(60, 24, 4, 11);
+(60, 24, 4, 11),
+(61, 24, 6, 3),
+(62, 24, 6, 4),
+(63, 24, 6, 5),
+(64, 24, 6, 6),
+(65, 24, 6, 7),
+(66, 24, 6, 8),
+(67, 24, 6, 9),
+(68, 24, 6, 10),
+(69, 24, 6, 11),
+(70, 24, 8, 3),
+(71, 24, 8, 4),
+(72, 24, 8, 5),
+(73, 24, 8, 6),
+(74, 24, 8, 7),
+(75, 24, 8, 8),
+(76, 24, 8, 9),
+(77, 24, 8, 10),
+(78, 24, 8, 11),
+(79, 24, 10, 3),
+(80, 24, 10, 4),
+(81, 24, 10, 5),
+(82, 24, 10, 6),
+(83, 24, 10, 7),
+(84, 24, 10, 8),
+(85, 24, 10, 9),
+(86, 24, 10, 10),
+(87, 24, 10, 11),
+(88, 24, 12, 3),
+(89, 24, 12, 4),
+(90, 24, 12, 5),
+(91, 24, 12, 6),
+(92, 24, 12, 7),
+(93, 24, 12, 8),
+(94, 24, 12, 9),
+(95, 24, 12, 10),
+(96, 24, 12, 11),
+(97, 24, 14, 3),
+(98, 24, 14, 4),
+(99, 24, 14, 5),
+(100, 24, 14, 6),
+(101, 24, 14, 7),
+(102, 24, 14, 8),
+(103, 24, 14, 9),
+(104, 24, 14, 10),
+(105, 24, 14, 11);
 
 -- --------------------------------------------------------
 
@@ -187,7 +292,7 @@ CREATE TABLE `school_year` (
 --
 
 INSERT INTO `school_year` (`school_year_id`, `school_year`) VALUES
-(1, '2022 - 2023');
+(1, '2018 - 2019');
 
 -- --------------------------------------------------------
 
@@ -242,11 +347,13 @@ CREATE TABLE `students` (
   `surname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `middlename` varchar(255) NOT NULL,
-  `gender` varchar(255) NOT NULL,
+  `genderr` varchar(255) NOT NULL,
   `contact` varchar(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `school_year` varchar(255) NOT NULL,
+  `dob` varchar(255) NOT NULL,
+  `pob` varchar(255) NOT NULL,
   `stats` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -254,12 +361,12 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstname`, `middlename`, `gender`, `contact`, `email`, `address`, `school_year`, `stats`) VALUES
-(7, 35, '100554422779', 'Ocampo', 'Lorenzo Adam', 'P.', 'Male', '09991790616', 'a@aa.co', '35 a. Bonifacio St. Mendez, Cavite', '2017 - 2018', 1),
-(9, 34, '100221155118', 'Almanzor', 'Mark Xander', '', 'Male', '09274599427', '', 'Market Site Galicia 2, Mendez Cavite', '2017 - 2018', 0),
-(10, 36, '100225511515', 'Marquez', 'Godwin Pius', 'A.', 'Male', '09178616373', '', '063 Balagbag Ma. Kahoy LejosIndang ,Cavite', '2017 - 2018', 0),
-(11, 37, '100336699882', 'Pe&ntilde;alba', 'David', '', 'Male', '09173442947', '', '105 panungyan II Mendez, Cavite', '2017 - 2018', 0),
-(12, 38, '100336644771', 'Tiania', 'Joaquin Ynigo', '', 'Male', '09196578562', '', '67 Patutong Malaki North tag. City', '2017 - 2018', 0);
+INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstname`, `middlename`, `genderr`, `contact`, `email`, `address`, `school_year`, `dob`, `pob`, `stats`) VALUES
+(7, 35, '100554422779', 'Ocampo', 'Lorenzo Adam', 'P.', 'Male', '09991790616', 'a@aa.co', '35 a. Bonifacio St. Mendez, Cavite', '2018 - 2019', '1994-03-31', 'Fairview General Hospital', 1),
+(9, 34, '100221155118', 'Almanzor', 'Mark Xander', '', 'Male', '09274599427', '', 'Market Site Galicia 2, Mendez Cavite', '2017 - 2018', '', '', 0),
+(10, 36, '100225511515', 'Marquez', 'Godwin Pius', 'A.', 'Male', '09178616373', '', '063 Balagbag Ma. Kahoy LejosIndang ,Cavite', '2017 - 2018', '', '', 0),
+(11, 37, '100336699882', 'Pe&ntilde;alba', 'David', '', 'Male', '09173442947', '', '105 panungyan II Mendez, Cavite', '2017 - 2018', '', '', 0),
+(12, 38, '100336644771', 'Tiania', 'Joaquin Ynigo', '', 'Male', '09196578562', '', '67 Patutong Malaki North tag. City', '2017 - 2018', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -443,19 +550,19 @@ ALTER TABLE `assign_awards`
 -- AUTO_INCREMENT for table `assign_grades`
 --
 ALTER TABLE `assign_grades`
-  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
 --
 ALTER TABLE `assign_teachers`
-  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `events`

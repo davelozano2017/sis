@@ -436,11 +436,7 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
 </div>
 <br>
 
-
-
-
-
-<div style="width:365px;float:right" >
+<div style="width:365px;float:right">
     <table class="tg" style="width:100%">
         <tr>
             <th class="tg-l711" colspan="18" style="text-align:left">CLASSIFIED AS <input type="text" style="width:75%"></th>
@@ -513,7 +509,7 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
             <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
-            <td class="tg-l711" colspan="5">ARAL. PANLIPUNAN IV</td>
+            <td class="tg-l711" colspan="5">ARALIN PANLIPUNAN IV</td>
             <td class="tg-l711"><input type="text" style="width:100%"></td>
             <td class="tg-l711"><input type="text" style="width:100%"></td>
             <td class="tg-l711"><input type="text" style="width:100%"></td>
@@ -670,7 +666,7 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
             <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <tr>
-            <td class="tg-l711" colspan="5">ARAL. PANLIPUNAN III</td>
+            <td class="tg-l711" colspan="5">ARALIN PANLIPUNAN III</td>
             <td class="tg-l711"><input type="text" style="width:100%"></td>
             <td class="tg-l711"><input type="text" style="width:100%"></td>
             <td class="tg-l711"><input type="text" style="width:100%"></td>

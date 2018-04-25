@@ -285,10 +285,12 @@ function modify_students(students_id) {
             modal.find($('#surname')).val(data.surname);
             modal.find($('#firstname')).val(data.firstname);
             modal.find($('#middlename')).val(data.middlename);
-            modal.find($('#gender')).val(data.gender);
+            modal.find($('#gender')).val(data.genderr);
             modal.find($('#contact')).val(data.contact);
             modal.find($('#email')).val(data.email);
             modal.find($('#address')).val(data.address);
+            modal.find($('#pob')).val(data.pob);
+            modal.find($('#dob')).val(data.dob);
             modal.modal();
             $('#btn-students').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
         }

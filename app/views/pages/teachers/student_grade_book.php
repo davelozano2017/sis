@@ -89,7 +89,7 @@
                                 <select name="subjects_id" id="subjects_id" class="form-control">
                                     <option value="">Select Subject</option>
                                     <?php foreach($data['subjects'] as $subjects_row) { ?>
-                                        <option value="<?=$subjects_row['subjects_id']?>"><?=$subjects_row['subjects_name']?></option>
+                                        <option value="<?=$subjects_row['subjects_id']?>"><?=$subjects_row['level']?> <?=$subjects_row['section_name']?> - <?=$subjects_row['subjects_name']?></option>
                                     <?php } ?>
                                 </select>
                             </div>
