@@ -4,7 +4,7 @@
     <div class="page-header page-header-default">
         <div class="page-header-content">
             <div class="page-title">
-                <h4>Parents / Guardians</h4>
+                <h4>Awards</h4>
             </div>
             <div class="heading-elements">
                 <div class="heading-btn-group">
@@ -17,7 +17,7 @@
             <ul class="breadcrumb">
                 <li>Dashboard</li>
                 <li>Control Panel</li>
-                <li class="active">Parents / Guardians</li>
+                <li class="active">Awards</li>
             </ul>
         </div>
     </div>
@@ -32,9 +32,6 @@
 
             <!-- Sales stats -->
             <div class="panel panel-flat">
-                <div class="panel-heading">
-                    <button onclick="add_new_parents()" class="btn btn-success">Add New</button>
-                </div>
                 
                 <!-- start -->
                     <div class="container-fluid">
@@ -51,15 +48,10 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php $i=0; foreach($data['parents'] as $row) { ?> 
+								<?php $i=0; foreach($data['parents_students'] as $row) { ?> 
                                     <tr>
                                         <td><?=++$i?></td>
-                                        <td><?=$row['name']?></td>
-                                        <td><?=$row['contact']?></td>
-                                        <td><?=$row['status'] == 0 ? 'Active' : 'Not Active';?></td>
-                                        <td style="width:1px"><a href="<?=URL?>admin/awards/<?=$row['user_id']?>">Awards</a></td>
-                                        <td style="width:1px"><a onclick="modify_parents(<?=$row['user_id']?>)">Edit</a></td>
-                                        <td style="width:1px"><a onclick="delete_parents(<?=$row['user_id']?>)">Delete</a></td>
+                                        <td><?=$row['surname']?>, <?=$row['firstname']?> <?=$row['middlename']?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

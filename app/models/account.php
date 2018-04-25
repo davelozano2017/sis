@@ -170,6 +170,11 @@ class account extends Model {
         return $query;
     }
 
+    public function parents_students($id){
+        $query = $this->db->query("SELECT * FROM users as u INNER JOIN students as s ON u.user_id = s.guardian_id WHERE u.user_id = $id");
+        return $query;
+    }
+
     public function AddOrUpdateEvents($data) {
         $events_id   = $data['events_id'];
         $title       = $data['title'];

@@ -77,6 +77,20 @@ class admin extends Controller {
         $this->view('components/scripts',$data);
     }
 
+    public function awards($id) {
+        $data['title']                             = 'Student Grade Book';
+        $data['all_assign_in_students_by_teacher'] = $this->model('account')->all_assign_in_students_by_teacher();
+        $data['school_year']                       = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['user_info']                         = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['parents_students']                  = $this->model('account')->parents_students($id);
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/admin/awards',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
     public function assign_students() {
         $data['title']     = 'Assign Students';
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
