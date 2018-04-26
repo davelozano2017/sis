@@ -55,7 +55,7 @@ th {
     <th style="border:1px solid #fff"><img style="width:120px;height:110px"src="http://www.freelogovectors.net/wp-content/uploads/2014/05/deped-logo.png"></th>
 </tr>
 <tr>
-    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: <input type="text" style="width:80%" autofocus value="<?=$data['info']->surname?> <?=$data['info']->firstname?> <?=$data['info']->middlename?>  " ></td>
+    <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" colspan=2>Name: <input type="text" style="width:80%" autofocus value="<?=$data['info']->surname?> <?=$data['info']->firstname?> <?=$data['info']->middlename?>" ></td>
     <td style="border-bottom:1px solid #000;border-left:#fff solid 1px;border-right:#fff solid 1px" >Sex:: <input type="text" value="<?=$data['info']->gender?>" style="width:80%"> </td>
 </tr>
 
@@ -67,7 +67,7 @@ th {
 <tr>
 
 
-<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%margin-right:5px" >Date Of Birth: 
+<td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%;margin-right:5px" >Date Of Birth: 
 <input type="text" value="<?=date(DATE_FORMAT,strtotime($data['info']->dob));?>" style="width:50%"></td>
 
 <td style="border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #fff;border-bottom:1px solid #000;width:40%">Place Of Birth: <input type="text" style="width:70%" value="<?=$data['info']->pob?>"> </td>
@@ -184,6 +184,7 @@ th {
             <td style="text-align:center">4<sup>th</sup></td>
             <td style="text-align:center" colspan="3">Final Rating</td>
         </tr>
+        
         <?php foreach($data['one'] as $rowone) { ?>
         <?php 
         $a = $rowone['first'] + $rowone['second'] + $rowone['third'] + $rowone['fourth'];

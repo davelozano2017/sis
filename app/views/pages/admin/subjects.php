@@ -43,17 +43,18 @@
 								<tr>
                                     <th style="width:1px">#</th>
                                     <th style="width:150px">Subject Code</th>
-                                    <th>Title</th>
-                                    <th colspan=3 style="width:1px"></th>
+                                    <th >Title</th>
+                                    <th style="width:150px">Subject Level</th>
+                                    <th colspan=2 style="width:1px"></th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php $i=0; foreach($data['subjects'] as $row) { ?> 
                                     <tr>
                                         <td><?=++$i?></td>
-                                        <td style="width:1px">SEC#<?=str_pad($row['subjects_id'],5,0,STR_PAD_LEFT)?></td>
+                                        <td style="width:1px">SUB#<?=str_pad($row['subjects_id'],5,0,STR_PAD_LEFT)?></td>
                                         <td><?=$row['subjects_name']?></td>
-                                        <td style="width:1px"></td>
+                                        <td style="width:1px"><?=$row['subject_level']?></td>
                                         <td style="width:1px"><a onclick="modify_subjects(<?=$row['subjects_id']?>)">Edit</a></td>
                                         <td style="width:1px"><a onclick="delete_subjects(<?=$row['subjects_id']?>)">Delete</a></td>
                                     </tr>
@@ -90,11 +91,14 @@
                         </span>
                     </div>
 
+
+
                     <div class="form-group">
-                        <textarea Placeholder="Description" name="description" id="description" ng-model="description" class="form-control" style="resize:none" required></textarea>
-                        <span ng-messages="formSubjects.description.$error" ng-if="formSubjects.description.$dirty">
-                            <strong ng-message="required" class="text-danger">This field is required.</strong>
-                        </span>
+                        <select name="subject_level" class="form-control" id="subject_level">
+                            <option value="Elementary">Elementary</option>
+                            <option value="Junior High">Junior High</option>
+                            <option value="Senior High School">Senior High School</option>
+                        </select>
                     </div>
 
                 </form>

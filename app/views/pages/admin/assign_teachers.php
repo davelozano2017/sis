@@ -94,10 +94,10 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control select2" multiple name="subjects_id[]" ng-model="subjects_id" id="subjects_id" required>
+                        <select class="form-control select2 disabled" multiple name="subjects_id[]" ng-model="subjects_id" id="subjects_id" required>
                             <option value="">Select Subject</option>
                             <?php foreach($data['subjects'] as $subjects_row) { ?>
-                                <option value="<?=$subjects_row['subjects_id']?>"><?=$subjects_row['subjects_name']?></option>
+                                <option value="<?=$subjects_row['subjects_id']?>"><?=$subjects_row['subject_level']?> - <?=$subjects_row['subjects_name']?></option>
                             <?php } ?>
                         </select>
                         <span ng-messages="formAssign.subjects_id.$error" ng-if="formAssign.subjects_id.$dirty">

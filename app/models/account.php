@@ -93,6 +93,26 @@ class account extends Model {
         return $query; 
     }
 
+    public function seven($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2023 - 2024' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
+    public function eight($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2024 - 2025' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
+    public function nine($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2025 - 2026' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
+    public function ten($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2026 - 2027' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
     public function get_student_by_students_id($students_id) {
         $query = $this->db->query("SELECT * FROM students as s INNER JOIN users as u ON u.user_id = s.guardian_id WHERE s.students_id = $students_id");
         return $query->fetch_object();
@@ -382,21 +402,21 @@ class account extends Model {
     }
 
     public function AddOrUpdateSubjects($data) {
-        $subjects_id  = $data['subjects_id'];
-        $name         = $data['name'];
-        $description  = $data['description'];
+        $subjects_id   = $data['subjects_id'];
+        $name          = $data['name'];
+        $subject_level = $data['subject_level'];
         if(empty($subjects_id)) {
-            $query   = $this->db->query("SELECT * FROM subjects WHERE subjects_name = '$name'");
+            $query   = $this->db->query("SELECT * FROM subjects WHERE subjects_name = '$name' AND subject_level = '$subject_level'");
             if($query->num_rows > 0) {
                 notify('error',$name.' already exist.',false);
             } else {
-                $query = $this->db->query("INSERT INTO subjects (subjects_name,description) VALUES ('$name','$description')");
+                $query = $this->db->query("INSERT INTO subjects (subjects_name,subject_level) VALUES ('$name','$subject_level')");
                 if($query) {
                     notify('success','new subject has been added.',true);
                 }
             }
         } else {
-            $query = $this->db->query("UPDATE subjects SET subjects_name = '$name', description = '$description' WHERE subjects_id = '$subjects_id'");
+            $query = $this->db->query("UPDATE subjects SET subjects_name = '$name', subject_level = '$subject_level' WHERE subjects_id = '$subjects_id'");
             if($query) {
                 notify('info',$name.' has been updated.',true);
             }

@@ -110,7 +110,7 @@
                                 </div>
 
                                 <div class="col-md-2 col-sm-2">
-                                    <input type="number" min=0 value="0" name="first[]" placeholder="1st Grading" class="form-control">
+                                    <input type="number" min=0 value="100" name="first[]" placeholder="1st Grading" class="form-control">
                                 </div>
 
                                 <div class="col-md-2 col-sm-2">

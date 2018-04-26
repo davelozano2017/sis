@@ -22,9 +22,20 @@ function form137_elementary() {
     modal.modal();
 }
 
-function go_filter() {
-    var students_id = $('#students_id').val();
-    location.href = url + 'form_137_elementary/'+students_id;
+
+function form137_secondary() {
+    var modal = $('#form137-secondary');
+    modal.modal();
+}
+
+
+
+function go_filter(level) {
+    var elementary = $('#elementary').val();
+    var secondary = $('#secondary').val();
+
+    var loc = level == 'elementary' ? 'form_137_elementary/'+elementary : 'form_137_secondary/'+secondary;
+    location.href = url + loc;
 }
 
 function assign_award(students_id) {
@@ -405,7 +416,7 @@ function modify_subjects(subjects_id) {
         success:function(data){
             modal.find($('#subj_id')).val(subjects_id);
             modal.find($('#name')).val(data.subjects_name);
-            modal.find($('#description')).val(data.description);
+            modal.find($('#subject_level')).val(data.subject_level);
             modal.modal();
             $('#btn-subjects').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
         }
@@ -906,7 +917,9 @@ function getAbsolutePath() {
 
 $('#subjects_id').select2({ placeholder: 'Select Subjects' });
 $('#students_id').select2({ placeholder: 'Select Students' });
-$('#section_id,#LRNN').select2();
+$('#section_id,#LRNN,#elementary,#secondary').select2({
+    placeholder: 'Please select one'
+});
 
 $('#role').change( e => {
     var role = $('#role').val();

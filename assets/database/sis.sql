@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2018 at 08:45 AM
+-- Generation Time: Apr 26, 2018 at 09:18 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -148,7 +148,47 @@ INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `
 (171, 24, 7, 14, 6, 100, 100, 100, 100, 100, '2022 - 2023'),
 (172, 24, 7, 14, 5, 100, 100, 100, 100, 100, '2022 - 2023'),
 (173, 24, 7, 14, 4, 100, 100, 100, 100, 100, '2022 - 2023'),
-(174, 24, 7, 14, 3, 100, 100, 100, 100, 100, '2022 - 2023');
+(174, 24, 7, 14, 3, 100, 100, 100, 100, 100, '2022 - 2023'),
+(175, 33, 7, 15, 12, 100, 100, 100, 100, 100, '2023 - 2024'),
+(176, 33, 7, 15, 20, 100, 100, 100, 100, 100, '2023 - 2024'),
+(177, 33, 7, 15, 19, 100, 100, 100, 100, 100, '2023 - 2024'),
+(178, 33, 7, 15, 18, 100, 100, 100, 100, 100, '2023 - 2024'),
+(179, 33, 7, 15, 17, 100, 100, 100, 100, 100, '2023 - 2024'),
+(180, 33, 7, 15, 16, 100, 100, 100, 100, 100, '2023 - 2024'),
+(181, 33, 7, 15, 15, 100, 100, 100, 100, 100, '2023 - 2024'),
+(182, 33, 7, 15, 14, 100, 100, 100, 100, 100, '2023 - 2024'),
+(183, 33, 7, 15, 13, 100, 100, 100, 100, 100, '2023 - 2024'),
+(192, 33, 7, 16, 19, 100, 100, 100, 100, 100, '2024 - 2025'),
+(193, 33, 7, 16, 14, 100, 100, 100, 100, 100, '2024 - 2025'),
+(194, 33, 7, 16, 13, 100, 100, 100, 100, 100, '2024 - 2025'),
+(195, 33, 7, 16, 20, 100, 100, 100, 100, 100, '2024 - 2025'),
+(196, 33, 7, 16, 18, 100, 100, 100, 100, 100, '2024 - 2025'),
+(197, 33, 7, 16, 17, 100, 100, 100, 100, 100, '2024 - 2025'),
+(198, 33, 7, 16, 16, 100, 100, 100, 100, 100, '2024 - 2025'),
+(199, 33, 7, 16, 15, 100, 100, 100, 100, 100, '2024 - 2025'),
+(200, 33, 7, 16, 12, 100, 100, 100, 100, 100, '2024 - 2025'),
+(201, 33, 7, 17, 20, 100, 100, 100, 100, 100, '2025 - 2026'),
+(202, 33, 7, 17, 19, 100, 100, 100, 100, 100, '2025 - 2026'),
+(203, 33, 7, 17, 18, 100, 100, 100, 100, 100, '2025 - 2026'),
+(204, 33, 7, 17, 17, 100, 100, 100, 100, 100, '2025 - 2026'),
+(205, 33, 7, 17, 16, 100, 100, 100, 100, 100, '2025 - 2026'),
+(206, 33, 7, 17, 15, 100, 100, 100, 100, 100, '2025 - 2026'),
+(207, 33, 7, 17, 14, 100, 100, 100, 100, 100, '2025 - 2026'),
+(208, 33, 7, 17, 13, 100, 100, 100, 100, 100, '2025 - 2026'),
+(209, 33, 7, 17, 12, 100, 100, 100, 100, 100, '2025 - 2026'),
+(210, 33, 7, 18, 17, 100, 100, 100, 100, 100, '2026 - 2027'),
+(211, 33, 7, 18, 16, 100, 100, 100, 100, 100, '2026 - 2027'),
+(212, 33, 7, 18, 15, 100, 100, 100, 100, 100, '2026 - 2027'),
+(213, 33, 7, 18, 14, 100, 100, 100, 100, 100, '2026 - 2027'),
+(214, 33, 7, 18, 13, 100, 100, 100, 100, 100, '2026 - 2027'),
+(215, 33, 7, 18, 12, 100, 100, 100, 100, 100, '2026 - 2027'),
+(216, 33, 7, 18, 20, 100, 100, 100, 100, 100, '2026 - 2027'),
+(217, 33, 7, 18, 19, 100, 100, 100, 100, 100, '2026 - 2027'),
+(218, 33, 7, 18, 18, 100, 100, 100, 100, 100, '2026 - 2027'),
+(219, 33, 7, 15, 21, 100, 100, 100, 100, 100, '2023 - 2024'),
+(220, 33, 7, 16, 21, 100, 100, 100, 100, 100, '2024 - 2025'),
+(221, 33, 7, 17, 21, 100, 100, 100, 100, 100, '2025 - 2026'),
+(222, 33, 7, 18, 21, 100, 100, 100, 100, 100, '2026 - 2027');
 
 -- --------------------------------------------------------
 
@@ -174,7 +214,11 @@ INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`
 (28, 10, 7, '2020 - 2021', 0),
 (29, 12, 7, '2021 - 2022', 0),
 (30, 14, 7, '2022 - 2023', 0),
-(31, 8, 7, '2019 - 2020', 0);
+(31, 8, 7, '2019 - 2020', 0),
+(32, 15, 7, '2023 - 2024', 0),
+(33, 16, 7, '2024 - 2025', 0),
+(34, 17, 7, '2025 - 2026', 0),
+(35, 18, 7, '2026 - 2027', 0);
 
 -- --------------------------------------------------------
 
@@ -247,7 +291,47 @@ INSERT INTO `assign_teachers` (`assign_teachers_id`, `teachers_id`, `section_id`
 (102, 24, 14, 8),
 (103, 24, 14, 9),
 (104, 24, 14, 10),
-(105, 24, 14, 11);
+(105, 24, 14, 11),
+(106, 33, 15, 12),
+(107, 33, 15, 13),
+(108, 33, 15, 14),
+(109, 33, 15, 15),
+(110, 33, 15, 16),
+(111, 33, 15, 17),
+(112, 33, 15, 18),
+(113, 33, 15, 19),
+(114, 33, 15, 20),
+(115, 33, 16, 12),
+(116, 33, 16, 13),
+(117, 33, 16, 14),
+(118, 33, 16, 15),
+(119, 33, 16, 16),
+(120, 33, 16, 17),
+(121, 33, 16, 18),
+(122, 33, 16, 19),
+(123, 33, 16, 20),
+(124, 33, 17, 12),
+(125, 33, 17, 13),
+(126, 33, 17, 14),
+(127, 33, 17, 15),
+(128, 33, 17, 16),
+(129, 33, 17, 17),
+(130, 33, 17, 18),
+(131, 33, 17, 19),
+(132, 33, 17, 20),
+(133, 33, 18, 12),
+(134, 33, 18, 13),
+(135, 33, 18, 14),
+(136, 33, 18, 15),
+(137, 33, 18, 16),
+(138, 33, 18, 17),
+(139, 33, 18, 18),
+(140, 33, 18, 19),
+(141, 33, 18, 20),
+(142, 33, 15, 21),
+(143, 33, 16, 21),
+(144, 33, 17, 21),
+(145, 33, 18, 21);
 
 -- --------------------------------------------------------
 
@@ -292,7 +376,7 @@ CREATE TABLE `school_year` (
 --
 
 INSERT INTO `school_year` (`school_year_id`, `school_year`) VALUES
-(1, '2018 - 2019');
+(1, '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -377,23 +461,33 @@ INSERT INTO `students` (`students_id`, `guardian_id`, `LRN`, `surname`, `firstna
 CREATE TABLE `subjects` (
   `subjects_id` int(11) NOT NULL,
   `subjects_name` varchar(255) NOT NULL,
-  `description` varchar(1000) NOT NULL
+  `subject_level` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subjects`
 --
 
-INSERT INTO `subjects` (`subjects_id`, `subjects_name`, `description`) VALUES
-(3, 'Mother Tongue', 'Mother Tongue'),
-(4, 'Filipino', 'Filipino'),
-(5, 'English', 'English'),
-(6, 'Mathematics', 'Mathematics'),
-(7, 'Science &amp; Health	', 'Science &amp; Health	'),
-(8, 'Sibika at Kultura', 'Sibika at Kultura'),
-(9, 'MSEP', 'MSEP'),
-(10, 'Christian Living', 'Christian Living'),
-(11, 'Computer Education', 'Computer Education');
+INSERT INTO `subjects` (`subjects_id`, `subjects_name`, `subject_level`) VALUES
+(3, 'Mother Tongue', 'Elementary'),
+(4, 'Filipino', 'Elementary'),
+(5, 'English', 'Elementary'),
+(6, 'Mathematics', 'Elementary'),
+(7, 'Science &amp; Health	', 'Elementary'),
+(8, 'Sibika at Kultura', 'Elementary'),
+(9, 'MSEP', 'Elementary'),
+(10, 'Christian Living', 'Elementary'),
+(11, 'Computer Education', 'Elementary'),
+(12, 'Filipino', 'Junior High'),
+(13, 'English', 'Junior High'),
+(14, 'Science', 'Junior High'),
+(15, 'Aralin Panlipunan', 'Junior High'),
+(16, 'T.L.E', 'Junior High'),
+(17, 'MAPEH', 'Junior High'),
+(18, 'Values ED/EP', 'Junior High'),
+(19, 'Computer', 'Junior High'),
+(20, 'Elective', 'Junior High'),
+(21, 'Mathematics', 'Junior High');
 
 -- --------------------------------------------------------
 
@@ -550,19 +644,19 @@ ALTER TABLE `assign_awards`
 -- AUTO_INCREMENT for table `assign_grades`
 --
 ALTER TABLE `assign_grades`
-  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
 
 --
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
 --
 ALTER TABLE `assign_teachers`
-  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -592,7 +686,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `subjects_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `subjects_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`

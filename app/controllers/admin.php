@@ -166,6 +166,18 @@ class admin extends Controller {
         $this->view('pages/admin/form_137_elementary',$data);
     }
 
+    public function form_137_secondary($students_id) {
+        $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
+        $data['students']   = $this->model('account')->get_all_students();
+        $data['seven'] = $this->model('account')->seven($students_id);
+        $data['eight'] = $this->model('account')->eight($students_id);
+        $data['nine']  = $this->model('account')->nine($students_id);
+        $data['ten']   = $this->model('account')->ten($students_id);
+        $data['title'] = 'Secondary';
+        $this->view('pages/admin/form_137_secondary',$data);
+    }
+
+
     public function form_pres_elem_card() {
         $data['title'] = 'Pre School';
         $data['students']   = $this->model('account')->get_all_students();
@@ -183,14 +195,6 @@ class admin extends Controller {
         $data['students']   = $this->model('account')->get_all_students();
         $this->view('pages/admin/form_shs_report_card',$data);
     }
-
-    public function form_137_secondary() {
-        $data['students']   = $this->model('account')->get_all_students();
-        $data['title'] = 'Secondary';
-        $this->view('pages/admin/form_137_secondary',$data);
-    }
-
-    
 
     public function password() {
         $data['title'] = 'Password';
@@ -461,9 +465,9 @@ class admin extends Controller {
     public function AddOrUpdateSubjects() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array( 
-                'subjects_id' => $this->input->post('subjects_id'),
-                'name'        => $this->input->post('name'),
-                'description' => $this->input->post('description')
+                'subjects_id'   => $this->input->post('subjects_id'),
+                'name'          => $this->input->post('name'),
+                'subject_level' => $this->input->post('subject_level')
             );
             $this->model('account')->AddOrUpdateSubjects($data);
         }
