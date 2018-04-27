@@ -67,9 +67,9 @@
                                             <li class="<?= $data['title'] == 'Secondary'  ? 'active' : '';?>"><a onclick="form137_secondary()"> Secondary </a></li>
                                         </ul>
                                     </li>
-                                    <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a href="<?=URL?>admin/form_pres_elem_card"> Pre School Elementary Card </a></li>
-                                    <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a href="<?=URL?>admin/form_junior_high"> Junior High Card </a></li>
-                                    <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a href="<?=URL?>admin/form_shs_report_card"> SHS Report Card </a></li>
+                                    <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a onclick="form_pre_elem()"> Pre School Elementary Card </a></li>
+                                    <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a onclick="form_junior_high()"> Junior High Card </a></li>
+                                    <li class="<?= $data['title'] == 'Pre School'  ? 'active' : '';?>"><a onclick="form_shs()"> SHS Report Card </a></li>
                                     
                                 </ul>
                             </li>
@@ -130,7 +130,7 @@
                 <form novalidate name="formAwards" id="formAwards" method="POST">
 
                     <div class="form-group">
-                        <select class="form-control select2" onchange="go_filter('elementary')" id="elementary">
+                        <select class="form-control ss" onchange="go_filter('elementary')" id="elementary">
                             <option value="">Select Student</option>
                             <?php foreach($data['students'] as $students_row) { ?>
                                 <option value="<?=$students_row['students_id']?>"><?=$students_row['LRN'].' - '.$students_row['firstname']. ' '.$students_row['middlename']. ' '.$students_row['surname']?></option>
@@ -149,8 +149,7 @@
 </div>
 <!-- /success modal -->
 
-    <!-- Success modal -->
-    <div id="form137-secondary" class="modal fade">
+<div id="form137-secondary" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success">
@@ -162,7 +161,7 @@
                 <form novalidate name="formAwards" id="formAwards" method="POST">
 
                     <div class="form-group">
-                        <select class="form-control select2" onchange="go_filter('secondary')" id="secondary">
+                        <select class="form-control ss" onchange="go_filter('secondary')" id="secondary">
                             <option value="">Select Student</option>
                             <?php foreach($data['students'] as $students_row) { ?>
                                 <option value="<?=$students_row['students_id']?>"><?=$students_row['LRN'].' - '.$students_row['firstname']. ' '.$students_row['middlename']. ' '.$students_row['surname']?></option>
@@ -179,4 +178,93 @@
         </div>
     </div>
 </div>
-<!-- /success modal -->
+
+<div id="form-pre-elem" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Elementary Report Card</h6>
+            </div>
+
+            <div class="modal-body">
+                <form novalidate name="formAwards" id="formAwards" method="POST">
+
+                    <div class="form-group">
+                        <select class="form-control ss" onchange="go_filter('elementary report')" id="elementary_report">
+                            <option value="">Select Student</option>
+                            <?php foreach($data['students'] as $students_row) { ?>
+                                <option value="<?=$students_row['students_id']?>"><?=$students_row['LRN'].' - '.$students_row['firstname']. ' '.$students_row['middlename']. ' '.$students_row['surname']?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="form-junior-high" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Junior High Report Card</h6>
+            </div>
+
+            <div class="modal-body">
+                <form novalidate name="formAwards" id="formAwards" method="POST">
+
+                    <div class="form-group">
+                        <select class="form-control ss" onchange="go_filter('junior high report')" id="junior_high_report">
+                            <option value="">Select Student</option>
+                            <?php foreach($data['students'] as $students_row) { ?>
+                                <option value="<?=$students_row['students_id']?>"><?=$students_row['LRN'].' - '.$students_row['firstname']. ' '.$students_row['middlename']. ' '.$students_row['surname']?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="form-shs" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Senior High Report Card</h6>
+            </div>
+
+            <div class="modal-body">
+                <form novalidate name="formAwards" id="formAwards" method="POST">
+
+                    <div class="form-group">
+                        <select class="form-control ss" onchange="go_filter('senior high report')" id="shs_report">
+                            <option value="">Select Student</option>
+                            <?php foreach($data['students'] as $students_row) { ?>
+                                <option value="<?=$students_row['students_id']?>"><?=$students_row['LRN'].' - '.$students_row['firstname']. ' '.$students_row['middlename']. ' '.$students_row['surname']?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

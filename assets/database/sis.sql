@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2018 at 09:18 PM
+-- Generation Time: Apr 28, 2018 at 12:54 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -68,7 +68,7 @@ CREATE TABLE `assign_awards` (
 --
 
 INSERT INTO `assign_awards` (`awards_id`, `stud_id`, `guardians_id`, `first`, `second`, `third`, `fourth`, `s_y`) VALUES
-(6, 9, 34, 'Best in first', 'Best in second', 'Best in third', 'Best in fourth', '');
+(6, 7, 35, 'Best in first', 'Best in second', 'Best in third', 'Best in fourth', '2017 - 2018');
 
 -- --------------------------------------------------------
 
@@ -187,8 +187,48 @@ INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `
 (218, 33, 7, 18, 18, 100, 100, 100, 100, 100, '2026 - 2027'),
 (219, 33, 7, 15, 21, 100, 100, 100, 100, 100, '2023 - 2024'),
 (220, 33, 7, 16, 21, 100, 100, 100, 100, 100, '2024 - 2025'),
-(221, 33, 7, 17, 21, 100, 100, 100, 100, 100, '2025 - 2026'),
-(222, 33, 7, 18, 21, 100, 100, 100, 100, 100, '2026 - 2027');
+(221, 33, 7, 17, 21, 100, 100, 100, 100, 100, '2024 - 2025'),
+(222, 33, 7, 18, 21, 100, 100, 100, 100, 100, '2024 - 2025'),
+(269, 24, 7, 20, 31, 100, 100, 100, 100, 100, '2027 - 2028'),
+(270, 24, 7, 20, 30, 100, 100, 100, 100, 100, '2027 - 2028'),
+(271, 24, 7, 20, 29, 100, 100, 100, 100, 100, '2027 - 2028'),
+(272, 24, 7, 20, 28, 100, 100, 100, 100, 100, '2027 - 2028'),
+(273, 24, 7, 20, 27, 100, 100, 100, 100, 100, '2027 - 2028'),
+(274, 24, 7, 20, 26, 100, 100, 100, 100, 100, '2027 - 2028'),
+(275, 24, 7, 20, 25, 100, 100, 100, 100, 100, '2027 - 2028'),
+(276, 24, 7, 20, 24, 100, 100, 100, 100, 100, '2027 - 2028'),
+(277, 24, 7, 20, 23, 100, 100, 100, 100, 100, '2027 - 2028'),
+(278, 24, 7, 20, 22, 100, 100, 100, 100, 100, '2027 - 2028'),
+(279, 24, 7, 20, 32, 100, 100, 100, 100, 100, '2027 - 2028'),
+(280, 24, 7, 20, 41, 100, 100, 100, 100, 100, '2027 - 2028'),
+(281, 24, 7, 20, 40, 100, 100, 100, 100, 100, '2027 - 2028'),
+(282, 24, 7, 20, 39, 100, 100, 100, 100, 100, '2027 - 2028'),
+(283, 24, 7, 20, 38, 100, 100, 100, 100, 100, '2027 - 2028'),
+(284, 24, 7, 20, 37, 100, 100, 100, 100, 100, '2027 - 2028'),
+(285, 24, 7, 20, 36, 100, 100, 100, 100, 100, '2027 - 2028'),
+(286, 24, 7, 20, 35, 100, 100, 100, 100, 100, '2027 - 2028'),
+(287, 24, 7, 20, 34, 100, 100, 100, 100, 100, '2027 - 2028'),
+(288, 24, 7, 20, 33, 100, 100, 100, 100, 100, '2027 - 2028'),
+(289, 24, 7, 22, 27, 100, 100, 100, 100, 100, '2028 - 2029'),
+(290, 24, 7, 22, 30, 100, 100, 100, 100, 100, '2028 - 2029'),
+(291, 24, 7, 22, 25, 100, 100, 100, 100, 100, '2028 - 2029'),
+(292, 24, 7, 22, 24, 100, 100, 100, 100, 100, '2028 - 2029'),
+(293, 24, 7, 22, 23, 100, 100, 100, 100, 100, '2028 - 2029'),
+(294, 24, 7, 22, 22, 100, 100, 100, 100, 100, '2028 - 2029'),
+(295, 24, 7, 22, 31, 100, 100, 100, 100, 100, '2028 - 2029'),
+(296, 24, 7, 22, 29, 100, 100, 100, 100, 100, '2028 - 2029'),
+(297, 24, 7, 22, 28, 100, 100, 100, 100, 100, '2028 - 2029'),
+(298, 24, 7, 22, 26, 100, 100, 100, 100, 100, '2028 - 2029'),
+(299, 24, 7, 22, 41, 100, 100, 100, 100, 100, '2028 - 2029'),
+(300, 24, 7, 22, 40, 100, 100, 100, 100, 100, '2028 - 2029'),
+(301, 24, 7, 22, 39, 100, 100, 100, 100, 100, '2028 - 2029'),
+(302, 24, 7, 22, 38, 100, 100, 100, 100, 100, '2028 - 2029'),
+(303, 24, 7, 22, 37, 100, 100, 100, 100, 100, '2028 - 2029'),
+(304, 24, 7, 22, 36, 100, 100, 100, 100, 100, '2028 - 2029'),
+(305, 24, 7, 22, 35, 100, 100, 100, 100, 100, '2028 - 2029'),
+(306, 24, 7, 22, 34, 100, 100, 100, 100, 100, '2028 - 2029'),
+(307, 24, 7, 22, 33, 100, 100, 100, 100, 100, '2028 - 2029'),
+(308, 24, 7, 22, 32, 100, 100, 100, 100, 100, '2028 - 2029');
 
 -- --------------------------------------------------------
 
@@ -218,7 +258,9 @@ INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`
 (32, 15, 7, '2023 - 2024', 0),
 (33, 16, 7, '2024 - 2025', 0),
 (34, 17, 7, '2025 - 2026', 0),
-(35, 18, 7, '2026 - 2027', 0);
+(35, 18, 7, '2026 - 2027', 0),
+(36, 20, 7, '2027 - 2028', 0),
+(37, 22, 7, '2028 - 2029', 0);
 
 -- --------------------------------------------------------
 
@@ -331,7 +373,27 @@ INSERT INTO `assign_teachers` (`assign_teachers_id`, `teachers_id`, `section_id`
 (142, 33, 15, 21),
 (143, 33, 16, 21),
 (144, 33, 17, 21),
-(145, 33, 18, 21);
+(145, 33, 18, 21),
+(146, 24, 22, 22),
+(147, 24, 22, 23),
+(148, 24, 22, 24),
+(149, 24, 22, 25),
+(150, 24, 22, 26),
+(151, 24, 22, 27),
+(152, 24, 22, 28),
+(153, 24, 22, 29),
+(154, 24, 22, 30),
+(155, 24, 22, 31),
+(156, 24, 22, 32),
+(157, 24, 22, 33),
+(158, 24, 22, 34),
+(159, 24, 22, 35),
+(160, 24, 22, 36),
+(161, 24, 22, 37),
+(162, 24, 22, 38),
+(163, 24, 22, 39),
+(164, 24, 22, 40),
+(165, 24, 22, 41);
 
 -- --------------------------------------------------------
 
@@ -376,7 +438,7 @@ CREATE TABLE `school_year` (
 --
 
 INSERT INTO `school_year` (`school_year_id`, `school_year`) VALUES
-(1, '2017 - 2018');
+(1, '2028 - 2029');
 
 -- --------------------------------------------------------
 
@@ -416,7 +478,8 @@ INSERT INTO `section` (`section_id`, `section_name`, `level`, `description`) VAL
 (18, 'Peter', 'Grade 10', 'Peter'),
 (19, 'Genesis', 'Grade 11', 'Genesis'),
 (20, 'Exodus', 'Grade 11', 'Exodus'),
-(21, 'Deuteronomy', 'Grade 12', 'Deuteronomy');
+(21, 'Deuteronomy', 'Grade 12', 'Deuteronomy'),
+(22, 'General Academic', 'Grade 12', '');
 
 -- --------------------------------------------------------
 
@@ -487,7 +550,27 @@ INSERT INTO `subjects` (`subjects_id`, `subjects_name`, `subject_level`) VALUES
 (18, 'Values ED/EP', 'Junior High'),
 (19, 'Computer', 'Junior High'),
 (20, 'Elective', 'Junior High'),
-(21, 'Mathematics', 'Junior High');
+(21, 'Mathematics', 'Junior High'),
+(22, 'Oral Communication', 'Senior High School - 1st Semenster'),
+(23, 'Komunikasyon at Pananaliksik', 'Senior High School - 1st Semenster'),
+(24, 'General Mathematics', 'Senior High School - 1st Semenster'),
+(25, 'Earth and Life Science', 'Senior High School - 1st Semenster'),
+(26, 'Physical Education and Health', 'Senior High School - 1st Semenster'),
+(27, 'English for Academic and Professional Purposes', 'Senior High School - 1st Semenster'),
+(28, 'Humanities 1 - Creative Writing', 'Senior High School - 1st Semenster'),
+(29, 'Organization and Management', 'Senior High School - 1st Semenster'),
+(30, 'Empowerment and Technologies', 'Senior High School - 1st Semenster'),
+(31, 'Christian Living', 'Senior High School - 1st Semenster'),
+(32, 'Reading and Writing', 'Senior High School - 2nd Semenster'),
+(33, 'Statistics and Probability', 'Senior High School - 2nd Semenster'),
+(34, 'Physical Science', 'Senior High School - 2nd Semenster'),
+(35, 'Pag babasa at pag susuri ng iba\'t ibang teksto tungkol sa pananaliksik', 'Senior High School - 2nd Semenster'),
+(36, 'Physical Education and Health', 'Senior High School - 2nd Semenster'),
+(37, 'Practical Research 1 ', 'Senior High School - 2nd Semenster'),
+(38, 'Entrepreneurship', 'Senior High School - 2nd Semenster'),
+(39, 'Fundamentals of ABM 1', 'Senior High School - 2nd Semenster'),
+(40, 'Humanities 2 - Intro to World Religion and Belief System', 'Senior High School - 2nd Semenster'),
+(41, 'Christian Living', 'Senior High School - 2nd Semenster');
 
 -- --------------------------------------------------------
 
@@ -644,19 +727,19 @@ ALTER TABLE `assign_awards`
 -- AUTO_INCREMENT for table `assign_grades`
 --
 ALTER TABLE `assign_grades`
-  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
+  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=309;
 
 --
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
 --
 ALTER TABLE `assign_teachers`
-  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -674,7 +757,7 @@ ALTER TABLE `school_year`
 -- AUTO_INCREMENT for table `section`
 --
 ALTER TABLE `section`
-  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `students`
@@ -686,7 +769,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `subjects_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `subjects_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `users`

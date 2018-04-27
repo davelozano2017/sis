@@ -17,6 +17,21 @@ function login() {
     })
 }
 
+function form_pre_elem() {
+    var modal = $('#form-pre-elem');
+    modal.modal();
+}
+
+function form_junior_high() {
+    var modal = $('#form-junior-high');
+    modal.modal();
+}
+
+function form_shs() {
+    var modal = $('#form-shs');
+    modal.modal();
+}
+
 function form137_elementary() {
     var modal = $('#form137-elementary');
     modal.modal();
@@ -33,8 +48,32 @@ function form137_secondary() {
 function go_filter(level) {
     var elementary = $('#elementary').val();
     var secondary = $('#secondary').val();
+    var elementary_report = $('#elementary_report').val();
+    var junior_high_report = $('#junior_high_report').val();
+    var shs_report = $('#shs_report').val();
 
-    var loc = level == 'elementary' ? 'form_137_elementary/'+elementary : 'form_137_secondary/'+secondary;
+    switch(level) {
+        case 'elementary': 
+            var loc = 'form_137_elementary/'+elementary; 
+        break;
+        
+        case 'secondary': 
+            var loc = 'form_137_secondary/'+secondary;
+        break;
+        
+        case 'elementary report': 
+            var loc = 'form_pres_elem_card/'+elementary_report; 
+        break;
+
+        case 'junior high report': 
+            var loc = 'form_junior_high/'+junior_high_report; 
+        break;
+        
+        case 'senior high report': 
+            var loc = 'form_shs_report_card/'+shs_report; 
+        break;
+    }
+
     location.href = url + loc;
 }
 
@@ -899,6 +938,8 @@ function school_year() {
     })
 }
 
+
+
 function notify(type,message) {
     Command: toastr[type](message)
 }
@@ -917,7 +958,7 @@ function getAbsolutePath() {
 
 $('#subjects_id').select2({ placeholder: 'Select Subjects' });
 $('#students_id').select2({ placeholder: 'Select Students' });
-$('#section_id,#LRNN,#elementary,#secondary').select2({
+$('#section_id,#LRNN,.ss').select2({
     placeholder: 'Please select one'
 });
 

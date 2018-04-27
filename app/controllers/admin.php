@@ -178,21 +178,30 @@ class admin extends Controller {
     }
 
 
-    public function form_pres_elem_card() {
+    public function form_pres_elem_card($students_id) {
         $data['title'] = 'Pre School';
+        $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
+        $data['award']  = $this->model('account')->get_awards_by_students_id($students_id);
         $data['students']   = $this->model('account')->get_all_students();
+        $data['report']   = $this->model('account')->record_card($students_id);
         $this->view('pages/admin/form_pres_elem_card',$data);
     }
 
-    public function form_junior_high() {
+    public function form_junior_high($students_id) {
+        $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
         $data['students']   = $this->model('account')->get_all_students();
+        $data['eleven']   = $this->model('account')->eleven($students_id);
         $data['title'] = 'Pre School';
         $this->view('pages/admin/form_junior_high',$data);
     }
 
-    public function form_shs_report_card() {
+    public function form_shs_report_card($students_id) {
         $data['title'] = 'Pre School';
+        $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
+        $data['award']  = $this->model('account')->get_awards_by_students_id($students_id);
         $data['students']   = $this->model('account')->get_all_students();
+        $data['shs1st']   = $this->model('account')->shs1st($students_id);
+        $data['shs2nd']   = $this->model('account')->shs2nd($students_id);
         $this->view('pages/admin/form_shs_report_card',$data);
     }
 

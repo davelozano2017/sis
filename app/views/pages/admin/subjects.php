@@ -97,7 +97,8 @@
                         <select name="subject_level" class="form-control" id="subject_level">
                             <option value="Elementary">Elementary</option>
                             <option value="Junior High">Junior High</option>
-                            <option value="Senior High School">Senior High School</option>
+                            <option value="Senior High School - 1st Semenster">Senior High School - 1st Semenster</option>
+                            <option value="Senior High School - 2nd Semenster">Senior High School - 2nd Semenster</option>
                         </select>
                     </div>
 

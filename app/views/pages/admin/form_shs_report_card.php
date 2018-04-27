@@ -1,3 +1,7 @@
+<?php 
+if($data['shs1st']->num_rows > 0) { } else { redirect('admin/dashboard');  } 
+$row = $data['shs1st']->fetch_object();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,28 +35,28 @@ input[type="text"] { border:none !important;outline:none;width:30px;text-align:c
   <tr>
   </tr>
   <tr>
-    <td class="tg-us36 no-border" style="">NAME:    </td>
-    <td class="tg-us36 no-border"><input autofocus type="text"></td>
+    <td class="tg-us36 no-border" style="width:1% !important">NAME: </td>
+    <td class="tg-us36 no-border"><input style="width:100% !important;text-align:left" value="<?=$data['info']->surname?> <?=$data['info']->firstname?> <?=$data['info']->middlename?>" autofocus type="text"></td>
     <td class="tg-dvpl no-border" colspan="2">SEX:</td>
-    <td class="tg-us36 no-border"><input type="text"></td>
+    <td class="tg-us36 no-border"><input value="<?=$data['info']->genderr?>" type="text"></td>
   </tr>
   <tr>
     <td class="tg-us36 no-border">GRADE/SEC:</td>
-    <td class="tg-us36 no-border"><input type="text"></td>
+    <td class="tg-us36 no-border"><input value="<?=$row->level?>" style="width:100% !important;text-align:left" type="text"></td>
     <td class="tg-dvpl no-border" colspan="2">AGE:</td>
-    <td class="tg-us36 no-border"><input type="text"></td>
+    <td class="tg-us36 no-border"><input style="width:100% !important;text-align:left" type="text"></td>
   </tr>
   <tr>
     <td class="tg-us36 no-border">CURRICULUM:</td>
-    <td class="tg-us36 no-border"><input type="text"></td>
-    <td class="tg-dvpl no-border" colspan="2">S.Y</td>
-    <td class="tg-us36 no-border"><input type="text"></td>
+    <td class="tg-us36 no-border"><input style="width:40% !important;text-align:left" value="K - 12" type="text"></td>
+    <td class="tg-dvpl no-border" colspan="2">S.Y:</td>
+    <td class="tg-us36 no-border"><input value="<?=$row->sy?>" style="width:100% !important;text-align:left" type="text"></td>
   </tr>
   <tr>
     <td class="tg-l711 no-border">TRACK/STRAND:</td>
-    <td class="tg-us36 no-border"><input type="text"></td>
-    <td class="tg-dvpl no-border" colspan="2">LRN</td>
-    <td class="tg-us36 no-border"><input type="text"></td>
+    <td class="tg-us36 no-border"><input style="width:100% !important;text-align:left" type="text" value="General Academic"></td>
+    <td class="tg-dvpl no-border" colspan="2">LRN:</td>
+    <td class="tg-us36 no-border"><input style="width:100% !important;text-align:left" value="<?=$data['info']->LRN?>" type="text"></td>
   </tr>
   <tr>
     <td class="tg-c3ow no-border" colspan="5">REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</td>
@@ -70,80 +74,28 @@ input[type="text"] { border:none !important;outline:none;width:30px;text-align:c
     <td class="tg-c3ow">1</td>
     <td class="tg-c3ow">2</td>
   </tr>
+  <?php foreach($data['shs1st'] as $rowsix) { ?>
+  <?php 
+  $a = $rowsix['first'] + $rowsix['second'];
+  $aa = $a /2;
+  $average = $aa < 75 ? 'Failed' : 'Passed';
+  ?>
+
   <tr>
-    <td class="tg-us36" colspan="2">ORAL COMMUNICATION</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
+    <td class="tg-us36" colspan="2"><?=$rowsix['subjects_name']?></td>
+    <td class="tg-us36"><input type="text" value="<?=$rowsix['first']?>"></td>
+    <td class="tg-us36"><input type="text" value="<?=$rowsix['second']?>"></td>
+    <td class="tg-dvpl"><input type="text" value="<?=$aa?>%" style="width:100%"></td>
   </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">KOMUNIKASYON AT PANANALIKSIK </td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">GENERAL MATHEMATICS</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">EARTH AND LIFE SCIENCE</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">PHYSICAL EDUCATION AND HEALTH</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36 no-border" colspan="5" rowspan="2"></td>
-  </tr>
-  <tr>
-  </tr>
-  <tr>
-    <td class="tg-p8bj no-border" colspan="5">Applied and Specialized Subjects</td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">ENGLISH FOR ACADEMIC AND PROFESSIONAL PURPOSES</td>
-    <td class="tg-us36"><input type="text" style="margin-top:7px"></td>
-    <td class="tg-us36"><input type="text" style="margin-top:7px"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%;margin-top:7px"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">HUMANITIES 1 - CREATIVE WRITING </td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">ORGANIZATION AND MANAGEMENT</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">EMPOWERMENT TECHNOLOGIES</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">CHRISTIAN LIVING</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
+
+  <?php } ?>
+
   <tr>
     <td class="tg-us36 no-border" colspan="5"></td>
   </tr>
   <tr>
     <td class="tg-6ic8" colspan="4">General Average for the Semester</td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
+    <td class="tg-dvpl"><input type="text" value="<?=$average?>" style="width:100%"></td>
   </tr>
 
   <tr>
@@ -159,80 +111,29 @@ input[type="text"] { border:none !important;outline:none;width:30px;text-align:c
     <td class="tg-c3ow">3</td>
     <td class="tg-c3ow">4</td>
   </tr>
+  <?php foreach($data['shs2nd'] as $rowss) { ?>
+  <?php 
+  $a = $rowss['first'] + $rowss['second'] ;
+  $aa = $a / 2;
+  $average2 = $aa < 75 ? 'Failed' : 'Passed';
+  ?>
+
   <tr>
-    <td class="tg-us36" colspan="2">READING AND WRITING	</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
+    <td class="tg-us36" colspan="2"><?=$rowss['subjects_name']?></td>
+    <td class="tg-us36"><input type="text" value="<?=$rowss['third']?>"></td>
+    <td class="tg-us36"><input type="text" value="<?=$rowss['fourth']?>"></td>
+    <td class="tg-dvpl"><input type="text" value="<?=$aa?>%" style="width:100%"></td>
   </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">STATISTICS AND PROBABILITY	 </td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">PHYSICAL SCIENCE	</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">PAGBASA AT PAGSUSURI NG IBA'T IBANG TEKSTO TUNGO SA PANANALIKSIK	</td>
-    <td class="tg-us36"><input type="text" style="margin-top:7px"></td>
-    <td class="tg-us36"><input type="text" style="margin-top:7px"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%;margin-top:7px"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">PHYSICAL EDUCATION AND HEALTH</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36 no-border" colspan="5" rowspan="2"></td>
-  </tr>
-  <tr>
-  </tr>
-  <tr>
-    <td class="tg-p8bj no-border" colspan="5">Applied and Specialized Subjects</td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">PRACTICAL RESEARCH 1</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">ENTREPRENEURSHIP </td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">FUNDAMENTALS OF ABM 1</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">HUMANITIES 2 - INTRO. TO WORLD RELIGION AND BELIEF SYSTEM</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
-  <tr>
-    <td class="tg-us36" colspan="2">CHRISTIAN LIVING</td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-us36"><input type="text"></td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
-  </tr>
+
+  <?php } ?>
+
+
   <tr>
     <td class="tg-us36 no-border" colspan="5"></td>
   </tr>
   <tr>
     <td class="tg-6ic8" colspan="4">General Average for the Semester</td>
-    <td class="tg-dvpl"><input type="text" style="width:100%"></td>
+    <td class="tg-dvpl"><input type="text" value="<?=$average2?>" style="width:100%"></td>
   </tr>
 </table>
 </div>

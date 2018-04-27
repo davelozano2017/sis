@@ -63,6 +63,38 @@ class account extends Model {
         return $query;
     }
 
+    public function record_card($students_id) {
+        $syq = $this->db->query("SELECT * FROM school_year");
+        $row = $syq->fetch_object();
+        $sy  = $row->school_year;
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = $students_id AND ag.sy = '$sy' ORDER BY su.subjects_name ASC");
+        return $query; 
+    }
+
+    public function shs1st($students_id) {
+        $syq = $this->db->query("SELECT * FROM school_year");
+        $row = $syq->fetch_object();
+        $sy  = $row->school_year;
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = $students_id AND ag.sy = '$sy' AND su.subject_level = 'Senior High School - 1st Semenster' ORDER BY su.subjects_name DESC");
+        return $query; 
+    }
+
+    public function shs2nd($students_id) {
+        $syq = $this->db->query("SELECT * FROM school_year");
+        $row = $syq->fetch_object();
+        $sy  = $row->school_year;
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = $students_id AND ag.sy = '$sy' AND su.subject_level = 'Senior High School - 2nd Semenster' ORDER BY su.subjects_name DESC");
+        return $query; 
+    }
+
+    public function get_awards_by_students_id($students_id) {
+        $syq = $this->db->query("SELECT * FROM school_year");
+        $row = $syq->fetch_object();
+        $sy  = $row->school_year;
+        $query = $this->db->query("SELECT * FROM assign_awards WHERE stud_id = $students_id AND s_y = '$sy'");
+        return $query->fetch_object(); 
+    }
+
     public function one($students_id) {
         $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2017 - 2018' ORDER BY su.subjects_name ASC");
         return $query; 
@@ -112,6 +144,17 @@ class account extends Model {
         $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2026 - 2027' ORDER BY su.subjects_name ASC");
         return $query; 
     }
+
+    public function eleven($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2027 - 2028' ORDER BY su.subjects_name DESC");
+        return $query; 
+    }
+
+    public function twelve($students_id) {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2028 - 2029' ORDER BY su.subjects_name DESC");
+        return $query; 
+    }
+
 
     public function get_student_by_students_id($students_id) {
         $query = $this->db->query("SELECT * FROM students as s INNER JOIN users as u ON u.user_id = s.guardian_id WHERE s.students_id = $students_id");

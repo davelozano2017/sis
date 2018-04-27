@@ -1,3 +1,7 @@
+<?php 
+if($data['report']->num_rows > 0) { } else { redirect('admin/dashboard');  } 
+$row = $data['report']->fetch_object();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,30 +57,31 @@ input[type="text"] { width:100%;text-align:center }
 
 <table style="width:100%" cellspacing=0>
     <th class="no-border a">Name</th> 
-    <td class="no-border s" style="border-right:1px solid #fff !important;text-align:left" colspan=6> <input autofocus type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s" style="border-right:1px solid #fff !important;text-align:left" colspan=6> <input value="<?=$data['info']->surname?> <?=$data['info']->firstname?> <?=$data['info']->middlename?>" autofocus  type="text" style="border:none;outline:none;text-align:left !important"></td>
     <tr>
     <th class="no-border a">Age</th>
     <td class="no-border s"><input type="text" style="border:none;outline:none;text-align:left !important"></td>
     <th class="no-border s">Gender</th>
-    <td class="no-border s"><input type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s"><input type="text" value="<?=$data['info']->genderr?>" style="border:none;outline:none;text-align:left !important"></td>
     <th class="no-border s">School Year</th>
-    <td class="no-border s" style="border-right:1px solid #fff !important;"><input type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s" style="border-right:1px solid #fff !important;"><input value="<?=$row->sy?>" type="text" style="border:none;outline:none;text-align:left !important"></td>
     <tr>
 
     <th class="no-border a">Grade</th>
-    <td class="no-border s"><input type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s"><input type="text" value="<?=$row->level?>" style="border:none;outline:none;text-align:left !important"></td>
     <th class="no-border s">Section</th>
-    <td class="no-border s"><input type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s"><input type="text" value="<?=$row->section_name?>" style="border:none;outline:none;text-align:left !important"></td>
     <th class="no-border s">LRN</th>
-    <td class="no-border s" style="border-right:1px solid #fff !important;"><input type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s" style="border-right:1px solid #fff !important;"><input value="<?=$data['info']->LRN?>" type="text" style="border:none;outline:none;text-align:left !important"></td>
     <tr>
     <th class="no-border a" style="width:20% !important">Class Adviser</th> 
-    <td class="no-border s" style="border-right:1px solid #fff !important;text-align:left" colspan=6> <input type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s" style="border-right:1px solid #fff !important;text-align:left" colspan=6> <input type="text" value="<?=$row->name?>" style="border:none;outline:none;text-align:left !important"></td>
     <tr>
 </table>
 <br>
 
     <table class="tg" style="width:100%">
+        
         <tr>
             <td class="tg-uys7" colspan="5" style="width:50%">LEARNING AREAS</td>
             <td class="tg-uys7" style="width:7%">1</td>
@@ -87,105 +92,23 @@ input[type="text"] { width:100%;text-align:center }
             <td class="tg-uys7">Remarks</td>
         </tr>
      
+        <?php foreach($data['report'] as $rowsix) { ?>
+        <?php 
+        $a = $rowsix['first'] + $rowsix['second'] + $rowsix['third'] + $rowsix['fourth'];
+        $aa = $a / 4;
+        $average6 = $aa < 75 ? 'Failed' : 'Passed';
+        ?>
+     
         <tr>
-            <td class="tg-l711" colspan="5">Filipino</td>
+            <td class="tg-l711" colspan="5"><?=$rowsix['subjects_name']?></td>
+            <td class="tg-l711"><input type="text" value="<?=$rowsix['first']?>" style="border:none;outline:none"></td>
+            <td class="tg-l711"><input type="text" value="<?=$rowsix['second']?>" style="border:none;outline:none"></td>
+            <td class="tg-l711"><input type="text" value="<?=$rowsix['third']?>" style="border:none;outline:none"></td>
+            <td class="tg-l711"><input type="text" value="<?=$rowsix['fourth']?>" style="border:none;outline:none"></td>
             <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
+            <td class="tg-l711"><input type="text" value="<?=$average6?>" style="border:none;outline:none"></td>
         </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">English</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">Mathematics</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">Science</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">Araling Panlipunan (AP)</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">TLE</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">Edukasyon sa Pagpapakatao (ESP)</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">MAPEH</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">Computer Education</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
-
-        <tr>
-            <td class="tg-l711" colspan="5">Elective</td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-            <td class="tg-l711"><input type="text" style="border:none;outline:none"></td>
-        </tr>
+        <?php } ?>
 
         <tr>
             <td class="tg-l711" colspan="5">GEN. AVERAGE</td>
@@ -288,7 +211,7 @@ input[type="text"] { width:100%;text-align:center }
     <table class="tg" style="width:100%">
         <tr>    
             <th class="tg-l711 a" style="border:1px solid #fff !important;text-align:center;width:50%" >
-            <input type="text" style="border-top:solid 1px #fff;border-left:solid 1px #fff;border-right:solid 1px #fff;border-bottom:solid 1px #000;outline:none"></th>
+            <input value="<?=$row->name?>" type="text" style="border-top:solid 1px #fff;border-left:solid 1px #fff;border-right:solid 1px #fff;border-bottom:solid 1px #000;outline:none"></th>
             <th class="tg-l711 a" style="border:1px solid #fff !important;text-align:center;width:50%" ><input type="text" style="border-top:solid 1px #fff;border-left:solid 1px #fff;border-right:solid 1px #fff;border-bottom:solid 1px #000;outline:none" ></th>
         </tr>
     </table> 
@@ -337,24 +260,24 @@ input[type="text"] { width:100%;text-align:center }
     </table> 
 
     <table class="tg" style="width:100%">
-        <tr>
+    <tr>
             <td class="tg-l711" style="border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">First Quarter</td>
-            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->first?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
         </tr>
 
          <tr>
             <td class="tg-l711" style="border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Second Quarter</td>
-            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->second?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
         </tr>
 
          <tr>
             <td class="tg-l711" style="border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Third Quarter</td>
-            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->third?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
         </tr>
 
         <tr>
             <td class="tg-l711" style="border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Fourth Quarter</td>
-            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->fourth?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
         </tr>
 
         <tr>
