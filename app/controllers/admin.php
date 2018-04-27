@@ -190,7 +190,7 @@ class admin extends Controller {
     public function form_junior_high($students_id) {
         $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
         $data['students']   = $this->model('account')->get_all_students();
-        $data['eleven']   = $this->model('account')->eleven($students_id);
+        $data['report']   = $this->model('account')->record_card($students_id);
         $data['title'] = 'Pre School';
         $this->view('pages/admin/form_junior_high',$data);
     }
