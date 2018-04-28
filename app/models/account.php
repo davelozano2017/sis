@@ -96,17 +96,18 @@ class account extends Model {
     }
 
     public function one($students_id) {
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2017 - 2018' ORDER BY su.subjects_name ASC");
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id LEFT JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2017 - 2018' ORDER BY su.subjects_name ASC");
         return $query; 
     }
 
+
     public function two($students_id) {
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2018 - 2019' ORDER BY su.subjects_name ASC");
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id LEFT JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2018 - 2019' ORDER BY su.subjects_name ASC");
         return $query; 
     }
 
     public function three($students_id) {
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2019 - 2020' ORDER BY su.subjects_name ASC");
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id LEFT JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '2019 - 2020' ORDER BY su.subjects_name ASC");
         return $query; 
     }
 
@@ -302,9 +303,8 @@ class account extends Model {
     }
 
     public function view_awards($data) {
-        $guardians_id = $data['guardians_id'];
         $stud_id = $data['students_id'];
-        $query = $this->db->query("SELECT * FROM assign_awards WHERE guardians_id = '$guardians_id'");
+        $query = $this->db->query("SELECT * FROM assign_awards WHERE stud_id = '$stud_id'");
         if($query->num_rows > 0) {
             echo json_encode($query->fetch_object());
         } else {
@@ -552,7 +552,7 @@ class account extends Model {
         $LRN            = $data['LRN'];
         $description    = $data['description'];
         if(empty($violations_id)) {
-            $query = $this->db->query("INSERT INTO violations (LRN, description,school_year) VALUES ('$LRN', '$description','$school_year')");
+            $query = $this->db->query("INSERT INTO violations (LRN, description,scy) VALUES ('$LRN', '$description','$school_year')");
             notify('success','New violation has been added.',true);
         } else {
             $query = $this->db->query("UPDATE violations SET LRN = '$LRN', description = '$description' WHERE violations_id = $violations_id");

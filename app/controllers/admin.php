@@ -166,6 +166,18 @@ class admin extends Controller {
         $this->view('pages/admin/form_137_elementary',$data);
     }
 
+    public function elementary($students_id) {
+        $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
+        $data['title'] = 'Elementary';
+        $this->view('pages/admin/form_137_elementary_clean',$data);
+    }
+
+    public function secondary($students_id) {
+        $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
+        $data['title'] = 'Elementary';
+        $this->view('pages/admin/form_137_secondary_clean',$data);
+    }
+
     public function form_137_secondary($students_id) {
         $data['info']  = $this->model('account')->get_student_by_students_id($students_id);
         $data['students']   = $this->model('account')->get_all_students();
@@ -521,7 +533,6 @@ class admin extends Controller {
 
     public function view_awards($students_id) {
         $data = array( 
-            'guardians_id' => $this->input->post('guardian_id'),
             'students_id'  => $students_id
         );
         $this->model('account')->view_awards($data);
@@ -531,13 +542,13 @@ class admin extends Controller {
     public function AddOrUpdateAwards() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array( 
-                'stud_id'   => $this->input->post('stud_id'),
+                'stud_id'     => $this->input->post('stud_id'),
                 'guardian_id' => $this->input->post('guardian_id'),
-                'awards_id' => $this->input->post('awards_id'),
-                'first'     => $this->input->post('first'),
-                'second'    => $this->input->post('second'),
-                'third'     => $this->input->post('third'),
-                'fourth'    => $this->input->post('fourth'),
+                'awards_id'   => $this->input->post('awards_id'),
+                'first'       => $this->input->post('first'),
+                'second'      => $this->input->post('second'),
+                'third'       => $this->input->post('third'),
+                'fourth'      => $this->input->post('fourth'),
             );
             $this->model('account')->AddOrUpdateAwards($data);
         } 

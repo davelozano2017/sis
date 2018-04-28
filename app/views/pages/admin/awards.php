@@ -79,7 +79,7 @@
             </div>
 
             <div class="modal-body">
-                <form novalidate name="formAwards" id="formAwards" method="POST">
+                <form name="forms" id="forms" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
                     <input type="hidden" class="form-control" id="guardian_id" name="guardian_id" value="<?=$data['guardian_id']?>">
                     <input type="hidden" class="form-control" id="awards_id" name="awards_id">
@@ -100,8 +100,6 @@
                     <div class="form-group">
                         <input type="text" id="fourth" name="fourth"  class="form-control" placeholder="Fourth Quarter" >
                     </div>
-
-
                 </form>
             </div>
 

@@ -91,6 +91,8 @@
                         <?php  break; case 1: ?>
                             <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>teachers/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                             <li class="<?= $data['title'] == 'Student Grade Book' ? 'active':'';?>"><a href="<?=URL?>teachers/student_grade_book"><i class="icon-books"></i> <span>Student Grade Book</span></a></li>
+                            <li class="<?= $data['title'] == 'Extra Curricular'    ? 'active' : '';?>"><a href="<?=URL?>teachers/extra_curricular"><i class="icon-check"></i> Extra Curricular </a></li>
+                            <li class="<?= $data['title'] == 'Violations'  ? 'active' : '';?>"><a href="<?=URL?>teachers/violations"><i class="icon-cross3"></i> Violations </a></li>
                         <?php break; case 2: ?>
                             <li class="<?= $data['title'] == 'Dashboard' ? 'active':'';?>"><a href="<?=URL?>parents/dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                             <li class="<?= $data['title'] == 'Student Grade Book' ? 'active':'';?>"><a href="<?=URL?>parents/student_grade_book"><i class="icon-books"></i> <span>Student Grade Book</span></a></li>
@@ -128,6 +130,13 @@
 
             <div class="modal-body">
                 <form novalidate name="formAwards" id="formAwards" method="POST">
+                    
+                    <div class="form-group">
+                        <select class="form-control ss" id="selector1">
+                            <option value="Manual">Manual</option>
+                            <option value="Automated" selected>Automated</option>
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <select class="form-control ss" onchange="go_filter('elementary')" id="elementary">
@@ -138,8 +147,8 @@
                         </select>
                     </div>
 
-
                 </form>
+
             </div>
 
             <div class="modal-footer">
@@ -159,6 +168,13 @@
 
             <div class="modal-body">
                 <form novalidate name="formAwards" id="formAwards" method="POST">
+                    
+                    <div class="form-group">
+                        <select class="form-control ss" id="selector2">
+                            <option value="Manual">Manual</option>
+                            <option value="Automated" selected>Automated</option>
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <select class="form-control ss" onchange="go_filter('secondary')" id="secondary">

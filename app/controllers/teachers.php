@@ -103,9 +103,81 @@ class teachers extends Controller {
         $this->view('components/scripts',$data);
     }
 
+    public function extra_curricular() {
+        $data['title']     = 'Extra Curricular';
+        $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['activity']  = $this->model('account')->get_all_activity();
+        $data['students']   = $this->model('account')->get_all_students();
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['students']   = $this->model('account')->get_all_students();
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/teachers/extra_curricular',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
+    public function violations() {
+        $data['title']      = 'Violations';
+        $data['user_info']  = $this->model('account')->get_user_information($_SESSION['id']);
+        $data['violations'] = $this->model('account')->get_all_violations();
+        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['students']   = $this->model('account')->get_all_students();
+        $this->view('components/header',$data);
+        $this->view('components/navigation',$data);
+        $this->view('components/sidebar',$data);
+        $this->view('pages/teachers/violations',$data);
+        $this->view('components/footer',$data);
+        $this->view('components/scripts',$data);
+    }
+
     public function get_assigned_grades() {
         $assign_grades_id = $this->input->post('assign_grades_id');
         $this->model('account')->get_assigned_grades($assign_grades_id);
+    }
+
+    public function AddOrUpdateViolations() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $data = array( 
+                'violations_id' => $this->input->post('violations_id'),
+                'LRN'           => $this->input->post('LRN'),
+                'description'   => $this->input->post('description')
+            );
+            $this->model('account')->AddOrUpdateViolations($data);
+        }
+    }
+
+    public function get_violations_using_id() {
+        $violations_id = $this->input->post('violations_id');
+        $this->model('account')->get_violations_using_id($violations_id);
+    }
+
+    public function delete_violations_using_id() {
+        $violations_id = $this->input->post('violations_id');
+        $this->model('account')->delete_violations_using_id($violations_id);
+    }
+    
+    public function AddOrUpdateActivity() {
+        if(isset($_SESSION['token']) == $this->input->post('token')) {
+            $data = array( 
+                'activity_id' => $this->input->post('activity_id'),
+                'LRN'         => $this->input->post('LRN'),
+                'activity'    => $this->input->post('activity'),
+                'description' => $this->input->post('description')
+            );
+            $this->model('account')->AddOrUpdateActivity($data);
+        }
+    }
+    
+    public function get_activity_using_id() {
+        $activity_id = $this->input->post('activity_id');
+        $this->model('account')->get_activity_using_id($activity_id);
+    }
+
+    public function delete_activity_using_id() {
+        $activity_id = $this->input->post('activity_id');
+        $this->model('account')->delete_activity_using_id($activity_id);
     }
 
     public function assign_student_grades() {

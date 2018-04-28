@@ -46,6 +46,8 @@ function form137_secondary() {
 
 
 function go_filter(level) {
+    var selector1 = $('#selector1').val();
+    var selector2 = $('#selector2').val();
     var elementary = $('#elementary').val();
     var secondary = $('#secondary').val();
     var elementary_report = $('#elementary_report').val();
@@ -54,11 +56,11 @@ function go_filter(level) {
 
     switch(level) {
         case 'elementary': 
-            var loc = 'form_137_elementary/'+elementary; 
+            var loc = selector1 == 'Manual' ? 'elementary/'+elementary : 'form_137_elementary/'+elementary;
         break;
         
         case 'secondary': 
-            var loc = 'form_137_secondary/'+secondary;
+            var loc = selector2 == 'Manual' ? 'secondary/'+secondary : 'form_137_secondary/'+elementary;
         break;
         
         case 'elementary report': 
@@ -94,14 +96,14 @@ function assign_award(students_id) {
             $('#second').val(data.second);
             $('#third').val(data.third);
             $('#fourth').val(data.fourth);
+            modal.modal();
         }
 
     })
-    modal.modal();
 }
 
 function add_awards() {
-    var data = $('#formAwards').serialize();
+    var data = $('form').serialize();
     var guardian_id = $('#guardian_id').val();
     $.ajax({
         type : 'POST',

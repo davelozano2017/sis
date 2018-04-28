@@ -142,7 +142,7 @@ th {
         $average2 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowtwo['subjects_name']?></b></td>
+            <td colspan="6"><b style="font-size:10px"><?=$rowtwo['subjects_name']?> II</b></td>
             <td><input type="text" value="<?=$rowtwo['first']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowtwo['second']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowtwo['third']?>" style="text-align:center;width:100%"></td>
@@ -192,7 +192,7 @@ th {
         $average1 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowone['subjects_name']?></b></td>
+            <td colspan="6"><b style="font-size:10px"><?=$rowone['subjects_name']?> I</b></td>
             <td><input type="text" value="<?=$rowone['first']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowone['second']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowone['third']?>" style="text-align:center;width:100%"></td>
@@ -245,7 +245,7 @@ th {
         $average4 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowfour['subjects_name']?></b></td>
+            <td colspan="6"><b style="font-size:10px"><?=$rowfour['subjects_name']?> IV</b></td>
             <td><input type="text" value="<?=$rowfour['first']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowfour['second']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowfour['third']?>" style="text-align:center;width:100%"></td>
@@ -295,7 +295,7 @@ th {
         $average3 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowthree['subjects_name']?></b></td>
+            <td colspan="6"><b style="font-size:10px"><?=$rowthree['subjects_name']?> III</b></td>
             <td><input type="text" value="<?=$rowthree['first']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowthree['second']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowthree['third']?>" style="text-align:center;width:100%"></td>
@@ -347,7 +347,7 @@ th {
         $average6 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowsix['subjects_name']?></b></td>
+            <td colspan="6"><b style="font-size:10px"><?=$rowsix['subjects_name']?> VI</b></td>
             <td><input type="text" value="<?=$rowsix['first']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowsix['second']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowsix['third']?>" style="text-align:center;width:100%"></td>
@@ -397,7 +397,7 @@ th {
         $average5 = $aa < 75 ? 'Failed' : 'Passed';
         ?>
         <tr>
-            <td colspan="6"><b><?=$rowfive['subjects_name']?></b></td>
+            <td colspan="6"><b style="font-size:10px"><?=$rowfive['subjects_name']?> V</b></td>
             <td><input type="text" value="<?=$rowfive['first']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowfive['second']?>" style="text-align:center;width:100%"></td>
             <td><input type="text" value="<?=$rowfive['third']?>" style="text-align:center;width:100%"></td>
