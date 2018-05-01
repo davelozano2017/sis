@@ -1,16 +1,5 @@
 <?php 
-if($data['report']->num_rows > 0) { } else { redirect('admin/dashboard');  } 
 $row = $data['report']->fetch_object();
-switch($row->sy) {
-    case '2023 - 2024': ''; break;
-    case '2024 - 2025': ''; break;
-    case '2025 - 2026': ''; break;
-    case '2026 - 2027': ''; break;
-
-    default: 
-    redirect('admin/dashboard');
-    break;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,25 +56,25 @@ input[type="text"] { width:100%;text-align:center }
 
 <table style="width:100%" cellspacing=0>
     <th class="no-border a">Name</th> 
-    <td class="no-border s" style="border-right:1px solid #fff !important;text-align:left" colspan=6> <input value="<?=$data['info']->surname?> <?=$data['info']->firstname?> <?=$data['info']->middlename?>" autofocus  type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s" style="border-right:1px solid #fff !important;text-align:left" colspan=6> <input value="<?=$data['info']->surname?> <?=$data['info']->firstname?> <?=$data['info']->middlename?>" autofocus  type="text" style="border:none;outline:none;text-align:left !important;font-size:11px"></td>
     <tr>
     <th class="no-border a">Age</th>
     <td class="no-border s"><input type="text" style="border:none;outline:none;text-align:left !important"></td>
     <th class="no-border s">Gender</th>
-    <td class="no-border s"><input type="text" value="<?=$data['info']->genderr?>" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s"><input type="text" value="<?=$data['info']->genderr?>" style="border:none;outline:none;text-align:left !important;font-size:11px"></td>
     <th class="no-border s">School Year</th>
-    <td class="no-border s" style="border-right:1px solid #fff !important;"><input value="<?=$row->sy?>" type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s" style="border-right:1px solid #fff !important;"><input value="<?=$row->sy?>" type="text" style="border:none;outline:none;text-align:left !important;font-size:11px"></td>
     <tr>
 
     <th class="no-border a">Grade</th>
-    <td class="no-border s"><input type="text" value="<?=$row->level?>" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s"><input type="text" value="<?=$row->level?>" style="border:none;outline:none;text-align:left !important;font-size:11px"></td>
     <th class="no-border s">Section</th>
-    <td class="no-border s"><input type="text" value="<?=$row->section_name?>" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s"><input type="text" value="<?=$row->section_name?>" style="border:none;outline:none;text-align:left !important;font-size:11px"></td>
     <th class="no-border s">LRN</th>
-    <td class="no-border s" style="border-right:1px solid #fff !important;"><input value="<?=$data['info']->LRN?>" type="text" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s" style="border-right:1px solid #fff !important;"><input value="<?=$data['info']->LRN?>" type="text" style="border:none;outline:none;text-align:left !important;font-size:11px;"></td>
     <tr>
     <th class="no-border a" style="width:20% !important">Class Adviser</th> 
-    <td class="no-border s" style="border-right:1px solid #fff !important;text-align:left" colspan=6> <input type="text" value="<?=$row->name?>" style="border:none;outline:none;text-align:left !important"></td>
+    <td class="no-border s" style="border-right:1px solid #fff !important;text-align:left" colspan=6> <input type="text" value="<?=$row->name?>" style="border:none;outline:none;text-align:left !important;font-size:11px"></td>
     <tr>
 </table>
 <br>

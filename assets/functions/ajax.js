@@ -46,6 +46,9 @@ function form137_secondary() {
 
 
 function go_filter(level) {
+    var selector = $('#selector').val();
+    var selector1 = $('#selector1').val();
+    var selector2 = $('#selector2').val();
     var elementary = $('#elementary').val();
     var secondary = $('#secondary').val();
     var elementary_report = $('#elementary_report').val();
@@ -54,27 +57,64 @@ function go_filter(level) {
 
     switch(level) {
         case 'elementary': 
-            var loc = 'form_137_elementary/'+elementary;
+            var loc = 'form_pres_elem_card/'+elementary;
+            location.href = url + loc;
         break;
         
         case 'secondary': 
             var loc = 'form_137_secondary/'+secondary;
+            location.href = url + loc;
         break;
         
         case 'elementary report': 
-            var loc = 'form_pres_elem_card/'+elementary_report; 
+            $.ajax({
+                type : 'POST',
+                url : url +'formss',
+                data : {
+                    action : 'Elementary',
+                    elementary_id : elementary_report,
+                    school_year : selector
+                },
+                dataType: 'json',
+                success:function(data) {
+                    location.href = url +'form_pres_elem_card';
+                }
+            })
         break;
 
         case 'junior high report': 
-            var loc = 'form_junior_high/'+junior_high_report; 
+            $.ajax({
+                type : 'POST',
+                url : url +'formss',
+                data : {
+                    action : 'Junior High',
+                    junior_high_id : junior_high_report,
+                    school_year : selector1
+                },
+                dataType: 'json',
+                success:function(data) {
+                    location.href = url +'form_junior_high';
+                }
+            })
         break;
         
         case 'senior high report': 
-            var loc = 'form_shs_report_card/'+shs_report; 
+            $.ajax({
+                type : 'POST',
+                url : url +'formss',
+                data : {
+                    action : 'Senior High',
+                    senior_high_id : shs_report,
+                    school_year : selector2
+                },
+                dataType: 'json',
+                success:function(data) {
+                    location.href = url +'form_shs_report_card';
+                }
+            })
         break;
     }
 
-    location.href = url + loc;
 }
 
 function assign_award(students_id) {
@@ -958,6 +998,7 @@ function getAbsolutePath() {
 
 $('#subjects_id').select2({ placeholder: 'Select Subjects' });
 $('#students_id').select2({ placeholder: 'Select Students' });
+$('.schools').select2({ placeholder: 'Select School Year' });
 $('#section_id,#LRNN,.ss').select2({
     placeholder: 'Please select one'
 });

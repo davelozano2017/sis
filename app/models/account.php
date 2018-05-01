@@ -63,27 +63,20 @@ class account extends Model {
         return $query;
     }
 
-    public function record_card($students_id) {
-        $syq = $this->db->query("SELECT * FROM school_year");
-        $row = $syq->fetch_object();
-        $sy  = $row->school_year;
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = $students_id AND ag.sy = '$sy' ORDER BY su.subjects_name ASC");
+    public function record_card() {
+        $id = $_SESSION['filtered_id'];
+        $sy = $_SESSION['school_year'];
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = '$id' AND ag.sy = '$sy' ORDER BY su.subjects_name ASC");
         return $query; 
     }
 
     public function shs1st($students_id) {
-        $syq = $this->db->query("SELECT * FROM school_year");
-        $row = $syq->fetch_object();
-        $sy  = $row->school_year;
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = $students_id AND ag.sy = '$sy' AND su.subject_level = 'Senior High School - 1st Semenster' ORDER BY su.subjects_name DESC");
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = $students_id AND ag.sy = '".$_SESSION['school_year']."' AND su.subject_level = 'Senior High School - 1st Semenster' ORDER BY su.subjects_name DESC");
         return $query; 
     }
 
     public function shs2nd($students_id) {
-        $syq = $this->db->query("SELECT * FROM school_year");
-        $row = $syq->fetch_object();
-        $sy  = $row->school_year;
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = $students_id AND ag.sy = '$sy' AND su.subject_level = 'Senior High School - 2nd Semenster' ORDER BY su.subjects_name DESC");
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = $students_id AND ag.sy = '".$_SESSION['school_year']."' AND su.subject_level = 'Senior High School - 2nd Semenster' ORDER BY su.subjects_name DESC");
         return $query; 
     }
 
@@ -160,6 +153,21 @@ class account extends Model {
     public function get_student_by_students_id($students_id) {
         $query = $this->db->query("SELECT * FROM students as s INNER JOIN users as u ON u.user_id = s.guardian_id WHERE s.students_id = $students_id");
         return $query->fetch_object();
+    }
+
+    public function sy_elementary() {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id WHERE ag.students_id = s.students_id  AND se.level = 'Grade 1' || se.level = 'Grade 2' || se.level = 'Grade 3' || se.level = 'Grade 4' || se.level = 'Grade 5' || se.level = 'Grade 6' GROUP BY ag.sy");
+        return $query;
+    }
+
+    public function sy_junior_high() {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id WHERE ag.students_id = s.students_id  AND se.level = 'Grade 7' || se.level = 'Grade 8' || se.level = 'Grade 9' || se.level = 'Grade 10' GROUP BY ag.sy");
+        return $query;
+    }
+
+    public function sy_senior_high() {
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id WHERE ag.students_id = s.students_id  AND se.level = 'Grade 11' || se.level = 'Grade 12' GROUP BY ag.sy");
+        return $query;
     }
 
     public function get_students() {

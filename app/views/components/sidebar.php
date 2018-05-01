@@ -162,6 +162,8 @@
             <div class="modal-body">
                 <form novalidate name="formAwards" id="formAwards" method="POST">
                     
+                    
+
                     <div class="form-group">
                         <select class="form-control ss" onchange="go_filter('secondary')" id="secondary">
                             <option value="">Select Student</option>
@@ -191,7 +193,16 @@
 
             <div class="modal-body">
                 <form novalidate name="formAwards" id="formAwards" method="POST">
-
+                    
+                    <div class="form-group">
+                        <select class="form-control schools" id="selector">
+                            <option value="">Select School Year</option>
+                            <?php foreach($data['selector'] as $selector) { ?>
+                                <option value="<?=$selector['sy']?>"><?=$selector['level']?> - <?=$selector['sy']?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    
                     <div class="form-group">
                         <select class="form-control ss" onchange="go_filter('elementary report')" id="elementary_report">
                             <option value="">Select Student</option>
@@ -221,6 +232,15 @@
 
             <div class="modal-body">
                 <form novalidate name="formAwards" id="formAwards" method="POST">
+                    
+                    <div class="form-group">
+                        <select class="form-control schools" id="selector1">
+                            <option value="">Select School Year</option>
+                            <?php foreach($data['selector1'] as $selector1) { ?>
+                                <option value="<?=$selector1['sy']?>"><?=$selector1['level']?> - <?=$selector1['sy']?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <select class="form-control ss" onchange="go_filter('junior high report')" id="junior_high_report">
@@ -230,6 +250,8 @@
                             <?php } ?>
                         </select>
                     </div>
+
+                    
 
 
                 </form>
@@ -251,6 +273,15 @@
 
             <div class="modal-body">
                 <form novalidate name="formAwards" id="formAwards" method="POST">
+
+                    <div class="form-group">
+                        <select class="form-control schools" id="selector2">
+                            <option value="">Select School Year</option>
+                            <?php foreach($data['selector2'] as $selector2) { ?>
+                                <option value="<?=$selector2['sy']?>"><?=$selector2['level']?> - <?=$selector2['sy']?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <select class="form-control ss" onchange="go_filter('senior high report')" id="shs_report">
