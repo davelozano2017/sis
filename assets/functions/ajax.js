@@ -46,8 +46,6 @@ function form137_secondary() {
 
 
 function go_filter(level) {
-    var selector1 = $('#selector1').val();
-    var selector2 = $('#selector2').val();
     var elementary = $('#elementary').val();
     var secondary = $('#secondary').val();
     var elementary_report = $('#elementary_report').val();
@@ -56,11 +54,11 @@ function go_filter(level) {
 
     switch(level) {
         case 'elementary': 
-            var loc = selector1 == 'Manual' ? 'elementary/'+elementary : 'form_137_elementary/'+elementary;
+            var loc = 'form_137_elementary/'+elementary;
         break;
         
         case 'secondary': 
-            var loc = selector2 == 'Manual' ? 'secondary/'+secondary : 'form_137_secondary/'+elementary;
+            var loc = 'form_137_secondary/'+secondary;
         break;
         
         case 'elementary report': 

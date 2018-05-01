@@ -149,23 +149,136 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
             <td class="tg-l711 c">4th</td>
         </tr>
         
-        <?php foreach($data['eight'] as $roweight) { ?>
-        <?php 
-        $a = $roweight['first'] + $roweight['second'] + $roweight['third'] + $roweight['fourth'];
-        $aa = $a / 4;
-        $average2 = $aa < 75 ? 'Failed' : 'Passed';
-        ?>
+        <?php if($data['eight']->num_rows > 0) { ?>
+            <?php foreach($data['eight'] as $roweight) { ?>
+            <?php 
+            $a = $roweight['first'] + $roweight['second'] + $roweight['third'] + $roweight['fourth'];
+            $aa = $a / 4;
+            $average2 = $aa < 75 ? 'Failed' : 'Passed';
+            ?>
 
-        <tr>
-            <td class="tg-l711" colspan="5"><?=$roweight['subjects_name']?> II</td>
-            <td class="tg-l711"><input type="text" value="<?=$roweight['first']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$roweight['second']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$roweight['third']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$roweight['fourth']?>" style="width:100%"></td>
-            <td class="tg-l711" colspan="3"><input type="text" value="<?=$average2?>" style="width:100%;text-align:center"></td>
-            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
-            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
+            <tr>
+                <td class="tg-l711" colspan="5"><?=$roweight['subjects_name']?> II</td>
+                <td class="tg-l711"><input type="text" value="<?=$roweight['first']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$roweight['second']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$roweight['third']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$roweight['fourth']?>" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" value="<?=$average2?>" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+            <?php } ?>
+        <?php } else { ?>
+            <tr>
+                <td class="tg-l711" colspan="5">Aralin Panlipunan II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Computer  II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Elective  II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">English  II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Filipino  II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">MAPEH  II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Mathematics  II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Science  II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">T.L.E II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Values ED/EP II</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+                
         <?php } ?>
 
         <tr>
@@ -216,23 +329,136 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
             <td class="tg-l711 c">4th</td>
         </tr>
 
-        <?php foreach($data['seven'] as $rowseven) { ?>
-        <?php 
-        $a = $rowseven['first'] + $rowseven['second'] + $rowseven['third'] + $rowseven['fourth'];
-        $aa = $a / 4;
-        $average = $aa < 75 ? 'Failed' : 'Passed';
-        ?>
+        <?php if($data['eight']->num_rows > 0) { ?>
+            <?php foreach($data['seven'] as $rowseven) { ?>
+            <?php 
+            $a = $rowseven['first'] + $rowseven['second'] + $rowseven['third'] + $rowseven['fourth'];
+            $aa = $a / 4;
+            $average = $aa < 75 ? 'Failed' : 'Passed';
+            ?>
 
-        <tr>
-            <td class="tg-l711" colspan="5"><?=$rowseven['subjects_name']?> I</td>
-            <td class="tg-l711"><input type="text" value="<?=$rowseven['first']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$rowseven['second']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$rowseven['third']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$rowseven['fourth']?>" style="width:100%"></td>
-            <td class="tg-l711" colspan="3"><input type="text" value="<?=$average?>" style="width:100%;text-align:center"></td>
-            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
-            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
-        </tr>
+            <tr>
+                <td class="tg-l711" colspan="5"><?=$rowseven['subjects_name']?> II</td>
+                <td class="tg-l711"><input type="text" value="<?=$rowseven['first']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$rowseven['second']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$rowseven['third']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$rowseven['fourth']?>" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" value="<?=$average?>" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+            <?php } ?>
+        <?php } else { ?>
+            <tr>
+                <td class="tg-l711" colspan="5">Aralin Panlipunan I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Computer  I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Elective  I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">English  I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Filipino  I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">MAPEH  I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Mathematics  I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Science  I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">T.L.E I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+
+            <tr>
+                <td class="tg-l711" colspan="5">Values ED/EP I</td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+                
         <?php } ?>
         
         
@@ -283,23 +509,137 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
             <td class="tg-l711 c">3rd</td>
             <td class="tg-l711 c">4th</td>
         </tr>
-        <?php foreach($data['ten'] as $rowten) { ?>
-        <?php 
-        $a = $rowten['first'] + $rowten['second'] + $rowten['third'] + $rowten['fourth'];
-        $aa = $a / 4;
-        $average4 = $aa < 75 ? 'Failed' : 'Passed';
-        ?>
+       
+        <?php if($data['ten']->num_rows > 0) { ?>
+            <?php foreach($data['ten'] as $rowten) { ?>
+            <?php 
+            $a = $rowten['first'] + $rowten['second'] + $rowten['third'] + $rowten['fourth'];
+            $aa = $a / 4;
+            $average4 = $aa < 75 ? 'Failed' : 'Passed';
+            ?>
+            <tr>
+                <td class="tg-l711" colspan="5"><?=$rowten['subjects_name']?> IV</td>
+                <td class="tg-l711"><input type="text" value="<?=$rowten['first']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$rowten['second']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$rowten['third']?>" style="width:100%"></td>
+                <td class="tg-l711"><input type="text" value="<?=$rowten['fourth']?>" style="width:100%"></td>
+                <td class="tg-l711" colspan="3"><input type="text" value="<?=$average4?>" style="width:100%;text-align:center"></td>
+                <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+                <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+            </tr>
+            <?php } ?>
+        <?php } else { ?>
 
         <tr>
-            <td class="tg-l711" colspan="5"><?=$rowten['subjects_name']?> IV</td>
-            <td class="tg-l711"><input type="text" value="<?=$rowten['first']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$rowten['second']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$rowten['third']?>" style="width:100%"></td>
-            <td class="tg-l711"><input type="text" value="<?=$rowten['fourth']?>" style="width:100%"></td>
-            <td class="tg-l711" colspan="3"><input type="text" value="<?=$average4?>" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="5">Aralin Panlipunan IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
             <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
             <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
         </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Computer  IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Elective  IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">English  IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Filipino  IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">MAPEH  IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Mathematics  IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Science  IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">T.L.E IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Values ED/EP IV</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+       
         <?php } ?>
 
         <tr>
@@ -349,8 +689,9 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
             <td class="tg-l711 c">3rd</td>
             <td class="tg-l711 c">4th</td>
         </tr>
-        
-        <?php foreach($data['nine'] as $rownine) { ?>
+
+        <?php if($data['nine']->num_rows > 0) { ?>
+            <?php foreach($data['nine'] as $rownine) { ?>
         <?php 
         $a = $rownine['first'] + $rownine['second'] + $rownine['third'] + $rownine['fourth'];
         $aa = $a / 4;
@@ -368,6 +709,119 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
             <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
         </tr>
         <?php } ?>
+        <?php } else { ?>
+            <tr>
+            <td class="tg-l711" colspan="5">Aralin Panlipunan III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Computer  III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Elective  III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">English  III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Filipino  III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">MAPEH  III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Mathematics  III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Science  III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">T.L.E III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" colspan="5">Values ED/EP III</td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711"><input type="text" style="width:100%"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%;text-align:center"></td>
+            <td class="tg-l711" colspan="3"><input type="text" style="width:100%"></td>
+            <td class="tg-us36" colspan="3"><input type="text" style="width:100%"></td>
+        </tr>
+        <?php } ?>
+        
+        
         
         <tr>
             <td class="tg-l711" colspan="5">GEN. AVE.</td>

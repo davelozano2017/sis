@@ -130,13 +130,6 @@
 
             <div class="modal-body">
                 <form novalidate name="formAwards" id="formAwards" method="POST">
-                    
-                    <div class="form-group">
-                        <select class="form-control ss" id="selector1">
-                            <option value="Manual">Manual</option>
-                            <option value="Automated" selected>Automated</option>
-                        </select>
-                    </div>
 
                     <div class="form-group">
                         <select class="form-control ss" onchange="go_filter('elementary')" id="elementary">
@@ -169,13 +162,6 @@
             <div class="modal-body">
                 <form novalidate name="formAwards" id="formAwards" method="POST">
                     
-                    <div class="form-group">
-                        <select class="form-control ss" id="selector2">
-                            <option value="Manual">Manual</option>
-                            <option value="Automated" selected>Automated</option>
-                        </select>
-                    </div>
-
                     <div class="form-group">
                         <select class="form-control ss" onchange="go_filter('secondary')" id="secondary">
                             <option value="">Select Student</option>
