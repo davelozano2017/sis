@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2018 at 03:12 PM
+-- Generation Time: May 02, 2018 at 12:46 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -439,15 +439,33 @@ INSERT INTO `events` (`events_id`, `title`, `start`, `end`, `description`) VALUE
 
 CREATE TABLE `school_year` (
   `school_year_id` int(11) NOT NULL,
-  `school_year` varchar(255) NOT NULL
+  `school_year` varchar(255) NOT NULL,
+  `st` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `school_year`
 --
 
-INSERT INTO `school_year` (`school_year_id`, `school_year`) VALUES
-(1, '2017 - 2018');
+INSERT INTO `school_year` (`school_year_id`, `school_year`, `st`) VALUES
+(1, '2017 - 2018', 'Active'),
+(5, '2018 - 2019', ''),
+(6, '2019 - 2020', ''),
+(7, '2020 - 2021', ''),
+(8, '2021 - 2022', ''),
+(9, '2022 - 2023', ''),
+(10, '2023 - 2024', ''),
+(11, '2024 - 2025', ''),
+(12, '2025 - 2026', ''),
+(13, '2026 - 2027', ''),
+(14, '2027 - 2028', ''),
+(15, '2028 - 2029', ''),
+(16, '2029 - 2030', ''),
+(17, '2030 - 2031', ''),
+(18, '2031 - 2032', ''),
+(19, '2032 - 2033', ''),
+(20, '2033 - 2034', ''),
+(21, '2034 - 2035', '');
 
 -- --------------------------------------------------------
 
@@ -760,7 +778,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `school_year`
 --
 ALTER TABLE `school_year`
-  MODIFY `school_year_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `school_year_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `section`
