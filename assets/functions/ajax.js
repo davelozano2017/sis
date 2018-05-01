@@ -57,7 +57,7 @@ function go_filter(level) {
 
     switch(level) {
         case 'elementary': 
-            var loc = 'form_pres_elem_card/'+elementary;
+            var loc = 'form_137_elementary/'+elementary;
             location.href = url + loc;
         break;
         
@@ -115,6 +115,10 @@ function go_filter(level) {
         break;
     }
 
+}
+
+function add_new_sy() {
+    $('#modal-add-school-year').modal();
 }
 
 function assign_award(students_id) {
@@ -961,11 +965,28 @@ function filter_students() {
     })
 }
 
-function school_year() {
-    var data = $('#formSchoolYear').serialize();
+function addschool_year() {
+    var data = $('#formAddSchoolYear').serialize();
     $.ajax({
         type : 'POST',
-        url : url + 'sy',
+        url : url + 'AddOrUpdateSchoolyear',
+        data : data,
+        dataType: 'json',
+        beforeSend:function() {
+            $('#btn-school-year').html(' <i class="icon-spinner2 spinner"></i>').attr('disabled',true);
+        },
+        success:function(data) {
+            data.success === true ? location.href = url + 'school_year' : notify(data.type,data.message);
+            $('#btn-school-year').html('Save Changes <i class="icon-arrow-right14 position-right"></i>').attr('disabled',false);
+        }
+    })
+}
+
+function editschool_year() {
+    var data = $('#formEditSchoolYear').serialize();
+    $.ajax({
+        type : 'POST',
+        url : url + 'AddOrUpdateSchoolyear',
         data : data,
         dataType: 'json',
         beforeSend:function() {

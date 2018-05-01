@@ -33,6 +33,7 @@
             <!-- Sales stats -->
             <div class="panel panel-flat">
                 <div class="panel-heading">
+                    <button class="btn btn-primary" onclick="add_new_sy()">Add New</button>
                 </div>
                 
                 <!-- start -->
@@ -66,6 +67,36 @@
     </div>
     <!-- /main charts -->
 
+
+  <!-- Success modal -->
+  <div id="modal-add-school-year" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">School Year</h6>
+            </div>
+
+            <div class="modal-body">
+                <form novalidate name="formAddSchoolYear" id="formAddSchoolYear" method="POST">
+                    <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
+                    <input type="hidden" class="form-control" id="school_year_id" name="school_year_id">
+                    <div class="form-group">
+                        <input type="text" name="school_year"  class="form-control" required>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success"  onclick="addschool_year()" ng-disabled="formAddSchoolYear.$invalid">Add New <i class="icon-arrow-right14 position-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /success modal -->
+
+
     <!-- Success modal -->
 <div id="modal-school-year" class="modal fade">
     <div class="modal-dialog">
@@ -76,25 +107,14 @@
             </div>
 
             <div class="modal-body">
-                <form novalidate name="formSchoolYear" id="formSchoolYear" method="POST">
+                <form novalidate name="formEditSchoolYear" id="formEditSchoolYear" method="POST">
                     <input type="hidden" class="form-control" id="token" name="token" value="<?=TOKEN?>">
                     <input type="hidden" class="form-control" id="school_year_id" name="school_year_id">
                     <div class="form-group">
                         <select id="school_year" name="school_year" class="form-control">
-                            <option value="2015 - 2016">2015 - 2016</option> 
-                            <option value="2016 - 2017">2016 - 2017</option> 
-                            <option value="2017 - 2018">2017 - 2018</option> 
-                            <option value="2018 - 2019">2018 - 2019</option> 
-                            <option value="2019 - 2020">2019 - 2020</option> 
-                            <option value="2020 - 2021">2020 - 2021</option> 
-                            <option value="2021 - 2022">2021 - 2022</option> 
-                            <option value="2022 - 2023">2022 - 2023</option> 
-                            <option value="2023 - 2024">2023 - 2024</option> 
-                            <option value="2024 - 2025">2024 - 2025</option> 
-                            <option value="2025 - 2026">2025 - 2026</option> 
-                            <option value="2026 - 2027">2026 - 2027</option> 
-                            <option value="2027 - 2028">2027 - 2028</option> 
-                            <option value="2028 - 2029">2028 - 2029</option> 
+                            <?php foreach($data['list'] as $list) { ?> 
+                                <option value="<?=$list['school_year']?>"><?=$list['school_year']?></option> 
+                            <?php } ?>
                         </select>
                     </div>
 
@@ -102,7 +122,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btn-school-year" onclick="school_year()" ng-disabled="formSchoolYear.$invalid"></button>
+                <button type="button" class="btn btn-success" id="btn-school-year" onclick="editschool_year()" ng-disabled="formSchoolYear.$invalid"></button>
             </div>
         </div>
     </div>

@@ -433,8 +433,9 @@ class admin extends Controller {
     public function school_year() {
         $data['title']       = 'School Year';
         $data['user_info']   = $this->model('account')->get_user_information($_SESSION['id']);
-        $data['students']   = $this->model('account')->get_all_students();
-        $data['school_year'] = $this->model('account')->get_all_school_year();
+        $data['students']    = $this->model('account')->get_all_students();
+        $data['school_year'] = $this->model('account')->get_school_year_active();
+        $data['list']        = $this->model('account')->get_all_school_year();
         $data['selector']    = $this->model('account')->sy_elementary();
         $data['selector1']   = $this->model('account')->sy_junior_high();
         $data['selector2']   = $this->model('account')->sy_senior_high();
@@ -523,13 +524,13 @@ class admin extends Controller {
         $this->model('account')->get_school_year_using_id($school_year_id);
     }
 
-    public function sy() {
+    public function AddOrUpdateSchoolyear() {
         if(isset($_SESSION['token']) == $this->input->post('token')) {
             $data = array( 
                 'school_year_id' => $this->input->post('school_year_id'),
                 'school_year'    => $this->input->post('school_year')
             );
-            $this->model('account')->sy($data);
+            $this->model('account')->AddOrUpdateSchoolyear($data);
         }
     }
 

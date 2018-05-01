@@ -221,6 +221,11 @@ class account extends Model {
     }
 
 
+    public function get_school_year_active() {
+        $query = $this->db->query("SELECT * FROM school_year WHERE st = 'Active'");
+        return $query;
+    }
+
     public function get_all_school_year() {
         $query = $this->db->query("SELECT * FROM school_year");
         return $query;
@@ -401,13 +406,32 @@ class account extends Model {
         echo json_encode($query->fetch_object());
     }
 
-    public function sy($data) {
+    public function AddOrUpdateSchoolyear($data) {
         $school_year_id = $data['school_year_id'];
         $school_year    = $data['school_year'];
-        $query = $this->db->query("UPDATE school_year SET school_year = '$school_year' WHERE school_year_id = $school_year_id");
-        if($query) {
-            notify('info','School year has been updated.',true);
+        if(empty($school_year_id)) {
+            $query   = $this->db->query("SELECT * FROM school_year WHERE school_year = '$school_year'");
+            if($query->num_rows > 0) {
+                $query = $this->db->query("UPDATE school_year SET st = ''");
+                $query = $this->db->query("UPDATE school_year SET st = 'Active' WHERE school_year = '$school_year'");
+                if($query) {
+                    
+                    notify('info','School year has been updated.',true);
+                }
+            } else {
+                $query = $this->db->query("INSERT INTO school_year (school_year) VALUES ('$school_year')");
+                if($query) {
+                    notify('success','new school year has been added.',true);
+                }
+            }
+        } else {
+            $query = $this->db->query("UPDATE school_year SET st = 'Active' WHERE school_year = $school_year");
+            if($query) {
+                notify('info','School year has been updated.',true);
+            }
         }
+
+        
     }
 
     public function get_students_using_id($students_id) {
