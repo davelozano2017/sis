@@ -338,7 +338,7 @@ input[type="text"] {text-align:left;border:solid 1px #fff;outline:none }
             ?>
 
             <tr>
-                <td class="tg-l711" colspan="5"><?=$rowseven['subjects_name']?> II</td>
+                <td class="tg-l711" colspan="5"><?=$rowseven['subjects_name']?> I</td>
                 <td class="tg-l711"><input type="text" value="<?=$rowseven['first']?>" style="width:100%"></td>
                 <td class="tg-l711"><input type="text" value="<?=$rowseven['second']?>" style="width:100%"></td>
                 <td class="tg-l711"><input type="text" value="<?=$rowseven['third']?>" style="width:100%"></td>

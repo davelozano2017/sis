@@ -951,66 +951,66 @@ th {
     </tr>
         <tr>
         <td>1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
     </tr>
         <tr>
         <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
     </tr>
             <tr>
         <td>3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
     </tr>
             <tr>
         <td>4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
     </tr>
             <tr>
         <td>5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
     </tr>
             <tr>
         <td>6</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
     </tr>
             <tr>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td><input type="text" style="width:100%"></td>
     </tr>
 </table>
 <br>

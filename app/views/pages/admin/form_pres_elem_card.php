@@ -1,18 +1,7 @@
 <?php 
 if($data['report']->num_rows > 0) { } else { redirect('admin/dashboard');  } 
 $row = $data['report']->fetch_object();
-switch($row->sy) {
-    case '2017 - 2018': ''; break;
-    case '2018 - 2019': ''; break;
-    case '2019 - 2020': ''; break;
-    case '2020 - 2021': ''; break;
-    case '2021 - 2022': ''; break;
-    case '2022 - 2023': ''; break;
 
-    default: 
-    redirect('admin/dashboard');
-    break;
-}
 ?>
 
 <!DOCTYPE html>
