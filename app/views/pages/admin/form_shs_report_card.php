@@ -78,7 +78,11 @@ input[type="text"] { border:none !important;outline:none;width:30px;text-align:c
   <?php 
   $a = $rowsix['first'] + $rowsix['second'];
   $aa = $a /2;
-  $average = $aa < 75 ? 'Failed' : 'Passed';
+  if($rowsix['second'] == 0 ) {
+    $average = '';
+  } else {
+    $average = $aa < 75 ? 'Failed' : 'Passed';
+  }
   ?>
 
   <tr>
@@ -115,7 +119,11 @@ input[type="text"] { border:none !important;outline:none;width:30px;text-align:c
   <?php 
   $a = $rowss['first'] + $rowss['second'] ;
   $aa = $a / 2;
-  $average2 = $aa < 75 ? 'Failed' : 'Passed';
+  if($rowss['second'] == 0 ) {
+    $average2 = '';
+  } else {
+    $average2 = $aa < 75 ? 'Failed' : 'Passed';
+  }
   ?>
 
   <tr>
