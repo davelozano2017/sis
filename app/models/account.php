@@ -915,7 +915,8 @@ class account extends Model {
         $sy = $this->db->query("SELECT * FROM school_year WHERE st = 'Active'");
         $row = $sy->fetch_object();
         $school_year = $row->school_year;
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '$school_year'");
+        $id = $_SESSION['id'];
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN students as s ON ag.students_id = s.students_id INNER JOIN section as se ON ag.section_id = se.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND ag.sy = '$school_year' AND ag.teachers_id = $id");
         return $query;
     }
 

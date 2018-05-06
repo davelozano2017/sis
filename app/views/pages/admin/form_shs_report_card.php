@@ -115,26 +115,98 @@ input[type="text"] { border:none !important;outline:none;width:30px;text-align:c
     <td class="tg-c3ow">3</td>
     <td class="tg-c3ow">4</td>
   </tr>
-  <?php foreach($data['shs2nd'] as $rowss) { ?>
-  <?php 
-  $a = $rowss['first'] + $rowss['second'] ;
-  $aa = $a / 2;
-  if($rowss['second'] == 0 ) {
-    $average2 = '';
-  } else {
-    $average2 = $aa < 75 ? 'Failed' : 'Passed';
-  }
-  ?>
+  <?php if($data['shs2nd']->num_rows > 0) { ?>
+    <?php foreach($data['shs2nd'] as $rowss) { ?>
+    <?php 
+    $a = $rowss['third'] + $rowss['fourth'] ;
+    $aa = $a / 2;
+    if($rowss['third'] == 0 ) {
+      $average2 = '';
+    } else {
+      $average2 = $aa < 75 ? 'Failed' : 'Passed';
+    }
+    ?>
 
-  <tr>
-    <td class="tg-us36" colspan="2"><?=$rowss['subjects_name']?></td>
-    <td class="tg-us36"><input type="text" value="<?=$rowss['third']?>"></td>
-    <td class="tg-us36"><input type="text" value="<?=$rowss['fourth']?>"></td>
-    <td class="tg-dvpl"><input type="text" value="<?=$aa?>%" style="width:100%"></td>
-  </tr>
+    <tr>
+      <td class="tg-us36" colspan="2"><?=$rowss['subjects_name']?></td>
+      <td class="tg-us36"><input type="text" value="<?=$rowss['third']?>"></td>
+      <td class="tg-us36"><input type="text" value="<?=$rowss['fourth']?>"></td>
+      <td class="tg-dvpl"><input type="text" value="<?=$aa?>%" style="width:100%"></td>
+    </tr>
 
-  <?php } ?>
+    <?php } ?>
+  <?php } else { ?>
+    <tr>
+      <td class="tg-us36" colspan="2">Statistics and Probability</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
 
+    <tr>
+      <td class="tg-us36" colspan="2">Reading and Writing	</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+
+    <tr>
+      <td class="tg-us36" colspan="2">Practical Research 1	</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+
+    <tr>
+      <td class="tg-us36" colspan="2">Physical Science</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+
+    <tr>
+      <td class="tg-us36" colspan="2">Physical Education and Health	</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+
+    <tr>
+      <td class="tg-us36" colspan="2">Pag babasa at pag susuri ng iba't ibang teksto tungkol sa pananaliksik	</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+
+    <tr>
+      <td class="tg-us36" colspan="2">Humanities 2 - Intro to World Religion and Belief System</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+
+    <tr>
+      <td class="tg-us36" colspan="2">Fundamentals of ABM 1	</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+
+    <tr>
+      <td class="tg-us36" colspan="2">Entrepreneurship</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+
+    <tr>
+      <td class="tg-us36" colspan="2">Christian Living</td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-us36"><input type="text" value="0"></td>
+      <td class="tg-dvpl"><input type="text" value="" style="width:100%"></td>
+    </tr>
+  <?php } ?> 
+  
 
   <tr>
     <td class="tg-us36 no-border" colspan="5"></td>

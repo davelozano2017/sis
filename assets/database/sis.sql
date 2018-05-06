@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 02:02 AM
+-- Generation Time: May 06, 2018 at 02:30 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.0.28
 
@@ -88,24 +88,16 @@ CREATE TABLE `assign_grades` (
 --
 
 INSERT INTO `assign_grades` (`assign_grades_id`, `teachers_id`, `students_id`, `section_id`, `subjects_id`, `first`, `second`, `third`, `fourth`, `average`, `sy`) VALUES
-(1, 33, 7, 4, 9, 100, 0, 0, 0, 0, '2018 - 2019'),
-(2, 33, 7, 4, 10, 100, 0, 0, 0, 0, '2018 - 2019'),
-(3, 33, 7, 4, 7, 100, 0, 0, 0, 0, '2018 - 2019'),
-(4, 33, 7, 4, 8, 100, 0, 0, 0, 0, '2018 - 2019'),
-(5, 33, 7, 4, 6, 100, 0, 0, 0, 0, '2018 - 2019'),
-(6, 33, 7, 4, 11, 100, 0, 0, 0, 0, '2018 - 2019'),
-(7, 33, 7, 4, 5, 100, 0, 0, 0, 0, '2018 - 2019'),
-(8, 33, 7, 4, 4, 100, 0, 0, 0, 0, '2018 - 2019'),
-(9, 33, 7, 4, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
-(10, 32, 9, 6, 9, 100, 0, 0, 0, 0, '2018 - 2019'),
-(11, 32, 9, 6, 10, 100, 0, 0, 0, 0, '2018 - 2019'),
-(12, 32, 9, 6, 7, 100, 0, 0, 0, 0, '2018 - 2019'),
-(13, 32, 9, 6, 8, 100, 0, 0, 0, 0, '2018 - 2019'),
-(14, 32, 9, 6, 6, 100, 0, 0, 0, 0, '2018 - 2019'),
-(15, 32, 9, 6, 5, 100, 0, 0, 0, 0, '2018 - 2019'),
-(16, 32, 9, 6, 4, 100, 0, 0, 0, 0, '2018 - 2019'),
-(17, 32, 9, 6, 3, 100, 0, 0, 0, 0, '2018 - 2019'),
-(18, 32, 9, 6, 11, 100, 0, 0, 0, 0, '2018 - 2019');
+(1, 29, 10, 22, 30, 100, 0, 0, 0, 0, '2018 - 2019'),
+(2, 29, 10, 22, 27, 100, 0, 0, 0, 0, '2018 - 2019'),
+(3, 29, 10, 22, 28, 100, 0, 0, 0, 0, '2018 - 2019'),
+(4, 29, 10, 22, 29, 100, 0, 0, 0, 0, '2018 - 2019'),
+(5, 29, 10, 22, 26, 100, 0, 0, 0, 0, '2018 - 2019'),
+(6, 29, 10, 22, 25, 100, 0, 0, 0, 0, '2018 - 2019'),
+(7, 29, 10, 22, 22, 100, 0, 0, 0, 0, '2018 - 2019'),
+(8, 29, 10, 22, 31, 100, 0, 0, 0, 0, '2018 - 2019'),
+(9, 29, 10, 22, 24, 100, 0, 0, 0, 0, '2018 - 2019'),
+(10, 29, 10, 22, 23, 100, 0, 0, 0, 0, '2018 - 2019');
 
 -- --------------------------------------------------------
 
@@ -126,8 +118,7 @@ CREATE TABLE `assign_students` (
 --
 
 INSERT INTO `assign_students` (`assign_students_id`, `section_id`, `students_id`, `school_years`, `assign_status`) VALUES
-(44, 4, 7, '2018 - 2019', 0),
-(45, 6, 9, '2018 - 2019', 0);
+(47, 22, 10, '2018 - 2019', 0);
 
 -- --------------------------------------------------------
 
@@ -164,7 +155,27 @@ INSERT INTO `assign_teachers` (`assign_teachers_id`, `teachers_id`, `section_id`
 (197, 32, 6, 8),
 (198, 32, 6, 9),
 (199, 32, 6, 10),
-(200, 32, 6, 11);
+(200, 32, 6, 11),
+(201, 29, 22, 22),
+(202, 29, 22, 23),
+(203, 29, 22, 24),
+(204, 29, 22, 25),
+(205, 29, 22, 26),
+(206, 29, 22, 27),
+(207, 29, 22, 28),
+(208, 29, 22, 29),
+(209, 29, 22, 30),
+(210, 29, 22, 31),
+(211, 28, 22, 32),
+(212, 28, 22, 33),
+(213, 28, 22, 34),
+(214, 28, 22, 35),
+(215, 28, 22, 36),
+(216, 28, 22, 37),
+(217, 28, 22, 38),
+(218, 28, 22, 39),
+(219, 28, 22, 40),
+(220, 28, 22, 41);
 
 -- --------------------------------------------------------
 
@@ -571,19 +582,19 @@ ALTER TABLE `assign_awards`
 -- AUTO_INCREMENT for table `assign_grades`
 --
 ALTER TABLE `assign_grades`
-  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `assign_grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `assign_students_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `assign_teachers`
 --
 ALTER TABLE `assign_teachers`
-  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `assign_teachers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
 
 --
 -- AUTO_INCREMENT for table `attendance`
