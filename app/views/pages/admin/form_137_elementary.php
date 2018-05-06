@@ -939,6 +939,8 @@ th {
 <b >Attendance Record</b>
 </center>
 
+<form name="form" id="form" method="POST">
+<input type="hidden" name="students_id" value="<?=$data['info']->students_id?>">
 <table style="width:100%;border:none;text-align: center">
     <tr>
         <td>Grade</td>
@@ -949,61 +951,37 @@ th {
         <td>Chief Cause</td>
         <td>No. of School Days Present</td>
     </tr>
+
+
+    <?php if($data['attendance']->num_rows > 0) { ?>
+        <?php $ii=1; foreach($data['attendance'] as $rows) { ?>
+            <tr>
+            <td><?=$ii++?></td>
+            <td><input type="text" value="<?=$rows['school_days']?>" style="width:100%;text-align:center"></td>
+            <td><input type="text" value="<?=$rows['days_absent']?>" style="width:100%;text-align:center"></td>
+            <td><input type="text" value="<?=$rows['chief_cause1']?>" style="width:100%;text-align:center"></td>
+            <td><input type="text" value="<?=$rows['times_tardy']?>" style="width:100%;text-align:center"></td>
+            <td><input type="text" value="<?=$rows['chief_cause2']?>" style="width:100%;text-align:center"></td>
+            <td><input type="text" value="<?=$rows['school_days_present']?>" style="width:100%;text-align:center"></td>
+        <?php } ?>        
+    <?php } else { ?>
+        <?php for($i=1; $i <= 6;$i++) { ?>
+            <tr>
+            <td><?=$i?><input type="hidden" name="level[]" value="Grade <?=$i?>"></td>
+            <td><input type="text" name="school_days[]" style="width:100%;text-align:center"></td>
+            <td><input type="text" name="days_absent[]" style="width:100%;text-align:center"></td>
+            <td><input type="text" name="chief_cause1[]" style="width:100%;text-align:center"></td>
+            <td><input type="text" name="times_tardy[]" style="width:100%;text-align:center"></td>
+            <td><input type="text" name="chief_cause2[]" style="width:100%;text-align:center"></td>
+            <td><input type="text" name="school_days_present[]" style="width:100%;text-align:center"></td>
+        <?php } ?>
+    <?php } ?>
+        
+            
+        
+       
+       
         <tr>
-        <td>1</td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-    </tr>
-        <tr>
-        <td>2</td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-    </tr>
-            <tr>
-        <td>3</td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-    </tr>
-            <tr>
-        <td>4</td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-    </tr>
-            <tr>
-        <td>5</td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-    </tr>
-            <tr>
-        <td>6</td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-        <td><input type="text" style="width:100%"></td>
-    </tr>
-            <tr>
         <td></td>
         <td><input type="text" style="width:100%"></td>
         <td><input type="text" style="width:100%"></td>
@@ -1013,6 +991,8 @@ th {
         <td><input type="text" style="width:100%"></td>
     </tr>
 </table>
+<a id="btn"  name="btn" style="padding:5px;position:absolute;margin:auto"></a>
+        </form>
 <br>
 <center>
 <b>CERTIFICATE OF TRANSFER</b>
@@ -1051,6 +1031,42 @@ Administrator/Directress
 </div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" >
+    var isCtrl = false;     
+    document.onkeyup=function()
+    { 
+        var e = window.event;
+        if(e.keyCode == 17) 
+        {
+            isCtrl=false; 
+        }
+    } 
+    
+    document.onkeydown=function()
+    { 
+        var e = window.event;
+        
+        if(e.keyCode == 17) 
+        {
+            isCtrl=true; 
+        }
+        if(e.keyCode == 80 && isCtrl == true) // Ctrl + P
+        { 
+            var data = $('form').serialize();
+            $.ajax({
+                type : 'POST',
+                url : 'http://localhost/sis/admin/attendance_record',
+                data: data,
+                dataType: 'json',
+                success:function(data) {
+
+                }
+            })
+
+        } 
+    }
+    </script>
 
 <script>
 document.getElementById('one').innerHTML = '<?=$rowone['sy']?>';
@@ -1059,5 +1075,6 @@ document.getElementById('three').innerHTML = '<?=$rowthree['sy']?>';
 document.getElementById('four').innerHTML = '<?=$rowfour['sy']?>';
 document.getElementById('five').innerHTML = '<?=$rowfive['sy']?>';
 document.getElementById('six').innerHTML = '<?=$rowsix['sy']?>';
+
 </script>
 </html>

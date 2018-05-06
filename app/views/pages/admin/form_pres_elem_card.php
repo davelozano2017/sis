@@ -269,22 +269,22 @@ input[type="text"] { width:100%;text-align:center }
         
         <tr>
             <td class="tg-l711" style="border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">First Quarter</td>
-            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=$data['award']->first?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->first?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
         </tr>
 
          <tr>
             <td class="tg-l711" style="border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Second Quarter</td>
-            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=$data['award']->second?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->second?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
         </tr>
 
          <tr>
             <td class="tg-l711" style="border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Third Quarter</td>
-            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=$data['award']->third?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->third?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
         </tr>
 
         <tr>
             <td class="tg-l711" style="border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Fourth Quarter</td>
-            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=$data['award']->fourth?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->fourth?>" type="text" style="border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
         </tr>
 
         <tr>

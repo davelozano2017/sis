@@ -1,5 +1,8 @@
 <?php 
 $row = $data['report']->fetch_object();
+if($row->ss != 'Junior High School') {
+    redirect('admin/dashboard');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -58,7 +58,7 @@
                                         <td><?=$row['section_name']?></td>
                                         <td><?=$row['level']?></td>
                                         <td><?=$row['address']?></td>
-                                        <td style="width:5%"><?=$row['school_year']?></td>
+                                        <td style="width:5%"><?=$row['school_years']?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

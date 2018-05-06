@@ -66,7 +66,7 @@ class account extends Model {
     public function record_card() {
         $id = $_SESSION['filtered_id'];
         $sy = $_SESSION['school_year'];
-        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = '$id' AND ag.sy = '$sy' ORDER BY su.subjects_name ASC");
+        $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id INNER JOIN users as u ON ag.teachers_id = u.user_id WHERE ag.students_id = '$id' AND ag.sy = '$sy'");
         return $query; 
     }
 
@@ -122,6 +122,55 @@ class account extends Model {
     public function seven($students_id) {
         $query = $this->db->query("SELECT * FROM assign_grades as ag INNER JOIN section as s ON ag.section_id = s.section_id INNER JOIN subjects as su ON ag.subjects_id = su.subjects_id WHERE ag.students_id = $students_id AND s.level = 'Grade 7' GROUP BY su.subjects_name ORDER BY su.subjects_name ASC");
         return $query; 
+    }
+
+    public function attendance($students_id) {
+        $query = $this->db->query("SELECT * FROM attendance WHERE_shs  WHERE students_id = '$students_id'");
+        return $query;
+    }
+    
+    public function attendance_record($data) {
+                
+        $students_id = $data['students_id'];
+        foreach($data['school_days'] as $key => $value) {
+            $level = $data['level'][$key];        
+            $school_days = $data['school_days'][$key];        
+            $days_absent = $data['days_absent'][$key];        
+            $chief_cause1 = $data['chief_cause1'][$key];       
+            $times_tardy = $data['times_tardy'][$key];        
+            $chief_cause2 = $data['chief_cause2'][$key];       
+            $school_days_present = $data['school_days_present'][$key];
+            $query = $this->db->query("INSERT INTO attendance (level,school_days,days_absent,chief_cause1,times_tardy,chief_cause2,school_days_present,students_id) VALUES ('$level','$school_days','$days_absent','$chief_cause1','$times_tardy','$chief_cause2','$school_days_present','$students_id')");
+
+        }
+
+    }
+
+    public function attendance_shs($students_id) {
+        $query = $this->db->query("SELECT * FROM attendance_shs  WHERE students_id = '$students_id'");
+        return $query;
+    } 
+
+    public function attendance_record_shs($data) {
+        $students_id = $data['students_id'];
+        $level = $data['level'];
+        foreach($data['jun'] as $key => $value) {
+            $jun = $data['jun'][$key];
+            $jul = $data['jul'][$key];
+            $aug = $data['aug'][$key];
+            $sep = $data['sep'][$key];
+            $oct = $data['oct'][$key];
+            $nov = $data['nov'][$key];
+            $dec = $data['dec'][$key];
+            $jan = $data['jan'][$key];
+            $feb = $data['feb'][$key];
+            $mar = $data['mar'][$key];
+            $apr = $data['apr'][$key];
+            $total = $data['total'][$key];
+            $query = $this->db->query("INSERT INTO attendance_shs (students_id,grade,jun,jul,aug,sep,oct,nov,dece,jan,feb,mar,apr,total) VALUES ('$students_id','$level','$jun','$jul','$aug','$sep','$oct','$nov','$dec','$jan','$feb','$mar','$apr','$total')");
+        }
+        echo json_encode(array('success'=>'yes'));
+
     }
 
     public function eight($students_id) {
@@ -722,7 +771,7 @@ class account extends Model {
         $section_id = $data['section_id'];
         foreach($data['subjects_id'] as $key => $value){
             $subjects_id = $data['subjects_id'][$key];
-            $validate = $this->db->query("SELECT * FROM assign_teachers WHERE section_id = $section_id AND subjects_id = $subjects_id");
+            $validate = $this->db->query("SELECT * FROM assign_teachers WHERE section_id = $section_id AND subjects_id = $subjects_id AND teachers_id = '$user_id'");
             if($validate->num_rows) {
             } else {
                 $query = $this->db->query("INSERT INTO assign_teachers (teachers_id,section_id,subjects_id) VALUES ('$user_id','$section_id','$subjects_id')");

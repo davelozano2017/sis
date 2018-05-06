@@ -136,6 +136,260 @@ input[type="text"] { border:none !important;outline:none;width:30px;text-align:c
     <td class="tg-dvpl"><input type="text" value="<?=$average2?>" style="width:100%"></td>
   </tr>
 </table>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <table class="tg" style="width:100%">
+        <tr>
+            <th class="tg-l711 a" style="border:1px solid #fff;font-weight:bolder;text-align:center;font-size:16px">PARENT'S / GUARDIAN'S SIGNATURE</th>
+        </tr>
+    </table>   
+
+     <table class="tg" style="width:100%">
+        <tr>
+            <td class="tg-l711" style="width:200px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">First Quarter</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+
+         <tr>
+            <td class="tg-l711" style="width:200px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Second Quarter</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+
+         <tr>
+            <td class="tg-l711" style="width:200px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Third Quarter</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+
+         <tr>
+            <td class="tg-l711" style="width:200px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Fourth Quarter</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+    </table>  
+
+    <br>
+    <br>
+    <table class="tg" style="width:100%">
+        <tr>
+            <th class="tg-l711 a" style="border:1px solid #fff;font-weight:bolder;text-align:center;font-size:16px">HONORS / AWARDS OBTAINED</th>
+        </tr>
+    </table> 
+
+    <table class="tg" style="width:100%">
+        <tr>
+            <td class="tg-l711" style="width:300px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">First Quarter</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->first?>" type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+
+         <tr>
+            <td class="tg-l711" style="width:300px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Second Quarter</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->second?>" type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+
+         <tr>
+            <td class="tg-l711" style="width:300px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Third Quarter</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->third?>" type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" style="width:300px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Fourth Quarter</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input value="<?=@$data['award']->fourth?>" type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+
+        <tr>
+            <td class="tg-l711" style="width:300px;border:1px solid #fff;font-weight:bolder;text-align:left;font-size:16px">Final</td>
+            <td class="tg-l711" style="border:1px solid #fff"><input type="text" style="text-align:left;width:100%;border-top:solid 1px #fff; border-left:solid 1px #fff; border-right:solid 1px #fff; border-bottom:solid 1px #000; outline:none"></td>
+        </tr>
+    </table>  
+    
+    <br>
+    <br>
+    <center><label for="" ><b>REPORT ON ATTENDANCE</b></label></center>
+   <form name="form" id="form" method="POST"> 
+   <input type="hidden" name="students_id" value="<?=$data['info']->students_id?>">
+   <input type="hidden" name="level" value="<?=$row->level?>">
+   
+   <?php if($data['attendance']->num_rows > 0) { ?>
+      <table class="tg" style="width:100%">
+        <tr>
+          <th class="tg-031e" colspan="3" style="width:600px"></th>
+          <th class="tg-yw4l">Jun</th>
+          <th class="tg-yw4l">Jul</th>
+          <th class="tg-yw4l">Aug</th>
+          <th class="tg-yw4l">Sep</th>
+          <th class="tg-yw4l">Oct</th>
+          <th class="tg-yw4l">Nov</th>
+          <th class="tg-yw4l">Dec</th>
+          <th class="tg-yw4l">Jan</th>
+          <th class="tg-yw4l">Feb</th>
+          <th class="tg-yw4l">Mar</th>
+          <th class="tg-yw4l">Apr</th>
+          <th class="tg-yw4l">Total</th>
+        </tr>
+      <?php foreach($data['attendance'] as $rows) { ?>
+          <tr>
+            <td class="tg-031e" colspan="3" style="width:600px"><?=$rows['title']?></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['jun']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['jul']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['aug']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['sep']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['oct']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['nov']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['dece']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['jan']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['feb']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['mar']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['apr']?>" style="width:100%"></td>
+            <td class="tg-yw4l"><input type="text" value="<?=$rows['total']?>" style="width:100%"></td>
+          </tr>
+      <?php } ?>
+      </table>
+   <?php } else { ?>
+    <table class="tg" style="width:100%">
+  <tr>
+    <th class="tg-031e" colspan="3" style="width:600px"></th>
+    <th class="tg-yw4l">Jun</th>
+    <th class="tg-yw4l">Jul</th>
+    <th class="tg-yw4l">Aug</th>
+    <th class="tg-yw4l">Sep</th>
+    <th class="tg-yw4l">Oct</th>
+    <th class="tg-yw4l">Nov</th>
+    <th class="tg-yw4l">Dec</th>
+    <th class="tg-yw4l">Jan</th>
+    <th class="tg-yw4l">Feb</th>
+    <th class="tg-yw4l">Mar</th>
+    <th class="tg-yw4l">Apr</th>
+    <th class="tg-yw4l">Total</th>
+  </tr>
+  <tr>
+    <td class="tg-031e" colspan="3" style="width:600px">No of school days <input type="hidden" name="title[]" value="No of school days"></td>
+    <td class="tg-yw4l"><input type="text" name="jun[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="jul[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="aug[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="sep[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="oct[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="nov[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="dec[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="jan[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="feb[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="mar[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="apr[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="total[]" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e" colspan="3" style="width:600px">No of days present  <input type="hidden" name="title[]" value="No of days present"></td>
+    <td class="tg-yw4l"><input type="text" name="jun[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="jul[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="aug[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="sep[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="oct[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="nov[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="dec[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="jan[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="feb[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="mar[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="apr[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="total[]" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l" colspan="3">No of days absent  <input type="hidden" name="title[]" value="No of days absent"></td>
+    <td class="tg-yw4l"><input type="text" name="jun[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="jul[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="aug[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="sep[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="oct[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="nov[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="dec[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="jan[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="feb[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="mar[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="apr[]" style="width:100%"></td>
+    <td class="tg-yw4l"><input type="text" name="total[]" style="width:100%"></td>
+  </tr>
+</table>
+   <?php } ?>
+  
+<a id="btn"  name="btn" style="padding:5px;position:absolute;margin:auto"></a>
+</form>
+<br><br>
+<center><label for="" ><b>Certificate Of Transfer</b></label></center>
+<table class="tg" style="width:100%">
+  <tr>
+    <td class="tg-yw4l" style="border:solid 1px #fff">Admitted to Grade: </td>
+    <td class="tg-yw4l" style="border:solid 1px #fff"><?=$row->level?></td>
+    <td class="tg-yw4l" style="border:solid 1px #fff">Section:  </td>
+    <td class="tg-yw4l" style="border:solid 1px #fff">General Academic</td>
+  </tr>
+</table>
+<table class="tg" style="width:100%">
+  <tr>
+    <td class="tg-yw4l" style="border:solid 1px #fff;width:222px;">Eligibility for Admission to Grade: </td>
+    <td class="tg-yw4l" style="border:solid 1px #fff;text-align:left"><?=$row->level?></td>
+  </tr>
+  </table>
+
+<table class="tg" style="width:100%">
+  <tr>
+    <td class="tg-yw4l" style="border:solid 1px #fff">Approved: </td>
+  </tr>
+  </table>
+<br>
+  <table class="tg" style="width:100%">
+  <tr>
+    <td class="tg-yw4l" style="width:25%;border:solid 1px #fff;text-align:center">MRS. LOLITA B. ROMANO: </td>
+    <td class="tg-yw4l" style="width:25%;border:solid 1px #fff;text-align:center"> </td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l" style="width:25%;border:solid 1px #fff;text-align:center">Principal </td>
+    <td class="tg-yw4l" style="width:25%;border:solid 1px #fff;text-align:center">Adviser: </td>
+  </tr>
+  </table>
+
+  <br>
+  <center><label for="" ><b>Cancellation of Eligibility to Transfer</b></label></center>
+<table class="tg" style="width:100%">
+  <tr>
+    <td class="tg-yw4l" style="width:25%;border:solid 1px #fff">Admitted in:  _________________________________</td>
+  </tr>
+</table>
+  <label for="">&nbsp;Date: <?=date('F d Y')?></label>
+
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" >
+    var isCtrl = false;     
+    document.onkeyup=function()
+    { 
+        var e = window.event;
+        if(e.keyCode == 17) 
+        {
+            isCtrl=false; 
+        }
+    } 
+    
+    document.onkeydown=function()
+    { 
+        var e = window.event;
+        
+        if(e.keyCode == 17) 
+        {
+            isCtrl=true; 
+        }
+        if(e.keyCode == 80 && isCtrl == true) // Ctrl + P
+        { 
+            var data = $('form').serialize();
+            $.ajax({
+                type : 'POST',
+                url : 'http://localhost/sis/admin/attendance_record_shs',
+                data: data,
+                dataType: 'json',
+                success:function(data) {
+
+                }
+            })
+
+        } 
+    }
+    </script>
+
 </body>
 </html>

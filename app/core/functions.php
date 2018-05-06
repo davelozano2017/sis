@@ -18,7 +18,7 @@ function notify($type,$message,$success) {
 
 function count_sections($section_id) {
 	global $con;
-	$syq = $con->query("SELECT * FROM school_year");
+	$syq = $con->query("SELECT * FROM school_year WHERE st = 'Active'");
 	$row = $syq->fetch_object();
 	$sy  = $row->school_year;
 	$query = $con->query("SELECT * FROM assign_students WHERE section_id = $section_id AND school_years = '$sy'");

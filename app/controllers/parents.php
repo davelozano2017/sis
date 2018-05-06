@@ -12,7 +12,7 @@ class parents extends Controller {
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $data['my_students']    = $this->model('account')->get_my_students($_SESSION['id']);
         $data['events']      = $this->model('account')->get_all_events();
-        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['school_year'] = $this->model('account')->get_school_year_active()->fetch_object();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
         $this->view('components/sidebar',$data);
@@ -23,7 +23,7 @@ class parents extends Controller {
 
     public function profile() {
         $data['title'] = 'Profile';
-        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['school_year'] = $this->model('account')->get_school_year_active()->fetch_object();
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -35,7 +35,7 @@ class parents extends Controller {
 
     public function password() {
         $data['title'] = 'Password';
-        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['school_year'] = $this->model('account')->get_school_year_active()->fetch_object();
         $data['user_info'] = $this->model('account')->get_user_information($_SESSION['id']);
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -76,7 +76,7 @@ class parents extends Controller {
     
     public function student_grade_book() {
         $data['title']          = 'Student Grade Book';
-        $data['school_year'] = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['school_year'] = $this->model('account')->get_school_year_active()->fetch_object();
         $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
         $data['get_all_grades'] = $this->model('account')->get_all_grades_by_students($_SESSION['id']);
         $this->view('components/header',$data);
@@ -89,7 +89,7 @@ class parents extends Controller {
 
     public function awards() {
         $data['title']            = 'Awards';
-        $data['school_year']      = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['school_year']      = $this->model('account')->get_school_year_active()->fetch_object();
         $data['user_info']        = $this->model('account')->get_user_information($_SESSION['id']);
         $data['get_all_grades']   = $this->model('account')->get_all_grades_by_students($_SESSION['id']);
         $data['parents_students'] = $this->model('account')->parents_students($_SESSION['id']);
@@ -104,7 +104,7 @@ class parents extends Controller {
     public function extra_curricular() {
         $data['title']           = 'Extra Curricular';
         $data['user_info']       = $this->model('account')->get_user_information($_SESSION['id']);
-        $data['school_year']     = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['school_year']     = $this->model('account')->get_school_year_active()->fetch_object();
         $data['view_activities'] = $this->model('account')->view_activities();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
@@ -117,7 +117,7 @@ class parents extends Controller {
     public function violations() {
         $data['title']          = 'Violations';
         $data['user_info']      = $this->model('account')->get_user_information($_SESSION['id']);
-        $data['school_year']    = $this->model('account')->get_all_school_year()->fetch_object();
+        $data['school_year']    = $this->model('account')->get_school_year_active()->fetch_object();
         $data['view_violations']     = $this->model('account')->view_violations();
         $this->view('components/header',$data);
         $this->view('components/navigation',$data);
