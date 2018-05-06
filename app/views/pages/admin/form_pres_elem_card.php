@@ -102,7 +102,11 @@ input[type="text"] { width:100%;text-align:center }
         <?php 
         $a = $rowsix['first'] + $rowsix['second'] + $rowsix['third'] + $rowsix['fourth'];
         $aa = $a / 4;
-        $average6 = $aa < 75 ? 'Failed' : 'Passed';
+        if($rowsix['second'] == 0 || $rowsix['third'] == 0 || $rowsix['fourth'] == 0 ) {
+            $average6 = '';
+        } else {
+            $average6 = $aa < 75 ? 'Failed' : 'Passed';
+        }
         ?>
      
         <tr>
